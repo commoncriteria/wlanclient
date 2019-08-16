@@ -849,6 +849,7 @@
     OS is still conformant to this PP, and it is expected that they be included as soon as
     possible. </appendix>
 
+<!-- 
   <appendix title="Inherently Satisfied Requirements" id="satisfiedreqs"> This
 	appendix lists requirements that should be considered satisfied by products
 	successfully evaluated against this Protection Profile.  
@@ -942,6 +943,7 @@
     </table>
 
   </appendix>
+   -->
 
   <!-- Remove this section if an Entropy Assessment is not needed -->
   <appendix title="Entropy Documentation and Assessment" id="entropyappendix"> This appendix
