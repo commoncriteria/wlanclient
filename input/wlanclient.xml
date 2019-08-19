@@ -3,19 +3,19 @@
 
 <!-- test -->
 
-<Module xmlns="https://niap-ccevs.org/cc/v1" name="Protection Profile QQQQ"
+<Module xmlns="https://niap-ccevs.org/cc/v1" name="PP-Module for Wireless LAN Clients"
     xmlns:h="http://www.w3.org/1999/xhtml">
   <!-- <inline-comment color='green'> Hello World QQQQ </inline-comment> -->
   <!-- <inline-comment color='blue' linebreak='yes'> Hello World QQQQ </inline-comment> -->
   <PPReference title="PP Reference">
     <ReferenceTable>
-      <PPTitle>Protection Profile for QQQQ</PPTitle>
+      <PPTitle>PP-Module for Wireless LAN Clients</PPTitle>
       <PPVersion>1.0</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2015-08-14</PPPubDate>
+      <PPPubDate>2019-08-28</PPPubDate>
       <PPCertificationID>unassigned</PPCertificationID>
-      <CCVersion>3.1R4</CCVersion>
-      <Keywords>QQQQ</Keywords>
+      <CCVersion>3.1R5</CCVersion>
+      <Keywords>WLAN; Wireless LAN; Wireless Networking; 802.11</Keywords>
       <entry>
         <name>Registration</name>
         <description>National Information Assurance Partnership</description>
@@ -23,98 +23,198 @@
     </ReferenceTable>
   </PPReference>
 
-  <RevisionHistory role="draft">
-    <entry>
-      <version>Round 1</version>
-      <date>2015-04-23</date>
-      <subject>First draft of version 1.0 for comment</subject>
-    </entry>
-  </RevisionHistory>
-
   <RevisionHistory role="final">
     <entry>
       <version>1.0</version>
-      <date>2015-08-14</date>
-      <subject>Release - first version released</subject>
+      <date>2019-08-28</date>
+      <subject>Initial Release</subject>
     </entry>
   </RevisionHistory>
 
   <chapter title="Introduction" id="int">
-    <section title="Overview" id="ppoverview"> The scope of this Protection Profile (PP) is to
-      describe the security functionality of operating systems in terms of <cite linkend="bibCC"/>
-      and to define functional and assurance requirements for such products.
-      An operating system is software that manages computer hardware and software
-      resources, and provides common services for application programs. The hardware
-      it manages may be physical or virtual.
+    <section title="Overview" id="ppoverview">
+      
+      The scope of the Wireless LAN (WLAN) Client <abbr linkend="PP-Module"/> is to describe the security functionality of a Wireless Local Area Network (LAN) Client in terms of [<abbr linkend="CC"/>] 
+      and to define functional and assurance requirements for such products. This <abbr linkend="PP-Module"/> is intended for use with the following <abbr linkend="Base-PP"/>s: <h:ul>
+        <h:li>General Purpose Operating System (GPOS) Protection Profile, Version 4.2.1</h:li>
+        <h:li>Mobile Device Fundamentals (MDF) Protection Profile, Version 3.1</h:li>
+      </h:ul>
+      <h:p/> These <abbr linkend="Base-PP"/>s are valid because a WLAN Client is
+      a part of either a commercial operating system that can be installed on a general-purpose computer or an operating system that runs on a purpose-built mobile device.
+      
     </section>
     <section title="Terms" id="glossary"> The following sections provide both Common Criteria and
-      technology terms used in this Protection Profile. <subsection title="Common Criteria Terms"
-        id="ccterms">
-        <glossary>
-          <entry>
-            <term><abbr title="Common Criteria">CC</abbr></term>
-            <description>Common Criteria for Information Technology Security
-              Evaluation.</description>
-          </entry>
-          <entry>
-            <term><abbr title="Common Evaluation Methodology">CEM</abbr></term>
-            <description>Common Evaluation Methodology for Information Technology Security
-              Evaluation.</description>
-          </entry>
-          <entry>
-            <term><abbr title="Protection Profile">PP</abbr></term>
-            <description>An implementation-independent set of security requirements for a category
-              of products.</description>
-          </entry>
-          <entry>
-            <term><abbr title="Security Target">ST</abbr></term>
-            <description>A set of implementation-dependent security requirements for a specific
-              product.</description>
-          </entry>
-          <entry>
-            <term><abbr title="Target of Evaluation">TOE</abbr></term>
-            <description>
-	      The product under evaluation. In this case, the Operating System and its
-              supporting documentation.
-	    </description>
-          </entry>
-          <entry>
-            <term><abbr title="TOE Security Functionality">TSF</abbr></term>
-            <description>The security functionality of the product under evaluation.</description>
-          </entry>
-          <entry>
-            <term><abbr title="TOE Summary Specification">TSS</abbr></term>
-            <description>A description of how a <abbr linkend="TOE"/> satisfies the SFRs in a <abbr
-                linkend="ST"/>. </description>
-          </entry>
-          <entry>
-            <term><abbr title="Security Functional Requirement">SFR</abbr></term>
-            <description>A requirement for security enforcement by the <abbr linkend="TOE"/>.
-            </description>
-          </entry>
-          <entry>
-            <term><abbr title="Security Assurance Requirement">SAR</abbr></term>
-            <description>A requirement to assure the security of the <abbr linkend="TOE"/>.
-            </description>
-          </entry>
-        </glossary>
-      </subsection>
-      <subsection title="Technology Terms" id="techterms">
-        <glossary>
-          <entry>
-            <term><abbr title="SOMETHING"></abbr></term>
-            <description>
-	    </description>
-          </entry>
-        </glossary>
+      technology terms used in this document. 
+              <subsection title="Common Criteria Terms">
+            <glossary>
+              <entry>
+                <term><abbr title="Base Protection Profile">Base-PP</abbr></term>
+                <description>Protection Profile used to build a PP-Configuration.</description>
+              </entry>
+              <entry>
+                <term><abbr title="Common Criteria">CC</abbr></term>
+                <description>Common Criteria for Information Technology Security Evaluation
+                  (International Standard ISO/IEC 15408).</description>
+              </entry>
+              <entry>
+                <term>Common Criteria Testing Laboratory</term>
+                <description>Within the context of the Common Criteria Evaluation and Validation Scheme
+                  (CCEVS), an IT security evaluation facility, accredited by the National Voluntary
+                  Laboratory Accreditation Program (NVLAP) and approved by the NIAP Validation Body to
+                  conduct Common Criteria-based evaluations.</description>
+              </entry>
+              <entry>
+                <term><abbr title="Common Evaluation Methodology">CEM</abbr></term>
+                <description>Common Evaluation Methodology for Information Technology Security
+                  Evaluation.</description>
+              </entry>
+              <entry>
+                <term><abbr title="Protection Profile">PP</abbr></term>
+                <description>An implementation-independent set of security requirements for a category
+                  of products.</description>
+              </entry>
+              <entry>
+                <term><abbr title="Protection Profile Configuration">PP-Configuration</abbr></term>
+                <description>A comprehensive set of security requirements for a product type that consists of at least one Base-PP and at least one PP-Module.</description>
+              </entry>
+              <entry>
+                <term><abbr title="Protection Profile Module">PP-Module</abbr></term>
+                <description>An implementation-independent statement of security needs for a TOE type
+                  complementary to one or more Base Protection Profiles. </description>
+              </entry>
+              <entry>
+                <term><abbr title="Security Functional Requirement">SFR</abbr></term>
+                <description>A requirement for security enforcement by the <abbr linkend="TOE"
+                />.</description>
+              </entry>
+              <entry>
+                <term><abbr title="Security Target">ST</abbr></term>
+                <description>A set of implementation-dependent security requirements for a specific
+                  product.</description>
+              </entry>
+              <entry>
+                <term><abbr title="Target of Evaluation">TOE</abbr></term>
+                <description>The security functionality of the product under evaluation.</description>
+              </entry>
+              <entry>
+                <term><abbr title="TOE Security Functionality">TSF</abbr></term>
+                <description>The security functionality of the product under evaluation.</description>
+              </entry>
+              <entry>
+                <term><abbr title="TOE Summary Specification">TSS</abbr></term>
+                <description>A description of how a <abbr linkend="TOE"/> satisfies the <abbr
+                  linkend="SFR"/>s in an <abbr linkend="ST"/>.</description>
+              </entry>
+            </glossary>
+          </subsection>
+          <subsection title="Technical Terms">
+            <glossary>
+              <entry>
+                <term>Access Point</term>
+                <description>A device that provides the network interface that enables wireless client hosts to access a wired network.
+                  Once authenticated as trusted nodes on the wired infrastructure, the APs provide the encryption service on
+                  the wireless network between the wireless client and the RF interface of the AP.</description>
+              </entry>
+              <entry>
+                 <term>Administrator</term>
+                 <description>A user that has administrative privilege to configure the TOE.</description>
+              </entry>
+              <entry>
+                <term>Authentication Server</term>
+                <description>A server on the wired network that receives authentication credentials from wireless clients and determines their validity.</description>
+              </entry>
+              <entry>
+                <term>Authentication Credentials</term>
+                <description>The information the system uses to verify that the user or administrator is
+                  authorized to access the TOE or network. Credentials can exist in various forms, such as username/password or digital 
+                  certificates.</description>
+              </entry>              
+              <entry>
+                <term>Critical Security Parameter</term>
+                <description>Security related information, e.g. secret and private cryptographic keys,
+                  and authentication data such as passwords and PINs, whose disclosure or modification can compromise the
+                  security of a cryptographic module.</description>
+              </entry> 
+              <entry>
+                <term>Entropy Source</term>
+                <description>A cryptographic function that provides a seed for a random number generator by accumulating
+                  the outputs from one or more noise sources. The functionality includes a measure of the minimum work
+                  required to guess a given output and tests to ensure that the noise sources are operating properly.
+              </description>
+              </entry>               
+              <entry>
+                <term>Extensible Authentication Protocol</term>
+                <description>An authentication framework, used in wireless networks, that uses PKI to authenticate both the authentication server and the wireless client.
+                </description>
+              </entry>  
+              <entry>
+                <term>FIPS-Approved Cryptographic Function</term>
+                <description>A cryptographic operation that is specified for use by FIPS 140.
+                </description>
+              </entry>               
+              <entry>
+                <term>IEEE 802.1X</term>
+                <description>A standard for port-based network access control that defines an authentication mechanism for WLAN Clients to attach to a wired network.
+                </description>
+              </entry>
+              <entry>
+                <term>Unauthorized User</term>
+                <description>A user that has not been granted the ability to use the TOE.
+                </description>
+              </entry>
+
+            </glossary>
       </subsection>
 	  </section>
     <section title="Compliant Targets of Evaluation" id="TOEdescription">
+     
+     This document specifies Security Functional Requirements for a WLAN Client. The TOE defined
+     by this <abbr linkend="PP-Module"/> is the WLAN Client, a component executing on a client machine (often referred to as
+     a "remote access client"). The TOE establishes a secure wireless tunnel between the client
+     device and a WLAN Access System through which all data will traverse.
+     <h:p/>
+      A WLAN Client allows remote users to use client machines to establish wireless communication
+      with a private network through a WLAN Access System. IP packets passing between the
+      private network and a WLAN Client are encrypted. The WLAN Client protects the
+      data between itself and the private network, protection the confidentiality and integrity 
+      of data in transit, even though it traverses a wireless connection.
+      The focus of the Security Functional Requirements in this <abbr linkend="PP-Module"/> is on the following fundamental
+      aspects of a WLAN Client:
+      <h:ul>
+        <h:li>Authentication of the WLAN Client;</h:li>
+        <h:li>Authentication of the Authentication Servert;</h:li>
+        <h:li>Cryptographic protection of data in transit; and</h:li>
+        
+        <!-- SME: don't know what specifically this refers to, unsure if we should keep as-is, change somehow, or remove altogether -->
+        <h:li>Implementation of services.</h:li>
+        
+      </h:ul>
+      The WLAN Client establishes an 802.11 tunnel between the client device and the network
+      infrastructure using IEEE 802.1X with EAP-TLS for authentication. It performs mutual
+      authentication to an AS in the private network as part of the EAP-TLS exchange. The EAP-TLS
+      exchange uses certificates for mutual authentication. The WLAN Client examines the machine
+      certificate transmitted from the AS, checks its validity, and ensures the certificate is signed by a
+      trusted Certificate Authority (CA). The AS will authenticate the WLAN Client certificate at the
+      same time. When the EAP-TLS exchange completes successfully, the network allows the WLAN
+      Client to finish establishing a secure communication tunnel to the private network. The WLAN
+      Client sets up an encrypted, authenticated channel to the WLAN Access System using a 4 way
+      handshake, as specified in IEEE 802.11. Once the channel is established, all communication
+      between the WLAN Client to the WLAN Access System is encrypted with AES in CCMP mode and
+      optionally AES is GCMP mode, as specified in <cite linkend="bib80211"/>.
+      
       <subsection title="TOE Boundary" id="TOEboundary">
-        <figure entity="images/Toe.png" title="Figure 1: General TOE " id="toe"/>
+        The WLAN Client (Figure 1), as defined by this <abbr linkend="PP-Module"/>, is a component executing on a remote access
+        client machine. Note the client is depicted as just a small portion of the WLAN client "machine."
+        As such, the TOE must rely heavily on the TOE’s operational environment (host platform,
+        network stack, and operating system) for its execution domain and its proper usage. The TOE
+        will rely on the IT environment to address much of the security functionality related to
+        administrative functions.  
+        
+        <figure entity="images/Toe.png" title="WLAN Client Operating Environment" id="toe"/>
       </subsection>
+      <!-- 
       <subsection title="TOE Platform" id="TOEplatform">
-      </subsection>
+      </subsection>  -->
     </section>
     <section title="Use Cases" id="usecases">Requirements in this Protection Profile are designed to
       address the security problems in at least the following use cases. These use cases are intentionally
@@ -155,7 +255,7 @@
       </cclaim>
       <cclaim id="CC Conformance Claims">
         <description>This PP is conformant to Parts 2 (extended) and 3 (extended) of Common Criteria
-          Version 3.1, Revision 4.<cite linkend="bibCC"/>.</description>
+          Version 3.1, Revision 5.<cite linkend="bibCC"/>.</description>
       </cclaim>
       <cclaim id="PP Claim">
         <description>This PP does not claim conformance to any other Protection
@@ -1018,44 +1118,70 @@
       <entry id="bibCC">
         <tag>CC</tag>
         <description>Common Criteria for Information Technology Security Evaluation - <h:ul>
-            <h:li><h:a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART1V3.1R4.pdf">Part
-                1: Introduction and General Model</h:a>, CCMB-2012-09-001, Version 3.1 Revision 4,
-              September 2012.</h:li>
-            <h:li><h:a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART2V3.1R4.pdf">Part
-                2: Security Functional Components</h:a>, CCMB-2012-09-002, Version 3.1 Revision 4,
-              September 2012.</h:li>
-            <h:li><h:a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART3V3.1R4.pdf">Part
-                3: Security Assurance Components</h:a>, CCMB-2012-09-003, Version 3.1 Revision 4,
-              September 2012.</h:li>
+            <h:li><h:a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART1V3.1R5.pdf">Part
+                1: Introduction and General Model</h:a>, CCMB-2012-09-001, Version 3.1 Revision 5,
+              April 2017.</h:li>
+            <h:li><h:a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART2V3.1R5.pdf">Part
+                2: Security Functional Components</h:a>, CCMB-2012-09-002, Version 3.1 Revision 5,
+              April 2017.</h:li>
+            <h:li><h:a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART3V3.1R5.pdf">Part
+                3: Security Assurance Components</h:a>, CCMB-2012-09-003, Version 3.1 Revision 5,
+              April 2017.</h:li>
           </h:ul></description>
       </entry>
       <entry id="bibCEM">
         <tag>CEM</tag>
         <description>
-          <h:a href="http://www.commoncriteriaportal.org/files/ccfiles/CEMV3.1R4.pdf">Common
+          <h:a href="http://www.commoncriteriaportal.org/files/ccfiles/CEMV3.1R5.pdf">Common
             Evaluation Methodology for Information Technology Security - Evaluation Methodology</h:a>,
-          CCMB-2012-09-004, Version 3.1, Revision 4, September 2012. </description>
+          CCMB-2012-09-004, Version 3.1, Revision 5, April 2017.</description>
       </entry>
-      <entry id="bibCESG">
-        <tag>CESG</tag>
-        <description>CESG - <h:a
-            href="https://www.gov.uk/government/collections/end-user-devices-security-guidance"> End
-            User Devices Security and Configuration Guidance</h:a></description>
+      <entry id="bibGPOS">
+        <tag>GPOS</tag>
+        <description><h:a
+          href="https://www.niap-ccevs.org/MMO/PP/PP_OS_V4.2.1.pdf">Protection Profile for General Purpose Operating Systems, Version 4.2.1</h:a></description>
+      </entry>      
+      <entry id="bibMDF">
+        <tag>MDF</tag>
+        <description><h:a
+          href="https://www.niap-ccevs.org/MMO/PP/pp_md_v3.1.pdf">Protection Profile for Mobile Device Fundamentals, Version 3.1</h:a></description>
       </entry>
-      <entry id="bibCSA">
-        <tag>CSA</tag>
-        <description>
-          <h:a href="http://csrc.nist.gov/groups/SMA/ispab/documents/csa_87.txt">Computer Security Act
-            of 1987</h:a>, H.R. 145, June 11, 1987. </description>
+      <entry id="bib80211">
+        <tag>802.11-2016</tag>
+        <description><h:a
+          href="https://ieeexplore.ieee.org/document/7786995">802.11-2016 - IEEE Standard for Information technology—Telecommunications and information exchange between systems Local and metropolitan area networks—Specific requirements - 
+          Part 11: Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications</h:a></description>
       </entry>
-      <entry id="bibOMB">
-        <tag>OMB</tag>
-        <description>
-          <h:a href="http://www.whitehouse.gov/sites/default/files/omb/memoranda/fy2006/m06-19.pdf"
-            >Reporting Incidents Involving Personally Identifiable Information and Incorporating the
-            Cost for Security in Agency Information Technology Investments</h:a>, OMB M-06-19, July
-          12, 2006. </description>
-      </entry>
+      <entry id="bib8021X">
+        <tag>802.11-2016</tag>
+        <description><h:a
+          href="https://ieeexplore.ieee.org/document/5409813">802.1X-2010 - IEEE Standard for Local and metropolitan area networks--Port-Based Network Access Control</h:a></description>
+      </entry>      
+      <entry id="bibRFC3394">
+        <tag>RFC 3394</tag>
+        <description><h:a
+          href="https://tools.ietf.org/html/rfc3394">RFC 3394 - Advanced Encryption Standard (AES) Key Wrap Algorithm</h:a></description>
+      </entry>   
+      <entry id="bibRFC4346">
+        <tag>RFC 4346</tag>
+        <description><h:a
+          href="https://tools.ietf.org/html/rfc4346">RFC 4346 - The Transport Layer Security (TLS) Protocol Version 1.1</h:a></description>
+      </entry>       
+      <entry id="bibRFC5216">
+        <tag>RFC 5216</tag>
+        <description><h:a
+          href="https://tools.ietf.org/html/rfc5216">RFC 5216 - The EAP-TLS Authentication Protocol</h:a></description>
+      </entry>         
+      <entry id="bibRFC5246">
+        <tag>RFC 5246</tag>
+        <description><h:a
+          href="https://tools.ietf.org/html/rfc5246">RFC 5246 - The Transport Layer Security (TLS) Protocol Version 1.2</h:a></description>
+      </entry>        
+      <entry id="bibRFC5280">
+        <tag>RFC 5280</tag>
+        <description><h:a
+          href="https://tools.ietf.org/html/rfc5280">RFC 5280 - Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile</h:a></description>
+      </entry>        
     </bibliography>
   </appendix>
 
@@ -1066,250 +1192,151 @@
         <description>Advanced Encryption Standard</description>
       </entry>
       <entry>
-        <term>ANSI</term>
-        <description>American National Standards Institute</description>
+        <term>AF</term>
+        <description>Authentication Factor</description>
+      </entry>
+        <entry>
+          <term>AS</term>
+          <description>Authentication Server</description>
+        </entry>
+      <entry>
+        <term>CA</term>
+        <description>Certification Authority</description>
+      </entry>      
+      <entry>
+        <term>CBC</term>
+        <description>Cipher Block Chaining</description>
+      </entry>      
+        <entry>
+          <term>CC</term>
+          <description>Common Criteria</description>
+        </entry>
+      <entry>
+        <term>CCMP</term>
+        <description>Counter Mode CBC-MAC Protocol</description>
       </entry>
       <entry>
-        <term>API</term>
-        <description>Application Programming Interface</description>
+        <term>CCTL</term>
+        <description>Common Criteria Test Laboratory</description>
       </entry>
       <entry>
-        <term>ASLR</term>
-        <description>Address Space Layout Randomization</description>
-      </entry>
-      <!-- Never used -->
-      <!-- <entry> -->
-      <!--   <term>CDSA</term> -->
-      <!--   <description>Common Data Security Architecture</description> -->
-      <!-- </entry> -->
-      <entry>
-        <term>CESG</term>
-        <description>Communications-Electronics Security Group</description>
+        <term>CM</term>
+        <description>Configuration Management</description>
       </entry>
       <entry>
-        <term>CMC</term>
-        <description>Certificate Management over CMS</description>
-      </entry>
-      <entry>
-        <term>CMS</term>
-        <description>Cryptographic Message Syntax</description>
-      </entry>
-      <entry>
-        <term>CN</term>
-        <description>Common Names</description>
-      </entry>
-      <entry>
-        <term>CRL</term>
-        <description>Certificate Revocation List</description>
-      </entry>
-      <entry>
-        <term>CSA</term>
-        <description>Computer Security Act</description>
-      </entry>
-      <entry>
-        <term>DEP</term>
-        <description>Data Execution Prevention</description>
-      </entry>
-      <entry>
-        <term>DES</term>
-        <description>Data Encryption Standard</description>
-      </entry>
-      <entry>
-        <term>DHE</term>
-        <description>Diffie-Hellman Ephemeral</description>
-      </entry>
-      <entry>
-        <term>DNS</term>
-        <description>Domain Name System</description>
+        <term>COTS</term>
+        <description>Commercial Off-The-Shelf</description>
       </entry>
       <entry>
         <term>DRBG</term>
         <description>Deterministic Random Bit Generator</description>
       </entry>
       <entry>
-        <term>DSS</term>
-        <description>Digital Signature Standard</description>
-      </entry>
-      <entry>
-        <term>DT</term>
-        <description>Date/Time Vector</description>
-      </entry>
-      <entry>
-        <term>DTLS</term>
-        <description>Datagram Transport Layer Security</description>
-      </entry>
-      <entry>
-        <term>EAP</term>
-        <description>Extensible Authentication Protocol</description>
-      </entry>
-      <entry>
-        <term>ECDHE</term>
-        <description>Elliptic Curve Diffie-Hellman Ephemeral</description>
-      </entry>
-      <entry>
-        <term>ECDSA</term>
-        <description>Elliptic Curve Digital Signature Algorithm</description>
-      </entry>
-      <entry>
-        <term>EST</term>
-        <description>Enrollment over Secure Transport</description>
+        <term>DoD</term>
+        <description>(United States) Department of Defense</description>
       </entry>
       <entry>
         <term>FIPS</term>
         <description>Federal Information Processing Standards</description>
       </entry>
       <entry>
-        <term>DSS</term>
-        <description>Digital Signature Standard</description>
+        <term>FQDN</term>
+        <description>Fully-Qualified Domain Name</description>
       </entry>
       <entry>
-        <term>HMAC</term>
-        <description>Hash-based Message Authentication Code</description>
+        <term>GCMP</term>
+        <description>Galois/Counter Mode Protocol</description>
       </entry>
       <entry>
-        <term>HTTP</term>
-        <description>Hypertext Transfer Protocol</description>
+        <term>IEEE</term>
+        <description>Institute of Electrical and Electronics Engineers</description>
       </entry>
-      <entry>
-        <term>HTTPS</term>
-        <description>Hypertext Transfer Protocol Secure</description>
-      </entry>
-      <entry>
-        <term>DSS</term>
-        <description>Digital Signature Standard</description>
-      </entry>
-      <!-- <entry> -->
-      <!--   <term>IEC</term> -->
-      <!--   <description>International Electrotechnical Commission</description> -->
-      <!-- </entry> -->
       <entry>
         <term>IETF</term>
-        <description>Internet Engineering Task Force</description>
-      </entry>
-      <entry>
-        <term>IP</term>
-        <description>Internet Protocol</description>
-      </entry>
-      <entry>
-        <term>ISO</term>
-        <description>International Organization for Standardization</description>
-      </entry>
+        <description>Iternet Engineering Task Force</description>
+      </entry>      
       <entry>
         <term>IT</term>
         <description>Information Technology</description>
+      </entry>      
+      <entry>
+        <term>KDF</term>
+        <description>Key Derivation Function</description>
+      </entry>       
+      <entry>
+        <term>LAN</term>
+        <description>Local Area Network</description>
       </entry>
       <entry>
-        <term>ITSEF</term>
-        <description>Information Technology Security Evaluation Facility</description>
+        <term>MAC</term>
+        <description>Message Authentication Code (cryptography) or Media Control Address (system property)</description>
       </entry>
       <entry>
-        <term>NFC</term>
-        <description>Near Field Communication</description>
+        <term>OSP</term>
+        <description>Organizational Security Policy</description>
       </entry>
-      <entry>
-        <term>NIAP</term>
-        <description>National Information Assurance Partnership</description>
-      </entry>
-      <entry>
-        <term>NIST</term>
-        <description>National Institute of Standards and Technology</description>
-      </entry>
-      <entry>
-        <term>OCSP</term>
-        <description>Online Certificate Status Protocol</description>
-      </entry>
-      <entry>
-        <term>OID</term>
-        <description>Object Identifier</description>
-      </entry>
-      <entry>
-        <term>OMB</term>
-        <description>Office of Management and Budget</description>
-      </entry>
-      <entry>
-        <term>OS</term>
-        <description>Operating System</description>
-      </entry>
-      <entry>
-        <term>PII</term>
-        <description>Personally Identifiable Information</description>
-      </entry>
+
       <entry>
         <term>PKI</term>
         <description>Public Key Infrastructure</description>
       </entry>
       <entry>
+        <term>PMK</term>
+        <description>Pairwise Master Key</description>
+      </entry>
+      <entry>
+        <term>PMKSA</term>
+        <description>PMK Security Association</description>
+      </entry>
+      <entry>
         <term>PP</term>
         <description>Protection Profile</description>
+      </entry>      
+      <entry>
+        <term>PTK</term>
+        <description>Pairwise Temporal Key</description>
       </entry>
+      <entry>
+        <term>PUB</term>
+        <description>Publication</description>
+      </entry>     
       <entry>
         <term>RBG</term>
         <description>Random Bit Generator</description>
       </entry>
       <entry>
-        <term>RFC</term>
-        <description>Request for Comment</description>
-      </entry>
-      <entry>
-        <term>RNG</term>
-        <description>Random Number Generator</description>
-      </entry>
-      <entry>
-        <term>RNGVS</term>
-        <description>Random Number Generator Validation System</description>
-      </entry>
-      <entry>
-        <term>SAN</term>
-        <description>Subject Alternative Name</description>
-      </entry>
-      <entry>
         <term>SAR</term>
         <description>Security Assurance Requirement</description>
-      </entry>
+      </entry>  
       <entry>
         <term>SFR</term>
         <description>Security Functional Requirement</description>
+      </entry>  
+      <entry>
+        <term>SSID</term>
+        <description>Service Set Identifier</description>
       </entry>
       <entry>
-        <term>SHA</term>
-        <description>Secure Hash Algorithm</description>
+        <term>ST</term>
+        <description>Security Target</description>
+      </entry>        
+      <entry>
+        <term>TOE</term>
+        <description>Target of Evaluation</description>
+      </entry>      
+      <entry>
+        <term>TSF</term>
+        <description>TOE Security Function</description>
       </entry>
       <entry>
-        <term>S/MIME</term>
-        <description>Secure/Multi-purpose Internet Mail Extensions</description>
-      </entry>
+        <term>TSS</term>
+        <description>TOE Summary Specification</description>
+      </entry>      
       <entry>
-        <term>SIP</term>
-        <description>Session Initiation Protocol</description>
-      </entry>
-      <entry>
-        <term>SWID</term>
-        <description>Software Identification</description>
-      </entry>
-      <entry>
-        <term>TLS</term>
-        <description>Transport Layer Security</description>
-      </entry>
-      <entry>
-        <term>URI</term>
-        <description>Uniform Resource Identifier</description>
-      </entry>
-      <entry>
-        <term>URL</term>
-        <description>Uniform Resource Locator</description>
-      </entry>
-      <entry>
-        <term>USB</term>
-        <description>Universal Serial Bus</description>
-      </entry>
-      <entry>
-        <term>XCCDF</term>
-        <description>eXtensible Configuration Checklist Description Format</description>
-      </entry>
-      <entry>
-        <term>XOR</term>
-        <description>Exclusive Or</description>
-      </entry>
+        <term>WLAN</term>
+        <description>Wireless Local Area Network</description>
+      </entry>      
+
     </acronyms>
   </appendix>
 </Module>
