@@ -1113,7 +1113,7 @@
       the entropy source. </section>
   </appendix>
 
-  <appendix title="References" id="biblio">
+  
     <bibliography>
       <entry id="bibCC">
         <tag>CC</tag>
@@ -1183,10 +1183,9 @@
           href="https://tools.ietf.org/html/rfc5280">RFC 5280 - Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile</h:a></description>
       </entry>        
     </bibliography>
-  </appendix>
+  
 
-  <appendix title="Acronyms" id="acronyms">
-    <acronyms>
+      <acronyms>
       <entry>
         <term>AES</term>
         <description>Advanced Encryption Standard</description>
@@ -1338,6 +1337,6 @@
       </entry>      
 
     </acronyms>
-  </appendix>
+  
 </Module>
 
