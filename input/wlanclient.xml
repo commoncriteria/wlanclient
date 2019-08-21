@@ -94,7 +94,7 @@
               </entry>
               <entry>
                 <term><abbr title="Target of Evaluation">TOE</abbr></term>
-                <description>The security functionality of the product under evaluation.</description>
+                <description>The product under evaluation.</description>
               </entry>
               <entry>
                 <term><abbr title="TOE Security Functionality">TSF</abbr></term>
@@ -216,157 +216,364 @@
       <subsection title="TOE Platform" id="TOEplatform">
       </subsection>  -->
     </section>
-    <section title="Use Cases" id="usecases">Requirements in this Protection Profile are designed to
+    
+    <!-- SME: the old WLAN EP did not define use cases, these have been added. Will need review. -->
+    <section title="Use Cases" id="usecases">Requirements in this PP-Module are designed to
       address the security problems in at least the following use cases. These use cases are intentionally
-      very broad, as many specific use cases exist for an operating system. These use cases may also
-      overlap with one another.  An operating system's functionality may even be effectively extended by
-      privileged applications installed onto it.  However, these are out of scope of this PP. <usecases>
-        <usecase title="End User Devices" id="enduserdevices">
+      very broad, as many specific use cases exist within these larger categories.
+      
+      <usecases>
+                <usecase title="General-Purpose Operating System" id="gpos">
           <description>
+            This use case is for a WLAN Client TOE that is part of a general-purpose operating system. Specifically, the WLAN Client TOE is expected to be part of the operating system itself and not a standalone third-party application that 
+            is installed on top of it.
           </description>
         </usecase>
+        <usecase title="Mobile Device" id="md">
+          <description>
+            This use case is for a WLAN Client TOE that is part of a mobile operating system that runs on a mobile device. Specifically, the WLAN Client TOE is expected to be part of the mobile operating system itself and not 
+            a standalone third-party application that is acquired from the mobile vendor's application store.
+          </description>
+        </usecase>
+        
+        <!-- to do: add use case for administrative capabilities if one needs to exist (currently TBD) -->
+        
       </usecases>
     </section>
   </chapter>
-  <chapter title="Conformance Claims" id="ccl">
+
+
+  <chapter title="Conformance Claims" id="conf">
     <cclaims>
-      <cclaim id="Conformance Statement">
-        <description> To be conformant to this PP, a <abbr linkend="ST"/> must demonstrate Exact
-          Conformance, a subset of Strict Conformance as defined in <cite linkend="bibCC"/> Part 1
-          (ASE_CCL). The <abbr linkend="ST"/> must include all components in this PP that are: <h:ul>
-            <h:li>unconditional (which are always required)</h:li>
-            <h:li>selection-based (which are required when certain <h:i>selections</h:i> are chosen in the
-              unconditional requirements)</h:li>
-          </h:ul>and may include components that are <h:ul>
-            <h:li>optional or</h:li>
-            <h:li>objective.</h:li>
+      <cclaim title="Conformance Statement">
+        <description> This <abbr linkend="PP-Module"/> inherits exact conformance as required from
+          the specified <abbr linkend="Base-PP"/> and as defined in the <abbr linkend="CC"/> and
+          <abbr linkend="CEM"/> addenda for Exact Conformance, Selection-Based SFRs, and Optional
+          SFRs (dated May 2017).<h:p/> 
+          The following PPs and PP-Modules are allowed to
+          be specified in a PP-Configuration with this PP-Module. <h:ul>
+            <h:li>PP-Module for VPN Client, Version 2.1</h:li>
           </h:ul>
-          <InsertAppendixExplainer/> The <abbr linkend="ST"/> may iterate any of these components,
-          but it must not include any additional component (e.g. from CC Part 2 or 3 or a PP not
-          conformant with this one, or extended by the <abbr linkend="ST"/>) not defined in this PP
-          or a PP conformant to this one. 
-          <h:br/>
-          <!-- 
-		  Some components in this Protection Profile have a dependency on
-		  other components.  In accordance with <cite linkend="bibCC"/> Part 1, <appref linkend="satisfiedreqs"/> 
-          includes justifications for those cases where the PP does not explicitly contain the component
-		  upon which there is a dependency.  -->
         </description>
       </cclaim>
-      <cclaim id="CC Conformance Claims">
-        <description>This PP is conformant to Parts 2 (extended) and 3 (extended) of Common Criteria
-          Version 3.1, Revision 5.<cite linkend="bibCC"/>.</description>
+      <cclaim title="CC Conformance Claims">
+        <description>This <abbr linkend="PP-Module"/> is conformant to Parts 2 (extended) and 3
+          (conformant) of Common Criteria Version 3.1, Release 5 [<abbr linkend="CC"/>].
+        </description>
       </cclaim>
-      <cclaim id="PP Claim">
-        <description>This PP does not claim conformance to any other Protection
-          Profile.</description>
-      </cclaim>
-      <cclaim id="Package Claim">
-        <description>This PP does not claim conformance to any packages.</description>
+      <cclaim title="Package Claims">
+        <description>There are no package claims for this PP-Module.</description>
       </cclaim>
     </cclaims>
   </chapter>
-  <chapter title="Security Problem Definition" id="spd">The security problem is described in terms
-    of the threats that the <abbr linkend="OS"/> is expected to address, assumptions about the
-    operational environment, and any organizational security policies that the <abbr linkend="OS"/>
-    is expected to enforce. <section title="Threats" id="threats">
+
+
+  <chapter id="spd" title="Security Problem Description">
+    This PP-Module is written to address the situation when an entity desires wireless access to a private
+    network. To allow access to the private network, the entity (machine) must be authenticated
+    before a secure communications channel can be established. The TOE is the entity that seeks to
+    be authenticated and be given access to services offered by the protected network and is the
+    Supplicant in the IEEE 802.1X framework.
+    
+    <section id="threats" title="Threats"> The following threats are specific to WLAN Clients, and represent an addition to those identified in the <abbr linkend="Base-PP"/>s. 
+      <!-- Note: Threats contained in both base-PPs should not be listed in the PP-Module (section 3.1 or 6), but objectives can still be mapped to them (section 4.3). 
+        For these threats do not include a <description> or <consistency-rationale> section. If a <description> section is included then the threat is listed in Section 3.1. 
+        If no description is listed, then threat is only listed in section 4.3 (not in 3.1 or 6) -->
       <threats>
-        <threat id="T.QQQQ">
-          <description> </description>
-          <objective-refer ref="O.QQQQ">
-            <rationale>The threat T.QQQQ is countered by O.QQQQ as this
-              provides for .</rationale>
+        <threat id="T.TSF_FAILURE">
+          <description>Security mechanisms of the TOE generally build up from a primitive set of mechanisms (e.g.,
+            memory management, privileged modes of process execution) to more complex sets of
+            mechanisms. Failure of the primitive mechanisms could lead to a compromise in more complex
+            mechanisms, resulting in a compromise of the TSF.</description>
+        </threat>
+        <objective-refer ref="O.TSF_SELF_TEST">
+          <rationale>TBD</rationale>
+        </objective-refer>
+        
+        <threat id="T.UNAUTHORIZED_ACCESS">
+          <description>A user may gain unauthorized access to the TOE data and TOE executable code. A malicious
+            user, process, or external IT entity may masquerade as an authorized entity in order to gain
+            unauthorized access to data or TOE resources. A malicious user, process, or external IT entity
+            may misrepresent itself as the TOE to obtain identification and authentication data.</description>
+        </threat>
+        <objective-refer ref="O.AUTH_COMM">
+          <rationale>TBD</rationale>
+        </objective-refer>
+        <objective-refer ref="O.CRYPTOGRAPHIC_FUNCTIONS">
+          <rationale>TBD</rationale>
+        </objective-refer>
+        <objective-refer ref="O.TOE_ADMINISTRATION">
+          <rationale>TBD</rationale>
+        </objective-refer>
+        <objective-refer ref="O.WIRELESS_ACCESS_POINT_CONNECTION">
+          <rationale>TBD</rationale>
+        </objective-refer>
+        
+        <threat id="T.UNDETECTED_ACTIONS">
+          <description>Malicious remote users or external IT entities may take actions that adversely affect the
+            security of the TOE. These actions may remain undetected and thus their effects cannot be
+            effectively mitigated.</description>
+          <objective-refer ref="O.SYSTEM_MONITORING">
+            <rationale>TBD</rationale>
           </objective-refer>
         </threat>
       </threats>
-    </section>
-    <section title="Assumptions" id="assumptions">
+     </section>
+        
+    <section id="Assumptions" title="Assumptions">
       <assumptions>
-        <assumption id="A.QQQQ">
-          <description> The product relies QQQQ its execution. This underlying platform is out of scope of this PP. </description>
-          <objective-refer ref="OE.PLATFORM">
-            <rationale> The operational environment objective OE.PLATFORM is realized through
-              A.PLATFORM. </rationale>
+        <assumption id="A.NO_TOE_BYPASS">
+          <description>Information cannot flow between the wireless client and the internal wired
+            network without passing through the <abbr linkend="TOE"/>.</description>
+          <objective-refer ref="OE.NO_TOE_BYPASS">
+            <rationale>The Operational Environment objective OE.WIRELESS_NETWORK is realized through
+              A.CONNECTIVITY. </rationale>
+          </objective-refer>
+        </assumption>
+        <assumption id="A.TRUSTED_ADMIN">
+          <description><abbr linkend="TOE"/> Administrators are trusted to follow and apply all administrator guidance in
+            a trusted manner.</description>
+          <objective-refer ref="OE.TRUSTED_ADMIN">
+            <rationale>The Operational Environment objective OE.WIRELESS_NETWORK is realized through
+              A.CONNECTIVITY. </rationale>
           </objective-refer>
         </assumption>
       </assumptions>
     </section>
-<!--    <section title="Organizational Security Policies" id="OSPs">
-      <OSPs>
-        <OSP id="P.ENTERPRISE">
-          <description>If the OS is bound to a directory or management server, the configuration of
-            the OS software must be capable of adhering to the enterprise security policies
-            distributed by them.</description>
-          <objective-refer ref="O.MANAGEMENT">
-            <rationale>The organizational security policy P.ENTERPRISE is enforced through the
-              objective O.MANAGEMENT as this objective represents how the enterprise and user assert
-              management over the <abbr linkend="OS"/>.</rationale>
-          </objective-refer>
-        </OSP>
-      </OSPs>
-    </section> -->
+    
+    <section id="securityPolicy" title="Organizational Security Policies">
+      No organizational policies have been identified that are specific to WLAN Clients. However, any
+      organizational security policies defined in the Base-PPs will also apply to WLAN Clients.
+    </section>
   </chapter>
+
+
   <chapter title="Security Objectives" id="obj">
     <section title="Security Objectives for the TOE" id="SecurityObjectivesTOE">
       <SOs>
-        <SO id="O.ACCOUNTABILITY">
-          <description> Conformant <abbr linkend="OS"/>s ensure that information exists that allows
-            administrators to discover unintentional issues with the configuration and operation of
-            the operating system and discover its cause.  Gathering event information and immediately 
-            transmitting it to another system can also enable incident response in the event
-            of system compromise.</description>
-          <component-refer ref="fau_gen.1"/>
+        <SO id="O.AUTH_COMM">
+          <description>The <abbr linkend="TOE"/> will provide a means to ensure that it is
+            communicating with an authorized Access Point and
+            not some other entity pretending to be an authorized
+            Access Point, and will provide assurance to the Access
+            Point of its identity.</description>
+          <component-refer ref="FCS_TLSC_EXT.1/WLAN"/>
+          <component-refer ref="FCS_TLSC_EXT.2/WLAN (selection-based)"/>
+          <component-refer ref="FIA_PAE_EXT.1"/>
+          <component-refer ref="FIA_X509_EXT.2/WLAN"/>
+          <component-refer ref="FTP_ITC_EXT.1/WLAN"/>
+        </SO>
+        <SO id="O.CRYPTOGRAPHIC_FUNCTIONS">
+          <description>The <abbr linkend="TOE"/> will provide or use cryptographic functions
+            (i.e., encryption/decryption and digital signature
+            operations) to maintain the confidentiality and allow
+            for detection of modification of data that are
+            transmitted outside the <abbr linkend="TOE"/> and its host
+            environment.</description>
+          <component-refer ref="FCS_CKM.1/WLAN"/>
+          <component-refer ref="FCS_CKM.2/WLAN"/>
+          <component-refer ref="FCS_CKM_EXT.3 (if GPOS is Base-PP)"/>
+          <component-refer ref="FCS_CKM_EXT.4 (if MDF is Base-PP)"/>
+          <component-refer ref="FCS_COP.1(1) (from either Base-PP)"/>
+          <component-refer ref="FCS_COP.1(2) (from either Base-PP)"/>
+          <component-refer ref="FCS_COP.1(3) (from either Base-PP)"/>
+          <component-refer ref="FCS_COP.1(4) (from either Base-PP)"/>
+          <component-refer ref="FCS_RBG_EXT.1 (from either Base-PP)"/>
+        </SO>
+        <SO id="O.SYSTEM_MONITORING">
+          <description>The <abbr linkend="TOE"/> will provide the capability to generate audit
+            data.</description>
+          <component-refer ref="FAU_GEN.1/WLAN"/>
+        </SO>
+        <SO id="O.TOE_ADMINISTRATION">
+          <description>The <abbr linkend="TOE"/> will provide mechanisms to allow
+            administrators to be able to configure the <abbr linkend="TOE"/>. </description>
+          <component-refer ref="FIA_X509_EXT.4 (optional)"/>
+          <component-refer ref="FMT_SMF_EXT.1/WLAN"/>
+        </SO>
+        <SO id="T.SELF_TEST">
+          <description>The <abbr linkend="TOE"/> will provide the capability to test some
+            subset of its security functionality to ensure it is operating properly. </description>
+          <component-refer ref="FPT_TST_EXT.1/WLAN"/>
+        </SO>
+        <SO id="O.WIRELESS_ACCESS_POINT_CONNECTION">
+          <description>The <abbr linkend="TOE"/> will provide the capability to restrict the
+            wireless access points to which it will connect.</description>
+          <component-refer ref="FTA_WSE_EXT.1"/>
         </SO>
       </SOs>
     </section>
+    
     <section title="Security Objectives for the Operational Environment"
-      id="SecurityObjectivesTOEorEnvironment">The following security objectives for the operational
-      environment assist the <abbr linkend="OS"/> in correctly providing its security functionality.
-      These track with the assumptions about the environment. <SOEs>
-        <SOE id="OE.PLATFORM">
-          <description>The <abbr linkend="OS"/> relies on being installed on trusted
-            hardware.</description>
+      id="SecurityObjectivesTOEorEnvironment">The Operational Environment of the TOE implements technical and procedural measures 
+      to assist the TOE in correctly providing its security functionality (which is defined by the security objectives for the TOE). 
+      The security objectives for the Operational Environment consist of a set of statements describing the goals that the Operational Environment should achieve. 
+      This section defines the security objectives that are to be addressed by the IT domain or by non-technical or procedural means. 
+      The assumptions identified in Section 3 are incorporated as security objectives for the environment.<SOEs>
+        <SOE id="OE.NO_TOE_BYPASS">
+          <description>Information cannot flow between external and internal networks located
+            in different enclaves without passing through the <abbr linkend="TOE"/>.</description>
         </SOE>
-        <SOE id="OE.PROPER_USER">
-          <description> The user of the <abbr linkend="OS"/> is not willfully negligent or hostile,
-            and uses the software within compliance of the applied enterprise security policy.
-            Standard user accounts are provisioned in accordance with the least privilege model.
-            Users requiring higher levels of access should have a separate account dedicated for
-            that use. </description>
+        <SOE id="OE.TRUSTED_ADMIN">
+          <description><abbr linkend="TOE"/> administrators are trusted to follow and apply all administrator
+            guidance in a trusted manner.</description>
         </SOE>
-        <SOE id="OE.PROPER_ADMIN">
-          <description> The administrator of the <abbr linkend="OS"/> is not careless, willfully
-            negligent or hostile, and administers the OS within compliance of the applied enterprise
-            security policy. </description>
-        </SOE>
-      </SOEs></section>
+      </SOEs>
+    </section>
+    
     <section title="Security Objectives Rationale" id="SOR">This section describes how the
       assumptions, threats, and organizational security policies map to the security objectives.
       <InsertSPDCorrespondence/></section>
   </chapter>
+  
   <chapter title="Security Requirements" id="req">This chapter describes the security requirements
     which have to be fulfilled by the <abbr linkend="OS"/>. Those requirements comprise functional
     components from Part 2 and assurance components from Part 3 of <cite linkend="bibCC"/>. The
     following notations are used: <h:ul>
       <h:li>
-        <h:b>Refinement</h:b> operation (denoted by <h:b>bold text</h:b>): is used to add details to a
+        <h:b>Refinement</h:b> operation (denoted by <h:b>bold text</h:b>): Is used to add details to a
         requirement, and thus further restricts a requirement.</h:li>
       <h:li>
-        <h:b>Selection</h:b> (denoted by <h:i>italicized text</h:i>): is used to select one or more options
+        <h:b>Selection</h:b> operation (denoted by <h:i>italicized text</h:i>): Is used to select one or more options
         provided by the [CC] in stating a requirement.</h:li>
       <h:li>
-        <h:b>Assignment</h:b> operation (denoted by <h:span class="assignable-content">italicized text</h:span>): is used to assign a
-        specific value to an unspecified parameter, such as the length of a password. Showing the
-        value in square brackets indicates assignment.</h:li>
+        <h:b>Assignment</h:b> operation (denoted by <h:span class="assignable-content">italicized text</h:span>): Is used to assign a
+        specific value to an unspecified parameter, such as the length of a password.</h:li>
       <h:li>
-        <h:b>Iteration</h:b> operation: are identified with a number inside parentheses (e.g.
-        "(1)")</h:li>
+        <h:b>Iteration</h:b> operation: Identified with a slash followed by a unique text string (e.g. "/WLAN")</h:li>
     </h:ul>
 
-    <section title="Security Functional Requirements" id="SFRs">The Security Functional Requirements
-      included in this section are derived from Part 2 of the Common Criteria for Information
-      Technology Security Evaluation, Version 3.1, Revision 4, with additional extended functional
-      components. 
+    <section title="Security Functional Requirements" id="SFRs">
+     
+        <base-pp version="4.2.1" name="General Purpose Operating Systems" product="Operating System" short="GPOS"
+          url="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=442&amp;id=442">
+<!--       xmlurl="https://raw.githubusercontent.com/commoncriteria/mobile-device/master/input/mobile-device.xml"> -->
+
+
+      <modified-sfrs>
+        <subsection id="fcs" title="Cryptographic Support (FCS)">
+          <f-component id="fau_alt_ext.2" name="Agent Alerts">
+
+            <note role="application"> This SFR exists in the OS PP and does not need to be modified for this PP-Module. Note
+              however that its scope is expanded to include keys and key material that are used by the TSF
+              described by this PP-Module. This SFR has not been iterated because it is assumed that the key
+              destruction function is at least partially implemented by the underlying platform as opposed to
+              the WLAN Client itself. For the purposes of this requirement, it is sufficient for the TOE to invoke
+              the correct underlying functions of the host to perform the zeroization—it does not imply that
+              the TOE has to include a kernel-mode memory driver to ensure the data are zeroized.
+              <h:p/>
+              Any security related information (such as keys, authentication data, and passwords) must be
+              zeroized when no longer in use to prevent the disclosure or modification of security critical data.
+              <h:p/>
+              The zeroization indicated above applies to each intermediate storage area for plaintext key/CSP
+              (i.e., any storage, such as memory buffers, that is included in the path of such data) upon the
+              transfer of the key/CSP to another location.
+              <h:p/>
+              Additionally, although IEEE 802.11-2012 does not specify PMK lifetimes (described in IEEE
+              802.11-2012 Section 11.6.1.3) for WLAN Clients, these lifetimes should be limited, and the
+              PMKSA cleared, in such a way as to prevent continued use of the same PMK for more than 24
+              hours. Thus, for PMKs, “when no longer needed” is after 24 hours.
+            </note>
+          </f-component>
+        </subsection>
+      </modified-sfrs>
+      <additional-sfrs/>
+      
+          
+          <!-- 
+      <con-toe> When this <abbr linkend="PP-Module"/> is used to extend the MDF PP, the TOE type for
+        the overall TOE is still a mobile device. The TOE boundary is simply extended to include the
+          <abbr linkend="MDM"/> Agent application that runs on the mobile device.</con-toe>
+      <con-sec-prob/>
+      <con-obj/>
+      <con-op-en/>
+      <con-mod id="T.BACKUP"> This threat protects user data from unauthorized logical access. An
+        attacker would attempt to exploit this threat by first exploiting the T.PHYSICAL, T.FLAWAPP,
+        or T.PERSISTENT threats defined in the <abbr linkend="Base-PP"/> against the mobile device
+        as a whole, and then using the device itself as an attack vector against any backup data
+        stored on the TOE.</con-mod>
+      <con-mod id="O.ACCOUNTABILITY"> The <abbr linkend="Base-PP"/> provides an objective,
+        O.INTEGRITY, that ensures that the integrity of the mobile device is maintained. This
+        objective assists in the implementation of O.INTEGRITY by providing records of
+        administrative activity, which would include actions that could cause the integrity of the
+        mobile device to be lost.</con-mod>
+      <con-mod id="O.APPLY_POLICY"> This objective supports the implementation of the O.CONFIG
+        objective defined in the <abbr linkend="Base-PP"/> by specifying an additional method by
+        which the TSF may be configured.</con-mod>
+      <con-mod id="O.DATA_PROTECTION_TRANSIT"> This objective extends the <abbr linkend="Base-PP"
+        />’s O.COMMS objective by ensuring that the communications related to <abbr linkend="MDM"/>
+        Agent functionality are secured in the same manner as other sensitive data transmitted
+        to/from the mobile device.</con-mod>
+      <con-mod id="O.STORAGE"> This objective extends the <abbr linkend="Base-PP"/>’s O.STORAGE
+        objective by ensuring that the mobile device’s data-at-rest protection mechanisms can also
+        be used to secure the <abbr linkend="MDM"/> Agent and related data.</con-mod>
+      <con-mod id="OE.DATA_PROPER_ADMIN"> This objective extends the <abbr linkend="Base-PP"/>’s
+        OE.CONFIG objective by expecting that TOE administrators act appropriately when installing
+        or configuring the <abbr linkend="MDM"/> Agent.</con-mod>
+      <con-mod id="OE.DATA_PROPER_USER"> This objective extends the <abbr linkend="Base-PP"/>’s
+        OE.NOTIFY and OE.PRECAUTION objectives by setting reasonable expectations for user security
+        behavior.</con-mod>
+      <con-mod id="OE.IT_ENTERPRISE"> This objective helps mitigate the T.EAVESDROP and T.NETWORK
+        threats defined by the <abbr linkend="Base-PP"/> by reducing the network exposure of the
+        mobile device. This does not conflict with the <abbr linkend="Base-PP"/> because the <abbr
+          linkend="Base-PP"/> does not set specific expectations for the level of security that the
+        enterprise provides, but all use cases from the <abbr linkend="Base-PP"/> set expectations
+        that the mobile device is used for some enterprise purposes so it is reasonable to expect
+        the enterprise have security controls in place to protect these functions. </con-mod>
+      <con-mod id="OE.MOBILE_DEVICE_PLATFORM"> This objective is suitable because the <abbr
+          linkend="MDM"/> Agent can reasonably expect the device it has been deployed on to be
+        secure.</con-mod>
+      <con-mod id="OE.WIRELESS_NETWORK"> This objective is suitable because while the <abbr
+          linkend="Base-PP"/> does not associate any availability metrics with wireless
+        communications, the mobile device will always provide the ability to access a wireless
+        network.</con-mod>
+      <con-mod id="fau_alt_ext.2"> This SFR requires the <abbr linkend="MDM"/> Agent to use a
+        trusted channel defined by FTP_ITC_EXT.1 in the <abbr linkend="Base-PP"/> to transmit data
+        about its own behavior to the Operational Environment.</con-mod>
+      <con-mod id="fau_gen.1(2)"> The <abbr linkend="Base-PP"/> defines FAU_GEN.1; this <abbr
+          linkend="PP-Module"/> defines a second iteration to use the same audit mechanism to
+        generate audit records for the <abbr linkend="MDM"/> Agent’s behavior. It may alternatively
+        allow the TSF to generate its own audit trail, which does not impede the MDF from enforcing
+        its own security functionality.</con-mod>
+      <con-mod id="fau_sel.1(2)"> The <abbr linkend="Base-PP"/> defines FAU_SEL.1; this <abbr
+          linkend="PP-Module"/> defines a second iteration to use the same audit mechanism to select
+        the auditable events to be generated by the <abbr linkend="MDM"/> Agent. Note that the <abbr
+          linkend="Base-PP"/> does not mandate this requirement so it is possible that only the
+          <abbr linkend="MDM"/> Agent portion of the TOE may implement it. In this case, the SFR
+        provides a selection for the <abbr linkend="MDM"/> Agent to implement its own mechanism to
+        perform this function rather than a platform-provided one.</con-mod>
+      <con-mod id="fia_enr_ext.2"> This SFR requires the <abbr linkend="MDM"/> Agent to record data
+        that it receives from the Operational Environment. It does not need to use any functionality
+        defined in the <abbr linkend="Base-PP"/> to do this, and doing this does not prevent the
+        enforcement of any security requirements from the <abbr linkend="Base-PP"/>. </con-mod>
+      <con-mod id="fmt_pol_ext.2"> This SFR requires the <abbr linkend="MDM"/> Agent to use a
+        digital signature algorithm to validate data that it receives from the Operational
+        Environment. To do this, the <abbr linkend="MDM"/> Agent will use the functionality defined
+        by the <abbr linkend="Base-PP"/> in FCS_COP.1(3).</con-mod>
+      <con-mod id="fmt_smf_ext.4"> This SFR defines the ability of the <abbr linkend="MDM"/> Agent
+        to interact with the mobile device to execute the management functions defined by
+        FMT_MOF_EXT.1 in the <abbr linkend="Base-PP"/>. The <abbr linkend="Base-PP"/> specifically
+        indicates in FMT_MOF_EXT.1.2 that some management functions may be performed via
+        MDM.</con-mod>
+      <con-mod id="fmt_unr_ext.1"> This SFR defines the functions performed by the <abbr
+          linkend="MDM"/> Agent when unenrolled from an <abbr linkend="MDM"/>. The <abbr
+          linkend="Base-PP"/> defines unenrollment actions in FMT_SMF_EXT.2, and goes on to note
+        that these actions may be performed “perhaps via an <abbr linkend="MDM"/> agent,” so this is
+        expected behavior. </con-mod>
+      <con-mod id="fau_stg_ext.3"> This SFR defines the ability of the <abbr linkend="MDM"/> Agent
+        to store generated audit data in the audit storage provided by the mobile device. The <abbr
+          linkend="Base-PP"/> defines the capability for audit storage in FAU_STG.1.</con-mod>
+      <con-mod id="fpt_net_ext.1"> This SFR defines the ability of the <abbr linkend="MDM"/> Agent
+        to maintain information about its last successful connection with the environmental <abbr
+          linkend="MDM"/> Server (i.e., the last successful invocation of the trusted channel for
+        that interface, as defined in FTP_ITC_EXT.1 of the <abbr linkend="Base-PP"/>). It does not
+        need to use any functionality defined in the <abbr linkend="Base-PP"/> to do this, and doing
+        this does not prevent the enforcement of any security requirements from the <abbr
+          linkend="Base-PP"/>.</con-mod> -->
+    </base-pp>
+      
+      
+      
 
       <!-- Note: Every SFR must have a status = "threshold" or "optional" or "sel-based" or "objective" -->
       <subsection title="QQQQ" id="QQQQ">
