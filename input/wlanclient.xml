@@ -785,7 +785,7 @@
                 </h:TR>                
                 <h:TR>
                   <h:TD rowspan="2">FCS_TLSC_EXT.1/WLAN</h:TD>
-                  <h:TD>Failure to establish an EAP-TLS session.</h:TD><h:td>Reason for failure.<h:p/>Non-TOE endpoint of connection.</h:td></h:TR>
+                  <h:TD>Failure to establish an EAP-TLS session.</h:TD><h:td>Reason for failure.<h:br/><h:br/>Non-TOE endpoint of connection.</h:td></h:TR>
                 <h:tr><h:TD>Establishment/termination of an EAP-TLS session.</h:TD><h:td>Non-TOE endpoint of connection.</h:td>
                 </h:tr>
                 <h:TR>
@@ -824,7 +824,7 @@
                 <h:TR>
                   <h:TD>FTA_WSE_EXT.1</h:TD>
                   <h:TD>All attempts to connect to access points.</h:TD>
-                  <h:TD>Identity of access point being connected to.<h:p/>Success and failures (including reason for failure).</h:TD>
+                  <h:TD>Identity of access point being connected to.<h:br/><h:br/>Success and failures (including reason for failure).</h:TD>
                 </h:TR>    
                 <h:TR>
                   <h:TD>FTP_ITC_EXT.1/WLAN</h:TD>
@@ -835,22 +835,23 @@
               <h:p/>
             </note>            
           </f-element>
-          <f-element id="fau_gen.1.2(2)">
-            <title><h:b>Refinement:</h:b> The <selectables>
+          <f-element id="fau_gen.1.2/wlan">
+            <title>The <h:b><selectables>
               <selectable>TSF</selectable>
               <selectable>TOE platform</selectable>
-            </selectables> shall record within each audit record at
+            </selectables></h:b> shall record within each audit record at
               least the following information: <h:ol type="a">
                 <h:li>Date and time of the event, type of event, subject identity, (if relevant) the outcome 
                   (success or failure) of the event; and</h:li>         
                 <h:li>For each audit event type, based on the auditable event definitions of the functional components 
-                  included in the PP-Module/ST, <h:i>Additional Audit Record Conents as specified in Auditable Events table</h:i>.</h:li>
+                  included in the PP-Module/ST, [<h:i>Additional Audit Record Conents as specified in Auditable Events table</h:i>].</h:li>
               </h:ol>
             </title>
             <aactivity>
               <TSS>
-                The evaluator shall check the <abbr linkend="TSS"/> and ensure that it provides a format for audit records. Each audit record format type must be covered, along with a brief description of each field. <h:br/><h:br/> 
-                If "invoke platform-provided functionality" is selected, the evaluator shall examine the <abbr linkend="TSS"/> to verify that it describes (for each supported platform) how this functionality is invoked (it should be noted that this may be through a mechanism that is not implemented by the WLAN Client; nonetheless, that mechanism will be identified in the <abbr linkend="TSS"/> as part of this evaluation activity).<h:br/><h:br/> 
+                The evaluator shall check the <abbr linkend="TSS"/> and ensure that it provides a format for audit records. Each audit record format type must be covered, along with a brief description of each field. <h:p/> 
+                If "invoke platform-provided functionality" is selected, the evaluator shall examine the <abbr linkend="TSS"/> to verify that it describes (for each supported platform) how this functionality is invoked 
+                (it should be noted that this may be through a mechanism that is not implemented by the WLAN Client; nonetheless, that mechanism will be identified in the <abbr linkend="TSS"/> as part of this evaluation activity).<h:p/>  
               </TSS>
               <Guidance>
                 The evaluator shall check the operational guidance and ensure that it lists all of the auditable
@@ -879,7 +880,8 @@
                 to the configuration (including enabling or disabling) of the mechanisms implemented in the
                 TOE that are necessary to enforce the requirements specified in the PP-Module, which thus form the
                 set of “all administrative actions”. The evaluator may perform this activity as part of the
-                activities associated with ensuring the AGD_OPE guidance satisfies the requirements.               
+                activities associated with ensuring the AGD_OPE guidance satisfies the requirements.   
+                <h:p/> 
               </Guidance>
               <Tests>
                 The evaluator shall test the TOE’s ability to correctly generate audit records by having the TOE
