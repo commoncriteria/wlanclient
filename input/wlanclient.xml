@@ -466,7 +466,7 @@
               Any security related information (such as keys, authentication data, and passwords) must be
               zeroized when no longer in use to prevent the disclosure or modification of security critical data.
               <h:p/>
-              The zeroization indicated above applies to each intermediate storage area for plaintext key/CSP
+              The zeroization indicated above applies to each intermediate storage area for plaintext key or CSP
               (i.e., any storage, such as memory buffers, that is included in the path of such data) upon the
               transfer of the key or CSP to another location.
               <h:p/>
@@ -476,12 +476,175 @@
               hours. Thus, for PMKs, “when no longer needed” is after 24 hours.
             </note>
           </f-component>
+          
+          
+          <f-component id="fcs_cop.1" name="Cryptographic Operation">
+            <note role="application">Several iterations of this SFR exist in the GPOS PP and do not need to be
+              modified for this PP-Module. Note however that their scope is expanded to include cryptographic
+              operations that are required by the WLAN Client in order to perform its security functionality.
+            </note>
+          </f-component>
+          
+          <f-component id="fcs_rbg_ext.1" name="Random Bit Generation">
+            
+            <note role="application">This SFR exists in the GPOS PP and does not need to be modified for this PP-Module. Note
+              however that its scope is expanded to include random bit generation functions that are required
+              by the WLAN Client in order to perform its security functionality.
+            </note>
+          </f-component>
+
+          
         </subsection>
       </modified-sfrs>
       <additional-sfrs/>
       
           
           <!-- 
+      <con-toe> When this <abbr linkend="PP-Module"/> is used to extend the MDF PP, the TOE type for
+        the overall TOE is still a mobile device. The TOE boundary is simply extended to include the
+          <abbr linkend="MDM"/> Agent application that runs on the mobile device.</con-toe>
+      <con-sec-prob/>
+      <con-obj/>
+      <con-op-en/>
+      <con-mod id="T.BACKUP"> This threat protects user data from unauthorized logical access. An
+        attacker would attempt to exploit this threat by first exploiting the T.PHYSICAL, T.FLAWAPP,
+        or T.PERSISTENT threats defined in the <abbr linkend="Base-PP"/> against the mobile device
+        as a whole, and then using the device itself as an attack vector against any backup data
+        stored on the TOE.</con-mod>
+      <con-mod id="O.ACCOUNTABILITY"> The <abbr linkend="Base-PP"/> provides an objective,
+        O.INTEGRITY, that ensures that the integrity of the mobile device is maintained. This
+        objective assists in the implementation of O.INTEGRITY by providing records of
+        administrative activity, which would include actions that could cause the integrity of the
+        mobile device to be lost.</con-mod>
+      <con-mod id="O.APPLY_POLICY"> This objective supports the implementation of the O.CONFIG
+        objective defined in the <abbr linkend="Base-PP"/> by specifying an additional method by
+        which the TSF may be configured.</con-mod>
+      <con-mod id="O.DATA_PROTECTION_TRANSIT"> This objective extends the <abbr linkend="Base-PP"
+        />’s O.COMMS objective by ensuring that the communications related to <abbr linkend="MDM"/>
+        Agent functionality are secured in the same manner as other sensitive data transmitted
+        to/from the mobile device.</con-mod>
+      <con-mod id="O.STORAGE"> This objective extends the <abbr linkend="Base-PP"/>’s O.STORAGE
+        objective by ensuring that the mobile device’s data-at-rest protection mechanisms can also
+        be used to secure the <abbr linkend="MDM"/> Agent and related data.</con-mod>
+      <con-mod id="OE.DATA_PROPER_ADMIN"> This objective extends the <abbr linkend="Base-PP"/>’s
+        OE.CONFIG objective by expecting that TOE administrators act appropriately when installing
+        or configuring the <abbr linkend="MDM"/> Agent.</con-mod>
+      <con-mod id="OE.DATA_PROPER_USER"> This objective extends the <abbr linkend="Base-PP"/>’s
+        OE.NOTIFY and OE.PRECAUTION objectives by setting reasonable expectations for user security
+        behavior.</con-mod>
+      <con-mod id="OE.IT_ENTERPRISE"> This objective helps mitigate the T.EAVESDROP and T.NETWORK
+        threats defined by the <abbr linkend="Base-PP"/> by reducing the network exposure of the
+        mobile device. This does not conflict with the <abbr linkend="Base-PP"/> because the <abbr
+          linkend="Base-PP"/> does not set specific expectations for the level of security that the
+        enterprise provides, but all use cases from the <abbr linkend="Base-PP"/> set expectations
+        that the mobile device is used for some enterprise purposes so it is reasonable to expect
+        the enterprise have security controls in place to protect these functions. </con-mod>
+      <con-mod id="OE.MOBILE_DEVICE_PLATFORM"> This objective is suitable because the <abbr
+          linkend="MDM"/> Agent can reasonably expect the device it has been deployed on to be
+        secure.</con-mod>
+      <con-mod id="OE.WIRELESS_NETWORK"> This objective is suitable because while the <abbr
+          linkend="Base-PP"/> does not associate any availability metrics with wireless
+        communications, the mobile device will always provide the ability to access a wireless
+        network.</con-mod>
+      <con-mod id="fau_alt_ext.2"> This SFR requires the <abbr linkend="MDM"/> Agent to use a
+        trusted channel defined by FTP_ITC_EXT.1 in the <abbr linkend="Base-PP"/> to transmit data
+        about its own behavior to the Operational Environment.</con-mod>
+      <con-mod id="fau_gen.1(2)"> The <abbr linkend="Base-PP"/> defines FAU_GEN.1; this <abbr
+          linkend="PP-Module"/> defines a second iteration to use the same audit mechanism to
+        generate audit records for the <abbr linkend="MDM"/> Agent’s behavior. It may alternatively
+        allow the TSF to generate its own audit trail, which does not impede the MDF from enforcing
+        its own security functionality.</con-mod>
+      <con-mod id="fau_sel.1(2)"> The <abbr linkend="Base-PP"/> defines FAU_SEL.1; this <abbr
+          linkend="PP-Module"/> defines a second iteration to use the same audit mechanism to select
+        the auditable events to be generated by the <abbr linkend="MDM"/> Agent. Note that the <abbr
+          linkend="Base-PP"/> does not mandate this requirement so it is possible that only the
+          <abbr linkend="MDM"/> Agent portion of the TOE may implement it. In this case, the SFR
+        provides a selection for the <abbr linkend="MDM"/> Agent to implement its own mechanism to
+        perform this function rather than a platform-provided one.</con-mod>
+      <con-mod id="fia_enr_ext.2"> This SFR requires the <abbr linkend="MDM"/> Agent to record data
+        that it receives from the Operational Environment. It does not need to use any functionality
+        defined in the <abbr linkend="Base-PP"/> to do this, and doing this does not prevent the
+        enforcement of any security requirements from the <abbr linkend="Base-PP"/>. </con-mod>
+      <con-mod id="fmt_pol_ext.2"> This SFR requires the <abbr linkend="MDM"/> Agent to use a
+        digital signature algorithm to validate data that it receives from the Operational
+        Environment. To do this, the <abbr linkend="MDM"/> Agent will use the functionality defined
+        by the <abbr linkend="Base-PP"/> in FCS_COP.1(3).</con-mod>
+      <con-mod id="fmt_smf_ext.4"> This SFR defines the ability of the <abbr linkend="MDM"/> Agent
+        to interact with the mobile device to execute the management functions defined by
+        FMT_MOF_EXT.1 in the <abbr linkend="Base-PP"/>. The <abbr linkend="Base-PP"/> specifically
+        indicates in FMT_MOF_EXT.1.2 that some management functions may be performed via
+        MDM.</con-mod>
+      <con-mod id="fmt_unr_ext.1"> This SFR defines the functions performed by the <abbr
+          linkend="MDM"/> Agent when unenrolled from an <abbr linkend="MDM"/>. The <abbr
+          linkend="Base-PP"/> defines unenrollment actions in FMT_SMF_EXT.2, and goes on to note
+        that these actions may be performed “perhaps via an <abbr linkend="MDM"/> agent,” so this is
+        expected behavior. </con-mod>
+      <con-mod id="fau_stg_ext.3"> This SFR defines the ability of the <abbr linkend="MDM"/> Agent
+        to store generated audit data in the audit storage provided by the mobile device. The <abbr
+          linkend="Base-PP"/> defines the capability for audit storage in FAU_STG.1.</con-mod>
+      <con-mod id="fpt_net_ext.1"> This SFR defines the ability of the <abbr linkend="MDM"/> Agent
+        to maintain information about its last successful connection with the environmental <abbr
+          linkend="MDM"/> Server (i.e., the last successful invocation of the trusted channel for
+        that interface, as defined in FTP_ITC_EXT.1 of the <abbr linkend="Base-PP"/>). It does not
+        need to use any functionality defined in the <abbr linkend="Base-PP"/> to do this, and doing
+        this does not prevent the enforcement of any security requirements from the <abbr
+          linkend="Base-PP"/>.</con-mod> -->
+    </base-pp>
+    
+    <base-pp version="3.1" name="Mobile Device Fundamentals" product="Mobile Device" short="MDF"
+      url="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=417&amp;id=417">
+      <!--       xmlurl="https://raw.githubusercontent.com/commoncriteria/mobile-device/master/input/mobile-device.xml"> -->
+      
+      
+      <modified-sfrs>
+        <subsection id="fcs" title="Cryptographic Support (FCS)">
+          <f-component id="fcs_ckm_ext.4" name="Cryptographic Key Destruction">
+            
+            <note role="application"> This SFR exists in the MDF PP and does not need to be modified for this PP-Module. Note
+              however that its scope is expanded to include keys and key material that are used by the TSF
+              described by this PP-Module. This SFR has not been iterated because it is assumed that the key
+              destruction function is at least partially implemented by the underlying platform as opposed to
+              the WLAN Client itself. For the purposes of this requirement, it is sufficient for the TOE to invoke
+              the correct underlying functions of the host to perform the zeroization—it does not imply that
+              the TOE has to include a kernel-mode memory driver to ensure the data are zeroized.
+              <h:p/>
+              Any security related information (such as keys, authentication data, and passwords) must be
+              zeroized when no longer in use to prevent the disclosure or modification of security critical data.
+              <h:p/>
+              The zeroization indicated above applies to each intermediate storage area for plaintext key or CSP
+              (i.e., any storage, such as memory buffers, that is included in the path of such data) upon the
+              transfer of the key or CSP to another location.
+              <h:p/>
+              Additionally, although IEEE 802.11-2012 does not specify PMK lifetimes (described in IEEE
+              802.11-2012 Section 11.6.1.3) for WLAN Clients, these lifetimes should be limited, and the
+              PMKSA cleared, in such a way as to prevent continued use of the same PMK for more than 24
+              hours. Thus, for PMKs, “when no longer needed” is after 24 hours.
+            </note>
+          </f-component>
+          
+          
+          <f-component id="fcs_cop.1" name="Cryptographic Operation">
+            <note role="application">Several iterations of this SFR exist in the MDF PP and do not need to be
+              modified for this PP-Module. Note however that their scope is expanded to include cryptographic
+              operations that are required by the WLAN Client in order to perform its security functionality.
+            </note>
+          </f-component>
+          
+          <f-component id="fcs_rbg_ext.1" name="Random Bit Generation">
+            
+            <note role="application">This SFR exists in the MDF PP and does not need to be modified for this PP-Module. Note
+              however that its scope is expanded to include random bit generation functions that are required
+              by the WLAN Client in order to perform its security functionality.
+            </note>
+          </f-component>
+          
+          
+        </subsection>
+      </modified-sfrs>
+      <additional-sfrs/>
+      
+      
+      <!-- 
       <con-toe> When this <abbr linkend="PP-Module"/> is used to extend the MDF PP, the TOE type for
         the overall TOE is still a mobile device. The TOE boundary is simply extended to include the
           <abbr linkend="MDM"/> Agent application that runs on the mobile device.</con-toe>
