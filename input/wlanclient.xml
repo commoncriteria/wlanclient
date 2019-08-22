@@ -286,7 +286,7 @@
             mechanisms. Failure of the primitive mechanisms could lead to a compromise in more complex
             mechanisms, resulting in a compromise of the TSF.</description>
           <objective-refer ref="O.TSF_SELF_TEST">
-          <rationale>TBD</rationale>
+          <rationale>The threat T.TSF_FAILURE is mitigated by O.TSF_SELF_TEST as this defines a mechanism for ensuring the reliability of the TSF by detecting potential failure conditions.</rationale>
         </objective-refer>
         </threat>
         
@@ -296,16 +296,16 @@
             unauthorized access to data or TOE resources. A malicious user, process, or external IT entity
             may misrepresent itself as the TOE to obtain identification and authentication data.</description>
                 <objective-refer ref="O.AUTH_COMM">
-          <rationale>TBD</rationale>
+          <rationale>The threat T.UNAUTHORIZED_ACCESS is mitigated in part by O.AUTH_COMM by ensuring the authenticity of any remote endpoint that the TSF connects to.</rationale>
         </objective-refer>
         <objective-refer ref="O.CRYPTOGRAPHIC_FUNCTIONS">
-          <rationale>TBD</rationale>
+          <rationale>The threat T.UNAUTHORIZED_ACCESS is mitigated in part by O.CRYPTOGRAPHIC_FUNCTIONS by ensuring the confidentiality and integrity of data in transit to protect against man-in-the-middle attacks.</rationale>
         </objective-refer>
         <objective-refer ref="O.TOE_ADMINISTRATION">
-          <rationale>TBD</rationale>
+          <rationale>The threat T.UNAUTHORIZED_ACCESS is mitigated in part by O.TOE_ADMINISTRATION by using the TOE platform's authentication mechanism to ensure that only authorized administrators can configure the TOE's behavior.</rationale>
         </objective-refer>
         <objective-refer ref="O.WIRELESS_ACCESS_POINT_CONNECTION">
-          <rationale>TBD</rationale>
+          <rationale>The threat T.UNAUTHORIZED_ACCESS is mitigated in part by this objective because it provides a mechanism to restrict the remote entities that the TOE is permitted to communicate with.</rationale>
         </objective-refer>
         </threat>
         
@@ -314,7 +314,7 @@
             security of the TOE. These actions may remain undetected and thus their effects cannot be
             effectively mitigated.</description>
           <objective-refer ref="O.SYSTEM_MONITORING">
-            <rationale>TBD</rationale>
+            <rationale>The threat T.UNDETECTED_ACTIONS is mitigated by O.SYSTEM_MONITORING by enforcing an auditing mechanism that can be used to track security-relevant TOE behavior.</rationale>
           </objective-refer>
         </threat>
       </threats>
@@ -326,14 +326,14 @@
           <description>Information cannot flow between the wireless client and the internal wired
             network without passing through the <abbr linkend="TOE"/>.</description>
           <objective-refer ref="OE.NO_TOE_BYPASS">
-            <rationale>TBD</rationale>
+            <rationale>The Operational Environment objective OE.NO_TOE_BYPASS is realized through A.NO_TOE_BYPASS.</rationale>
           </objective-refer>
         </assumption>
         <assumption id="A.TRUSTED_ADMIN">
           <description><abbr linkend="TOE"/> Administrators are trusted to follow and apply all administrator guidance in
             a trusted manner.</description>
           <objective-refer ref="OE.TRUSTED_ADMIN">
-            <rationale>TBD</rationale>
+            <rationale>The Operational Environment objective OE.TRUSTED ADMIN is realized through A.TRUSTED_ADMIN.</rationale>
           </objective-refer>
         </assumption>
       </assumptions>
@@ -378,6 +378,11 @@
           <component-refer ref="FCS_COP.1(4) (from either Base-PP)"/>
           <component-refer ref="FCS_RBG_EXT.1 (from either Base-PP)"/>
         </SO>
+        <SO id="O.SELF_TEST">
+          <description>The <abbr linkend="TOE"/> will provide the capability to test some
+            subset of its security functionality to ensure it is operating properly. </description>
+          <component-refer ref="FPT_TST_EXT.1/WLAN"/>
+        </SO>
         <SO id="O.SYSTEM_MONITORING">
           <description>The <abbr linkend="TOE"/> will provide the capability to generate audit
             data.</description>
@@ -388,11 +393,6 @@
             administrators to be able to configure the <abbr linkend="TOE"/>. </description>
           <component-refer ref="FIA_X509_EXT.4 (optional)"/>
           <component-refer ref="FMT_SMF.1/WLAN"/>
-        </SO>
-        <SO id="T.SELF_TEST">
-          <description>The <abbr linkend="TOE"/> will provide the capability to test some
-            subset of its security functionality to ensure it is operating properly. </description>
-          <component-refer ref="FPT_TST_EXT.1/WLAN"/>
         </SO>
         <SO id="O.WIRELESS_ACCESS_POINT_CONNECTION">
           <description>The <abbr linkend="TOE"/> will provide the capability to restrict the
@@ -477,7 +477,7 @@
             </note>
           </f-component>
           
-          
+          <!-- SME: technically we could modify this SFR to require AES-KW to be selected since the Module needs that capability to perform the GTK decrypt operation. Should this be done? -->
           <f-component id="fcs_cop.1" name="Cryptographic Operation">
             <note role="application">Several iterations of this SFR exist in the GPOS PP and do not need to be
               modified for this PP-Module. Note however that their scope is expanded to include cryptographic
@@ -499,96 +499,51 @@
       <additional-sfrs/>
       
           
-          <!-- 
-      <con-toe> When this <abbr linkend="PP-Module"/> is used to extend the MDF PP, the TOE type for
-        the overall TOE is still a mobile device. The TOE boundary is simply extended to include the
-          <abbr linkend="MDM"/> Agent application that runs on the mobile device.</con-toe>
+          
+      <con-toe> When this <abbr linkend="PP-Module"/> is used to extend the GPOS PP, the TOE type for
+        the overall TOE is still a general-purpose operating system. The TOE boundary is simply extended to include the
+          WLAN Client functionality that runs on the operating system.</con-toe>
       <con-sec-prob/>
       <con-obj/>
       <con-op-en/>
-      <con-mod id="T.BACKUP"> This threat protects user data from unauthorized logical access. An
-        attacker would attempt to exploit this threat by first exploiting the T.PHYSICAL, T.FLAWAPP,
-        or T.PERSISTENT threats defined in the <abbr linkend="Base-PP"/> against the mobile device
-        as a whole, and then using the device itself as an attack vector against any backup data
-        stored on the TOE.</con-mod>
-      <con-mod id="O.ACCOUNTABILITY"> The <abbr linkend="Base-PP"/> provides an objective,
-        O.INTEGRITY, that ensures that the integrity of the mobile device is maintained. This
-        objective assists in the implementation of O.INTEGRITY by providing records of
-        administrative activity, which would include actions that could cause the integrity of the
-        mobile device to be lost.</con-mod>
-      <con-mod id="O.APPLY_POLICY"> This objective supports the implementation of the O.CONFIG
-        objective defined in the <abbr linkend="Base-PP"/> by specifying an additional method by
-        which the TSF may be configured.</con-mod>
-      <con-mod id="O.DATA_PROTECTION_TRANSIT"> This objective extends the <abbr linkend="Base-PP"
-        />’s O.COMMS objective by ensuring that the communications related to <abbr linkend="MDM"/>
-        Agent functionality are secured in the same manner as other sensitive data transmitted
-        to/from the mobile device.</con-mod>
-      <con-mod id="O.STORAGE"> This objective extends the <abbr linkend="Base-PP"/>’s O.STORAGE
-        objective by ensuring that the mobile device’s data-at-rest protection mechanisms can also
-        be used to secure the <abbr linkend="MDM"/> Agent and related data.</con-mod>
-      <con-mod id="OE.DATA_PROPER_ADMIN"> This objective extends the <abbr linkend="Base-PP"/>’s
-        OE.CONFIG objective by expecting that TOE administrators act appropriately when installing
-        or configuring the <abbr linkend="MDM"/> Agent.</con-mod>
-      <con-mod id="OE.DATA_PROPER_USER"> This objective extends the <abbr linkend="Base-PP"/>’s
-        OE.NOTIFY and OE.PRECAUTION objectives by setting reasonable expectations for user security
-        behavior.</con-mod>
-      <con-mod id="OE.IT_ENTERPRISE"> This objective helps mitigate the T.EAVESDROP and T.NETWORK
-        threats defined by the <abbr linkend="Base-PP"/> by reducing the network exposure of the
-        mobile device. This does not conflict with the <abbr linkend="Base-PP"/> because the <abbr
-          linkend="Base-PP"/> does not set specific expectations for the level of security that the
-        enterprise provides, but all use cases from the <abbr linkend="Base-PP"/> set expectations
-        that the mobile device is used for some enterprise purposes so it is reasonable to expect
-        the enterprise have security controls in place to protect these functions. </con-mod>
-      <con-mod id="OE.MOBILE_DEVICE_PLATFORM"> This objective is suitable because the <abbr
-          linkend="MDM"/> Agent can reasonably expect the device it has been deployed on to be
-        secure.</con-mod>
-      <con-mod id="OE.WIRELESS_NETWORK"> This objective is suitable because while the <abbr
-          linkend="Base-PP"/> does not associate any availability metrics with wireless
-        communications, the mobile device will always provide the ability to access a wireless
-        network.</con-mod>
-      <con-mod id="fau_alt_ext.2"> This SFR requires the <abbr linkend="MDM"/> Agent to use a
-        trusted channel defined by FTP_ITC_EXT.1 in the <abbr linkend="Base-PP"/> to transmit data
-        about its own behavior to the Operational Environment.</con-mod>
-      <con-mod id="fau_gen.1(2)"> The <abbr linkend="Base-PP"/> defines FAU_GEN.1; this <abbr
-          linkend="PP-Module"/> defines a second iteration to use the same audit mechanism to
-        generate audit records for the <abbr linkend="MDM"/> Agent’s behavior. It may alternatively
-        allow the TSF to generate its own audit trail, which does not impede the MDF from enforcing
-        its own security functionality.</con-mod>
-      <con-mod id="fau_sel.1(2)"> The <abbr linkend="Base-PP"/> defines FAU_SEL.1; this <abbr
-          linkend="PP-Module"/> defines a second iteration to use the same audit mechanism to select
-        the auditable events to be generated by the <abbr linkend="MDM"/> Agent. Note that the <abbr
-          linkend="Base-PP"/> does not mandate this requirement so it is possible that only the
-          <abbr linkend="MDM"/> Agent portion of the TOE may implement it. In this case, the SFR
-        provides a selection for the <abbr linkend="MDM"/> Agent to implement its own mechanism to
-        perform this function rather than a platform-provided one.</con-mod>
-      <con-mod id="fia_enr_ext.2"> This SFR requires the <abbr linkend="MDM"/> Agent to record data
-        that it receives from the Operational Environment. It does not need to use any functionality
-        defined in the <abbr linkend="Base-PP"/> to do this, and doing this does not prevent the
-        enforcement of any security requirements from the <abbr linkend="Base-PP"/>. </con-mod>
-      <con-mod id="fmt_pol_ext.2"> This SFR requires the <abbr linkend="MDM"/> Agent to use a
-        digital signature algorithm to validate data that it receives from the Operational
-        Environment. To do this, the <abbr linkend="MDM"/> Agent will use the functionality defined
-        by the <abbr linkend="Base-PP"/> in FCS_COP.1(3).</con-mod>
-      <con-mod id="fmt_smf_ext.4"> This SFR defines the ability of the <abbr linkend="MDM"/> Agent
-        to interact with the mobile device to execute the management functions defined by
-        FMT_MOF_EXT.1 in the <abbr linkend="Base-PP"/>. The <abbr linkend="Base-PP"/> specifically
-        indicates in FMT_MOF_EXT.1.2 that some management functions may be performed via
-        MDM.</con-mod>
-      <con-mod id="fmt_unr_ext.1"> This SFR defines the functions performed by the <abbr
-          linkend="MDM"/> Agent when unenrolled from an <abbr linkend="MDM"/>. The <abbr
-          linkend="Base-PP"/> defines unenrollment actions in FMT_SMF_EXT.2, and goes on to note
-        that these actions may be performed “perhaps via an <abbr linkend="MDM"/> agent,” so this is
-        expected behavior. </con-mod>
-      <con-mod id="fau_stg_ext.3"> This SFR defines the ability of the <abbr linkend="MDM"/> Agent
-        to store generated audit data in the audit storage provided by the mobile device. The <abbr
-          linkend="Base-PP"/> defines the capability for audit storage in FAU_STG.1.</con-mod>
-      <con-mod id="fpt_net_ext.1"> This SFR defines the ability of the <abbr linkend="MDM"/> Agent
-        to maintain information about its last successful connection with the environmental <abbr
-          linkend="MDM"/> Server (i.e., the last successful invocation of the trusted channel for
-        that interface, as defined in FTP_ITC_EXT.1 of the <abbr linkend="Base-PP"/>). It does not
-        need to use any functionality defined in the <abbr linkend="Base-PP"/> to do this, and doing
-        this does not prevent the enforcement of any security requirements from the <abbr
-          linkend="Base-PP"/>.</con-mod> -->
+      <con-mod id="T.TSF_FAILURE">The Base-PP defines threats for local attacks and remote attacks, both of which could cause a failure of the TSF. This PP-Module adds a generic TSF failure threat
+      in the event that the WLAN Client fails through unintended system behavior rather than a direct malicious attack.</con-mod>
+      <con-mod id="T.UNAUTHORIZED_ACCESS">The Base-PP defines threats for local attacks and remote attacks. The threat of unauthorized access to the WLAN Client is a specific threat that results from successful exploitation 
+      of one of these Base-PP threats.</con-mod>
+      <con-mod id="T.UNDETECTED_ACTIONS">The Base-PP defines threats for local attacks and remote attacks. It does not define a threat specifically for undetected actions but it does map the local attack and remote attack threats to a
+      TOE objective for accountability. Therefore, the threat of undetected actions is consistent with the Base-PP because this is a subset of the threats defined in the Base-PP, or a mechanism to increase the likelihood that these
+      threats will successfully be exploited.</con-mod>          
+
+      <con-mod id="O.AUTH_COMM">This objective is specifically for a communications interface that is defined by the PP-Module, but it is consistent with the general O.PROTECTED_COMMS objective specified in the Base-PP.</con-mod>
+      <con-mod id="O.CRYPTOGRAPHIC_FUNCTIONS">The TOE implements this objective in part by relying on the cryptographic functionality specified in the Base-PP to address the Base-PP's O.PROTECTED_COMMS objective. The PP-Module
+      uses these cryptographic functions for the same purpose as the Base-PP.</con-mod>
+      <con-mod id="O.SELF_TEST">The Base-PP defines a general O.INTEGRITY objective; this PP-Module defines O.SELF_TEST as a specific method of guaranteeing the integrity of the TOE.</con-mod>
+      <con-mod id="O.SYSTEM_MONITORING">The Base-PP defines an O.ACCOUNTABILITY objective for system auditing. The O.SYSTEM_MONITORING objective in this PP-Module serves the same purpose.</con-mod>
+      <con-mod id="O.TOE_ADMINISTRATION">The Base-PP defines an O.MANAGEMENT objective for TOE administration. The O.TOE_ADMINISTRTION objective in this PP-Module serves the same purpose.</con-mod>
+      <con-mod id="O.WIRELESS_ACCESS_POINT_CONNECTION">This objective relates to behavior that applies to a communications interface defined in this PP-Module and therefore does not relate to the Base-PP's functionality.</con-mod>
+          
+      <con-mod id="OE.NO_TOE_BYPASS">This objective relates to the deployment of the TOE in relation to the network resources that it interacts with. It does not enforce any restrictions on the TOE's deployment that are contrary to
+      what the Base-PP requires.</con-mod>
+      <con-mod id="OE.TRUSTED_ADMIN">The Base-PP defines OE.PROPER_USER and OE.PROPER_ADMIN objectives that serve the same purpose as OE.TRUSTED_ADMIN in this PP-Module.</con-mod>          
+
+      <con-mod id="fcs_ckm_ext.3">The PP-Module does not modify this SFR; it only requires that the functionality implemented by the Base-PP can also be used by the PP-Module.</con-mod>
+      <con-mod id="fcs_cop.1">The PP-Module does not modify this SFR; it only requires that the functionality implemented by the Base-PP can also be used by the PP-Module.</con-mod>  
+      <con-mod id="fcs_rbg_ext.1">The PP-Module does not modify this SFR; it only requires that the functionality implemented by the Base-PP can also be used by the PP-Module.</con-mod>
+          
+      <con-mod id="fau_gen.1/wlan">The Base-PP defines its own auditing mechanism; this PP-Module can use that mechanism or implement its own to generate audit records for security-relevant events that are specific to this PP-Module.</con-mod>
+      <con-mod id="fcs_ckm.1/wlan">This SFR requires the TOE to generate cryptographic keys that are only used by the PP-Module's functionality. It invokes Base-PP functionality to do this in a manner that the Base-PP permits.</con-mod>  
+      <con-mod id="fcs_ckm.2/wlan">This SFR requires the TOE to perform a decryption operation using AES Key Wrap, which is a function that the Base-PP provides.</con-mod>
+      <con-mod id="fcs_tlsc_ext.1/wlan">This SFR requires the TOE to implement EAP-TLS; this protocol relies on the same cryptographic functionality that the Base-PP uses to implement TLS.</con-mod>
+      <con-mod id="fia_pae_ext.1">This SFR defines the ability of the TOE to implement IEEE 802.1X. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>  
+      <con-mod id="fia_x509_ext.2/wlan">This SFR defines the TOE's use of X.509 certificates in EAP-TLS. This function uses the same certificate validation functionality that the Base-PP defines.</con-mod>
+      <con-mod id="fmt_smf.1/wlan">This SFR defines the management activities that are specific to this PP-Module. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
+      <con-mod id="fpt_tst_ext.1/wlan">This SFR defines self-test behavior for the WLAN Client. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>  
+      <con-mod id="fta_wse_ext.1">This SFR requires the TOE to restrict the wirless networks that it can connect to. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
+      <con-mod id="ftp_itc_ext.1/wlan">This SFR defines the protocols that the TOE uses for secure wireless communications. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
+          
+      <con-mod id="fia_x509_ext.4">This SFR defines behavior for implementing certificate storage. As this function is optional, it does not interfere with any certificate storage mechanism enforced by the Base-PP.</con-mod>
+          
+      <con-mod id="fcs_tlsc_ext.2/wlan">This SFR requires the TOE to validate a specific TLS extension when establishing EAP-TLS communications. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
     </base-pp>
     
     <base-pp version="3.1" name="Mobile Device Fundamentals" product="Mobile Device" short="MDF"
@@ -622,7 +577,7 @@
             </note>
           </f-component>
           
-          
+          <!-- SME: technically we could modify this SFR to require AES-KW to be selected since the Module needs that capability to perform the GTK decrypt operation. Should this be done? -->
           <f-component id="fcs_cop.1" name="Cryptographic Operation">
             <note role="application">Several iterations of this SFR exist in the MDF PP and do not need to be
               modified for this PP-Module. Note however that their scope is expanded to include cryptographic
