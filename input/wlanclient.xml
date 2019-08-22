@@ -1650,6 +1650,18 @@
     </man-sfrs>
     
     <opt-sfrs>
+      As indicated in <secref linkend="ccl"/>,
+      the baseline requirements (those that must be performed by the TOE are
+      contained in the body of this PP. Additionally, there are three other types of requirements
+      specified in <appref linkend="optional"/>, <appref linkend="sel-based"/>, and <appref
+        linkend="objective"/>. The first type (in this appendix) are requirements that can be included
+      in the <abbr linkend="ST"/>, but are not required in order for a TOE to claim conformance to
+      this PP-Module. The second type (in <appref linkend="sel-based"/>) are requirements based on selections
+      in the body of the PP-Module: if certain selections are made, then additional requirements in that
+      appendix must be included. The third type (in <appref linkend="objective"/> are components that
+      are not required in order to conform to this PP-Module, but will be included in the baseline
+      requirements in future versions of this PP-Module, so adoption by vendors is encouraged. 
+      
       <subsection title="Identification and Authentication (FIA)" id="fia_opt">
         
         <f-component id="fia_x509_ext.4" name="X.509 Certificate Storage and Management">
@@ -1700,7 +1712,10 @@
     </opt-sfrs>
 
     <sel-sfrs>
-      
+      As indicated in the introduction to
+      this PP-Module, the baseline requirements are contained in the body of this PP-Module. There are additional requirements based on
+      selections in the body of the PP-Module: if certain selections are made, then additional requirements
+      below will need to be included. 
       <subsection id="fcs_sel" title="Cryptographic Support (FCS)">
         <!-- SME: should this also be expanded to include the ffdhe groups from the most recent TLS package?  -->
         <f-component id="fcs_tlsc_ext.2/wlan" name="TLS Client Support for Supported Groups Extension (EAP-TLS for WLAN)" status="sel-based">
