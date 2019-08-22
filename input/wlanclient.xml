@@ -1215,47 +1215,7 @@
           </aactivity>
         </f-component>
         
-        <!-- SME: should this also be expanded to include the ffdhe groups from the most recent TLS package?  -->
-        <f-component id="fcs_tlsc_ext.2/wlan" name="TLS Client Support for Supported Groups Extension (EAP-TLS for WLAN)" status="sel-based">
-          <selection-depends req="fcs_tlsc_ext.1.1/wlan"/>
-          <consistency-rationale/>
-          <f-element id="fcs_tlsc_ext.2.1/wlan">
-            <title>The TSF shall present the Supported Groups extension in the Client Hello with the following NIST curves:
-              <selectables>
-                <selectable>secp256r1</selectable>
-                <selectable>secp384r1</selectable>
-                <selectable>secp521r1</selectable>
-              </selectables>.
-            </title>
-            <note role="application">This requirement must be claimed if any cipher suites beginning with 'TLS-ECDHE' are selected in FCS_TLSC_EXT.1.1/WLAN.
-              <h:p/>
-              This requirement does not limit the elliptic curves the client may propose for authentication and key agreement.  
-              Rather, it asks the ST author to define which of the NIST curves from FCS_COP.1(3) (defined in each supported Base-PP) and FCS_CKM.1/WLAN and FCS_CKM.2/WLAN (each defined in this PP-Module).
-            </note>            
-          </f-element>
-              <aactivity>
-            <TSS>
-              The evaluator shall verify that the TSS describes the Supported Groups extension and
-              whether the required behavior is performed by default or may be configured. 
-              <h:p/>  
-            </TSS>
-            <Guidance>
-              If the TSS indicates that the Supported Groups extension must be configured to meet
-              the requirement, the evaluator shall verify that the operational guidance includes instructions
-              for configuration of this extension.
-              <h:p/> 
-            </Guidance>
-            <Tests>
-              The evaluator shall perform the following test:
-              <testlist>
-                <test>The evaluator shall configure the server to perform an ECDHE key exchange
-                  message in the TLS connection using a non-supported ECDHE curve (for example, P192) and shall verify that the TSF disconnects after receiving the server’s Key Exchange
-                  handshake message.
-                </test>
-              </testlist>
-            </Tests>
-          </aactivity>
-        </f-component>
+ 
        </subsection>
       
       <subsection id="fia" title="Identification and Authentication (FIA)">
@@ -1400,48 +1360,7 @@
         </f-component>
         
         
-        <f-component id="fia_x509_ext.4" name="X.509 Certificate Storage and Management" status="optional">
-          <consistency-rationale/>
-          <f-element id="fia_x509_ext.4.1">
-            <title>The TSF shall store and protect certificate(s) from unauthorized deletion and
-              modification.
-            </title>      
-          </f-element>
-          <f-element id="fia_x509_ext.4.2">
-            <title>The TSF shall provide the capability for authorized administrators to load
-            X.509v3 certificates into the TOE for use by the TSF.
-            </title>        
-            <note role="application">
-              This SFR may be included if the TOE includes the capability to store and manage certificates. Note that this
-              is intended to be used if the certificate storage capability is actually provided by the TOE and not in cases where
-              the TSF is relying on a storage mechanism that is part of the underlying platform.
-            </note>   
-          </f-element>            
-          <aactivity>
-            <TSS>
-              The evaluator shall examine the TSS to determine that it describes all certificate stores
-              implemented that contain certificates used to meet the requirements of this PP-Module. This description
-              shall contain information pertaining to how certificates are loaded into the store, and how the
-              store is protected from unauthorized access.
-              <h:p/>  
-            </TSS>
-            <Guidance>
-              The evaluator shall check the administrative guidance to ensure that it describes how to load X.509 certificates into the TOE's certificate store.
-              <h:p/> 
-            </Guidance>
-            <Tests>
-              The evaluator shall perform the following test for each TOE function that requires the use of certificates:
-              <testlist>
-                <test>
-                  The evaluator shall demonstrate that using a certificate without a valid certification path
-                  results in the function failing. The evaluator shall then load any certificates needed to
-                  validate the certificate to be used in the function and demonstrate that the function succeeds.
-                  The evaluator then shall delete one of these dependent certificates and show that the function fails.
-                </test>
-              </testlist>                           
-            </Tests>
-          </aactivity>
-        </f-component>
+
         
        </subsection>  
       
@@ -1729,13 +1648,106 @@
 
  
     </man-sfrs>
+    
+    <opt-sfrs>
+      <subsection title="Identification and Authentication (FIA)" id="fia_opt">
+        
+        <f-component id="fia_x509_ext.4" name="X.509 Certificate Storage and Management">
+          <consistency-rationale/>
+          <f-element id="fia_x509_ext.4.1">
+            <title>The TSF shall store and protect certificate(s) from unauthorized deletion and
+              modification.
+            </title>      
+          </f-element>
+          <f-element id="fia_x509_ext.4.2">
+            <title>The TSF shall provide the capability for authorized administrators to load
+              X.509v3 certificates into the TOE for use by the TSF.
+            </title>        
+            <note role="application">
+              This SFR may be included if the TOE includes the capability to store and manage certificates. Note that this
+              is intended to be used if the certificate storage capability is actually provided by the TOE and not in cases where
+              the TSF is relying on a storage mechanism that is part of the underlying platform.
+            </note>   
+          </f-element>            
+          <aactivity>
+            <TSS>
+              The evaluator shall examine the TSS to determine that it describes all certificate stores
+              implemented that contain certificates used to meet the requirements of this PP-Module. This description
+              shall contain information pertaining to how certificates are loaded into the store, and how the
+              store is protected from unauthorized access.
+              <h:p/>  
+            </TSS>
+            <Guidance>
+              The evaluator shall check the administrative guidance to ensure that it describes how to load X.509 certificates into the TOE's certificate store.
+              <h:p/> 
+            </Guidance>
+            <Tests>
+              The evaluator shall perform the following test for each TOE function that requires the use of certificates:
+              <testlist>
+                <test>
+                  The evaluator shall demonstrate that using a certificate without a valid certification path
+                  results in the function failing. The evaluator shall then load any certificates needed to
+                  validate the certificate to be used in the function and demonstrate that the function succeeds.
+                  The evaluator then shall delete one of these dependent certificates and show that the function fails.
+                </test>
+              </testlist>                           
+            </Tests>
+          </aactivity>
+        </f-component>
+        
+      </subsection>
+      
+    </opt-sfrs>
 
-
+    <sel-sfrs>
+      
+      <subsection id="fcs_sel" title="Cryptographic Support (FCS)">
+        <!-- SME: should this also be expanded to include the ffdhe groups from the most recent TLS package?  -->
+        <f-component id="fcs_tlsc_ext.2/wlan" name="TLS Client Support for Supported Groups Extension (EAP-TLS for WLAN)" status="sel-based">
+          <selection-depends req="fcs_tlsc_ext.1.1/wlan"/>
+          <consistency-rationale/>
+          <f-element id="fcs_tlsc_ext.2.1/wlan">
+            <title>The TSF shall present the Supported Groups extension in the Client Hello with the following NIST curves:
+              <selectables>
+                <selectable>secp256r1</selectable>
+                <selectable>secp384r1</selectable>
+                <selectable>secp521r1</selectable>
+              </selectables>.
+            </title>
+            <note role="application">This requirement must be claimed if any cipher suites beginning with 'TLS-ECDHE' are selected in FCS_TLSC_EXT.1.1/WLAN.
+              <h:p/>
+              This requirement does not limit the elliptic curves the client may propose for authentication and key agreement.  
+              Rather, it asks the ST author to define which of the NIST curves from FCS_COP.1(3) (defined in each supported Base-PP) and FCS_CKM.1/WLAN and FCS_CKM.2/WLAN (each defined in this PP-Module).
+            </note>            
+          </f-element>
+          <aactivity>
+            <TSS>
+              The evaluator shall verify that the TSS describes the Supported Groups extension and
+              whether the required behavior is performed by default or may be configured. 
+              <h:p/>  
+            </TSS>
+            <Guidance>
+              If the TSS indicates that the Supported Groups extension must be configured to meet
+              the requirement, the evaluator shall verify that the operational guidance includes instructions
+              for configuration of this extension.
+              <h:p/> 
+            </Guidance>
+            <Tests>
+              The evaluator shall perform the following test:
+              <testlist>
+                <test>The evaluator shall configure the server to perform an ECDHE key exchange
+                  message in the TLS connection using a non-supported ECDHE curve (for example, P192) and shall verify that the TSF disconnects after receiving the server’s Key Exchange
+                  handshake message.
+                </test>
+              </testlist>
+            </Tests>
+          </aactivity>
+        </f-component>
+      </subsection>
+      
+    </sel-sfrs>
   </chapter>
 
-  <!-- 
-       SME: the last sentence of this  
-  -->
   <appendix title="Optional Requirements" id="optional"> As indicated in <secref linkend="ccl"/>,
     the baseline requirements (those that must be performed by the TOE are
     contained in the body of this PP. Additionally, there are three other types of requirements
@@ -1755,7 +1767,10 @@
   <appendix title="Selection-Based Requirements" id="sel-based"> As indicated in the introduction to
     this PP-Module, the baseline requirements are contained in the body of this PP-Module. There are additional requirements based on
     selections in the body of the PP-Module: if certain selections are made, then additional requirements
-    below will need to be included. </appendix>
+    below will need to be included. 
+  
+  
+  </appendix>
 
   <!-- 
        Do NOT put SFRs in this section. All SFR belong up above in SFR section. 
