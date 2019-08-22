@@ -903,7 +903,6 @@
       
       <subsection id="fcs" title="Cryptographic Support (FCS)">
         
-        <!-- to do: Move this intro text down to an app note if it doesn't display here. -->
         
         The cryptographic requirements are also structured to require the use of the Wi-Fi certification
         requirements for WPA2 enterprise, based on the IEEE 802.11 standard. The Wi-Fi Alliance
@@ -1062,16 +1061,14 @@
         
         <!-- SME: the TLS cipher suites in this SFR were out of date compared to recent PPs. Additionally, TLS_RSA_WITH_AES_128_CBC_SHA is not being mandated in PPs anymore. We have updated the cipher suites to be consistent with 
         NDcPP. Please confirm appropriateness. -->
-        
-        <!-- to do: review TLS testing and determine if NDcPP is different, pose SME question if so. -->
-        <f-component id="fcs_tlsc_ext.1/wlan" name="Cryptographic Key Distribution (Group Temporal Key for WLAN)">
+        <f-component id="fcs_tlsc_ext.1/wlan" name="TLS Client Protocol (EAP-TLS for WLAN)">
           <consistency-rationale/>
           <f-element id="fcs_tlsc_ext.1.1/wlan">
             <title>The TSF shall implement TLS 1.2 (RFC 5246) and               
             <selectables>
               <selectable>TLS 1.1 (RFC 4346)</selectable>
               <selectable>no other TLS version</selectable>
-            </selectables> in support of the EAP-TLS protocol as specified in RFC supporting the following cipher suites:
+            </selectables> in support of the EAP-TLS protocol as specified in RFC 5216 supporting the following cipher suites:
             <selectables linebreak="yes">
                 <selectable>TLS_RSA_WITH_AES_128_CBC_SHA as defined in RFC 3268</selectable>
                 <selectable>TLS_RSA_WITH_AES_256_CBC_SHA as defined in RFC 3268</selectable>
@@ -1138,13 +1135,11 @@
             <TSS>
               The evaluator shall check the description of the implementation of this protocol in the TSS to
               ensure that the cipher suites supported are specified. The evaluator shall check the TSS to ensure
-              that the cipher suites specified include those listed for this component. The evaluator shall also
-              check the operational guidance to ensure that it contains instructions on configuring the TOE so
-              that TLS conforms to the description in the TSS. 
+              that the cipher suites specified include those listed for this component.
               <h:p/>  
             </TSS>
             <Guidance>
-              The evaluator shall also check the operational guidance to ensure that it contains instructions on
+              The evaluator shall check the operational guidance to ensure that it contains instructions on
               configuring the TOE so that TLS conforms to the description in the TSS (for instance, the set of
               cipher suites advertised by the TOE may have to be restricted to meet the requirements).
               <h:p/> 
@@ -1165,8 +1160,8 @@
                   establishment of a higher-level protocol, e.g., as part of an EAP session. It is sufficient to
                   observe the successful negotiation of a cipher suite to satisfy the intent of the test; it is
                   not necessary to examine the characteristics of the encrypted traffic in an attempt to
-                  discern the cipher suite being used (for example, that the cryptographic algorithm is 128-
-                  bit AES and not 256-bit AES).
+                  discern the cipher suite being used (for example, that the cryptographic algorithm is 128-bit
+                  AES and not 256-bit AES).
                 </test>
                 <test>
                   The evaluator shall attempt to establish the connection using a server with a
@@ -1192,7 +1187,7 @@
                 <test>
                   The evaluator shall perform the following modifications to the traffic:
                   <h:ul>
-                    <h:li>Change the TLS version selected by the server in the Server Hello to a nonsupported TLS version (for example 1.3 represented by the two bytes 03 04) and
+                    <h:li>Change the TLS version selected by the server in the Server Hello to a nonsupported TLS version (for example 1.5 represented by the two bytes 03 06) and
                       verify that the client rejects the connection.</h:li>
                     <h:li>Modify at least one byte in the server’s nonce in the Server Hello handshake
                       message, and verify that the client rejects the Server Key Exchange handshake
@@ -1202,14 +1197,60 @@
                       to be a cipher suite not presented in the Client Hello handshake message. The
                       evaluator shall verify that the client rejects the connection after receiving the
                       Server Hello.</h:li>
-                    <h:li>Modify the signature block in the Server’s Key Exchange handshake message,
-                      and verify that the client rejects the connection after receiving the Server Key
-                      Exchange message.</h:li>
-                    <h:li>Modify a byte in the Server Finished handshake message, and verify that the
-                      client sends a fatal alert upon receipt and does not send any application data.</h:li>
-                    <h:li>Send a garbled message from the Server after the Server has issued the
+                    <h:li>[conditional: the TOE supports at least one cipher suite that uses DHE or ECDHE for key exchange]  
+                      Modify the signature block in the Server’s Key
+                      Exchange handshake message, and verify that the client rejects the
+                      connection after receiving the Server Key Exchange message. This test
+                      does not apply to cipher suites using RSA key exchange.</h:li>
+                    <h:li>Modify a byte in the Server Finished handshake message, and verify
+                      that the client sends an Encrypted Message followed by a FIN and
+                      ACK message. This is sufficient to deduce that the TOE responded
+                      with a Fatal Alert and no further data would be sent.</h:li>
+                    <h:li>Send a garbled message from the server after the server has issued the
                       ChangeCipherSpec message and verify that the client denies the connection.</h:li>
                   </h:ul>
+                </test>
+              </testlist>
+            </Tests>
+          </aactivity>
+        </f-component>
+        
+        <!-- SME: should this also be expanded to include the ffdhe groups from the most recent TLS package?  -->
+        <f-component id="fcs_tlsc_ext.2/wlan" name="TLS Client Support for Supported Groups Extension (EAP-TLS for WLAN)" status="sel-based">
+          <selection-depends req="fcs_tlsc_ext.1.1/wlan"/>
+          <consistency-rationale/>
+          <f-element id="fcs_tlsc_ext.2.1/wlan">
+            <title>The TSF shall present the Supported Groups extension in the Client Hello with the following NIST curves:
+              <selectables>
+                <selectable>secp256r1</selectable>
+                <selectable>secp384r1</selectable>
+                <selectable>secp521r1</selectable>
+              </selectables>.
+            </title>
+            <note role="application">This requirement must be claimed if any cipher suites beginning with 'TLS-ECDHE' are selected in FCS_TLSC_EXT.1.1/WLAN.
+              <h:p/>
+              This requirement does not limit the elliptic curves the client may propose for authentication and key agreement.  
+              Rather, it asks the ST author to define which of the NIST curves from FCS_COP.1(3) (defined in each supported Base-PP) and FCS_CKM.1/WLAN and FCS_CKM.2/WLAN (each defined in this PP-Module).
+            </note>            
+          </f-element>
+              <aactivity>
+            <TSS>
+              The evaluator shall verify that the TSS describes the Supported Groups extension and
+              whether the required behavior is performed by default or may be configured. 
+              <h:p/>  
+            </TSS>
+            <Guidance>
+              If the TSS indicates that the Supported Groups extension must be configured to meet
+              the requirement, the evaluator shall verify that the operational guidance includes instructions
+              for configuration of this extension.
+              <h:p/> 
+            </Guidance>
+            <Tests>
+              The evaluator shall perform the following test:
+              <testlist>
+                <test>The evaluator shall configure the server to perform an ECDHE key exchange
+                  message in the TLS connection using a non-supported ECDHE curve (for example, P192) and shall verify that the TSF disconnects after receiving the server’s Key Exchange
+                  handshake message.
                 </test>
               </testlist>
             </Tests>
@@ -1219,7 +1260,6 @@
       
       <subsection id="fia" title="Identification and Authentication (FIA)">
         
-        <!-- to do: Move this intro text down to an app note if it doesn't display here. -->
         
         The baseline requirements for the TOE are fairly limited with respect to I&amp;A, since no formal
         administrative or general purpose users are defined. The extent of the I&amp;A required to be
@@ -1269,7 +1309,7 @@
           </f-element>
             <aactivity>
               <TSS>
-                There are no TSS evaluation activities for thsi component.
+                There are no TSS evaluation activities for this component.
                 <h:p/>  
               </TSS>
               <Guidance>
@@ -1300,7 +1340,7 @@
         (because the GPOS version lacks a 2.2). -->
         <f-component id="fia_x509_ext.2/wlan" name="X.509 Certificate Authentication (EAP-TLS for WLAN)">
           <consistency-rationale/>
-          <f-element id="fia_x509_ext.2.1">
+          <f-element id="fia_x509_ext.2.1/wlan">
             <title>The TSF shall use X.509v3 certificates as defined by RFC 5280 to
               support [<h:i>[authentication for EAP-TLS exchanges]</h:i>].
             </title>
@@ -1311,7 +1351,7 @@
               implement in order to support compliance with this RFC.
             </note>            
           </f-element>
-          <f-element id="fia_x509_ext.2.1">
+          <f-element id="fia_x509_ext.2.2/wlan">
             <title>When the TSF cannot establish a connection to determine the validity of a
               certificate, the TSF shall 
               <selectables>
@@ -1358,12 +1398,56 @@
             </Tests>
           </aactivity>
         </f-component>
+        
+        
+        <f-component id="fia_x509_ext.4" name="X.509 Certificate Storage and Management" status="optional">
+          <consistency-rationale/>
+          <f-element id="fia_x509_ext.4.1">
+            <title>The TSF shall store and protect certificate(s) from unauthorized deletion and
+              modification.
+            </title>      
+          </f-element>
+          <f-element id="fia_x509_ext.4.2">
+            <title>The TSF shall provide the capability for authorized administrators to load
+            X.509v3 certificates into the TOE for use by the TSF.
+            </title>        
+            <note role="application">
+              This SFR may be included if the TOE includes the capability to store and manage certificates. Note that this
+              is intended to be used if the certificate storage capability is actually provided by the TOE and not in cases where
+              the TSF is relying on a storage mechanism that is part of the underlying platform.
+            </note>   
+          </f-element>            
+          <aactivity>
+            <TSS>
+              The evaluator shall examine the TSS to determine that it describes all certificate stores
+              implemented that contain certificates used to meet the requirements of this PP-Module. This description
+              shall contain information pertaining to how certificates are loaded into the store, and how the
+              store is protected from unauthorized access.
+              <h:p/>  
+            </TSS>
+            <Guidance>
+              The evaluator shall check the administrative guidance to ensure that it describes how to load X.509 certificates into the TOE's certificate store.
+              <h:p/> 
+            </Guidance>
+            <Tests>
+              The evaluator shall perform the following test for each TOE function that requires the use of certificates:
+              <testlist>
+                <test>
+                  The evaluator shall demonstrate that using a certificate without a valid certification path
+                  results in the function failing. The evaluator shall then load any certificates needed to
+                  validate the certificate to be used in the function and demonstrate that the function succeeds.
+                  The evaluator then shall delete one of these dependent certificates and show that the function fails.
+                </test>
+              </testlist>                           
+            </Tests>
+          </aactivity>
+        </f-component>
+        
        </subsection>  
       
       
       <subsection id="fmt" title="Security Management (FMT)">
         
-        <!-- to do: Move this intro text down to an app note if it doesn't display here. -->
         
         <!-- SME: need clarification on what to do with this since it doesn't seem to be totally correct at the moment - notably, section 1 doesn't say anything about a separate management role as claimed here. -->
         As indicated in Section 1, the TOE is not required to maintain a separate management
@@ -1384,9 +1468,9 @@
                   <h:li><selectables>
                     <selectable>specify the CA(s) from which the TSF will accept WLAN authentication server certificate(s)</selectable>
                     <selectable>specify the FQDN(s) of acceptable WLAN authentication server certificate(s)</selectable>
-                  </selectables></h:li>
-                  <h:li>security type</h:li>
-                  <h:li>authentication protocol</h:li>
+                  </selectables>,</h:li>
+                  <h:li>security type,</h:li>
+                  <h:li>authentication protocol,</h:li>
                   <h:li>client credentials to be used for authentication</h:li>
                 </h:ul></h:li>
               </h:ul>
@@ -1400,8 +1484,8 @@
                 <selectable>disable roaming capability</selectable>
                 <selectable>enable/disable IEEE 802.1X pre-authentication</selectable>
                 <selectable>enable/disable and configure PMK caching:<h:ul>
-                  <h:li>set the amount of time (in minutes) for which PMK entries are cached;</h:li>
-                  <h:li>set the maximum number of PMK entries that can be cached;</h:li>
+                  <h:li>set the amount of time (in minutes) for which PMK entries are cached,</h:li>
+                  <h:li>set the maximum number of PMK entries that can be cached</h:li>
                 </h:ul>
                 </selectable>                
               </selectables></h:i>].
@@ -1418,11 +1502,11 @@
           </f-element>
           <aactivity>
             <TSS>
-              There are no TSS evaluation activities for thsi component.
+              There are no TSS evaluation activities for this component.
               <h:p/>  
             </TSS>
             <Guidance>
-              The evaluator shall the operational guidance to verify that every management function claimed by the TOE is described there. The evaluator shall also verify
+              The evaluator shall check the operational guidance to verify that every management function claimed by the TOE is described there. The evaluator shall also verify
               that these descriptions include the information required to perform the management duties associated with the function.
               <h:p/> 
             </Guidance>
@@ -1431,46 +1515,246 @@
               TOE and performing the management activities associated with each function claimed in the SFR. 
               <h:p/> 
               Note that this may be accomplished in conjunction with the testing of other
-              requirements, such as FCS_TLSC_EXT.1/WLAN and FTA_WSE_EXT.                       
+              requirements, such as FCS_TLSC_EXT.1/WLAN and FTA_WSE_EXT.1.                       
             </Tests>
           </aactivity>
         </f-component>      
       </subsection>     
+ 
+      <subsection id="fpt" title="Protection of the TSF (FPT)">
+        
+        <!-- SME: note that both GPOS and MDF have an FPT_TST_EXT.1 but neither of them correspond directly to this SFR. Unclear whether it should remain an iteration or if it should be renamed. -->
+        <f-component id="fpt_tst_ext.1/wlan" name="TSF Cryptographic Functionality Testing (WLAN Client)">
+          <consistency-rationale/>
+          <f-element id="fpt_tst_ext.1.1/wlan">
+            <title>The <selectables>
+              <selectable>TOE</selectable>
+              <selectable>TOE platform</selectable>
+            </selectables> shall run a suite of self-tests during initial start-up (on power on) to demonstrate the correct operation of the TSF.
+            </title>
+          </f-element>
+          <f-element id="fpt_tst_ext.1.2/wlan">
+            <title>The <selectables>
+              <selectable>TOE</selectable>
+              <selectable>TOE platform</selectable>
+            </selectables> shall provide the capability to
+              verify the integrity of stored TSF executable code when it is loaded for execution through the
+              use of the TSF-provided cryptographic services.
+            </title>
+            
+            <note role="application">
+              While the TOE is defined as a software package running on a platform defined by the claimed Base-PP, it
+              is still capable of performing the self-test activities required above. However, if the
+              cryptographic algorithm implementation is provided by the underlying platform, it may be the
+              case where the TSF self-testing is a check to verify that the underlying platform has successfully
+              completed its own self-tests prior to the TSF attempting to use the implementation. It should be
+              understood that there is a significant dependency on the host platform in assessing the
+              assurance provided by these self-tests since a compromise of the underlying platform could
+              potentially result in the self-tests functioning incorrectly.
+           </note>  
+          </f-element>
+          <aactivity>
+            <TSS>
+              The evaluator shall examine the TSS to ensure that it details the self tests that are run by the TSF
+              on start-up; this description should include an outline of what the tests are actually doing (e.g.,
+              rather than saying "memory is tested", a description similar to "memory is tested by writing a
+              value to each memory location and reading it back to ensure it is identical to what was written"
+              shall be used). The evaluator shall ensure that the TSS makes an argument that the tests are
+              sufficient to demonstrate that the TSF is operating correctly.
+              <h:p/>
+              The evaluator shall examine the TSS to ensure that it describes how to verify the integrity of
+              stored TSF executable code when it is loaded for execution. The evaluator shall ensure that the
+              TSS makes an argument that the tests are sufficient to demonstrate that the integrity of stored
+              TSF executable code has not been compromised. The evaluator also ensures that the TSS (or the
+              operational guidance) describes the actions that take place for successful (e.g. hash verified) and
+              unsuccessful (e.g., hash not verified) cases.
+              <h:p/>  
+            </TSS>
+            <Guidance>
+              The evaluator shall ensure that the operational guidance describes the actions that
+              take place for successful (e.g. hash verified) and unsuccessful (e.g., hash not verified) cases.
+              <h:p/> 
+            </Guidance>
+            <Tests>
+              The evaluator shall perform the following tests:
+              <testlist>
+                <test>
+                  The evaluator shall perform the integrity check on a known good TSF executable and
+                  verify that the check is successful.
+                </test>
+                <test>
+                  The evaluator shall modify the TSF executable, perform the integrity check on the
+                  modified TSF executable, and verify that the check fails. 
+                </test>
+              </testlist>                 
+            </Tests>
+          </aactivity>
+        </f-component>      
+      </subsection>   
       
-      
-      
+
+      <subsection id="fta" title="TOE Access (FTA)">
+        
+        
+        <f-component id="fta_wse_ext.1" name="Wireless Network Access">
+          <consistency-rationale/>
+          <f-element id="fta_wse_ext.1.1">
+            <title>The TSF shall be able to attempt connections only to wireless networks
+              specified as acceptable networks as configured by the administrator in
+              FMT_SMF.1.1/WLAN.
+            </title>
+            
+            <note role="application">
+              The intent of this requirement is to allow the administrator to limit the access
+              points to which the TOE is allowed to connect. The assignment is used by the ST author to
+              specify the attributes (e.g., MAC Address, SSID, certificates, etc.) that can be used by the
+              administrator to specify the acceptable access points.
+            </note>  
+          </f-element>
+          <aactivity>
+            <TSS>
+              The evaluator shall examine the TSS to determine that all of the attributes that can be used to
+              specify acceptable networks (access points) are specifically defined.
+              <h:p/>  
+            </TSS>
+            <Guidance>
+              The evaluator shall examine the operational guidance to determine that it contains guidance for
+              configuring each of the attributes identified in the TSS.
+              <h:p/> 
+            </Guidance>
+            <Tests>
+              The evaluator shall perform the following tests for each attribute:
+              <testlist>
+                <test>
+                  The evaluator shall configure the TOE to allow a connection with a specific access point.
+                  The evaluator shall also configure the test environment such that the allowed access point and
+                  an access point that is not allowed are both “visible” to the TOE. The evaluator shall
+                  demonstrate that they can successfully establish a session with the allowed access point. The
+                  evaluator shall then attempt to establish a session with the disallowed access point and
+                  observe that the access attempt fails.
+                </test>
+                <test>
+                  The evaluator shall configure the TOE to allow a connection with a specific access point
+                  using EAP-TLS authentication (not only will the valid SSID be configured, but the TOE will also
+                  be provided with certificates to complete the EAP-TLS authentication). The evaluator shall also
+                  configure the test environment such that an access point broadcasts the SSID the TOE has
+                  been configured to connect to but the authentication server does not have valid credentials.
+                  The evaluator shall then attempt to establish a session with the valid SSID/invalid
+                  authentication server and observe that the access attempt fails. 
+                </test>
+              </testlist>                 
+            </Tests>
+          </aactivity>
+        </f-component>      
+      </subsection>   
+ 
+ 
+      <subsection id="ftp" title="Trusted Path/Channels (FTP)">
+        
+        <!-- SME: this SFR has the same issue that FPT_TST_EXT.1/WLAN has. Specifically, it's shown as an iteration but the Base-PPs each contain their own version of this, and the Module's version if it isn't the same as either one of them.
+        So it's not really appropriate to say it's iterated. It may be better just to define this as its own independent component (i.e. FTP_ITC_EXT.2). -->
+        <f-component id="ftp_itc_ext.1/wlan" name="Wireless Network Access">
+          <consistency-rationale/>
+          <f-element id="ftp_itc_ext.1.1/wlan">
+            <title>The TSF shall use 802.11-2016, 802.1X, and EAP-TLS to provide a
+              trusted communication channel between itself and a wireless access point that is logically
+              distinct from other communication channels, provides assured identification of its end points,
+              protects channel data from disclosure, and detects modification of the channel data.
+            </title>
+          </f-element>
+          <f-element id="ftp_itc_ext.1.2/wlan">
+            <title>The TSF shall initiate communication via the trusted channel for
+              wireless access point connections.
+            </title>
+            <note role="application">
+              The intent of the above requirement is to use the cryptographic protocols
+              identified in the requirement to protect communications between the TOE and the Access Point.
+              <h:p/>
+              The requirement implies that not only are communications protected when they are initially
+              established, but also on resumption after an outage. It may be the case that some part of the
+              TOE setup involves manually setting up tunnels to protect other communication, and if after an
+              outage the TOE attempts to re-establish the communication automatically with (the necessary)
+              manual intervention, there may be a window created where an attacker might be able to gain
+              critical information or compromise a connection. The following tests are only intended to cover
+              the WLAN communication channel (not other communication channels that may be available on
+              the TOE such as mobile broadband).
+            </note>              
+          </f-element>
+
+          <aactivity>
+            <TSS>
+              The evaluator shall examine the TSS to determine that it describes the details of the TOE
+              connecting to an access point in terms of the cryptographic protocols specified in the
+              requirement, along with TOE-specific options or procedures that might not be reflected in the
+              specification. The evaluator shall also confirm that all protocols listed in the TSS are specified and
+              included in the requirements in the ST.
+              <h:p/>  
+            </TSS>
+            <Guidance>
+              The evaluator shall confirm that the operational guidance includes instructions for establishing
+              the connection to the access point and that it includes recovery instructions should a
+              connection be unintentionally broken.
+              <h:p/> 
+            </Guidance>
+            <Tests>
+              The evaluator shall perform the following tests:
+              <testlist>
+                <test>
+                  The evaluator shall ensure that the TOE is able to initiate communications with
+                  an access point using the protocols specified in the requirement by setting up the
+                  connections as described in the operational guidance and ensuring that communications
+                  are successful.
+                </test>
+                <test>
+                  The evaluator shall ensure, for each communication channel with an authorized
+                  IT entity, the channel data is not sent in plaintext.
+                </test>
+                <test>
+                  The evaluator shall ensure, for each communication channel with an authorized
+                  IT entity, modification of the channel data is detected by the TOE.
+                </test>
+                <test>
+                  The evaluators shall physically interrupt the connection from the TOE to the
+                  access point (e.g., moving the TOE host out of range of the access point, turning the
+                  access point off). The evaluators shall ensure that subsequent communications are
+                  appropriately protected, at a minimum in the case of any attempts to automatically
+                  resume the connection or connect to a new access point.
+                </test>
+              </testlist>                 
+              Further evaluation activities are associated with the specific protocols.
+            </Tests>
+          </aactivity>
+        </f-component>      
+      </subsection>  
+
+ 
     </man-sfrs>
 
 
   </chapter>
 
   <!-- 
-       Do NOT put SFRs in this section. All SFR belong up above in SFR section. 
-       To make an SFR optional tag it above as status="optional" 
+       SME: the last sentence of this  
   -->
   <appendix title="Optional Requirements" id="optional"> As indicated in <secref linkend="ccl"/>,
-    the baseline requirements (those that must be performed by the <abbr linkend="OS"/>) are
+    the baseline requirements (those that must be performed by the TOE are
     contained in the body of this PP. Additionally, there are three other types of requirements
     specified in <appref linkend="optional"/>, <appref linkend="sel-based"/>, and <appref
-      linkend="objective"/>. The first type (in this Appendix) are requirements that can be included
-    in the <abbr linkend="ST"/>, but are not required in order for a OS to claim conformance to
-    this PP. The second type (in <appref linkend="sel-based"/>) are requirements based on selections
-    in the body of the PP: if certain selections are made, then additional requirements in that
+      linkend="objective"/>. The first type (in this appendix) are requirements that can be included
+    in the <abbr linkend="ST"/>, but are not required in order for a TOE to claim conformance to
+    this PP-Module. The second type (in <appref linkend="sel-based"/>) are requirements based on selections
+    in the body of the PP-Module: if certain selections are made, then additional requirements in that
     appendix must be included. The third type (in <appref linkend="objective"/> are components that
-    are not required in order to conform to this PP, but will be included in the baseline
-    requirements in future versions of this PP, so adoption by vendors is encouraged. Note that the
-    ST author is responsible for ensuring that requirements that may be associated with those in
-      <appref linkend="optional"/>, <appref linkend="sel-based"/>, and <appref linkend="objective"/>
-    but are not listed (e.g., FMT-type requirements) are also included in the ST. </appendix>
+    are not required in order to conform to this PP-Module, but will be included in the baseline
+    requirements in future versions of this PP-Module, so adoption by vendors is encouraged. </appendix>
 
   <!-- 
        Do NOT put SFRs in this section. All SFR belong up above in SFR section. 
        To make an SFR optional tag it above as status="sel-based" 
   -->
   <appendix title="Selection-Based Requirements" id="sel-based"> As indicated in the introduction to
-    this PP, the baseline requirements (those that must be performed by the OS or its underlying
-    platform) are contained in the body of this PP. There are additional requirements based on
-    selections in the body of the PP: if certain selections are made, then additional requirements
+    this PP-Module, the baseline requirements are contained in the body of this PP-Module. There are additional requirements based on
+    selections in the body of the PP-Module: if certain selections are made, then additional requirements
     below will need to be included. </appendix>
 
   <!-- 
@@ -1479,174 +1763,13 @@
   -->
   <appendix title="Objective Requirements" id="objective"> This appendix includes requirements that
     specify security functionality which also addresses threats. The requirements are not currently
-    mandated in the body of this PP as they describe security functionality not yet widely-available
+    mandated in the body of this PP-Module as they describe security functionality not yet widely available
     in commercial technology. However, these requirements may be included in the ST such that the
-    OS is still conformant to this PP, and it is expected that they be included as soon as
+    TOE is still conformant to this PP-Module, and it is expected that they be included as soon as
     possible. </appendix>
 
-<!-- 
-  <appendix title="Inherently Satisfied Requirements" id="satisfiedreqs"> This
-	appendix lists requirements that should be considered satisfied by products
-	successfully evaluated against this Protection Profile.  
-	However, these requirements are not featured explicitly as SFRs and should not be
-	included in the <abbr linkend="ST"/>.  
-	They are not included as standalone SFRs because it would
-	increase the time, cost, and complexity of evaluation.  This approach is permitted
-	by <cite linkend="bibCC"/> Part 1, <h:b>8.2 Dependencies between components</h:b>.
-    <h:br/>
-	This information benefits systems engineering activities which call for inclusion of 
-	particular security controls.  Evaluation against the Protection Profile
-	provides evidence that these controls are present and have been evaluated.
-    <table>
-	<tr class="header">
-	<td>Requirement</td>
-	<td>Rationale for Satisfaction</td>
-	</tr>
-	<tr>
-	<td>FIA_UAU.1 - Timing of authentication</td>
-	<td>
-	  <linkref linkend="FIA_AFL.1"/> implicitly requires that the OS perform all necessary actions, 
-	  including those on behalf of the user who has not been authenticated, 
-	  in order to authenticate;
-	  therefore it is duplicative to include these actions as a 
-	  separate assignment and test.
-	</td>
-	</tr>
-	<tr>
-	<td>FIA_UID.1 - Timing of identification</td>
-	<td>
-	  <linkref linkend="FIA_AFL.1"/> implicitly requires that the OS perform all necessary actions, 
-	  including those on behalf of the user who has not been identified, 
-	  in order to authenticate;
-	  therefore it is duplicative to include these actions as a 
-	  separate assignment and test.
-	</td>
-	</tr>
-	<tr>
-	<td>FMT_SMR.1 - Security roles</td>
-	<td>
-	  <linkref linkend="FMT_MOF_EXT.1"/> specifies role-based management functions that implicitly defines
-	  user and privileged accounts; 
-	  therefore, it is duplicative to include separate role requirements.
-	</td>
-	</tr>
-	<tr>
-	<td>FPT_STM.1 - Reliable time stamps</td>
-	<td>
-	  <linkref linkend="FAU_GEN.1.2"/> explicitly requires that the OS associate timestamps with audit records;
-	  therefore it is duplicative to include a separate timestamp requirement.
-	</td>
-	</tr>
-	<tr>
-	<td>FTA_SSL.1 - TSF-initiated session locking</td>
-	<td>
-	  <linkref linkend="FMT_MOF_EXT.1"/> defines requirements for managing session locking;
-	  therefore, it is duplicative to include a separate session locking requirement.
-	</td>
-	</tr>
-	<tr>
-	<td>FTA_SSL.2 - User-initiated locking</td>
-	<td>
-	  <linkref linkend="FMT_MOF_EXT.1"/> defines requirements for user-initiated session locking;
-	  therefore, it is duplicative to include a separate session locking requirement.
-	</td>
-	</tr>
-	<tr>
-	<td>FAU_STG.1 - Protected audit trail storage</td>
-	<td>
-	  <linkref linkend="FPT_ACF_EXT.1"/> defines a requirement to protect audit logs;
-	  therefore, it is duplicative to include a separate protection of audit trail requirements.
-	</td>
-	</tr>
-	<tr>
-	<td>FAU_GEN.2 - User identity association</td>
-	<td>
-	  <linkref linkend="FAU_GEN.1.2"/> explicitly requires that the OS record
-	  any user account associated with each event; therefore, it is duplicative
-	  to include a separate requirement to associate a user account with each
-	  event.
-	</td>
-	</tr>
-	<tr>
-	  <td>FAU_SAR.1 - Audit review</td>
-	  <td>
-	    <linkref linkend="FPT_ACF_EXT.1.2"/> requires that audit logs (and other objects)
-	    are protected from reading by unprivileged users; therefore, it is duplicative
-	    to include a separate requirement to protect only the audit information.
-	  </td>
-	</tr>
-    </table>
-
-  </appendix>
-   -->
-
-  <!-- Remove this section if an Entropy Assessment is not needed -->
-  <appendix title="Entropy Documentation and Assessment" id="entropyappendix"> This appendix
-    describes the required supplementary information for the entropy source used by the OS. <h:br/>
-    The documentation of the entropy source should be detailed enough that, after reading, the
-    evaluator will thoroughly understand the entropy source and why it can be relied upon to provide
-    sufficient entropy. This documentation should include multiple detailed sections: design
-    description, entropy justification, operating conditions, and health testing. This documentation
-    is not required to be part of the TSS. <section id="entropydesign" title="Design Description">
-      Documentation shall include the design of the entropy source as a whole, including the
-      interaction of all entropy source components. Any information that can be shared regarding the
-      design should also be included for any third-party entropy sources that are included in the
-      product. <h:br/> The documentation will describe the operation of the entropy source to include,
-      how entropy is produced, and how unprocessed (raw) data can be obtained from within the
-      entropy source for testing purposes. The documentation should walk through the entropy source
-      design indicating where the entropy comes from, where the entropy output is passed next, any
-      post-processing of the raw outputs (hash, XOR, etc.), if/where it is stored, and finally, how
-      it is output from the entropy source. Any conditions placed on the process (e.g., blocking)
-      should also be described in the entropy source design. Diagrams and examples are encouraged.
-      <h:br/> This design must also include a description of the content of the security boundary of
-      the entropy source and a description of how the security boundary ensures that an adversary
-      outside the boundary cannot affect the entropy rate. <h:br/> If implemented, the design
-      description shall include a description of how third-party applications can add entropy to the
-      RBG. A description of any RBG state saving between power-off and power-on shall be included. </section>
-    <section id="entropyjustification" title="Entropy Justification"> There should be a technical
-      argument for where the unpredictability in the source comes from and why there is confidence
-      in the entropy source delivering sufficient entropy for the uses made of the RBG output (by
-      this particular OS). This argument will include a description of the expected min-entropy
-      rate (i.e. the minimum entropy (in bits) per bit or byte of source data) and explain that
-      sufficient entropy is going into the OS randomizer seeding process. This discussion will be
-      part of a justification for why the entropy source can be relied upon to produce bits with
-      entropy. <h:br/> The amount of information necessary to justify the expected min-entropy rate
-      depends on the type of entropy source included in the product. <h:br/> For developer provided
-      entropy sources, in order to justify the min-entropy rate, it is expected that a large number
-      of raw source bits will be collected, statistical tests will be performed, and the min-entropy
-      rate determined from the statistical tests. While no particular statistical tests are required
-      at this time, it is expected that some testing is necessary in order to determine the amount
-      of min-entropy in each output. <h:br/> For third-party provided entropy sources, in which the
-      OS vendor has limited access to the design and raw entropy data of the source, the
-      documentation will indicate an estimate of the amount of min-entropy obtained from this
-      third-party source. It is acceptable for the vendor to “assume” an amount of min-entropy,
-      however, this assumption must be clearly stated in the documentation provided. In particular,
-      the min-entropy estimate must be specified and the assumption included in the ST. <h:br/>
-      Regardless of type of entropy source, the justification will also include how the DRBG is
-      initialized with the entropy stated in the ST, for example by verifying that the min-entropy
-      rate is multiplied by the amount of source data used to seed the DRBG or that the rate of
-      entropy expected based on the amount of source data is explicitly stated and compared to the
-      statistical rate. If the amount of source data used to seed the DRBG is not clear or the
-      calculated rate is not explicitly related to the seed, the documentation will not be
-      considered complete. <h:br/> The entropy justification shall not include any data added from any
-      third-party application or from any state saving between restarts. </section>
-    <section id="entropyoperatingconditions" title="Operating Conditions"> The entropy rate may be
-      affected by conditions outside the control of the entropy source itself. For example, voltage,
-      frequency, temperature, and elapsed time after power-on are just a few of the factors that may
-      affect the operation of the entropy source. As such, documentation will also include the range
-      of operating conditions under which the entropy source is expected to generate random data. It
-      will clearly describe the measures that have been taken in the system design to ensure the
-      entropy source continues to operate under those conditions. Similarly, documentation shall
-      describe the conditions under which the entropy source is known to malfunction or become
-      inconsistent. Methods used to detect failure or degradation of the source shall be included. </section>
-    <section id="entropyhealthtesting" title="Health Testing"> More specifically, all entropy source
-      health tests and their rationale will be documented. This includes a description of the health
-      tests, the rate and conditions under which each health test is performed (e.g., at start,
-      continuously, or on-demand), the expected results for each health test, and rationale
-      indicating why each test is believed to be appropriate for detecting one or more failures in
-      the entropy source. </section>
-  </appendix>
-
+<!-- SME: entropy appendix was removed since it was not present in the original EP. Is this appropriate or would you prefer we have a stub appendix that states the entropy source(s) used by the TOE are provided by the OS platform
+  and this will therefore be covered through evaluation of the TOE against the claimed Base-PP? -->
   
     <bibliography>
       <entry id="bibCC">
