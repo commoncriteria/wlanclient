@@ -149,7 +149,7 @@
               </entry>  
               <entry>
                 <term>FIPS-Approved Cryptographic Function</term>
-                <description>A cryptographic operation that is specified for use by FIPS 140. <!-- SME: should a specific revision be cited here? we're kind of between 140-2 and 140-3 right now so wasn't sure which to use -->
+                <description>A cryptographic operation that is specified for use by FIPS 140. <!-- SME: should a specific revision be cited here? we're kind of between 140-2 and 140-3 right now so wasn't sure which to use. -->
                 </description>
               </entry>               
               <entry>
