@@ -181,7 +181,7 @@
       aspects of a WLAN Client:
       <h:ul>
         <h:li>Authentication of the WLAN Client</h:li>
-        <h:li>Authentication of the Authentication Servert</h:li>
+        <h:li>Authentication of the Authentication Server</h:li>
         <h:li>Cryptographic protection of data in transit</h:li>
         
         <!-- SME: don't know what specifically this refers to, unsure if we should keep as-is, change somehow, or remove altogether -->
@@ -196,7 +196,7 @@
       trusted Certificate Authority (CA). The AS will authenticate the WLAN Client certificate at the
       same time. When the EAP-TLS exchange completes successfully, the network allows the WLAN
       Client to finish establishing a secure communication tunnel to the private network. The WLAN
-      Client sets up an encrypted, authenticated channel to the WLAN Access System using a 4 way
+      Client sets up an encrypted, authenticated channel to the WLAN Access System using a 4-way
       handshake, as specified in IEEE 802.11. Once the channel is established, all communication
       between the WLAN Client to the WLAN Access System is encrypted with Advanced Encryption Standard (AES) in 
       Cipher Block Chaning-Message Authentication Code Protocol (CCMP) mode and
