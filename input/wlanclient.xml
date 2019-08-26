@@ -34,7 +34,7 @@
   <chapter title="Introduction" id="int">
     <section title="Overview" id="ppoverview">
       
-      The scope of the Wireless LAN (WLAN) Client <abbr linkend="PP-Module"/> is to describe the security functionality of a Wireless Local Area Network (LAN) Client in terms of [<abbr linkend="CC"/>] 
+      The scope of the Wireless Local Area Network (WLAN) Client <abbr linkend="PP-Module"/> is to describe the security functionality of a WLAN Client in terms of [<abbr linkend="CC"/>] 
       and to define functional and assurance requirements for such products. This <abbr linkend="PP-Module"/> is intended for use with the following <abbr linkend="Base-PP"/>s: <h:ul>
         <h:li>General Purpose Operating System (GPOS) Protection Profile, Version 4.2.1</h:li>
         <h:li>Mobile Device Fundamentals (MDF) Protection Profile, Version 3.1</h:li>
@@ -43,7 +43,7 @@
       a part of either a commercial operating system that can be installed on a general-purpose computer or an operating system that runs on a purpose-built mobile device.
       
     </section>
-    <section title="Terms" id="glossary"> The following sections provide both Common Criteria and
+    <section title="Terms" id="glossary"> The following sections provide both Common Criteria (CC) and
       technology terms used in this document. 
               <subsection title="Common Criteria Terms">
             <glossary>
@@ -102,18 +102,18 @@
               </entry>
               <entry>
                 <term><abbr title="TOE Summary Specification">TSS</abbr></term>
-                <description>A description of how a <abbr linkend="TOE"/> satisfies the <abbr
-                  linkend="SFR"/>s in an <abbr linkend="ST"/>.</description>
+                <description>A description of how a <abbr linkend="TOE"/> satisfies the Security Functional Requirements (<abbr
+                  linkend="SFR"/>s) in a Security Target (<abbr linkend="ST"/>).</description>
               </entry>
             </glossary>
           </subsection>
           <subsection title="Technical Terms">
             <glossary>
               <entry>
-                <term>Access Point</term>
+                <term><abbr title="AP">Access Point</abbr></term>
                 <description>A device that provides the network interface that enables wireless client hosts to access a wired network.
                   Once authenticated as trusted nodes on the wired infrastructure, the APs provide the encryption service on
-                  the wireless network between the wireless client and the RF interface of the AP.</description>
+                  the wireless network between the wireless client and the radio frequency (RF) interface of the AP.</description>
               </entry>
               <entry>
                  <term>Administrator</term>
@@ -132,7 +132,7 @@
               <entry>
                 <term>Critical Security Parameter</term>
                 <description>Security related information, e.g. secret and private cryptographic keys,
-                  and authentication data such as passwords and PINs, whose disclosure or modification can compromise the
+                  and authentication data such as passwords and Personal Identification Numbers (PINs), whose disclosure or modification can compromise the
                   security of a cryptographic module.</description>
               </entry> 
               <entry>
@@ -144,7 +144,7 @@
               </entry>               
               <entry>
                 <term>Extensible Authentication Protocol</term>
-                <description>An authentication framework, used in wireless networks, that uses PKI to authenticate both the authentication server and the wireless client.
+                <description>An authentication framework, used in wireless networks, that uses Public Key Infrastructure (PKI) to authenticate both the authentication server and the wireless client.
                 </description>
               </entry>  
               <entry>
@@ -168,29 +168,28 @@
 	  </section>
     <section title="Compliant Targets of Evaluation" id="TOEdescription">
      
-     This document specifies Security Functional Requirements for a WLAN Client. The TOE defined
+     This document specifies SFRs for a WLAN Client. The TOE defined
      by this <abbr linkend="PP-Module"/> is the WLAN Client, a component executing on a client machine (often referred to as
      a "remote access client"). The TOE establishes a secure wireless tunnel between the client
      device and a WLAN Access System through which all data will traverse.
      <h:p/>
       A WLAN Client allows remote users to use client machines to establish wireless communication
       with a private network through a WLAN Access System. IP packets passing between the
-      private network and a WLAN Client are encrypted. The WLAN Client protects the
-      data between itself and the private network, protection the confidentiality and integrity 
-      of data in transit, even though it traverses a wireless connection.
-      The focus of the Security Functional Requirements in this <abbr linkend="PP-Module"/> is on the following fundamental
+      private network and a WLAN Client are encrypted. The WLAN Client protects the confidentiality and integrity of
+      data in transit between itself and the private network, even though it traverses a wireless connection.
+      The focus of the SFRs in this <abbr linkend="PP-Module"/> is on the following fundamental
       aspects of a WLAN Client:
       <h:ul>
-        <h:li>Authentication of the WLAN Client;</h:li>
-        <h:li>Authentication of the Authentication Servert;</h:li>
-        <h:li>Cryptographic protection of data in transit; and</h:li>
+        <h:li>Authentication of the WLAN Client</h:li>
+        <h:li>Authentication of the Authentication Servert</h:li>
+        <h:li>Cryptographic protection of data in transit</h:li>
         
         <!-- SME: don't know what specifically this refers to, unsure if we should keep as-is, change somehow, or remove altogether -->
-        <h:li>Implementation of services.</h:li>
+        <h:li>Implementation of services</h:li>
         
       </h:ul>
       The WLAN Client establishes an 802.11 tunnel between the client device and the network
-      infrastructure using IEEE 802.1X with EAP-TLS for authentication. It performs mutual
+      infrastructure using IEEE 802.1X with Extensible Authentication Protocol-Transport Layer Security (EAP-TLS) for authentication. It performs mutual
       authentication to an AS in the private network as part of the EAP-TLS exchange. The EAP-TLS
       exchange uses certificates for mutual authentication. The WLAN Client examines the machine
       certificate transmitted from the AS, checks its validity, and ensures the certificate is signed by a
@@ -199,8 +198,9 @@
       Client to finish establishing a secure communication tunnel to the private network. The WLAN
       Client sets up an encrypted, authenticated channel to the WLAN Access System using a 4 way
       handshake, as specified in IEEE 802.11. Once the channel is established, all communication
-      between the WLAN Client to the WLAN Access System is encrypted with AES in CCMP mode and
-      optionally AES is GCMP mode, as specified in <cite linkend="bib80211"/>.
+      between the WLAN Client to the WLAN Access System is encrypted with Advanced Encryption Standard (AES) in 
+      Cipher Block Chaning-Message Authentication Code Protocol (CCMP) mode and
+      optionally AES in Galois/Counter Mode Protocol (GCMP) mode, as specified in <cite linkend="bib80211"/>.
       
       <subsection title="TOE Boundary" id="TOEboundary">
         The WLAN Client (Figure 1), as defined by this <abbr linkend="PP-Module"/>, is a component executing on a remote access
@@ -370,7 +370,7 @@
             environment.</description>
           <component-refer ref="FCS_CKM.1/WLAN"/>
           <component-refer ref="FCS_CKM.2/WLAN"/>
-          <component-refer ref="FCS_CKM_EXT.3 (if GPOS is Base-PP)"/>
+          <component-refer ref="FCS_CKM_EXT.4 (if GPOS is Base-PP)"/>
           <component-refer ref="FCS_CKM_EXT.4 (if MDF is Base-PP)"/>
           <component-refer ref="FCS_COP.1(1) (from either Base-PP)"/>
           <component-refer ref="FCS_COP.1(2) (from either Base-PP)"/>
@@ -453,7 +453,7 @@
 
       <modified-sfrs>
         <subsection id="fcs" title="Cryptographic Support (FCS)">
-          <f-component id="fcs_ckm_ext.3" name="Cryptographic Key Destruction">
+          <f-component id="fcs_ckm_ext.4" name="Cryptographic Key Destruction">
 
             <note role="application"> This SFR exists in the GPOS PP and does not need to be modified for this PP-Module. Note
               however that its scope is expanded to include keys and key material that are used by the TSF
@@ -470,9 +470,9 @@
               (i.e., any storage, such as memory buffers, that is included in the path of such data) upon the
               transfer of the key or CSP to another location.
               <h:p/>
-              Additionally, although IEEE 802.11-2016 does not specify PMK lifetimes (described in IEEE
+              Additionally, although IEEE 802.11-2016 does not specify Pairwise Master Key (PMK) lifetimes (described in IEEE
               802.11-2016 Section 11.6.1.3) for WLAN Clients, these lifetimes should be limited, and the
-              PMKSA cleared, in such a way as to prevent continued use of the same PMK for more than 24
+              PMK Security Association (PMKSA) cleared, in such a way as to prevent continued use of the same PMK for more than 24
               hours. Thus, for PMKs, “when no longer needed” is after 24 hours.
             </note>
           </f-component>
@@ -526,7 +526,7 @@
       what the Base-PP requires.</con-mod>
       <con-mod id="OE.TRUSTED_ADMIN">The Base-PP defines OE.PROPER_USER and OE.PROPER_ADMIN objectives that serve the same purpose as OE.TRUSTED_ADMIN in this PP-Module.</con-mod>          
 
-      <con-mod id="fcs_ckm_ext.3">The PP-Module does not modify this SFR; it only requires that the functionality implemented by the Base-PP can also be used by the PP-Module.</con-mod>
+      <con-mod id="fcs_ckm_ext.4">The PP-Module does not modify this SFR; it only requires that the functionality implemented by the Base-PP can also be used by the PP-Module.</con-mod>
       <con-mod id="fcs_cop.1">The PP-Module does not modify this SFR; it only requires that the functionality implemented by the Base-PP can also be used by the PP-Module.</con-mod>  
       <con-mod id="fcs_rbg_ext.1">The PP-Module does not modify this SFR; it only requires that the functionality implemented by the Base-PP can also be used by the PP-Module.</con-mod>
           
@@ -538,7 +538,7 @@
       <con-mod id="fia_x509_ext.2/wlan">This SFR defines the TOE's use of X.509 certificates in EAP-TLS. This function uses the same certificate validation functionality that the Base-PP defines.</con-mod>
       <con-mod id="fmt_smf.1/wlan">This SFR defines the management activities that are specific to this PP-Module. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
       <con-mod id="fpt_tst_ext.1/wlan">This SFR defines self-test behavior for the WLAN Client. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>  
-      <con-mod id="fta_wse_ext.1">This SFR requires the TOE to restrict the wirless networks that it can connect to. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
+      <con-mod id="fta_wse_ext.1">This SFR requires the TOE to restrict the wireless networks that it can connect to. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
       <con-mod id="ftp_itc_ext.1/wlan">This SFR defines the protocols that the TOE uses for secure wireless communications. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
           
       <con-mod id="fia_x509_ext.4">This SFR defines behavior for implementing certificate storage. As this function is optional, it does not interfere with any certificate storage mechanism enforced by the Base-PP.</con-mod>
@@ -553,7 +553,7 @@
       
       <modified-sfrs>
         <subsection id="fcs" title="Cryptographic Support (FCS)">
-          <f-component id="fcs_ckm_ext.4" name="Cryptographic Key Destruction">
+          <f-component id="fcs_ckm_ext.4" name="Key Destruction">
             
             <note role="application"> This SFR exists in the MDF PP and does not need to be modified for this PP-Module. Note
               however that its scope is expanded to include keys and key material that are used by the TSF
@@ -637,7 +637,7 @@
       <con-mod id="fia_x509_ext.2/wlan">This SFR defines the TOE's use of X.509 certificates in EAP-TLS. This function uses the same certificate validation functionality that the Base-PP defines.</con-mod>
       <con-mod id="fmt_smf.1/wlan">This SFR defines the management activities that are specific to this PP-Module. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
       <con-mod id="fpt_tst_ext.1/wlan">This SFR defines self-test behavior for the WLAN Client. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>  
-      <con-mod id="fta_wse_ext.1">This SFR requires the TOE to restrict the wirless networks that it can connect to. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
+      <con-mod id="fta_wse_ext.1">This SFR requires the TOE to restrict the wireless networks that it can connect to. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
       <con-mod id="ftp_itc_ext.1/wlan">This SFR defines the protocols that the TOE uses for secure wireless communications. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
       
       <con-mod id="fia_x509_ext.4">This SFR defines behavior for implementing certificate storage. As this function is optional, it does not interfere with any certificate storage mechanism enforced by the Base-PP.</con-mod>
@@ -758,12 +758,12 @@
             </title>
             <aactivity>
               <TSS>
-                The evaluator shall check the <abbr linkend="TSS"/> and ensure that it provides a format for audit records. Each audit record format type must be covered, along with a brief description of each field. <h:p/> 
-                If "invoke platform-provided functionality" is selected, the evaluator shall examine the <abbr linkend="TSS"/> to verify that it describes (for each supported platform) how this functionality is invoked 
-                (it should be noted that this may be through a mechanism that is not implemented by the WLAN Client; nonetheless, that mechanism will be identified in the <abbr linkend="TSS"/> as part of this evaluation activity).<h:p/>  
+                The evaluator shall check the <abbr linkend="TSS"/> and ensure it provides a format for audit records. Each audit record format type must be covered, along with a brief description of each field. <h:p/> 
+                If "invoke platform-provided functionality" is selected, the evaluator shall examine the <abbr linkend="TSS"/> to verify it describes (for each supported platform) how this functionality is invoked 
+                (it should be noted that this may be through a mechanism that is not implemented by the WLAN Client; however, that mechanism will be identified in the <abbr linkend="TSS"/> as part of this evaluation activity).<h:p/>  
               </TSS>
               <Guidance>
-                The evaluator shall check the operational guidance and ensure that it lists all of the auditable
+                The evaluator shall check the operational guidance and ensure it lists all of the auditable
                 events and provides a format for audit records. Each audit record format type must be
                 covered, along with a brief description of each field. The evaluator shall check to make sure
                 that every audit event type mandated by the PP-Module is described and that the description of the
@@ -816,10 +816,7 @@
         The cryptographic requirements are also structured to require the use of the Wi-Fi certification
         requirements for WPA2 enterprise, based on the IEEE 802.11 standard. The Wi-Fi Alliance
         WPA2 Enterprise certification program tests devices for data communications interoperability
-        at ISO OSI layers 1 and 2, and mandates the use of the Advanced Encryption Standard (AES)-
-        Counter with Cipher Block Chaining (Counter with CBC)-Message Authentication Code (MAC)
-        algorithm (known collectively as AES-CCMP) for secure connections. Optionally, AES-GCMP
-        (Galois/Counter Mode Protocol) can be used.
+        at ISO OSI layers 1 and 2, and mandates the use of the AES-CCMP algorithm for secure connections. Optionally, AES-GCMP can be used.
         
         <!-- to do: go back and update section numbers for 802.11-2016. -->
         <f-component id="fcs_ckm.1/wlan" name="Cryptographic Key Generation (Symmetric Keys for WPA2 Connections)">
@@ -839,11 +836,12 @@
             <note role="application">The cryptographic key derivation algorithm required by IEEE 802.11-2016
               (Section 11.6.1.2) and verified in WPA2 certification is PRF-384, which uses the HMAC-SHA-1
               function and outputs 384 bits. The use of GCMP was first defined in IEEE 802.11ac-2014 (Section
-              11.4.5) but subsequently integrated into 802.11-2016. This protocol requires a KDF based on HMAC-SHA-256 (for 128-bit symmetric keys) or HMAC-SHA384 (for 256-bit symmetric keys). This KDF outputs 704 bits.
+              11.4.5) but subsequently integrated into 802.11-2016. This protocol requires a key derivation function (KDF) 
+              KDF based on HMAC-SHA-256 (for 128-bit symmetric keys) or HMAC-SHA384 (for 256-bit symmetric keys). This KDF outputs 704 bits.
               <h:p/>
               This requirement applies only to the keys that are generated/derived for the communications
               between the access point and the client once the client has been authenticated. It refers to the
-              derivation of the PTK from the PMK, which is done using a random value generated by the RBG
+              derivation of the Pairwise Temporal Key (PTK) from the PMK, which is done using a random value generated by the RBG
               specified in this PP-Module, the HMAC function using SHA-1 as specified in this PP-Module, as well as other
               information. This is specified in 802.11-2012 primarily in section 11.6.1.2.
             </note>            
@@ -888,7 +886,7 @@
                     <h:p/>
                     Step 3: The evaluator shall start the sniffing tool, initiate a connection between the
                     TOE and the access point, and allow the TOE to authenticate, associate, and
-                    successfully complete the 4 way handshake with the client.
+                    successfully complete the 4-way handshake with the client.
                     <h:p/>
                     Step 4: The evaluator shall set a timer for 1 minute, at the end of which the evaluator
                     shall disconnect the TOE from the wireless network and stop the sniffer.
@@ -1006,7 +1004,7 @@
             </selectables>.   
             </title>
             <note role="application">If any of the ECDHE cipher suites are selected by the ST author, it is necessary
-              to clame the selection-based requirement FCS_TLSC_EXT.2/WLAN.
+              to claim the selection-based requirement FCS_TLSC_EXT.2/WLAN.
             </note>            
           </f-element>
           <f-element id="fcs_tlsc_ext.1.2/wlan"><title>The TSF shall generate random values used in the EAP-TLS exchange
@@ -1316,8 +1314,8 @@
               <h:li>configure security policy for each wireless network:
                 <h:ul>
                   <h:li><selectables>
-                    <selectable>specify the CA(s) from which the TSF will accept WLAN authentication server certificate(s)</selectable>
-                    <selectable>specify the FQDN(s) of acceptable WLAN authentication server certificate(s)</selectable>
+                    <selectable>specify the CA(s) from which the TSF will accept WLAN authentication server certificate(s),</selectable>
+                    <selectable>specify the Fully Qualified Domain Namess (FQDNs) of acceptable WLAN authentication server certificate(s),</selectable>
                   </selectables>,</h:li>
                   <h:li>security type,</h:li>
                   <h:li>authentication protocol,</h:li>
@@ -1473,7 +1471,7 @@
           
           <comp-lev> describes the ability of the TOE to apply administrative limits on the wireless networks that it can connect to.</comp-lev>
           <management>The following actions could be considered for the management functions in FMT: <h:ul>
-            <h:li>Specify allowed wireless networks based on MAC Access, SSID, or other attributes.</h:li>
+            <h:li>Specify allowed wireless networks based on MAC Access, Service Set Identifier (SSID), or other attributes.</h:li>
           </h:ul>
           </management>
           <audit>The following actions should be auditable if FAU_GEN Security audit data
@@ -1538,7 +1536,7 @@
         
         <!-- SME: this SFR has the same issue that FPT_TST_EXT.1/WLAN has. Specifically, it's shown as an iteration but the Base-PPs each contain their own version of this, and the Module's version if it isn't the same as either one of them.
         So it's not really appropriate to say it's iterated. It may be better just to define this as its own independent component (i.e. FTP_ITC_EXT.2). -->
-        <f-component id="ftp_itc_ext.1/wlan" name="Wireless Network Access">
+        <f-component id="ftp_itc_ext.1/wlan" name="Trusted Channel Communication (Wireless LAN)">
           <consistency-rationale/>
           <f-element id="ftp_itc_ext.1.1/wlan">
             <title>The TSF shall use 802.11-2016, 802.1X, and EAP-TLS to provide a
@@ -1875,10 +1873,6 @@
         <term>AES</term>
         <description>Advanced Encryption Standard</description>
       </entry>
-      <entry>
-        <term>AF</term>
-        <description>Authentication Factor</description>
-      </entry>
         <entry>
           <term>AS</term>
           <description>Authentication Server</description>
@@ -1892,8 +1886,8 @@
         <description>Cipher Block Chaining</description>
       </entry>      
         <entry>
-          <term>CC</term>
-          <description>Common Criteria</description>
+          <term>CCEVS</term>
+          <description>Common Criteria Evaluation and Validation Scheme</description>
         </entry>
       <entry>
         <term>CCMP</term>
@@ -1903,22 +1897,14 @@
         <term>CCTL</term>
         <description>Common Criteria Test Laboratory</description>
       </entry>
-      <entry>
-        <term>CM</term>
-        <description>Configuration Management</description>
-      </entry>
-      <entry>
-        <term>COTS</term>
-        <description>Commercial Off-The-Shelf</description>
-      </entry>
-      <entry>
-        <term>DRBG</term>
-        <description>Deterministic Random Bit Generator</description>
-      </entry>
-      <entry>
-        <term>DoD</term>
-        <description>(United States) Department of Defense</description>
-      </entry>
+        <entry>
+          <term>EAP</term>
+          <description>Extensible Authentication Protocol</description>
+        </entry>
+        <entry>
+          <term>EAPOL</term>
+          <description>EAP over LAN</description>
+        </entry>
       <entry>
         <term>FIPS</term>
         <description>Federal Information Processing Standards</description>
@@ -1931,14 +1917,30 @@
         <term>GCMP</term>
         <description>Galois/Counter Mode Protocol</description>
       </entry>
+        <entry>
+          <term>GPOS</term>
+          <description>General-Purpose Operating System</description>
+        </entry>
+        <entry>
+          <term>GTK</term>
+          <description>Group Temporal Key</description>
+        </entry>
+        <entry>
+          <term>HMAC</term>
+          <description>Hash-Based Message Authentication Code</description>
+        </entry>
+        <entry>
+          <term>IEC</term>
+          <description>International Electrotechnical Commission</description>
+        </entry>
       <entry>
         <term>IEEE</term>
         <description>Institute of Electrical and Electronics Engineers</description>
       </entry>
-      <entry>
-        <term>IETF</term>
-        <description>Iternet Engineering Task Force</description>
-      </entry>      
+        <entry>
+          <term>ISO</term>
+          <description>International Organization for Standardization</description>
+        </entry>
       <entry>
         <term>IT</term>
         <description>Information Technology</description>
@@ -1955,11 +1957,30 @@
         <term>MAC</term>
         <description>Message Authentication Code (cryptography) or Media Control Address (system property)</description>
       </entry>
+        <entry>
+          <term>MDF</term>
+          <description>Mobile Device Fundamentals</description>
+        </entry>
+        <entry>
+          <term>NIAP</term>
+          <description>National Information Assurance Partnership</description>
+        </entry>
+        <entry>
+          <term>NVLAP</term>
+          <description>National Voluntary Laboratory Accreditation Program</description>
+        </entry>
       <entry>
         <term>OSP</term>
         <description>Organizational Security Policy</description>
       </entry>
-
+        <entry>
+          <term>PAE</term>
+          <description>Port Access Entity</description>
+        </entry>
+        <entry>
+          <term>PIN</term>
+          <description>Personal Identification Number</description>
+        </entry> 
       <entry>
         <term>PKI</term>
         <description>Public Key Infrastructure</description>
@@ -1976,26 +1997,34 @@
         <term>PP</term>
         <description>Protection Profile</description>
       </entry>      
+        <entry>
+          <term>PRF</term>
+          <description>Pseudo-Random Function</description>
+        </entry>
       <entry>
         <term>PTK</term>
         <description>Pairwise Temporal Key</description>
       </entry>
-      <entry>
-        <term>PUB</term>
-        <description>Publication</description>
-      </entry>     
-      <entry>
-        <term>RBG</term>
-        <description>Random Bit Generator</description>
-      </entry>
-      <entry>
-        <term>SAR</term>
-        <description>Security Assurance Requirement</description>
-      </entry>  
+        <entry>
+          <term>RBG</term>
+          <description>Random Bit Generator</description>
+        </entry>
+        <entry>
+          <term>RF</term>
+          <description>Radio Frequency</description>
+        </entry>
+        <entry>
+          <term>RFC</term>
+          <description>Request for Comment</description>
+        </entry>
       <entry>
         <term>SFR</term>
         <description>Security Functional Requirement</description>
-      </entry>  
+      </entry>
+        <entry>
+          <term>SHA</term>
+          <description>Secure Hash Algorithm</description>
+        </entry>
       <entry>
         <term>SSID</term>
         <description>Service Set Identifier</description>
@@ -2003,7 +2032,11 @@
       <entry>
         <term>ST</term>
         <description>Security Target</description>
-      </entry>        
+      </entry>   
+        <entry>
+          <term>TLS</term>
+          <description>Transport Layer Security</description>
+        </entry>
       <entry>
         <term>TOE</term>
         <description>Target of Evaluation</description>
@@ -2020,6 +2053,10 @@
         <term>WLAN</term>
         <description>Wireless Local Area Network</description>
       </entry>      
+        <entry>
+          <term>WPA</term>
+          <description>Sireless Protected Access</description>
+        </entry>
 
     </acronyms>
   
