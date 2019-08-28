@@ -199,7 +199,7 @@
       Client sets up an encrypted, authenticated channel to the WLAN Access System using a 4-way
       handshake, as specified in IEEE 802.11. Once the channel is established, all communication
       between the WLAN Client to the WLAN Access System is encrypted with Advanced Encryption Standard (AES) in 
-      Cipher Block Chaning-Message Authentication Code Protocol (CCMP) mode and
+      Cipher Block Chaining-Message Authentication Code Protocol (CCMP) mode and
       optionally AES in Galois/Counter Mode Protocol (GCMP) mode, as specified in <cite linkend="bib80211"/>.
       
       <subsection title="TOE Boundary" id="TOEboundary">
@@ -648,7 +648,7 @@
     <man-sfrs>
       <subsection id="fau" title="Security Audit (FAU)">
         
-        <!-- SME: note that this SFR was updated substantially to be consistent with how auditing is handled in current PP-Modules. -->
+        
         <f-component id="fau_gen.1/wlan" name="Audit Data Generation (Wireless LAN)">
           <consistency-rationale/>
           <f-element id="fau_gen.1.1/wlan">
@@ -818,7 +818,7 @@
         WPA2 Enterprise certification program tests devices for data communications interoperability
         at ISO OSI layers 1 and 2, and mandates the use of the AES-CCMP algorithm for secure connections. Optionally, AES-GCMP can be used.
         
-        <!-- to do: go back and update section numbers for 802.11-2016. -->
+        <!-- SME: references to 802.11-2012 and 802.11ac-2014 in this app note need to be updated along with the section references. We do not have a copy of the standard so we could not update the section references. -->
         <f-component id="fcs_ckm.1/wlan" name="Cryptographic Key Generation (Symmetric Keys for WPA2 Connections)">
           <consistency-rationale/>
           <f-element id="fcs_ckm.1.1/wlan">
@@ -833,7 +833,7 @@
                 <selectable>no other key sizes</selectable>
               </selectables></h:b></h:i>] <h:b>using a Random Bit Generator as specified in FCS_RBG_EXT.1</h:b>.
             </title>
-            <note role="application">The cryptographic key derivation algorithm required by IEEE 802.11-2016
+            <note role="application">The cryptographic key derivation algorithm required by IEEE 802.11-2012
               (Section 11.6.1.2) and verified in WPA2 certification is PRF-384, which uses the HMAC-SHA-1
               function and outputs 384 bits. The use of GCMP was first defined in IEEE 802.11ac-2014 (Section
               11.4.5) but subsequently integrated into 802.11-2016. This protocol requires a key derivation function (KDF) 
@@ -966,8 +966,8 @@
           </aactivity>
         </f-component>
         
-        <!-- SME: the TLS cipher suites in this SFR were out of date compared to recent PPs. Additionally, TLS_RSA_WITH_AES_128_CBC_SHA is not being mandated in PPs anymore. We have updated the cipher suites to be consistent with 
-        NDcPP. Please confirm appropriateness. -->
+        <!-- SME: we were asked to cite the TLS Functional Package instead of defining 'new' TLS requirements in this Module. However, these EAP-TLS requirements are somewhat different from those in the TLS Package. 
+          It is unclear what the preferred method of resolving these discrepancies is. -->
         <f-component id="fcs_tlsc_ext.1/wlan" name="TLS Client Protocol (EAP-TLS for WLAN)">
           <consistency-rationale/>
           <f-element id="fcs_tlsc_ext.1.1/wlan">
@@ -1225,8 +1225,7 @@
             </aactivity>
         </f-component>
         
-        <!-- SME: note that both GPOS and MDF PPs define different versions of FIA_X509_EXT.2. This iteration is formatted on the assumption that its original component is defined in MDF
-        (because the GPOS version lacks a 2.2). -->
+        
         <f-component id="fia_x509_ext.2/wlan" name="X.509 Certificate Authentication (EAP-TLS for WLAN)">
           <consistency-rationale/>
           <f-element id="fia_x509_ext.2.1/wlan">
@@ -1313,9 +1312,10 @@
               <h:ul>
               <h:li>configure security policy for each wireless network:
                 <h:ul>
+                  <!-- SME: this selectable list conflicts with FCS_TLSC_EXT.1.5/WLAN, which only permits use of a CA to validate authentication server certificates, no FQDN option. Not sure which to modify to make consistent. -->
                   <h:li><selectables>
                     <selectable>specify the CA(s) from which the TSF will accept WLAN authentication server certificate(s),</selectable>
-                    <selectable>specify the Fully Qualified Domain Namess (FQDNs) of acceptable WLAN authentication server certificate(s),</selectable>
+                    <selectable>specify the Fully Qualified Domain Names (FQDNs) of acceptable WLAN authentication server certificate(s),</selectable>
                   </selectables>,</h:li>
                   <h:li>security type,</h:li>
                   <h:li>authentication protocol,</h:li>
@@ -1374,7 +1374,8 @@
  
       <subsection id="fpt" title="Protection of the TSF (FPT)">
         
-        <!-- SME: note that both GPOS and MDF have an FPT_TST_EXT.1 but neither of them correspond directly to this SFR. Unclear whether it should remain an iteration or if it should be renamed. -->
+        <!-- SME: note that both GPOS and MDF have an FPT_TST_EXT.1 but neither of them correspond directly to this SFR. Unclear whether it should remain an iteration or if it should be renamed. 
+        Note that the VPN Client Module had the same issue and just handled it by iterating the SFR, so the same approach was done here for now. -->
         <ext-comp-def fam-id="FPT_TST_EXT" title="TSF Self-Test">
           <mod-def>Components in this family define requirements for self-testing to verify the functionality and integrity of the TOE.
           </mod-def>
@@ -1534,8 +1535,8 @@
  
       <subsection id="ftp" title="Trusted Path/Channels (FTP)">
         
-        <!-- SME: this SFR has the same issue that FPT_TST_EXT.1/WLAN has. Specifically, it's shown as an iteration but the Base-PPs each contain their own version of this, and the Module's version if it isn't the same as either one of them.
-        So it's not really appropriate to say it's iterated. It may be better just to define this as its own independent component (i.e. FTP_ITC_EXT.2). -->
+        <!-- SME: this SFR was modified slightly so that it is properly represented as an iteration of FTP_ITC_EXT.1 (as defined in the MDF PP, since the MDF and GPOS versions were different). The change was entirely semantic and 
+        does not impact what is testable. -->
         <f-component id="ftp_itc_ext.1/wlan" name="Trusted Channel Communication (Wireless LAN)">
           <consistency-rationale/>
           <f-element id="ftp_itc_ext.1.1/wlan">
@@ -1617,6 +1618,10 @@
  
     </man-sfrs>
     
+    <!-- SME: the template guidance said to use the "status" attribute in the f-component tag to specify an SFR as optional. However, when we did this, the optional SFR still stayed in the mandatory requirements section - 
+    it just added a box underneath the heading saying the SFR was optional. It also stayed listed as 'mandatory' in the consistency rationale. Putting it in the <opt-sfrs> section as we did here fixed those issues
+    but it also prevented any of the intro text to the optional SFRs appendix from being displayed. We are flagging this as an issue with the template. Note that FE and FE-EM modules were done in this manner as well so we don't believe
+    it should be an issue here, but for future use it may be beneficial to correct the template so that it behaves as intended. -->
     <opt-sfrs>
       As indicated in <secref linkend="ccl"/>,
       the baseline requirements (those that must be performed by the TOE are
@@ -1698,6 +1703,10 @@
       
     </opt-sfrs>
 
+    <!-- SME: the template guidance said to use the "status" attribute in the f-component tag to specify an SFR as selection-based. However, when we did this, the selection-based SFR still stayed in the mandatory requirements section - 
+    it just added a box underneath the heading saying the SFR was selection-based. It also stayed listed as 'mandatory' in the consistency rationale. Putting it in the <sel-sfrs> section as we did here fixed those issues
+    but it also prevented any of the intro text to the selection-based SFRs appendix from being displayed. We are flagging this as an issue with the template. Note that FE and FE-EM modules were done in this manner as well so we don't believe
+    it should be an issue here, but for future use it may be beneficial to correct the template so that it behaves as intended. -->
     <sel-sfrs>
       As indicated in the introduction to
       this PP-Module, the baseline requirements are contained in the body of this PP-Module. There are additional requirements based on
@@ -1709,7 +1718,8 @@
           <mod-def>Components in this family define requirements for the implementation of the TLS protocol when the TOE is acting as a client.
           </mod-def>
         </ext-comp-def>
-        <!-- SME: should this also be expanded to include the ffdhe groups from the most recent TLS package?  -->
+        <!-- SME: we were asked to cite the TLS Functional Package instead of defining 'new' TLS requirements in this Module. However, these EAP-TLS requirements are somewhat different from those in the TLS Package. 
+          It is unclear what the preferred method of resolving these discrepancies is. -->
         <f-component id="fcs_tlsc_ext.2/wlan" name="TLS Client Support for Supported Groups Extension (EAP-TLS for WLAN)" status="sel-based">
           <selection-depends req="fcs_tlsc_ext.1.1/wlan"/>
           <consistency-rationale/>
@@ -1802,13 +1812,13 @@
         <tag>CC</tag>
         <description>Common Criteria for Information Technology Security Evaluation - <h:ul>
             <h:li><h:a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART1V3.1R5.pdf">Part
-                1: Introduction and General Model</h:a>, CCMB-2012-09-001, Version 3.1 Revision 5,
+                1: Introduction and General Model</h:a>, CCMB-2017-04-001, Version 3.1 Revision 5,
               April 2017.</h:li>
             <h:li><h:a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART2V3.1R5.pdf">Part
-                2: Security Functional Components</h:a>, CCMB-2012-09-002, Version 3.1 Revision 5,
+                2: Security Functional Components</h:a>, CCMB-2017-04-002, Version 3.1 Revision 5,
               April 2017.</h:li>
             <h:li><h:a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART3V3.1R5.pdf">Part
-                3: Security Assurance Components</h:a>, CCMB-2012-09-003, Version 3.1 Revision 5,
+                3: Security Assurance Components</h:a>, CCMB-2017-04-003, Version 3.1 Revision 5,
               April 2017.</h:li>
           </h:ul></description>
       </entry>
@@ -1817,7 +1827,7 @@
         <description>
           <h:a href="http://www.commoncriteriaportal.org/files/ccfiles/CEMV3.1R5.pdf">Common
             Evaluation Methodology for Information Technology Security - Evaluation Methodology</h:a>,
-          CCMB-2012-09-004, Version 3.1, Revision 5, April 2017.</description>
+          CCMB-2017-04-004, Version 3.1, Revision 5, April 2017.</description>
       </entry>
       <entry id="bibGPOS">
         <tag>GPOS</tag>
