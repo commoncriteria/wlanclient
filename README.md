@@ -1,75 +1,43 @@
-Protection Profile Template
+PP-Module for WLAN Clients
 ===============
+[![Build Status](https://travis-ci.com/commoncriteria/wlanclient.svg?branch=master)](https://travis-ci.com/commoncriteria/wlanclient)
+[![GitHub issues Open](https://img.shields.io/github/issues/commoncriteria/wlanclient.svg?maxAge=2592000)](https://github.com/commoncriteria/wlanclient/issues) 
+![license](https://img.shields.io/badge/license-Unlicensed-blue.svg)
 
-Quickstart
-----------
-
-1. To make a new protection profile create a new repo, probably through the web interface. 
-
-
-2. Copy the URL to the projects git file to the clipboard. Run the following script, pasting the value copied into where you see $NEW_REPO_GIT_URL.
-
-````
-git clone --bare https://github.com/commoncriteria/pp-template.git
-# Make a bare clone of the repository
-
-cd pp-template.git
-git push --mirror $NEW_REPO_GIT_URL
-# Mirror-push to the new repository
-
-cd ..
-rm -rf pp-template.git
-# Remove our temporary local repository
-````
-
-3. Do a full clone of your new project
-
-4. Rename the input file, currently named, input/pp-template.xml to the name
-of the project with xml added to it; for example, operatingsystem and application
-have operatingsystem.xml and application.xml input files respectively.
-
-If something was the project name it would be,
-
-````
-git mv input/pp-template.xml input/something.xml
-````
-5. If creating a Protection Profile Module rename Module.make to Makefile otherwise rename ProtectionProfile.make to Makefile and delete the other .make file.
-
-6. Remove this content from the readme, up to the line below and customize. 
-
-----
-
-Protection Profile or Extended Package for QQQQ
-===============
-
-This repository hosts the draft version of the Protection Profile for QQQQ based on the 
+This repository hosts the draft version of the PP-Module for WLAN Clients based on the 
 [Essential Security Requirements (ESR)](https://commoncriteria.github.io/pp/QQQQ/QQQQ-esr.html) for this technology class of 
-products. This repository is used to facilitate collaboration and development on the draft document. 
+products. This PP-Module is intended for use with the following Base-PPs:
+
+* General Purpose Operating System (GPOS) Protection Profile
+* Mobile Device Fundamentals (MDF) Protection Profile
+
+This repository is used to facilitate collaboration and development on the draft document. 
 See the [release](#Release-Version) section if you are looking for the officially released version for evaluations. 
-A list of products that have passed evaluation against this Protection Profile can be found [here](QQQQ).
+A list of products that have passed evaluation against this Protection Profile can be found [here](https://www.niap-ccevs.org/Profile/Info.cfm?PPID=386&id=386).
 
 ## Draft Version
 
-* [Protection Profile for QQQQ](https://commoncriteria.github.io/pp/QQQQ/QQQQ-release.html) (html)
-* [Protection Profile for QQQQ](https://commoncriteria.github.io/pp/QQQQ/QQQQ-release.pdf) (pdf)
-
+* [PP-Module for WLAN Client v1.0](https://commoncriteria.github.io/pp/wlanclient/wlanclient-release.html) (html)
+* [PP-Module for WLAN Client v1.0](https://commoncriteria.github.io/pp/wlanclient/wlanclient-release.pdf) (pdf)
+* [Supporting Document](https://commoncriteria.github.io/pp/wlanclient/wlanclient-sd.html) (html)
 ## Release Version
-* [Protection Profile for QQQQ](QQQQ)
+* [PP-Module for WLAN Client](https://www.niap-ccevs.org/Profile/Info.cfm?PPID=386&id=386)
 
 ## Contributing
 
 If you are interested in contributing directly to future versions the this Protection Profile, please consider joining the NIAP technical community.
+
 * [How to join the NIAP Technical Community (Mailing list and updates)](https://www.niap-ccevs.org/NIAP_Evolution/tech_communities.cfm)
 
 ## Feedback
 
-Questions, comments, and fixes can be submitted to the [repository issue tracker](https://github.com/commoncriteria/QQQQ/issues)
+Questions, comments, and fixes can be submitted to the [repository issue tracker](https://github.com/commoncriteria/wlanclient/issues)
 
 ## Quickstart
 To clone this project along with its _transforms_ submodule run:
 
 ````
-  git clone --recursive git@github.com:commoncriteria/qqqq.git
+  git clone --recursive git@github.com:commoncriteria/wlanclient.git
 ````
 To pull updates from the upstream _transforms_ submodule and commit them run:
 ````
