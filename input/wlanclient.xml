@@ -959,10 +959,10 @@
                 <selectable>TLS_RSA_WITH_AES_256_CBC_SHA as defined in RFC 3268</selectable>
                 <selectable>TLS_DHE_RSA_WITH_AES_128_CBC_SHA as defined in RFC 3268</selectable>
                 <selectable>TLS_DHE_RSA_WITH_AES_256_CBC_SHA as defined in RFC 3268</selectable>
-                <selectable>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA as defined in RFC 4492</selectable>
-                <selectable>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA as defined in RFC 4492</selectable>
-                <selectable>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA as defined in RFC 4492</selectable>
-                <selectable>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA as defined in RFC 4492</selectable>
+                <selectable id="ecdhe">TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA as defined in RFC 4492</selectable>
+                <selectable id="ecdhe">TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA as defined in RFC 4492</selectable>
+                <selectable id="ecdhe">TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA as defined in RFC 4492</selectable>
+                <selectable id="ecdhe">TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA as defined in RFC 4492</selectable>
                 <selectable>TLS_RSA_WITH_AES_128_CBC_SHA256 as defined in RFC 5246</selectable>
                 <selectable>TLS_RSA_WITH_AES_256_CBC_ SHA256 as defined in RFC 5246</selectable>
                 <selectable>TLS_DHE_RSA_WITH_AES_128_CBC_ SHA256 as defined in RFC 5246</selectable>
@@ -971,14 +971,14 @@
                 <selectable>TLS_RSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5288</selectable>
                 <selectable>TLS_DHE_RSA_WITH_AES_128_GCM_SHA256 as defined in RFC 5288</selectable>
                 <selectable>TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5288</selectable>
-                <selectable>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 as defined in RFC 5289</selectable>
-                <selectable>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 as defined in RFC 5289</selectable>
-                <selectable>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 as defined in RFC 5289</selectable>
-                <selectable>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5289</selectable>
-                <selectable>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 as defined in RFC 5289</selectable>
-                <selectable>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5289</selectable>
-                <selectable>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 as defined in RFC 5289</selectable>
-                <selectable>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 as defined in RFC 5289</selectable>
+                <selectable id="ecdhe">TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 as defined in RFC 5289</selectable>
+                <selectable id="ecdhe">TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 as defined in RFC 5289</selectable>
+                <selectable id="ecdhe">TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 as defined in RFC 5289</selectable>
+                <selectable id="ecdhe">TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5289</selectable>
+                <selectable id="ecdhe">TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 as defined in RFC 5289</selectable>
+                <selectable id="ecdhe">TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5289</selectable>
+                <selectable id="ecdhe">TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 as defined in RFC 5289</selectable>
+                <selectable id="ecdhe">TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 as defined in RFC 5289</selectable>
             </selectables>.   
             </title>
             <ext-comp-def-title>
@@ -1786,7 +1786,7 @@
           It is unclear what the preferred method of resolving these discrepancies is. -->
         <f-component cc-id="fcs_tlsc_ext.2" name="TLS Client Support for Supported Groups Extension (EAP-TLS for WLAN)" iteration="WLAN">
           
-          <selection-depends req="fcs-tlsc-ext-1-1" ids=""/>
+          <selection-depends req="fcs-tlsc-ext-1-1" ids="ecdhe"/>
           <consistency-rationale/>
           
           <comp-lev> describes the ability of the TOE to present certain values in the Supported Groups extension when attempting to establish a TLS connection as a client.</comp-lev>
