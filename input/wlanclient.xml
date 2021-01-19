@@ -1805,7 +1805,7 @@
               <title>The TSF shall present the Supported Groups extension in the Client Hello with the following NIST curves: <assignable>list of supported groups</assignable>.         
                 </title>
             </ext-comp-def-title>
-            <note role="application">This requirement must be claimed if any cipher suites beginning with 'TLS-ECDHE' are selected in FCS_TLSC_EXT.1.1/WLAN.
+            <note role="application">This requirement must be claimed if any cipher suites beginning with 'TLS_ECDHE' are selected in FCS_TLSC_EXT.1.1/WLAN.
               <h:p/>
               This requirement does not limit the elliptic curves the client may propose for authentication and key agreement.  
               Rather, it asks the ST author to define which of the NIST curves from FCS_COP.1(3) (defined in each supported Base-PP) and FCS_CKM.1/WLAN and FCS_CKM.2/WLAN (each defined in this PP-Module) can be used for TLS key establishment.
