@@ -948,7 +948,7 @@
             <no-link>FMT_SMR.1</no-link> Security Roles
           </dependencies>
           
-          <f-element>
+          <f-element id="fcs-tlsc-ext-1-1">
             <title>The TSF shall implement TLS 1.2 (RFC 5246) and               
             <selectables>
               <selectable>TLS 1.1 (RFC 4346)</selectable>
@@ -1785,7 +1785,8 @@
         <!-- SME: we were asked to cite the TLS Functional Package instead of defining 'new' TLS requirements in this Module. However, these EAP-TLS requirements are somewhat different from those in the TLS Package. 
           It is unclear what the preferred method of resolving these discrepancies is. -->
         <f-component cc-id="fcs_tlsc_ext.2" name="TLS Client Support for Supported Groups Extension (EAP-TLS for WLAN)" iteration="WLAN">
-          <!-- QQQQ <selection-depends req="fcs_tlsc_ext.1.1/wlan"/>  -->
+          
+          <selection-depends req="fcs-tlsc-ext-1-1" ids=""/>
           <consistency-rationale/>
           
           <comp-lev> describes the ability of the TOE to present certain values in the Supported Groups extension when attempting to establish a TLS connection as a client.</comp-lev>
