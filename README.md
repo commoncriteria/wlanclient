@@ -1,6 +1,6 @@
 PP-Module for WLAN Clients
 ===============
-[![Build Status](https://travis-ci.com/commoncriteria/wlanclient.svg?branch=master)](https://travis-ci.com/commoncriteria/wlanclient)
+![Build](https://github.com/commoncriteria/wlanclient/workflows/Build/badge.svg)
 [![GitHub issues Open](https://img.shields.io/github/issues/commoncriteria/wlanclient.svg?maxAge=2592000)](https://github.com/commoncriteria/wlanclient/issues) 
 ![license](https://img.shields.io/badge/license-Unlicensed-blue.svg)
 
