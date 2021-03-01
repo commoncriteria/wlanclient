@@ -13,7 +13,7 @@
     <ReferenceTable>
       <PPVersion>1.0</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2020-10-28</PPPubDate>
+      <PPPubDate>2021-03-15</PPPubDate>
       <Keywords>WLAN; Wireless LAN; Wireless Networking; 802.11</Keywords>
     </ReferenceTable>
   </PPReference>
@@ -21,7 +21,7 @@
   <RevisionHistory>
     <entry>
       <version>1.0</version>
-      <date>2020-10-28</date>
+      <date>2021-03-15</date>
       <subject>Initial Release</subject>
     </entry>
   </RevisionHistory>
@@ -32,7 +32,7 @@
       The scope of the Wireless Local Area Network (WLAN) Client <abbr linkend="PP-Module"/> is to describe the security functionality of a WLAN Client in terms of [<abbr linkend="CC"/>] 
       and to define functional and assurance requirements for such products. This <abbr linkend="PP-Module"/> is intended for use with the following <abbr linkend="Base-PP"/>s: <h:ul>
         <h:li>General Purpose Operating System (GPOS) Protection Profile, Version 4.2.1</h:li>
-        <h:li>Mobile Device Fundamentals (MDF) Protection Profile, Version 3.1</h:li>
+        <h:li>Mobile Device Fundamentals (MDF) Protection Profile, Version 3.2</h:li>
       </h:ul>
       <h:p/> These <abbr linkend="Base-PP"/>s are valid because a WLAN Client is
       a part of either a commercial operating system that can be installed on a general-purpose computer or an operating system that runs on a purpose-built mobile device.
@@ -242,14 +242,14 @@
           SFRs (dated May 2017).<h:p/> 
           The following PPs and PP-Modules are allowed to
           be specified in a PP-Configuration with this PP-Module. <h:ul>
-            <h:li>PP-Module for VPN Client, Version 2.1</h:li>
+            <h:li>PP-Module for VPN Client, Version 2.2</h:li>
             <h:li>PP-Module for MDM Agent, Version 1.0</h:li>
           </h:ul>
         </description>
       </cclaim>
       <cclaim name="CC Conformance Claims">
         <description>This <abbr linkend="PP-Module"/> is conformant to Parts 2 (extended) and 3
-          (conformant) of Common Criteria Version 3.1, Release 5 [<abbr linkend="CC"/>].
+          (extended) of Common Criteria Version 3.1, Release 5 [<abbr linkend="CC"/>].
         </description>
       </cclaim>
       <cclaim name="Package Claims">
@@ -1921,7 +1921,7 @@
       <entry id="bibMDF">
         <tag>MDF</tag>
         <description><h:a
-          href="https://www.niap-ccevs.org/MMO/PP/pp_md_v3.1.pdf">Protection Profile for Mobile Device Fundamentals, Version 3.1</h:a>, June 16, 2017</description>
+          href="https://www.niap-ccevs.org/MMO/PP/pp_md_v3.1.pdf">Protection Profile for Mobile Device Fundamentals, Version 3.2</h:a>, March 4, 2021</description>
       </entry>
       <entry id="bib80211">
         <tag>802.11-2016</tag>
