@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../transforms/pp2html.xsl"?>
+<?xsl-stylesheet type="text/xsl" href="../transforms/xsl/module/module2html.xsl"?>
 
 <!-- test -->
 
 <?xml-model href="../transforms/schemas/CCModule.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<Module xmlns="https://niap-ccevs.org/cc/v1" target-products="WLAN Clients" name="PP-Module for Wireless LAN Clients"
-    xmlns:h="http://www.w3.org/1999/xhtml">
+<Module target-products="WLAN Clients" name="PP-Module for Wireless LAN Clients"
+  xmlns="https://niap-ccevs.org/cc/v1"
+  xmlns:sec="https://niap-ccevs.org/cc/v1/section"
+  xmlns:h="http://www.w3.org/1999/xhtml">
   <!-- <inline-comment color='green'> Hello World QQQQ </inline-comment> -->
   <!-- <inline-comment color='blue' linebreak='yes'> Hello World QQQQ </inline-comment> -->
   <PPReference>
@@ -26,18 +28,18 @@
     </entry>
   </RevisionHistory>
 
-  <chapter title="Introduction" id="int">
-    <section title="Overview" id="ppoverview">
+  <sec:Introduction>
+    <sec:Overview>
       
-      The scope of the Wireless Local Area Network (WLAN) Client <abbr linkend="PP-Module"/> is to describe the security functionality of a WLAN Client in terms of [<abbr linkend="CC"/>] 
-      and to define functional and assurance requirements for such products. This <abbr linkend="PP-Module"/> is intended for use with the following <abbr linkend="Base-PP"/>s: <h:ul>
+      The scope of the Wireless Local Area Network (WLAN) Client <xref to="PP-Module"/> is to describe the security functionality of a WLAN Client in terms of [<xref to="CC"/>] 
+      and to define functional and assurance requirements for such products. This <xref to="PP-Module"/> is intended for use with the following <xref to="Base-PP"/>s: <h:ul>
         <h:li>General Purpose Operating System (GPOS) Protection Profile, Version 4.2.1</h:li>
         <h:li>Mobile Device Fundamentals (MDF) Protection Profile, Version 3.2</h:li>
       </h:ul>
-      <h:p/> These <abbr linkend="Base-PP"/>s are valid because a WLAN Client is
+      <h:p/> These <xref to="Base-PP"/>s are valid because a WLAN Client is
       a part of either a commercial operating system that can be installed on a general-purpose computer or an operating system that runs on a purpose-built mobile device.
       
-    </section>
+    </sec:Overview>
 <tech-terms>
   
   <term abbr="AES" full="Advanced Encryption Standard"></term>
@@ -159,7 +161,7 @@
     <section title="Compliant Targets of Evaluation" id="TOEdescription">
      
      This document specifies SFRs for a WLAN Client. The TOE defined
-     by this <abbr linkend="PP-Module"/> is the WLAN Client, a component executing on a client machine (often referred to as
+     by this <xref to="PP-Module"/> is the WLAN Client, a component executing on a client machine (often referred to as
      a "remote access client"). The TOE establishes a secure wireless tunnel between the client
      device and a WLAN Access System through which all data will traverse.
      <h:p/>
@@ -167,7 +169,7 @@
       with a private network through a WLAN Access System. IP packets passing between the
       private network and a WLAN Client are encrypted. The WLAN Client protects the confidentiality and integrity of
       data in transit between itself and the private network, even though it traverses a wireless connection.
-      The focus of the SFRs in this <abbr linkend="PP-Module"/> is on the following fundamental
+      The focus of the SFRs in this <xref to="PP-Module"/> is on the following fundamental
       aspects of a WLAN Client:
       <h:ul>
         <h:li>Authentication of the WLAN Client</h:li>
@@ -190,10 +192,10 @@
       handshake, as specified in IEEE 802.11. Once the channel is established, all communication
       between the WLAN Client to the WLAN Access System is encrypted with Advanced Encryption Standard (AES) in 
       Cipher Block Chaining-Message Authentication Code Protocol (CCMP) mode and
-      optionally AES in Galois/Counter Mode Protocol (GCMP) mode, as specified in <cite linkend="bib80211"/>.
+      optionally AES in Galois/Counter Mode Protocol (GCMP) mode, as specified in <xref to="bib80211"/>.
       
-      <subsection title="TOE Boundary" id="TOEboundary">
-        The WLAN Client (Figure 1), as defined by this <abbr linkend="PP-Module"/>, is a component executing on a remote access
+      <sec:TOE_Boundary>
+        The WLAN Client (Figure 1), as defined by this <xref to="PP-Module"/>, is a component executing on a remote access
         client machine. Note the client is depicted as just a small portion of the WLAN client "machine."
         As such, the TOE must rely heavily on the TOE’s operational environment (host platform,
         network stack, and operating system) for its execution domain and its proper usage. The TOE
@@ -201,7 +203,7 @@
         administrative functions.  
         
         <figure entity="images/Toe.png" title="WLAN Client Operating Environment" id="toe"/>
-      </subsection>
+      </sec:TOE_Boundary>
       <!-- 
       <subsection title="TOE Platform" id="TOEplatform">
       </subsection>  -->
@@ -230,15 +232,15 @@
         
       </usecases>
     </section>
-  </chapter>
+  </sec:Introduction>
 
 
-  <chapter title="Conformance Claims" id="conf">
+  <sec:Conformance_Claims>
     <cclaims>
       <cclaim name="Conformance Statement">
-        <description> This <abbr linkend="PP-Module"/> inherits exact conformance as required from
-          the specified <abbr linkend="Base-PP"/> and as defined in the <abbr linkend="CC"/> and
-          <abbr linkend="CEM"/> addenda for Exact Conformance, Selection-Based SFRs, and Optional
+        <description> This <xref to="PP-Module"/> inherits exact conformance as required from
+          the specified <xref to="Base-PP"/> and as defined in the <xref to="CC"/> and
+          <xref to="CEM"/> addenda for Exact Conformance, Selection-Based SFRs, and Optional
           SFRs (dated May 2017).<h:p/> 
           The following PPs and PP-Modules are allowed to
           be specified in a PP-Configuration with this PP-Module. <h:ul>
@@ -248,25 +250,25 @@
         </description>
       </cclaim>
       <cclaim name="CC Conformance Claims">
-        <description>This <abbr linkend="PP-Module"/> is conformant to Parts 2 (extended) and 3
-          (extended) of Common Criteria Version 3.1, Release 5 [<abbr linkend="CC"/>].
+        <description>This <xref to="PP-Module"/> is conformant to Parts 2 (extended) and 3
+          (extended) of Common Criteria Version 3.1, Release 5 [<xref to="CC"/>].
         </description>
       </cclaim>
       <cclaim name="Package Claims">
         <description>There are no package claims for this PP-Module.</description>
       </cclaim>
     </cclaims>
-  </chapter>
+  </sec:Conformance_Claims>
 
 
-  <chapter id="spd" title="Security Problem Description">
+  <sec:Security_Problem_Description>
     This PP-Module is written to address the situation when an entity desires wireless access to a private
     network. To allow access to the private network, the entity (machine) must be authenticated
     before a secure communications channel can be established. The TOE is the entity that seeks to
     be authenticated and be given access to services offered by the protected network and is the
     Supplicant in the IEEE 802.1X framework.
     
-    <section id="threats" title="Threats"> The following threats are specific to WLAN Clients, and represent an addition to those identified in the <abbr linkend="Base-PP"/>s. 
+    <sec:Threats> The following threats are specific to WLAN Clients, and represent an addition to those identified in the <xref to="Base-PP"/>s. 
       <!-- Note: Threats contained in both base-PPs should not be listed in the PP-Module (section 3.1 or 6), but objectives can still be mapped to them (section 4.3). 
         For these threats do not include a <description> or <consistency-rationale> section. If a <description> section is included then the threat is listed in Section 3.1. 
         If no description is listed, then threat is only listed in section 4.3 (not in 3.1 or 6) -->
@@ -312,21 +314,21 @@
           </objective-refer>
         </threat>
       </threats>
-     </section>
+     </sec:Threats>
         
-    <section id="Assumptions" title="Assumptions">
+    <sec:Assumptions>
       
       <assumptions>
         <assumption name="A.NO_TOE_BYPASS">
           <description>Information cannot flow between the wireless client and the internal wired
-            network without passing through the <abbr linkend="TOE"/>.</description>
+            network without passing through the <xref to="TOE"/>.</description>
           <consistency-rationale/>
           <objective-refer ref="OE.NO_TOE_BYPASS">
             <rationale>The Operational Environment objective OE.NO_TOE_BYPASS is realized through A.NO_TOE_BYPASS.</rationale>
           </objective-refer>
         </assumption>
         <assumption name="A.TRUSTED_ADMIN">
-          <description><abbr linkend="TOE"/> Administrators are trusted to follow and apply all administrator guidance in
+          <description><xref to="TOE"/> Administrators are trusted to follow and apply all administrator guidance in
             a trusted manner.</description>
           <consistency-rationale>QQQQ</consistency-rationale>
           <objective-refer ref="OE.TRUSTED_ADMIN">
@@ -334,20 +336,19 @@
           </objective-refer>
         </assumption>
       </assumptions>
-    </section>
+    </sec:Assumptions>
     
-    <section id="securityPolicy" title="Organizational Security Policies">
-      No organizational policies have been identified that are specific to WLAN Clients. However, any
-      organizational security policies defined in the Base-PPs will also apply to WLAN Clients.
-    </section>
-  </chapter>
+    <sec:Organizational_Security_Policies>
+      <OSPs></OSPs>
+    </sec:Organizational_Security_Policies>
+  </sec:Security_Problem_Description>
 
 
-  <chapter title="Security Objectives" id="obj">
-    <section title="Security Objectives for the TOE" id="SecurityObjectivesTOE">
+  <sec:Security_Objectives>
+    <sec:Security_Objectives_for_the_TOE>
       <SOs>
         <SO name="O.AUTH_COMM">
-          <description>The <abbr linkend="TOE"/> will provide a means to ensure that it is
+          <description>The <xref to="TOE"/> will provide a means to ensure that it is
             communicating with an authorized Access Point and
             not some other entity pretending to be an authorized
             Access Point, and will provide assurance to the Access
@@ -371,11 +372,11 @@
           </rationale>
         </SO>
         <SO name="O.CRYPTOGRAPHIC_FUNCTIONS">
-          <description>The <abbr linkend="TOE"/> will provide or use cryptographic functions
+          <description>The <xref to="TOE"/> will provide or use cryptographic functions
             (i.e., encryption/decryption and digital signature
             operations) to maintain the confidentiality and allow
             for detection of modification of data that are
-            transmitted outside the <abbr linkend="TOE"/> and its host
+            transmitted outside the <xref to="TOE"/> and its host
             environment.</description>
           <consistency-rationale>QQQQ</consistency-rationale>
           <addressed-by>FCS_CKM.1/WLAN, FCS_CKM.2/WLAN</addressed-by>
@@ -388,7 +389,7 @@
           </rationale>
         </SO>
         <SO name="O.SELF_TEST">
-          <description>The <abbr linkend="TOE"/> will provide the capability to test some
+          <description>The <xref to="TOE"/> will provide the capability to test some
             subset of its security functionality to ensure it is operating properly. </description>
           <consistency-rationale>QQQQ</consistency-rationale>
           <addressed-by>FPT_TST_EXT.1/WLAN</addressed-by>
@@ -398,7 +399,7 @@
           </rationale>
         </SO>
         <SO name="O.SYSTEM_MONITORING">
-          <description>The <abbr linkend="TOE"/> will provide the capability to generate audit
+          <description>The <xref to="TOE"/> will provide the capability to generate audit
             data.</description>
           <consistency-rationale>QQQQ</consistency-rationale>
           <addressed-by>FAU_GEN.1/WLAN</addressed-by>
@@ -408,8 +409,8 @@
           </rationale>
         </SO>
         <SO name="O.TOE_ADMINISTRATION">
-          <description>The <abbr linkend="TOE"/> will provide mechanisms to allow
-            administrators to be able to configure the <abbr linkend="TOE"/>. </description>
+          <description>The <xref to="TOE"/> will provide mechanisms to allow
+            administrators to be able to configure the <xref to="TOE"/>. </description>
           <consistency-rationale>QQQQ</consistency-rationale>
           <addressed-by>FMT_SMF.1/WLAN, FIA_X509_EXT.4 (optional)</addressed-by>
           <rationale>
@@ -420,7 +421,7 @@
           </rationale>
         </SO>
         <SO name="O.WIRELESS_ACCESS_POINT_CONNECTION">
-          <description>The <abbr linkend="TOE"/> will provide the capability to restrict the
+          <description>The <xref to="TOE"/> will provide the capability to restrict the
             wireless access points to which it will connect.</description>
           <consistency-rationale>QQQQ</consistency-rationale>
           <addressed-by>FTA_WSE_EXT.1</addressed-by>
@@ -430,7 +431,7 @@
           </rationale>
         </SO>
       </SOs>
-    </section>
+    </sec:Security_Objectives_for_the_TOE>
     
     <section title="Security Objectives for the Operational Environment"
       id="SecurityObjectivesTOEorEnvironment"><!-- The Operational Environment of the TOE implements technical and procedural measures 
@@ -441,11 +442,11 @@
       <SOEs>
         <SOE name="OE.NO_TOE_BYPASS">
           <description>Information cannot flow between external and internal networks located
-            in different enclaves without passing through the <abbr linkend="TOE"/>.</description>
+            in different enclaves without passing through the <xref to="TOE"/>.</description>
           <consistency-rationale></consistency-rationale>
         </SOE>
         <SOE name="OE.TRUSTED_ADMIN">
-          <description><abbr linkend="TOE"/> administrators are trusted to follow and apply all administrator
+          <description><xref to="TOE"/> administrators are trusted to follow and apply all administrator
             guidance in a trusted manner.</description>
           <consistency-rationale></consistency-rationale>
         </SOE>
@@ -455,14 +456,14 @@
     <section title="Security Objectives Rationale" id="SOR">
       <!-- NOTE: This section should remain empty and is populated from the rationale tags in the previous sections.  -->
     </section>
-  </chapter>
+  </sec:Security_Objectives>
   
-  <chapter title="Security Requirements" id="req">
+  <sec:Security_Requirements>
     <!-- SME: the intro to this chapter appears to be getting populated with default text rather than what is specified here, which is problematic because the default text does not
     define refinements correctly for this Module. How can we get it to use what is here instead of the default? -->
     This chapter describes the security requirements
-    which have to be fulfilled by the <abbr linkend="OS"/>. Those requirements comprise functional
-    components from Part 2 and assurance components from Part 3 of <cite linkend="bibCC"/>. 
+    which have to be fulfilled by the <xref to="OS"/>. Those requirements comprise functional
+    components from Part 2 and assurance components from Part 3 of <xref to="bibCC"/>. 
         
     The following notations are used: <h:ul>
       <h:li>
@@ -491,7 +492,7 @@
       
           
        
-      <con-toe> When this <abbr linkend="PP-Module"/> is used to extend the GPOS PP, the TOE type for
+      <con-toe> When this <xref to="PP-Module"/> is used to extend the GPOS PP, the TOE type for
         the overall TOE is still a general-purpose operating system. The TOE boundary is simply extended to include the
           WLAN Client functionality that runs on the operating system.</con-toe>
       <con-sec-prob/>
@@ -553,7 +554,7 @@
       
       
       
-      <con-toe> When this <abbr linkend="PP-Module"/> is used to extend the MDF PP, the TOE type for
+      <con-toe> When this <xref to="PP-Module"/> is used to extend the MDF PP, the TOE type for
         the overall TOE is still a mobile device. The TOE boundary is simply extended to include the
         WLAN Client functionality that runs on the mobile device's Rich OS.</con-toe>
       <con-sec-prob/>
@@ -602,7 +603,7 @@
     </base-pp>
       
     <man-sfrs>
-      <subsection id="fau" title="Security Audit (FAU)">
+      <sec:man_fau title="Security Audit (FAU)">
         
         
         <f-component cc-id="fau_gen.1" name="Audit Data Generation (Wireless LAN)" iteration="WLAN">
@@ -718,9 +719,9 @@
             </title>
             <aactivity>
               <TSS>
-                The evaluator shall check the <abbr linkend="TSS"/> and ensure it provides a format for audit records. Each audit record format type must be covered, along with a brief description of each field. <h:p/> 
-                If "invoke platform-provided functionality" is selected, the evaluator shall examine the <abbr linkend="TSS"/> to verify it describes (for each supported platform) how this functionality is invoked 
-                (it should be noted that this may be through a mechanism that is not implemented by the WLAN Client; however, that mechanism will be identified in the <abbr linkend="TSS"/> as part of this evaluation activity).<h:p/>  
+                The evaluator shall check the <xref to="TSS"/> and ensure it provides a format for audit records. Each audit record format type must be covered, along with a brief description of each field. <h:p/> 
+                If "invoke platform-provided functionality" is selected, the evaluator shall examine the <xref to="TSS"/> to verify it describes (for each supported platform) how this functionality is invoked 
+                (it should be noted that this may be through a mechanism that is not implemented by the WLAN Client; however, that mechanism will be identified in the <xref to="TSS"/> as part of this evaluation activity).<h:p/>  
               </TSS>
               <Guidance>
                 The evaluator shall check the operational guidance and ensure it lists all of the auditable
@@ -768,9 +769,9 @@
             </aactivity>
           </f-element>
         </f-component>
-      </subsection>
+      </sec:man_fau>
       
-      <subsection id="fcs" title="Cryptographic Support (FCS)">
+      <sec:man_fcs title="Cryptographic Support (FCS)">
         
         <!-- QQQQ
         The cryptographic requirements are also structured to require the use of the Wi-Fi certification
@@ -1115,9 +1116,9 @@
         </f-component>
         
  
-       </subsection>
+       </sec:man_fcs>
       
-      <subsection id="fia" title="Identification and Authentication (FIA)">
+      <sec:man_fia title="Identification and Authentication (FIA)">
         
         <!-- QQQQ
         The baseline requirements for the TOE are fairly limited with respect to I&amp;A, since no formal
@@ -1358,10 +1359,10 @@
         
 
         
-       </subsection>  
+       </sec:man_fia>  
       
       
-      <subsection id="fmt" title="Security Management (FMT)">
+      <sec:man_fmt title="Security Management (FMT)">
         
         
         <!-- SME: need clarification on what to do with this since it doesn't seem to be totally correct at the moment - notably, section 1 doesn't say anything about a separate management role as claimed here. -->
@@ -1442,9 +1443,9 @@
           </aactivity>
           </f-element>
         </f-component>      
-      </subsection>     
+      </sec:man_fmt>     
  
-      <subsection id="fpt" title="Protection of the TSF (FPT)">
+      <sec:man_fpt title="Protection of the TSF (FPT)">
         
         <!-- SME: note that both GPOS and MDF have an FPT_TST_EXT.1 but neither of them correspond directly to this SFR. Unclear whether it should remain an iteration or if it should be renamed. 
         Note that the VPN Client Module had the same issue and just handled it by iterating the SFR, so the same approach was done here for now. -->
@@ -1535,10 +1536,10 @@
           </aactivity>
           </f-element>
         </f-component>      
-      </subsection>   
+      </sec:man_fpt>   
       
 
-      <subsection id="fta" title="TOE Access (FTA)">
+      <sec:man_fta title="TOE Access (FTA)">
         
         <ext-comp-def fam-id="FTA_WSE_EXT" title="Wireless Network Access">
           <fam-behavior>Components in this family define requirements for specifying wireless networks that the TOE can connect to.
@@ -1593,10 +1594,10 @@
           </aactivity>
           </f-element>
         </f-component>      
-      </subsection>   
+      </sec:man_fta>   
  
  
-      <subsection id="ftp" title="Trusted Path/Channels (FTP)">
+      <sec:man_ftp title="Trusted Path/Channels (FTP)">
         
         <!-- SME: this was changed to FTP_ITC.1 because of ECD conflicts with the Base-PPs (which each define their own different versions of FTP_ITC_EXT.1) -->
         <f-component cc-id="ftp_itc.1" name="Trusted Channel Communication (Wireless LAN)" iteration="WLAN">
@@ -1676,7 +1677,7 @@
           </aactivity>
             </f-element>
         </f-component>      
-      </subsection>  
+      </sec:man_ftp>  
 
  
     </man-sfrs>
@@ -1687,19 +1688,19 @@
     it should be an issue here, but for future use it may be beneficial to correct the template so that it behaves as intended. -->
     <opt-sfrs>
       <!-- QQQQ
-      As indicated in <secref linkend="ccl"/>,
+      As indicated in <xref to="ccl"/>,
       the baseline requirements (those that must be performed by the TOE are
       contained in the body of this PP. Additionally, there are three other types of requirements
-      specified in <appref linkend="optional"/>, <appref linkend="sel-based"/>, and <appref
+      specified in <xref to="optional"/>, <xref to="sel-based"/>, and <appref
         linkend="objective"/>. The first type (in this appendix) are requirements that can be included
-      in the <abbr linkend="ST"/>, but are not required in order for a TOE to claim conformance to
-      this PP-Module. The second type (in <appref linkend="sel-based"/>) are requirements based on selections
+      in the <xref to="ST"/>, but are not required in order for a TOE to claim conformance to
+      this PP-Module. The second type (in <xref to="sel-based"/>) are requirements based on selections
       in the body of the PP-Module: if certain selections are made, then additional requirements in that
-      appendix must be included. The third type (in <appref linkend="objective"/> are components that
+      appendix must be included. The third type (in <xref to="objective"/> are components that
       are not required in order to conform to this PP-Module, but will be included in the baseline
       requirements in future versions of this PP-Module, so adoption by vendors is encouraged.  --> 
       
-      <subsection title="Identification and Authentication (FIA)" id="fia_opt">
+      <sec:opt_fia title="Identification and Authentication (FIA)">
         
         <ext-comp-def fam-id="FIA_X509_EXT" title="X.509 Certificate Use and Management">
           <fam-behavior>Components in this family define requirements for the use of X.509 certificates.
@@ -1764,7 +1765,7 @@
           </f-element>    
         </f-component>
         
-      </subsection>
+      </sec:opt_fia>
       
     </opt-sfrs>
 
@@ -1778,7 +1779,7 @@
       this PP-Module, the baseline requirements are contained in the body of this PP-Module. There are additional requirements based on
       selections in the body of the PP-Module: if certain selections are made, then additional requirements
       below will need to be included.  --> 
-      <subsection id="fcs_sel" title="Cryptographic Support (FCS)">
+      <sec:fel_fcs title="Cryptographic Support (FCS)">
         
         <ext-comp-def fam-id="FCS_TLSC_EXT" title="TLS Client Protocol">
           <fam-behavior>Components in this family define requirements for the implementation of the TLS protocol when the TOE is acting as a client.
@@ -1788,7 +1789,7 @@
           It is unclear what the preferred method of resolving these discrepancies is. -->
         <f-component cc-id="fcs_tlsc_ext.2" name="TLS Client Support for Supported Groups Extension (EAP-TLS for WLAN)" iteration="WLAN" id="fcs-tlsc-ext-2">
           
-          <selection-depends req="fcs-tlsc-ext-1-1" ids="ecdhe"/>
+          <depends on="ecdhe"/>
           <consistency-rationale/>
           
           <comp-lev> describes the ability of the TOE to present certain values in the Supported Groups extension when attempting to establish a TLS connection as a client.</comp-lev>
@@ -1836,23 +1837,24 @@
           </aactivity>
           </f-element>
         </f-component>
-      </subsection>
+      </sec:fel_fcs>
       
     </sel-sfrs>
     <obj-sfrs></obj-sfrs>
-  </chapter>
+    <impl-dep-sfrs></impl-dep-sfrs>
+  </sec:Security_Requirements>
 
-  <appendix title="Optional Requirements" id="optional"> As indicated in <secref linkend="ccl"/>,
+  <appendix title="Optional Requirements" id="optional"> 
+    <!-- As indicated in <xref to="ccl"/>,
     the baseline requirements (those that must be performed by the TOE are
     contained in the body of this PP. Additionally, there are three other types of requirements
-    specified in <appref linkend="optional"/>, <appref linkend="sel-based"/>, and <appref
-      linkend="objective"/>. The first type (in this appendix) are requirements that can be included
-    in the <abbr linkend="ST"/>, but are not required in order for a TOE to claim conformance to
-    this PP-Module. The second type (in <appref linkend="sel-based"/>) are requirements based on selections
+    specified in <xref to="optional"/>, <xref to="sel-based"/>, and <xref to="objective"/>. The first type (in this appendix) are requirements that can be included
+    in the <xref to="ST"/>, but are not required in order for a TOE to claim conformance to
+    this PP-Module. The second type (in <xref to="sel-based"/>) are requirements based on selections
     in the body of the PP-Module: if certain selections are made, then additional requirements in that
-    appendix must be included. The third type (in <appref linkend="objective"/> are components that
+    appendix must be included. The third type (in <xref to="objective"/> are components that
     are not required in order to conform to this PP-Module, but will be included in the baseline
-    requirements in future versions of this PP-Module, so adoption by vendors is encouraged. </appendix>
+    requirements in future versions of this PP-Module, so adoption by vendors is encouraged.  --></appendix>
 
   <!-- 
        Do NOT put SFRs in this section. All SFR belong up above in SFR section. 
