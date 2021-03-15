@@ -773,7 +773,7 @@
       
       <sec:man_fcs title="Cryptographic Support (FCS)">
         
-        <!-- QQQQ
+        <!--
         The cryptographic requirements are also structured to require the use of the Wi-Fi certification
         requirements for WPA2 enterprise, based on the IEEE 802.11 standard. The Wi-Fi Alliance
         WPA2 Enterprise certification program tests devices for data communications interoperability
