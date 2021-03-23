@@ -31,12 +31,12 @@
   <sec:Introduction>
     <sec:Overview>
       
-      The scope of the Wireless Local Area Network (WLAN) Client <xref to="PP-Module"/> is to describe the security functionality of a WLAN Client in terms of [<xref to="CC"/>] 
-      and to define functional and assurance requirements for such products. This <xref to="PP-Module"/> is intended for use with the following <xref to="Base-PP"/>s: <h:ul>
+      The scope of the Wireless Local Area Network (WLAN) Client PP-Module is to describe the security functionality of a WLAN Client in terms of [CC] 
+      and to define functional and assurance requirements for such products. This PP-Module is intended for use with the following Base-PPs: <h:ul>
         <h:li>General Purpose Operating System (GPOS) Protection Profile, Version 4.2.1</h:li>
         <h:li>Mobile Device Fundamentals (MDF) Protection Profile, Version 3.2</h:li>
       </h:ul>
-      <h:p/> These <xref to="Base-PP"/>s are valid because a WLAN Client is
+      <h:p/> These Base-PPs are valid because a WLAN Client is
       a part of either a commercial operating system that can be installed on a general-purpose computer or an operating system that runs on a purpose-built mobile device.
       
     </sec:Overview>
@@ -161,7 +161,7 @@
     <section title="Compliant Targets of Evaluation" id="TOEdescription">
      
      This document specifies SFRs for a WLAN Client. The TOE defined
-     by this <xref to="PP-Module"/> is the WLAN Client, a component executing on a client machine (often referred to as
+     by this PP-Module is a WLAN Client, a component executing on a client machine (often referred to as
      a "remote access client"). The TOE establishes a secure wireless tunnel between the client
      device and a WLAN Access System through which all data will traverse.
      <h:p/>
@@ -169,7 +169,7 @@
       with a private network through a WLAN Access System. IP packets passing between the
       private network and a WLAN Client are encrypted. The WLAN Client protects the confidentiality and integrity of
       data in transit between itself and the private network, even though it traverses a wireless connection.
-      The focus of the SFRs in this <xref to="PP-Module"/> is on the following fundamental
+      The focus of the SFRs in this PP-Module is on the following fundamental
       aspects of a WLAN Client:
       <h:ul>
         <h:li>Authentication of the WLAN Client</h:li>
@@ -195,7 +195,7 @@
       optionally AES in Galois/Counter Mode Protocol (GCMP) mode, as specified in <xref to="bib80211"/>.
       
       <sec:TOE_Boundary>
-        The WLAN Client (Figure 1), as defined by this <xref to="PP-Module"/>, is a component executing on a remote access
+        The WLAN Client (Figure 1), as defined by this PP-Module, is a component executing on a remote access
         client machine. Note the client is depicted as just a small portion of the WLAN client "machine."
         As such, the TOE must rely heavily on the TOE’s operational environment (host platform,
         network stack, and operating system) for its execution domain and its proper usage. The TOE
@@ -238,8 +238,8 @@
   <sec:Conformance_Claims>
     <cclaims>
       <cclaim name="Conformance Statement">
-        <description> This <xref to="PP-Module"/> inherits exact conformance as required from
-          the specified <xref to="Base-PP"/> and as defined in the <xref to="CC"/> and
+        <description> This PP-Module inherits exact conformance as required from
+          the specified Base-PP and as defined in the CC and
           <xref to="CEM"/> addenda for Exact Conformance, Selection-Based SFRs, and Optional
           SFRs (dated May 2017).<h:p/> 
           The following PPs and PP-Modules are allowed to
@@ -250,8 +250,8 @@
         </description>
       </cclaim>
       <cclaim name="CC Conformance Claims">
-        <description>This <xref to="PP-Module"/> is conformant to Parts 2 (extended) and 3
-          (extended) of Common Criteria Version 3.1, Release 5 [<xref to="CC"/>].
+        <description>This PP-Module is conformant to Parts 2 (extended) and 3
+          (extended) of Common Criteria Version 3.1, Release 5 [CC].
         </description>
       </cclaim>
       <cclaim name="Package Claims">
@@ -268,7 +268,7 @@
     be authenticated and be given access to services offered by the protected network and is the
     Supplicant in the IEEE 802.1X framework.
     
-    <sec:Threats> The following threats are specific to WLAN Clients, and represent an addition to those identified in the <xref to="Base-PP"/>s. 
+    <sec:Threats> The following threats are specific to WLAN Clients, and represent an addition to those identified in the Base-PPs. 
       <!-- Note: Threats contained in both base-PPs should not be listed in the PP-Module (section 3.1 or 6), but objectives can still be mapped to them (section 4.3). 
         For these threats do not include a <description> or <consistency-rationale> section. If a <description> section is included then the threat is listed in Section 3.1. 
         If no description is listed, then threat is only listed in section 4.3 (not in 3.1 or 6) -->
@@ -321,14 +321,14 @@
       <assumptions>
         <assumption name="A.NO_TOE_BYPASS">
           <description>Information cannot flow between the wireless client and the internal wired
-            network without passing through the <xref to="TOE"/>.</description>
+            network without passing through the TOE.</description>
           <consistency-rationale/>
           <objective-refer ref="OE.NO_TOE_BYPASS">
             <rationale>The Operational Environment objective OE.NO_TOE_BYPASS is realized through A.NO_TOE_BYPASS.</rationale>
           </objective-refer>
         </assumption>
         <assumption name="A.TRUSTED_ADMIN">
-          <description><xref to="TOE"/> Administrators are trusted to follow and apply all administrator guidance in
+          <description>TOE Administrators are trusted to follow and apply all administrator guidance in
             a trusted manner.</description>
           <consistency-rationale>QQQQ</consistency-rationale>
           <objective-refer ref="OE.TRUSTED_ADMIN">
@@ -348,7 +348,7 @@
     <sec:Security_Objectives_for_the_TOE>
       <SOs>
         <SO name="O.AUTH_COMM">
-          <description>The <xref to="TOE"/> will provide a means to ensure that it is
+          <description>The TOE will provide a means to ensure that it is
             communicating with an authorized Access Point and
             not some other entity pretending to be an authorized
             Access Point, and will provide assurance to the Access
@@ -372,11 +372,11 @@
           </rationale>
         </SO>
         <SO name="O.CRYPTOGRAPHIC_FUNCTIONS">
-          <description>The <xref to="TOE"/> will provide or use cryptographic functions
+          <description>The TOE will provide or use cryptographic functions
             (i.e., encryption/decryption and digital signature
             operations) to maintain the confidentiality and allow
             for detection of modification of data that are
-            transmitted outside the <xref to="TOE"/> and its host
+            transmitted outside the TOE and its host
             environment.</description>
           <consistency-rationale>QQQQ</consistency-rationale>
           <addressed-by>FCS_CKM.1/WLAN, FCS_CKM.2/WLAN</addressed-by>
@@ -389,7 +389,7 @@
           </rationale>
         </SO>
         <SO name="O.SELF_TEST">
-          <description>The <xref to="TOE"/> will provide the capability to test some
+          <description>The TOE will provide the capability to test some
             subset of its security functionality to ensure it is operating properly. </description>
           <consistency-rationale>QQQQ</consistency-rationale>
           <addressed-by>FPT_TST_EXT.1/WLAN</addressed-by>
@@ -399,7 +399,7 @@
           </rationale>
         </SO>
         <SO name="O.SYSTEM_MONITORING">
-          <description>The <xref to="TOE"/> will provide the capability to generate audit
+          <description>The TOE will provide the capability to generate audit
             data.</description>
           <consistency-rationale>QQQQ</consistency-rationale>
           <addressed-by>FAU_GEN.1/WLAN</addressed-by>
@@ -409,8 +409,8 @@
           </rationale>
         </SO>
         <SO name="O.TOE_ADMINISTRATION">
-          <description>The <xref to="TOE"/> will provide mechanisms to allow
-            administrators to be able to configure the <xref to="TOE"/>. </description>
+          <description>The TOE will provide mechanisms to allow
+            administrators to be able to configure the TOE. </description>
           <consistency-rationale>QQQQ</consistency-rationale>
           <addressed-by>FMT_SMF.1/WLAN, FIA_X509_EXT.4 (optional)</addressed-by>
           <rationale>
@@ -421,7 +421,7 @@
           </rationale>
         </SO>
         <SO name="O.WIRELESS_ACCESS_POINT_CONNECTION">
-          <description>The <xref to="TOE"/> will provide the capability to restrict the
+          <description>The TOE will provide the capability to restrict the
             wireless access points to which it will connect.</description>
           <consistency-rationale>QQQQ</consistency-rationale>
           <addressed-by>FTA_WSE_EXT.1</addressed-by>
@@ -442,11 +442,11 @@
       <SOEs>
         <SOE name="OE.NO_TOE_BYPASS">
           <description>Information cannot flow between external and internal networks located
-            in different enclaves without passing through the <xref to="TOE"/>.</description>
+            in different enclaves without passing through the TOE.</description>
           <consistency-rationale></consistency-rationale>
         </SOE>
         <SOE name="OE.TRUSTED_ADMIN">
-          <description><xref to="TOE"/> administrators are trusted to follow and apply all administrator
+          <description>TOE administrators are trusted to follow and apply all administrator
             guidance in a trusted manner.</description>
           <consistency-rationale></consistency-rationale>
         </SOE>
@@ -492,7 +492,7 @@
       
           
        
-      <con-toe> When this <xref to="PP-Module"/> is used to extend the GPOS PP, the TOE type for
+      <con-toe> When this PP-Module is used to extend the GPOS PP, the TOE type for
         the overall TOE is still a general-purpose operating system. The TOE boundary is simply extended to include the
           WLAN Client functionality that runs on the operating system.</con-toe>
       <con-sec-prob/>
@@ -554,7 +554,7 @@
       
       
       
-      <con-toe> When this <xref to="PP-Module"/> is used to extend the MDF PP, the TOE type for
+      <con-toe> When this PP-Module is used to extend the MDF PP, the TOE type for
         the overall TOE is still a mobile device. The TOE boundary is simply extended to include the
         WLAN Client functionality that runs on the mobile device's Rich OS.</con-toe>
       <con-sec-prob/>
@@ -639,15 +639,18 @@
                 </h:TR>
                 <h:TR>
                   <h:TD>FAU_GEN.1/WLAN</h:TD>
-                  <h:TD colspan="2">None.</h:TD>
+                  <h:TD>None.</h:TD>
+                  <h:TD>None.</h:TD>
                 </h:TR>
                 <h:TR>
                   <h:TD>FCS_CKM.1/WLAN</h:TD>
-                  <h:TD colspan="2">None.</h:TD>
+                  <h:TD>None.</h:TD>
+                  <h:TD>None.</h:TD>
                 </h:TR>                
                 <h:TR>
                   <h:TD>FCS_CKM.2/WLAN</h:TD>
-                  <h:TD colspan="2">None.</h:TD>
+                  <h:TD>None.</h:TD>
+                  <h:TD>None.</h:TD>
                 </h:TR>                
                 <h:TR>
                   <h:TD rowspan="2">FCS_TLSC_EXT.1/WLAN</h:TD>
@@ -656,11 +659,13 @@
                 </h:tr>
                 <h:TR>
                   <h:TD>FCS_TLSC_EXT.2/WLAN</h:TD>
-                  <h:TD colspan="2">None.</h:TD>
+                  <h:TD>None.</h:TD>
+                  <h:TD>None.</h:TD>
                 </h:TR>
                 <h:TR>
                   <h:TD>FIA_PAE_EXT.1</h:TD>
-                  <h:TD colspan="2">None.</h:TD>
+                  <h:TD>None.</h:TD>
+                  <h:TD>None.</h:TD>
                 </h:TR> 
                 <h:TR>
                   <h:TD>FIA_X509_EXT.1/WLAN</h:TD>
@@ -668,7 +673,8 @@
                 </h:TR>
                 <h:TR>
                   <h:TD>FIA_X509_EXT.2/WLAN</h:TD>
-                  <h:TD colspan="2">None.</h:TD>
+                  <h:TD>None.</h:TD>
+                  <h:TD>None.</h:TD>
                 </h:TR>
                 <h:TR>
                   <h:TD rowspan="2">FIA_X509_EXT.4</h:TD>
@@ -677,17 +683,18 @@
                 </h:tr> 
                 <h:TR>
                   <h:TD>FMT_SMF.1/WLAN</h:TD>
-                  <h:TD colspan="2">None.</h:TD>
+                  <h:TD>None.</h:TD>
+                  <h:TD>None.</h:TD>
                 </h:TR> 
                 <h:TR>
                   <h:TD rowspan="2">FPT_TST_EXT.1/WLAN</h:TD>
                   <h:TD>Execution of this set of TSF self-tests.</h:TD><h:td>None.</h:td></h:TR>
                 <h:tr><h:TD><selectables>
-                  <selectable>Detected integrity violation.</selectable>
+                  <selectable>Detected integrity violation,</selectable>
                   <selectable>None.</selectable>
                 </selectables></h:TD>
                   <h:TD><selectables>
-                    <selectable>The TSF binary file that caused the integrity violation.</selectable>
+                    <selectable>The TSF binary file that caused the integrity violation</selectable>
                     <selectable>None.</selectable>
                   </selectables></h:TD>
                 </h:tr>
@@ -719,9 +726,9 @@
             </title>
             <aactivity>
               <TSS>
-                The evaluator shall check the <xref to="TSS"/> and ensure it provides a format for audit records. Each audit record format type must be covered, along with a brief description of each field. <h:p/> 
-                If "invoke platform-provided functionality" is selected, the evaluator shall examine the <xref to="TSS"/> to verify it describes (for each supported platform) how this functionality is invoked 
-                (it should be noted that this may be through a mechanism that is not implemented by the WLAN Client; however, that mechanism will be identified in the <xref to="TSS"/> as part of this evaluation activity).<h:p/>  
+                The evaluator shall check the TSS and ensure it provides a format for audit records. Each audit record format type must be covered, along with a brief description of each field. <h:p/> 
+                If "invoke platform-provided functionality" is selected, the evaluator shall examine the TSS to verify it describes (for each supported platform) how this functionality is invoked 
+                (it should be noted that this may be through a mechanism that is not implemented by the WLAN Client; however, that mechanism will be identified in the TSS as part of this evaluation activity).<h:p/>  
               </TSS>
               <Guidance>
                 The evaluator shall check the operational guidance and ensure it lists all of the auditable
@@ -794,7 +801,7 @@
                 <selectable>no other key sizes</selectable>
               </selectables></h:b></h:i>] <h:b>using a Random Bit Generator as specified in FCS_RBG_EXT.1</h:b>.
             </title>
-            <note role="application">The cryptographic key derivation algorithm required by IEEE 802.11-2012
+            <note role="application">The cryptographic key derivation algorithm required by IEEE 802.11-2016
               (Section 11.6.1.2) and verified in WPA2 certification is PRF-384, which uses the HMAC-SHA-1
               function and outputs 384 bits. The use of GCMP was first defined in IEEE 802.11ac-2014 (Section
               11.4.5) but subsequently integrated into 802.11-2016. This protocol requires a key derivation function (KDF) 
@@ -804,7 +811,7 @@
               between the access point and the client once the client has been authenticated. It refers to the
               derivation of the Pairwise Temporal Key (PTK) from the PMK, which is done using a random value generated by the RBG
               specified in this PP-Module, the HMAC function using SHA-1 as specified in this PP-Module, as well as other
-              information. This is specified in 802.11-2012 primarily in section 11.6.1.2.
+              information. This is specified in 802.11-2016 primarily in section 11.6.1.2.
             </note>            
           
             <aactivity>
@@ -1006,13 +1013,16 @@
           <f-element><title>The TSF shall verify that the server certificate presented includes the
             Server Authentication purpose (id-kp 1 with OID 1.3.6.1.5.5.7.3.1) in the extendedKeyUsage
             field.</title>
-          </f-element>
+          </f-element> 
           <f-element><title>The TSF shall allow an authorized administrator to configure the list
             of CAs that are allowed to sign authentication server certificates that are accepted by the TOE.</title>
             
-          </f-element>
+          
+            <!-- </f-element>
+              
+              FCS_TLSC_EXT.1.6 Removed by TD0492
           <f-element><title>The TSF shall allow an authorized administrator to configure the list
-            of algorithm suites that may be proposed and accepted during the EAP-TLS exchanges.</title>
+            of algorithm suites that may be proposed and accepted during the EAP-TLS exchanges.</title> -->
           
           <note role="application">The cipher suites to be tested in the evaluated configuration are limited by this
             requirement. The ST author should select the optional cipher suites that are supported.
@@ -1096,7 +1106,7 @@
                       to be a cipher suite not presented in the Client Hello handshake message. The
                       evaluator shall verify that the client rejects the connection after receiving the
                       Server Hello.</h:li>
-                    <h:li>[conditional: the TOE supports at least one cipher suite that uses DHE or ECDHE for key exchange]  
+                    <h:li>[conditional: if the TOE supports at least one cipher suite that uses DHE or ECDHE for key exchange]  
                       Modify the signature block in the Server’s Key
                       Exchange handshake message, and verify that the client rejects the
                       connection after receiving the Server Key Exchange message. This test
@@ -1327,16 +1337,18 @@
               The evaluator shall examine the TSS to confirm that it describes the behavior of the TOE when a
               connection cannot be established during the validity check of a certificate used in establishing a
               trusted channel. The evaluator shall verify that any distinctions between trusted channels are
-              described. If the requirement that the administrator is able to specify the default action, then
-              the evaluator shall ensure that the operational guidance contains instructions on how this
-              configuration action is performed.
+              described.
               <h:p/>  
             </TSS>
             <Guidance>
-              The evaluator shall check the administrative guidance to ensure that it describes how the TOE
+              If not already present in the TSS, the evaluator shall check the administrative guidance to ensure that it describes how the TOE
               chooses which certificates to use, and any necessary instructions for configuring the operating
               environment so that the TOE can use the certificates.  
               <h:p/> 
+              If the administrator is able to specify the action to be performed in this situation, then
+              the evaluator shall ensure that the operational guidance contains instructions on how this
+              configuration action is performed.
+              <h:p/>
             </Guidance>
             <Tests>
               The evaluator shall perform the following test:
@@ -1385,8 +1397,8 @@
                 <h:ul>
                   <!-- SME: this selectable list conflicts with FCS_TLSC_EXT.1.5/WLAN, which only permits use of a CA to validate authentication server certificates, no FQDN option. Not sure which to modify to make consistent. -->
                   <h:li><selectables>
-                    <selectable>specify the CA(s) from which the TSF will accept WLAN authentication server certificate(s),</selectable>
-                    <selectable>specify the Fully Qualified Domain Names (FQDNs) of acceptable WLAN authentication server certificate(s),</selectable>
+                    <selectable>specify the CA(s) from which the TSF will accept WLAN authentication server certificate(s)</selectable>
+                    <selectable>specify the Fully Qualified Domain Names (FQDNs) of acceptable WLAN authentication server certificate(s)</selectable>
                   </selectables>,</h:li>
                   <h:li>security type,</h:li>
                   <h:li>authentication protocol,</h:li>
@@ -1407,7 +1419,7 @@
                 <selectable>loading X.509 certificates into the TOE</selectable>
                 <selectable>revoke X.509 certificates loaded into the TOE</selectable>
                 <selectable>enable/disable and configure PMK caching:<h:ul>
-                  <h:li>set the amount of time (in minutes) for which PMK entries are cached,</h:li>
+                  <h:li>set the amount of time (in minutes) for which PMK entries are cached</h:li>
                   <h:li>set the maximum number of PMK entries that can be cached</h:li></h:ul></selectable><selectable>no other management functions</selectable>
               </selectables>.
             </title>
@@ -1416,11 +1428,11 @@
               authenticate the administrator to the client machine on which the TOE is installed.
               <h:p/>
               For the function "configure the cryptoperiod for the established session keys," the unit of measure
-              for configuring the cryptoperiod shall be no greater than an hour. For example: units of measure
+              for configuring the cryptoperiod must be no greater than an hour. For example: units of measure
               in seconds, minutes and hours are acceptable and units of measure in days or greater are not
               acceptable.
               <h:p/>
-              Items in the selection are equivalent to ‘OO’ in the GPOS PP and ‘OOOO’ in MDF PP.
+              Management functions in the second selection are equivalent to ‘OO’ in the GPOS PP and ‘OOOO’ in MDF PP; their implementation is optional as are the roles that are authorized to perform them if claimed.
             </note>            
           
           <aactivity>
@@ -1456,7 +1468,7 @@
         <f-component cc-id="fpt_tst_ext.1" name="TSF Cryptographic Functionality Testing (WLAN Client)" iteration="WLAN">
           <consistency-rationale/>
           
-          <comp-lev> requires the TOE to perform power on self-tests to verify its functionality and
+          <comp-lev> requires the TOE or its platform to perform power on self-tests to verify its functionality and
             the integrity of its stored executable code.</comp-lev>
           <management>The following actions could be considered for the management functions in FMT: <h:ul>
             <h:li>Specification of CAs that are authorized to sign authentication server certificates.</h:li>
@@ -1893,7 +1905,7 @@
     The TOE does not require any additional supplementary information to describe its entropy sources beyond the requirements outlined in the Base-PPs.  
   </appendix>
   
-    <bibliography>
+    <bibliography> <!-- 
       <entry id="bibCC">
         <tag>CC</tag>
         <description>Common Criteria for Information Technology Security Evaluation - <h:ul>
@@ -1907,7 +1919,7 @@
                 3: Security Assurance Components</h:a>, CCMB-2017-04-003, Version 3.1 Revision 5,
               April 2017.</h:li>
           </h:ul></description>
-      </entry>
+      </entry>  -->
       <entry id="bibCEM">
         <tag>CEM</tag>
         <description>
