@@ -1418,10 +1418,11 @@
                 <selectable>enable/disable IEEE 802.1X pre-authentication</selectable>
                 <selectable>loading X.509 certificates into the TOE</selectable>
                 <selectable>revoke X.509 certificates loaded into the TOE</selectable>
-                <selectable>enable/disable and configure PMK caching:<h:ul>
-                  <h:li>set the amount of time (in minutes) for which PMK entries are cached</h:li>
-                  <h:li>set the maximum number of PMK entries that can be cached</h:li></h:ul></selectable><selectable>no other management functions</selectable>
-              </selectables>.
+                <selectable>enable/disable and configure PMK caching:<h:br/>
+                    &#9702; set the amount of time (in minutes) for which PMK entries are cached,<h:br/>
+                    &#9702; set the maximum number of PMK entries that can be cached
+                  </selectable><selectable>no other management functions</selectable>
+                </selectables>.
             </title>
             <note role="application">
               For installation, the WLAN Client relies on the underlying platform to
