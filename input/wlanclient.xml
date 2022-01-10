@@ -240,7 +240,7 @@
       <cclaim name="Conformance Statement">
         <description> This PP-Module inherits exact conformance as required from
           the specified Base-PP and as defined in the CC and
-          <xref to="CEM"/> addenda for Exact Conformance, Selection-Based SFRs, and Optional
+          <xref to="bibCEM"/> addenda for Exact Conformance, Selection-Based SFRs, and Optional
           SFRs (dated May 2017).<h:p/> 
           The following PPs and PP-Modules are allowed to
           be specified in a PP-Configuration with this PP-Module. <h:ul>
@@ -480,11 +480,9 @@
     </h:ul>
 
     
-        <base-pp version="4.2.1" name="General Purpose Operating Systems" product="Operating System" short="GPOS"
-          url="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=442&amp;id=442">
-<!--       xmlurl="https://raw.githubusercontent.com/commoncriteria/mobile-device/master/input/mobile-device.xml"> -->
-
-
+        <base-pp id="b-os">
+			<raw-url>https://raw.githubusercontent.com/commoncriteria/operatingsystem/release-4.2.1/input/operatingsystem.xml</raw-url>
+			<url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=442&amp;id=442</url>
       <modified-sfrs>
  
       </modified-sfrs>
@@ -542,9 +540,9 @@
       <con-mod ref="fcs_tlsc_ext.2" iteration="WLAN">This SFR requires the TOE to validate a specific TLS extension when establishing EAP-TLS communications. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
     </base-pp>
     
-    <base-pp version="3.1" name="Mobile Device Fundamentals" product="Mobile Device" short="MDF"
-      url="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=417&amp;id=417">
-      <!--       xmlurl="https://raw.githubusercontent.com/commoncriteria/mobile-device/master/input/mobile-device.xml"> -->
+    <base-pp id="b-mdf">
+		<raw-url>https://raw.githubusercontent.com/commoncriteria/mobile-device/master/input/mobile-device.xml</raw-url>
+      <url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=417&amp;id=417</url>
       
       
       <modified-sfrs>
@@ -1974,9 +1972,6 @@
         <description><h:a
           href="https://tools.ietf.org/html/rfc5280">RFC 5280 - Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile</h:a></description>
       </entry>        
-    </bibliography>
- 
-    <acronyms/>
-  
+    </bibliography> 
 </Module>
 
