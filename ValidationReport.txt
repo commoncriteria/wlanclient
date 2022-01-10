@@ -1,7 +1,0 @@
-/home/runner/work/wlanclient/wlanclient/input/wlanclient.xml:484:81: error: attribute "url" not allowed here; expected attribute "id" or "plural"
-/home/runner/work/wlanclient/wlanclient/input/wlanclient.xml:484:81: error: element "base-pp" missing required attribute "id"
-/home/runner/work/wlanclient/wlanclient/input/wlanclient.xml:488:22: error: element "modified-sfrs" not allowed yet; missing required element "url"
-/home/runner/work/wlanclient/wlanclient/input/wlanclient.xml:546:77: error: attribute "url" not allowed here; expected attribute "id" or "plural"
-/home/runner/work/wlanclient/wlanclient/input/wlanclient.xml:546:77: error: element "base-pp" missing required attribute "id"
-/home/runner/work/wlanclient/wlanclient/input/wlanclient.xml:550:22: error: element "modified-sfrs" not allowed yet; missing required element "url"
-/home/runner/work/wlanclient/wlanclient/input/wlanclient.xml:1979:16: error: element "acronyms" not allowed anywhere; expected the element end-tag

@@ -14,7 +14,6 @@ output/wlanclient-release-linkable.html: FLAWAPP
 output/wlanclient-release-linkable.html: FQDN
 output/wlanclient-release-linkable.html: FQDNs
 output/wlanclient-release-linkable.html: FTA
-output/wlanclient-release-linkable.html: Fundamentalss
 output/wlanclient-release-linkable.html: GPOS
 output/wlanclient-release-linkable.html: GTK
 output/wlanclient-release-linkable.html: KDF
@@ -31,7 +30,6 @@ output/wlanclient-release-linkable.html: PTK
 output/wlanclient-release-linkable.html: SMR
 output/wlanclient-release-linkable.html: SSID
 output/wlanclient-release-linkable.html: SSIDs
-output/wlanclient-release-linkable.html: Systemss
 output/wlanclient-release-linkable.html: WPA
 output/wlanclient-release-linkable.html: WPA2
 output/wlanclient-release-linkable.html: WSE
@@ -59,7 +57,6 @@ output/wlanclient-release.html: FLAWAPP
 output/wlanclient-release.html: FQDN
 output/wlanclient-release.html: FQDNs
 output/wlanclient-release.html: FTA
-output/wlanclient-release.html: Fundamentalss
 output/wlanclient-release.html: GPOS
 output/wlanclient-release.html: GTK
 output/wlanclient-release.html: KDF
@@ -76,7 +73,6 @@ output/wlanclient-release.html: PTK
 output/wlanclient-release.html: SMR
 output/wlanclient-release.html: SSID
 output/wlanclient-release.html: SSIDs
-output/wlanclient-release.html: Systemss
 output/wlanclient-release.html: WPA
 output/wlanclient-release.html: WPA2
 output/wlanclient-release.html: WSE
@@ -98,7 +94,6 @@ output/wlanclient-sd.html: CSP
 output/wlanclient-sd.html: EAP
 output/wlanclient-sd.html: EAPOL
 output/wlanclient-sd.html: FTA
-output/wlanclient-sd.html: Fundamentalss
 output/wlanclient-sd.html: GPOS
 output/wlanclient-sd.html: GTK
 output/wlanclient-sd.html: MDF
@@ -108,7 +103,6 @@ output/wlanclient-sd.html: PINs
 output/wlanclient-sd.html: PTK
 output/wlanclient-sd.html: SSID
 output/wlanclient-sd.html: SSIDs
-output/wlanclient-sd.html: Systemss
 output/wlanclient-sd.html: WPA2
 output/wlanclient-sd.html: WSE
 output/wlanclient-sd.html: Wireshark
@@ -134,7 +128,6 @@ output/wlanclient.html: FLAWAPP
 output/wlanclient.html: FQDN
 output/wlanclient.html: FQDNs
 output/wlanclient.html: FTA
-output/wlanclient.html: Fundamentalss
 output/wlanclient.html: GPOS
 output/wlanclient.html: GTK
 output/wlanclient.html: KDF
@@ -151,7 +144,6 @@ output/wlanclient.html: PTK
 output/wlanclient.html: SMR
 output/wlanclient.html: SSID
 output/wlanclient.html: SSIDs
-output/wlanclient.html: Systemss
 output/wlanclient.html: WPA
 output/wlanclient.html: WPA2
 output/wlanclient.html: WSE
