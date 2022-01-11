@@ -1,12 +1,3 @@
-output/wlanclient-esr.html: CESG
-output/wlanclient-release-linkable.html: AUTH
-output/wlanclient-release-linkable.html: MDM
 output/wlanclient-release-linkable.html: bbbbb
-output/wlanclient-release.html: AUTH
-output/wlanclient-release.html: MDM
 output/wlanclient-release.html: bbbbb
-output/wlanclient-sd.html: nonsupported
-output/wlanclient.html: AUTH
-output/wlanclient.html: MDM
 output/wlanclient.html: bbbbb
-output/wlanclient.html: nonsupported
