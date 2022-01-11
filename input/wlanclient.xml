@@ -1094,7 +1094,7 @@
                 <test>
                   The evaluator shall perform the following modifications to the traffic:
                   <h:ul>
-                    <h:li>Change the TLS version selected by the server in the Server Hello to a nonsupported TLS version (for example 1.5 represented by the two bytes 03 06) and
+                    <h:li>Change the TLS version selected by the server in the Server Hello to an unsupported TLS version (for example 1.5 represented by the two bytes 03 06) and
                       verify that the client rejects the connection.</h:li>
                     <h:li>Modify at least one byte in the server’s nonce in the Server Hello handshake
                       message, and verify that the client rejects the Server Key Exchange handshake
