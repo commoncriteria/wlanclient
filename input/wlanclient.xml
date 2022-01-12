@@ -413,12 +413,13 @@
           <description>The TOE will provide mechanisms to allow
             administrators to be able to configure the TOE. </description>
           <consistency-rationale>QQQQ</consistency-rationale>
-          <addressed-by>FMT_SMF.1/WLAN, FIA_X509_EXT.4 (optional)</addressed-by>
+          <addressed-by>FIA_X509_EXT.4, FMT_SMF.1/WLAN</addressed-by>
           <rationale>
+            <h:p/>
+            FIA_X509_EXT.4 supports the objective by requiring the TSF to securely store certificates in a repository that an administrator can interact with, whether that repository is provided by the WLAN client itself or by a platform storage
+            mechanism defined by the Base-PP portion of the TOE.
+            <h:p/>
             FMT_SMF.1/WLAN supports the objective by requiring the TSF to implement management functionality for security-relevant WLAN behavior.
-            <h:p/>
-            FIA_X509_EXT.4 supports the objective by optionally requiring the TSF to securely store certificates in a repository that an administrator can interact with. 
-            <h:p/>
           </rationale>
         </SO>
         <SO name="O.WIRELESS_ACCESS_POINT_CONNECTION">
@@ -531,12 +532,13 @@
       <con-mod ref="fia-x509-ext-1-wlan">This SFR defines the TOE's X.509 certificate validation specifically when validating EAP-TLS certificates. The Base-PP also defines an iteration of this SFR but the PP-Module 
       requires a separate iteration because EAP-TLS certificates have specific handling requirements that are not present in the Base-PP because the Base-PP does not define implementation of the EAP-TLS protocol.</con-mod>
       <con-mod ref="fia-x509-ext-2-wlan">This SFR defines the TOE's use of X.509 certificates in EAP-TLS. This function uses the same certificate validation functionality that the Base-PP defines.</con-mod>
+      <con-mod ref="fia-x509-ext-4">This SFR defines behavior for implementing certificate storage. The SFR allows for the possibility that existing platform storage can be used, so it does not conflict with the Base-PP if that portion
+        of the TOE already implements its own storage mechanism.</con-mod>
       <con-mod ref="fmt-smf-1-wlan">This SFR defines the management activities that are specific to this PP-Module. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
       <con-mod ref="fpt-tst-ext-1-wlan">This SFR defines self-test behavior for the WLAN Client. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>  
       <con-mod ref="fta-wse-ext-1">This SFR requires the TOE to restrict the wireless networks that it can connect to. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
       <con-mod ref="ftp-itc-1-wlan">This SFR defines the protocols that the TOE uses for secure wireless communications. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
           
-      <con-mod ref="fia-x509-ext-4">This SFR defines behavior for implementing certificate storage. As this function is optional, it does not interfere with any certificate storage mechanism enforced by the Base-PP.</con-mod>
           
       <con-mod ref="fcs-tlsc-ext-2-wlan">This SFR requires the TOE to validate a specific TLS extension when establishing EAP-TLS communications. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
     </base-pp>
@@ -588,16 +590,18 @@
       <con-mod ref="fcs-ckm-2-wlan">This SFR requires the TOE to perform a decryption operation using AES Key Wrap, which is a function that the Base-PP provides.</con-mod>
       <con-mod ref="fcs-tlsc-ext-1-wlan">This SFR requires the TOE to implement EAP-TLS; this protocol relies on the same cryptographic functionality that the Base-PP uses to implement TLS.</con-mod>
         <con-mod ref="fcs-wpa-ext-1">This SFR requires the TOE to specify the WPA versions it supports; this is functionality that is specific to the PP-Module and does not affect any Base-PP functionality.</con-mod>
-        <con-mod ref="fia-pa-ext-1">This SFR defines the ability of the TOE to implement IEEE 802.1X. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>  
+        <con-mod ref="fia-pae-ext-1">This SFR defines the ability of the TOE to implement IEEE 802.1X. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>  
       <con-mod ref="fia-x509-ext-1-wlan">This SFR defines the TOE's X.509 certificate validation specifically when validating EAP-TLS certificates. The Base-PP also defines an iteration of this SFR but the PP-Module 
         requires a separate iteration because EAP-TLS certificates have specific handling requirements that are not present in the Base-PP because the Base-PP does not define implementation of the EAP-TLS protocol.</con-mod>
       <con-mod ref="fia-x509-ext-2-wlan">This SFR defines the TOE's use of X.509 certificates in EAP-TLS. This function uses the same certificate validation functionality that the Base-PP defines.</con-mod>
-      <con-mod ref="fmt-smf-1-wlan">This SFR defines the management activities that are specific to this PP-Module. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
+        <con-mod ref="fia-x509-ext-4">This SFR defines behavior for implementing certificate storage. The SFR allows for the possibility that existing platform storage can be used, so it does not conflict with the Base-PP if that portion
+          of the TOE already implements its own storage mechanism.</con-mod>
+        <con-mod ref="fmt-smf-1-wlan">This SFR defines the management activities that are specific to this PP-Module. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
       <con-mod ref="fpt-tst-ext-1-wlan">This SFR defines self-test behavior for the WLAN Client. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>  
       <con-mod ref="fta-wse-ext-1">This SFR requires the TOE to restrict the wireless networks that it can connect to. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
       <con-mod ref="ftp-itc-1-wlan">This SFR defines the protocols that the TOE uses for secure wireless communications. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
       
-      <con-mod ref="fia-x509-ext-4">This SFR defines behavior for implementing certificate storage. As this function is optional, it does not interfere with any certificate storage mechanism enforced by the Base-PP.</con-mod>
+      
       
       <con-mod ref="fcs-tlsc-ext-2-wlan">This SFR requires the TOE to validate a specific TLS extension when establishing EAP-TLS communications. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
     </base-pp>
@@ -1395,6 +1399,75 @@
         </f-component>
         
         
+        
+        <ext-comp-def fam-id="FIA_X509_EXT" title="X.509 Certificate Use and Management">
+          <fam-behavior>Components in this family define requirements for the use of X.509 certificates.
+          </fam-behavior>
+        </ext-comp-def>
+        <f-component id="fia-x509-ext-4" cc-id="fia_x509_ext.4" name="X.509 Certificate Storage and Management">
+          <consistency-rationale/>
+          
+          <comp-lev> requires the TOE to implement the ability to store X.509 certificates.</comp-lev>
+          <management>The following actions could be considered for the management functions in FMT: <h:ul>
+            <h:li>Loading of X.509 certificates into the TOE.</h:li>
+            <h:li>Revocation of loaded X.509 certificates.</h:li>
+          </h:ul>
+          </management>
+          <audit>The following actions should be auditable if FAU_GEN Security audit data
+            generation is included in the PP/ST:<h:ul>
+              <h:li>Basic: Attempts to load certificates.</h:li>
+              <h:li>Basic: Attempts to revoke certificates.</h:li>
+            </h:ul>
+          </audit>
+          <dependencies>No dependencies.</dependencies>
+          
+          <f-element>
+            <title>The TSF shall <selectables>
+              <selectable>store and protect</selectable>
+              <selectable>invoke <assignable>platform storage mechanism</assignable> to store and protect</selectable>
+            </selectables> certificate(s) from unauthorized deletion and
+              modification.
+            </title>      
+          </f-element>
+          <f-element>
+            <title>The TSF shall <selectables>
+              <selectable>provide the capability for authorized administrators to load X.509v3 certificates into the TOE</selectable>
+              <selectable>rely on <assignable>platform mechanism</assignable> to load X.509v3 certificates into <assignable>platform storage mechanism</assignable></selectable>
+            </selectables> for use by the TSF.
+            </title>        
+            <note role="application">
+              This PP-Module assumes that any platform mechanism used for X.509 certificate loading is capable of enforcing access control to prevent unauthorized subjects from manipulating the contents of the certificate storage.
+            </note>   
+            
+            <aactivity>
+              <TSS>
+                The evaluator shall examine the TSS to determine that it describes all certificate stores implemented that contain certificates used to meet the requirements of this PP-Module. 
+                This description shall contain information pertaining to how certificates are loaded into the store, and how the store is protected from unauthorized access.
+                <h:p/>
+                If the TOE relies on a platform mechanism for certificate loading and storage, the evaluator shall verify that the TSS identifies this mechanism and describes how use of this mechanism is protected against unauthorized access.
+                <h:p/>
+              </TSS>
+              <Guidance>
+                The evaluator shall check the administrative guidance to ensure that it describes how to load X.509 certificates into the TOE's certificate store, 
+                regardless of whether the TSF provides this mechanism itself or the TOE relies on a platform-provided mechanism for this.
+                <h:p/> 
+              </Guidance>
+              <Tests>
+                The evaluator shall perform the following test for each TOE function that requires the use of certificates:
+                <testlist>
+                  <test>
+                    The evaluator shall demonstrate that using a certificate without a valid certification path results in the function failing. 
+                    The evaluator shall then load any certificates needed to validate the certificate to be used in the function and demonstrate that the function succeeds. 
+                    The evaluator shall then delete one of these dependent certificates and show that the function fails.
+                  </test>
+                  <test>
+                    The evaluator shall demonstrate that the mechanism used to load or configure X.509 certificates cannot be accessed without appropriate authorization.
+                  </test>
+                </testlist>                           
+              </Tests>
+            </aactivity>
+          </f-element>    
+        </f-component>
 
         
        </sec:man_fia>  
@@ -1729,7 +1802,7 @@
     it just added a box underneath the heading saying the SFR was optional. It also stayed listed as 'mandatory' in the consistency rationale. Putting it in the <opt-sfrs> section as we did here fixed those issues
     but it also prevented any of the intro text to the optional SFRs appendix from being displayed. We are flagging this as an issue with the template. Note that FE and FE-EM modules were done in this manner as well so we don't believe
     it should be an issue here, but for future use it may be beneficial to correct the template so that it behaves as intended. -->
-    <opt-sfrs>
+    <opt-sfrs/>
       <!-- QQQQ
       As indicated in <xref to="ccl"/>,
       the baseline requirements (those that must be performed by the TOE are
@@ -1743,74 +1816,7 @@
       are not required in order to conform to this PP-Module, but will be included in the baseline
       requirements in future versions of this PP-Module, so adoption by vendors is encouraged.  --> 
       
-      <sec:opt_fia title="Identification and Authentication (FIA)">
-        
-        <ext-comp-def fam-id="FIA_X509_EXT" title="X.509 Certificate Use and Management">
-          <fam-behavior>Components in this family define requirements for the use of X.509 certificates.
-          </fam-behavior>
-        </ext-comp-def>
-        <f-component id="fia-x509-ext-4" cc-id="fia_x509_ext.4" name="X.509 Certificate Storage and Management">
-          <consistency-rationale/>
-          
-          <comp-lev> requires the TOE to implement the ability to store X.509 certificates.</comp-lev>
-          <management>The following actions could be considered for the management functions in FMT: <h:ul>
-            <h:li>Loading of X.509 certificates into the TOE.</h:li>
-            <h:li>Revocation of loaded X.509 certificates.</h:li>
-          </h:ul>
-          </management>
-          <audit>The following actions should be auditable if FAU_GEN Security audit data
-            generation is included in the PP/ST:<h:ul>
-              <h:li>Basic: Attempts to load certificates.</h:li>
-              <h:li>Basic: Attempts to revoke certificates.</h:li>
-            </h:ul>
-          </audit>
-          <dependencies>No dependencies.</dependencies>
-          
-          <f-element>
-            <title>The TSF shall store and protect certificate(s) from unauthorized deletion and
-              modification.
-            </title>      
-          </f-element>
-          <f-element>
-            <title>The TSF shall provide the capability for authorized administrators to load
-              X.509v3 certificates into the TOE for use by the TSF.
-            </title>        
-            <note role="application">
-              This SFR may be included if the TOE includes the capability to store and manage certificates. Note that this
-              is intended to be used if the certificate storage capability is actually provided by the TOE and not in cases where
-              the TSF is relying on a storage mechanism that is part of the underlying platform.
-            </note>   
-                  
-          <aactivity>
-            <TSS>
-              The evaluator shall examine the TSS to determine that it describes all certificate stores
-              implemented that contain certificates used to meet the requirements of this PP-Module. This description
-              shall contain information pertaining to how certificates are loaded into the store, and how the
-              store is protected from unauthorized access.
-              <h:p/>  
-            </TSS>
-            <Guidance>
-              The evaluator shall check the administrative guidance to ensure that it describes how to load X.509 certificates into the TOE's certificate store.
-              <h:p/> 
-            </Guidance>
-            <Tests>
-              The evaluator shall perform the following test for each TOE function that requires the use of certificates:
-              <testlist>
-                <test>
-                  The evaluator shall demonstrate that using a certificate without a valid certification path
-                  results in the function failing. The evaluator shall then load any certificates needed to
-                  validate the certificate to be used in the function and demonstrate that the function succeeds.
-                  The evaluator then shall delete one of these dependent certificates and show that the function fails.
-                </test>
-              </testlist>                           
-            </Tests>
-          </aactivity>
-          </f-element>    
-        </f-component>
-        
-      </sec:opt_fia>
-      
-    </opt-sfrs>
+  
 
     <!-- SME: the template guidance said to use the "status" attribute in the f-component tag to specify an SFR as selection-based. However, when we did this, the selection-based SFR still stayed in the mandatory requirements section - 
     it just added a box underneath the heading saying the SFR was selection-based. It also stayed listed as 'mandatory' in the consistency rationale. Putting it in the <sel-sfrs> section as we did here fixed those issues
