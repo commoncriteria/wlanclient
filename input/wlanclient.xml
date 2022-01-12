@@ -1431,15 +1431,20 @@
                   <h:li>client credentials to be used for authentication</h:li>
                 </h:ul></h:li>
                 <h:li>specify wireless networks (SSIDs) to which the TSF may connect</h:li>
+                <h:li>disable wireless network bridging capability (for example, bridging a
+                  connection between the WLAN and cellular radios on a smartphone so it can function as
+                  a hotspot)</h:li>
+                <h:li>set wireless frequency band to <selectables>
+                  <selectable>2.4 GHz</selectable>
+                  <selectable>5 GHz</selectable>
+                  <selectable>6 GHz</selectable>
+                </selectables></h:li>
               </h:ul>
               
               <selectables linebreak="yes">
                 
                 <selectable>enable/disable certificate revocation list checking</selectable>
                 <selectable>disable ad hoc wireless client-to-client connection capability</selectable>
-                <selectable>disable wireless network bridging capability (for example, bridging a
-                connection between the WLAN and cellular radios on a smartphone so it can function as
-                a hotspot)</selectable>
                 <selectable>disable roaming capability</selectable>
                 <selectable>enable/disable IEEE 802.1X pre-authentication</selectable>
                 <selectable>loading X.509 certificates into the TOE</selectable>
