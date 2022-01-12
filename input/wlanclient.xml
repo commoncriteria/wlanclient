@@ -381,7 +381,6 @@
             environment.</description>
           <consistency-rationale>QQQQ</consistency-rationale>
           <addressed-by>FCS_CKM.1/WLAN, FCS_CKM.2/WLAN, FCS_WPA_EXT.1</addressed-by>
-          <!--   <addressed-by>FCS_CKM_EXT.4 (from Base-PP), FCS_COP.1(1) (from Base-PP), FCS_COP.1(2) (from Base-PP), FCS_COP.1(3) (from Base-PP), FCS_COP.1(4) (from Base-PP), FCS_RBG_EXT.1 (from Base-PP), FCS_CKM.1/WLAN, FCS_CKM.2/WLAN</addressed-by> -->
           <rationale>
             FCS_CKM.1/WLAN supports the objective by requiring the TSF to generate symmetric keys used for WPA2 in a specified manner.
             <h:p/>
@@ -523,23 +522,23 @@
 
 
           
-      <con-mod ref="fau_gen.1" iteration="WLAN">The Base-PP defines its own auditing mechanism; this PP-Module can use that mechanism or implement its own to generate audit records for security-relevant events that are specific to this PP-Module.</con-mod>
-      <con-mod ref="fcs_ckm.1" iteration="WLAN">This SFR requires the TOE to generate cryptographic keys that are only used by the PP-Module's functionality. It invokes Base-PP functionality to do this in a manner that the Base-PP permits.</con-mod>  
-      <con-mod ref="fcs_ckm.2" iteration="WLAN">This SFR requires the TOE to perform a decryption operation using AES Key Wrap, which is a function that the Base-PP provides.</con-mod>
-      <con-mod ref="fcs_tlsc_ext.1" iteration="WLAN">This SFR requires the TOE to implement EAP-TLS; this protocol relies on the same cryptographic functionality that the Base-PP uses to implement TLS.</con-mod>
+      <con-mod ref="fau-gen-1-wlan">The Base-PP defines its own auditing mechanism; this PP-Module can use that mechanism or implement its own to generate audit records for security-relevant events that are specific to this PP-Module.</con-mod>
+      <con-mod ref="fcs-ckm-1-wlan">This SFR requires the TOE to generate cryptographic keys that are only used by the PP-Module's functionality. It invokes Base-PP functionality to do this in a manner that the Base-PP permits.</con-mod>  
+      <con-mod ref="fcs-ckm-2-wlan">This SFR requires the TOE to perform a decryption operation using AES Key Wrap, which is a function that the Base-PP provides.</con-mod>
+      <con-mod ref="fcs-tlsc-ext-1-wlan">This SFR requires the TOE to implement EAP-TLS; this protocol relies on the same cryptographic functionality that the Base-PP uses to implement TLS.</con-mod>
       <con-mod ref="fcs-wpa-ext-1">This SFR requires the TOE to specify the WPA versions it supports; this is functionality that is specific to the PP-Module and does not affect any Base-PP functionality.</con-mod>
-      <con-mod ref="fia_pae_ext.1">This SFR defines the ability of the TOE to implement IEEE 802.1X. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>  
-      <con-mod ref="fia_x509_ext.1" iteration="WLAN">This SFR defines the TOE's X.509 certificate validation specifically when validating EAP-TLS certificates. The Base-PP also defines an iteration of this SFR but the PP-Module 
+      <con-mod ref="fia-pae-ext-1">This SFR defines the ability of the TOE to implement IEEE 802.1X. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>  
+      <con-mod ref="fia-x509-ext-1-wlan">This SFR defines the TOE's X.509 certificate validation specifically when validating EAP-TLS certificates. The Base-PP also defines an iteration of this SFR but the PP-Module 
       requires a separate iteration because EAP-TLS certificates have specific handling requirements that are not present in the Base-PP because the Base-PP does not define implementation of the EAP-TLS protocol.</con-mod>
-      <con-mod ref="fia_x509_ext.2" iteration="WLAN">This SFR defines the TOE's use of X.509 certificates in EAP-TLS. This function uses the same certificate validation functionality that the Base-PP defines.</con-mod>
-      <con-mod ref="fmt_smf.1" iteration="WLAN">This SFR defines the management activities that are specific to this PP-Module. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
-      <con-mod ref="fpt_tst_ext.1" iteration="WLAN">This SFR defines self-test behavior for the WLAN Client. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>  
-      <con-mod ref="fta_wse_ext.1">This SFR requires the TOE to restrict the wireless networks that it can connect to. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
-      <con-mod ref="ftp_itc.1" iteration="WLAN">This SFR defines the protocols that the TOE uses for secure wireless communications. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
+      <con-mod ref="fia-x509-ext-2-wlan">This SFR defines the TOE's use of X.509 certificates in EAP-TLS. This function uses the same certificate validation functionality that the Base-PP defines.</con-mod>
+      <con-mod ref="fmt-smf-1-wlan">This SFR defines the management activities that are specific to this PP-Module. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
+      <con-mod ref="fpt-tst-ext-1-wlan">This SFR defines self-test behavior for the WLAN Client. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>  
+      <con-mod ref="fta-wse-ext-1">This SFR requires the TOE to restrict the wireless networks that it can connect to. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
+      <con-mod ref="ftp-itc-1-wlan">This SFR defines the protocols that the TOE uses for secure wireless communications. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
           
-      <con-mod ref="fia_x509_ext.4">This SFR defines behavior for implementing certificate storage. As this function is optional, it does not interfere with any certificate storage mechanism enforced by the Base-PP.</con-mod>
+      <con-mod ref="fia-x509-ext-4">This SFR defines behavior for implementing certificate storage. As this function is optional, it does not interfere with any certificate storage mechanism enforced by the Base-PP.</con-mod>
           
-      <con-mod ref="fcs_tlsc_ext.2" iteration="WLAN">This SFR requires the TOE to validate a specific TLS extension when establishing EAP-TLS communications. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
+      <con-mod ref="fcs-tlsc-ext-2-wlan">This SFR requires the TOE to validate a specific TLS extension when establishing EAP-TLS communications. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
     </base-pp>
     
     
@@ -584,30 +583,30 @@
       <con-mod ref="OE.TRUSTED_ADMIN">The Base-PP defines the OE.CONFIG objective that expects administrators will configure the TOE correctly, which also implies they are non-malicious.</con-mod>          
       
       
-      <con-mod ref="fau_gen.1" iteration="WLAN">The Base-PP defines its own auditing mechanism; this PP-Module can use that mechanism or implement its own to generate audit records for security-relevant events that are specific to this PP-Module.</con-mod>
-      <con-mod ref="fcs_ckm.1" iteration="WLAN">This SFR requires the TOE to generate cryptographic keys that are only used by the PP-Module's functionality. It invokes Base-PP functionality to do this in a manner that the Base-PP permits.</con-mod>  
-      <con-mod ref="fcs_ckm.2" iteration="WLAN">This SFR requires the TOE to perform a decryption operation using AES Key Wrap, which is a function that the Base-PP provides.</con-mod>
-      <con-mod ref="fcs_tlsc_ext.1" iteration="WLAN">This SFR requires the TOE to implement EAP-TLS; this protocol relies on the same cryptographic functionality that the Base-PP uses to implement TLS.</con-mod>
+      <con-mod ref="fau-gen-1-wlan">The Base-PP defines its own auditing mechanism; this PP-Module can use that mechanism or implement its own to generate audit records for security-relevant events that are specific to this PP-Module.</con-mod>
+      <con-mod ref="fcs-ckm-1-wlan">This SFR requires the TOE to generate cryptographic keys that are only used by the PP-Module's functionality. It invokes Base-PP functionality to do this in a manner that the Base-PP permits.</con-mod>  
+      <con-mod ref="fcs-ckm-2-wlan">This SFR requires the TOE to perform a decryption operation using AES Key Wrap, which is a function that the Base-PP provides.</con-mod>
+      <con-mod ref="fcs-tlsc-ext-1-wlan">This SFR requires the TOE to implement EAP-TLS; this protocol relies on the same cryptographic functionality that the Base-PP uses to implement TLS.</con-mod>
         <con-mod ref="fcs-wpa-ext-1">This SFR requires the TOE to specify the WPA versions it supports; this is functionality that is specific to the PP-Module and does not affect any Base-PP functionality.</con-mod>
-        <con-mod ref="fia_pae_ext.1">This SFR defines the ability of the TOE to implement IEEE 802.1X. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>  
-      <con-mod ref="fia_x509_ext.1" iteration="WLAN">This SFR defines the TOE's X.509 certificate validation specifically when validating EAP-TLS certificates. The Base-PP also defines an iteration of this SFR but the PP-Module 
+        <con-mod ref="fia-pa-ext-1">This SFR defines the ability of the TOE to implement IEEE 802.1X. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>  
+      <con-mod ref="fia-x509-ext-1-wlan">This SFR defines the TOE's X.509 certificate validation specifically when validating EAP-TLS certificates. The Base-PP also defines an iteration of this SFR but the PP-Module 
         requires a separate iteration because EAP-TLS certificates have specific handling requirements that are not present in the Base-PP because the Base-PP does not define implementation of the EAP-TLS protocol.</con-mod>
-      <con-mod ref="fia_x509_ext.2" iteration="WLAN">This SFR defines the TOE's use of X.509 certificates in EAP-TLS. This function uses the same certificate validation functionality that the Base-PP defines.</con-mod>
-      <con-mod ref="fmt_smf.1" iteration="WLAN">This SFR defines the management activities that are specific to this PP-Module. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
-      <con-mod ref="fpt_tst_ext.1" iteration="WLAN">This SFR defines self-test behavior for the WLAN Client. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>  
-      <con-mod ref="fta_wse_ext.1">This SFR requires the TOE to restrict the wireless networks that it can connect to. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
-      <con-mod ref="ftp_itc.1" iteration="WLAN">This SFR defines the protocols that the TOE uses for secure wireless communications. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
+      <con-mod ref="fia-x509-ext-2-wlan">This SFR defines the TOE's use of X.509 certificates in EAP-TLS. This function uses the same certificate validation functionality that the Base-PP defines.</con-mod>
+      <con-mod ref="fmt-smf-1-wlan">This SFR defines the management activities that are specific to this PP-Module. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
+      <con-mod ref="fpt-tst-ext-1-wlan">This SFR defines self-test behavior for the WLAN Client. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>  
+      <con-mod ref="fta-wse-ext-1">This SFR requires the TOE to restrict the wireless networks that it can connect to. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
+      <con-mod ref="ftp-itc-1-wlan">This SFR defines the protocols that the TOE uses for secure wireless communications. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
       
-      <con-mod ref="fia_x509_ext.4">This SFR defines behavior for implementing certificate storage. As this function is optional, it does not interfere with any certificate storage mechanism enforced by the Base-PP.</con-mod>
+      <con-mod ref="fia-x509-ext-4">This SFR defines behavior for implementing certificate storage. As this function is optional, it does not interfere with any certificate storage mechanism enforced by the Base-PP.</con-mod>
       
-      <con-mod ref="fcs_tlsc_ext.2" iteration="WLAN">This SFR requires the TOE to validate a specific TLS extension when establishing EAP-TLS communications. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
+      <con-mod ref="fcs-tlsc-ext-2-wlan">This SFR requires the TOE to validate a specific TLS extension when establishing EAP-TLS communications. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
     </base-pp>
       
     <man-sfrs>
       <sec:man_fau title="Security Audit (FAU)">
         
         
-        <f-component cc-id="fau_gen.1" name="Audit Data Generation (Wireless LAN)" iteration="WLAN">
+        <f-component id="fau-gen-1-wlan" cc-id="fau_gen.1" name="Audit Data Generation (Wireless LAN)" iteration="WLAN">
           <consistency-rationale/>
           <f-element>
             <title>The TSF shall <h:b>
@@ -663,6 +662,11 @@
                   <h:TD>None.</h:TD>
                   <h:TD>None.</h:TD>
                 </h:TR>
+                <h:tr>
+                  <h:TD>FCS_WPA_EXT.1</h:TD>
+                  <h:TD>None.</h:TD>
+                  <h:TD>None.</h:TD>
+                </h:tr>
                 <h:TR>
                   <h:TD>FIA_PAE_EXT.1</h:TD>
                   <h:TD>None.</h:TD>
@@ -788,7 +792,7 @@
         at ISO OSI layers 1 and 2, and mandates the use of the AES-CCMP algorithm for secure connections. Optionally, AES-GCMP can be used.
          -->
         <!-- SME: references to 802.11-2012 and 802.11ac-2014 in this app note need to be updated along with the section references. We do not have a copy of the standard so we could not update the section references. -->
-        <f-component cc-id="fcs_ckm.1" name="Cryptographic Key Generation (Symmetric Keys for WPA2 Connections)" iteration="WLAN">
+        <f-component id="fcs-ckm-1-wlan" cc-id="fcs_ckm.1" name="Cryptographic Key Generation (Symmetric Keys for WPA2 Connections)" iteration="WLAN">
           <consistency-rationale/>
           <f-element>
             <title>The TSF shall generate <h:b>symmetric</h:b> cryptographic keys in accordance with a specified cryptographic key generation algorithm [<h:i><h:b>PRF-384 and
@@ -879,7 +883,7 @@
           </f-element>
         </f-component>
         
-        <f-component cc-id="fcs_ckm.2" name="Cryptographic Key Distribution (Group Temporal Key for WLAN)" iteration="WLAN">
+        <f-component id="fcs-ckm-2-wlan" cc-id="fcs_ckm.2" name="Cryptographic Key Distribution (Group Temporal Key for WLAN)" iteration="WLAN">
           <consistency-rationale/>
           <f-element>
             <title>The TSF shall <h:b>decrypt Group Temporal Key</h:b> in accordance with a specified cryptographic key distribution method 
@@ -939,7 +943,7 @@
         
         <!-- SME: we were asked to cite the TLS Functional Package instead of defining 'new' TLS requirements in this Module. However, these EAP-TLS requirements are somewhat different from those in the TLS Package. 
           It is unclear what the preferred method of resolving these discrepancies is. -->
-        <f-component cc-id="fcs_tlsc_ext.1" name="TLS Client Protocol (EAP-TLS for WLAN)" iteration="WLAN" id="fcs-tlsc-ext-1">
+        <f-component id="fcs-tlsc-ext-1-wlan" cc-id="fcs_tlsc_ext.1" name="TLS Client Protocol (EAP-TLS for WLAN)" iteration="WLAN">
           <consistency-rationale/>
           
           <comp-lev> describes the ability of the TOE to implement the EAP-TLS protocol as a client.</comp-lev>
@@ -1178,7 +1182,7 @@
           <fam-behavior>Components in this family define requirements for TOE support of IEEE 802.1X authentication.
           </fam-behavior>
         </ext-comp-def>
-        <f-component cc-id="fia_pae_ext.1" name="Port Access Entity Authentication">
+        <f-component id="fia-pae-ext-1" cc-id="fia_pae_ext.1" name="Port Access Entity Authentication">
           <consistency-rationale>bbbbb</consistency-rationale>
           
           <comp-lev> describes the ability of the TOE to act as a supplicant for 802.1X authentication.</comp-lev>
@@ -1251,7 +1255,7 @@
         </f-component>
         
         <!-- SME: added to address TD0439. Component not included in ECD because both Base-PPs define it. -->
-        <f-component cc-id="fia_x509_ext.1" name="X.509 Certificate Validation" iteration="WLAN">
+        <f-component id="fia-x509-ext-1-wlan" cc-id="fia_x509_ext.1" name="X.509 Certificate Validation" iteration="WLAN">
       <consistency-rationale/>
 
           <f-element>
@@ -1325,7 +1329,7 @@
           </f-element>
         </f-component>
         
-        <f-component cc-id="fia_x509_ext.2" name="X.509 Certificate Authentication (EAP-TLS for WLAN)" iteration="WLAN">
+        <f-component id="fia-x509-ext-2-wlan" cc-id="fia_x509_ext.2" name="X.509 Certificate Authentication (EAP-TLS for WLAN)" iteration="WLAN">
           <consistency-rationale/>
           <f-element>
             <title>The TSF shall use X.509v3 certificates as defined by RFC 5280 to
@@ -1408,7 +1412,7 @@
         should be claimed in the ST.  -->
 
         
-        <f-component cc-id="fmt_smf.1" name="Specification of Management Functions (WLAN Client)" iteration="WLAN">
+        <f-component id="fmt-smf-1-wlan" cc-id="fmt_smf.1" name="Specification of Management Functions (WLAN Client)" iteration="WLAN">
           <consistency-rationale/>
           <f-element>
             <title>The TSF shall be capable of performing the following management functions: 
@@ -1486,7 +1490,7 @@
           <fam-behavior>Components in this family define requirements for self-testing to verify the functionality and integrity of the TOE.
           </fam-behavior>
         </ext-comp-def>
-        <f-component cc-id="fpt_tst_ext.1" name="TSF Cryptographic Functionality Testing (WLAN Client)" iteration="WLAN">
+        <f-component id="fpt-tst-ext-1-wlan" cc-id="fpt_tst_ext.1" name="TSF Cryptographic Functionality Testing (WLAN Client)" iteration="WLAN">
           <consistency-rationale/>
           
           <comp-lev> requires the TOE or its platform to perform power on self-tests to verify its functionality and
@@ -1578,7 +1582,7 @@
           <fam-behavior>Components in this family define requirements for specifying wireless networks that the TOE can connect to.
           </fam-behavior>
         </ext-comp-def>
-        <f-component cc-id="fta_wse_ext.1" name="Wireless Network Access">
+        <f-component id="fta-wse-ext-1" cc-id="fta_wse_ext.1" name="Wireless Network Access">
           <consistency-rationale/>
           
           <comp-lev> describes the ability of the TOE to apply administrative limits on the wireless networks that it can connect to.</comp-lev>
@@ -1633,7 +1637,7 @@
       <sec:man_ftp title="Trusted Path/Channels (FTP)">
         
         <!-- SME: this was changed to FTP_ITC.1 because of ECD conflicts with the Base-PPs (which each define their own different versions of FTP_ITC_EXT.1) -->
-        <f-component cc-id="ftp_itc.1" name="Trusted Channel Communication (Wireless LAN)" iteration="WLAN">
+        <f-component id="ftp-itc-1-wlan" cc-id="ftp_itc.1" name="Trusted Channel Communication (Wireless LAN)" iteration="WLAN">
           <consistency-rationale/>
           <f-element>
             <title>The TSF shall <h:b>use 802.11-2016, 802.1X, and EAP-TLS</h:b> to provide a
@@ -1739,7 +1743,7 @@
           <fam-behavior>Components in this family define requirements for the use of X.509 certificates.
           </fam-behavior>
         </ext-comp-def>
-        <f-component cc-id="fia_x509_ext.4" name="X.509 Certificate Storage and Management">
+        <f-component id="fia-x509-ext-4" cc-id="fia_x509_ext.4" name="X.509 Certificate Storage and Management">
           <consistency-rationale/>
           
           <comp-lev> requires the TOE to implement the ability to store X.509 certificates.</comp-lev>
@@ -1820,7 +1824,7 @@
         </ext-comp-def>
         <!-- SME: we were asked to cite the TLS Functional Package instead of defining 'new' TLS requirements in this Module. However, these EAP-TLS requirements are somewhat different from those in the TLS Package. 
           It is unclear what the preferred method of resolving these discrepancies is. -->
-        <f-component cc-id="fcs_tlsc_ext.2" name="TLS Client Support for Supported Groups Extension (EAP-TLS for WLAN)" iteration="WLAN" id="fcs-tlsc-ext-2">
+        <f-component id="fcs-tlsc-ext-2-wlan" cc-id="fcs_tlsc_ext.2" name="TLS Client Support for Supported Groups Extension (EAP-TLS for WLAN)" iteration="WLAN">
           
           <depends on="ecdhe"/>
           <consistency-rationale/>
