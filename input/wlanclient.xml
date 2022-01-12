@@ -240,13 +240,14 @@
       <cclaim name="Conformance Statement">
         <description> This PP-Module inherits exact conformance as required from
           the specified Base-PP and as defined in the CC and
-          <xref to="bibCEM"/> addenda for Exact Conformance, Selection-Based SFRs, and Optional
+          <xref to="CEM"/> addenda for Exact Conformance, Selection-Based SFRs, and Optional
           SFRs (dated May 2017).<h:p/> 
+          <!-- 
           The following PPs and PP-Modules are allowed to
           be specified in a PP-Configuration with this PP-Module. <h:ul>
             <h:li>PP-Module for VPN Client, Version 2.2</h:li>
             <h:li>PP-Module for MDM Agent, Version 1.0</h:li>
-          </h:ul>
+          </h:ul>  -->
         </description>
       </cclaim>
       <cclaim name="CC Conformance Claims">
@@ -379,13 +380,14 @@
             transmitted outside the TOE and its host
             environment.</description>
           <consistency-rationale>QQQQ</consistency-rationale>
-          <addressed-by>FCS_CKM.1/WLAN, FCS_CKM.2/WLAN</addressed-by>
+          <addressed-by>FCS_CKM.1/WLAN, FCS_CKM.2/WLAN, FCS_WPA_EXT.1</addressed-by>
           <!--   <addressed-by>FCS_CKM_EXT.4 (from Base-PP), FCS_COP.1(1) (from Base-PP), FCS_COP.1(2) (from Base-PP), FCS_COP.1(3) (from Base-PP), FCS_COP.1(4) (from Base-PP), FCS_RBG_EXT.1 (from Base-PP), FCS_CKM.1/WLAN, FCS_CKM.2/WLAN</addressed-by> -->
           <rationale>
             FCS_CKM.1/WLAN supports the objective by requiring the TSF to generate symmetric keys used for WPA2 in a specified manner.
             <h:p/>
             FCS_CKM.2/WLAN supports the objective by requiring the TSF to decrypt group temporal keys used for IEEE 802.11.
             <h:p/>
+            FCS_WPA_EXT.1 supports this objective by defining the WPA versions that are supported.
           </rationale>
         </SO>
         <SO name="O.SELF_TEST">
@@ -479,10 +481,9 @@
         <h:b>Iteration</h:b> operation: Identified with a slash followed by a unique text string (e.g. "/WLAN") or a number inside parentheses (e.g. "(1)")</h:li>
     </h:ul>
 
-    
-        <base-pp id="b-os">
-			<raw-url>https://raw.githubusercontent.com/commoncriteria/operatingsystem/release-4.2.1/input/operatingsystem.xml</raw-url>
-			<url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=442&amp;id=442</url>
+
+    <base-pp id="bpp-gpos" version="4.2.1" name="General Purpose Operating Systems" product="Operating System" short="GPOS">
+      <url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=442&amp;id=442</url>
       <modified-sfrs>
  
       </modified-sfrs>
@@ -513,7 +514,7 @@
       uses these cryptographic functions for the same purpose as the Base-PP.</con-mod>
       <con-mod ref="O.SELF_TEST">The Base-PP defines a general O.INTEGRITY objective; this PP-Module defines O.SELF_TEST as a specific method of guaranteeing the integrity of the TOE.</con-mod>
       <con-mod ref="O.SYSTEM_MONITORING">The Base-PP defines an O.ACCOUNTABILITY objective for system auditing. The O.SYSTEM_MONITORING objective in this PP-Module serves the same purpose.</con-mod>
-      <con-mod ref="O.TOE_ADMINISTRATION">The Base-PP defines an O.MANAGEMENT objective for TOE administration. The O.TOE_ADMINISTRATION objective in this PP-Module serves the same purpose.</con-mod>
+      <con-mod ref="O.TOE_ADMINISTRATION">The Base-PP defines an O.MANAGEMENT objective for TOE administration. The O.TOE_ADMINISTRTION objective in this PP-Module serves the same purpose.</con-mod>
       <con-mod ref="O.WIRELESS_ACCESS_POINT_CONNECTION">This objective relates to behavior that applies to a communications interface defined in this PP-Module and therefore does not relate to the Base-PP's functionality.</con-mod>
           
       <con-mod ref="OE.NO_TOE_BYPASS">This objective relates to the deployment of the TOE in relation to the network resources that it interacts with. It does not enforce any restrictions on the TOE's deployment that are contrary to
@@ -526,6 +527,7 @@
       <con-mod ref="fcs_ckm.1" iteration="WLAN">This SFR requires the TOE to generate cryptographic keys that are only used by the PP-Module's functionality. It invokes Base-PP functionality to do this in a manner that the Base-PP permits.</con-mod>  
       <con-mod ref="fcs_ckm.2" iteration="WLAN">This SFR requires the TOE to perform a decryption operation using AES Key Wrap, which is a function that the Base-PP provides.</con-mod>
       <con-mod ref="fcs_tlsc_ext.1" iteration="WLAN">This SFR requires the TOE to implement EAP-TLS; this protocol relies on the same cryptographic functionality that the Base-PP uses to implement TLS.</con-mod>
+      <con-mod ref="fcs-wpa-ext-1">This SFR requires the TOE to specify the WPA versions it supports; this is functionality that is specific to the PP-Module and does not affect any Base-PP functionality.</con-mod>
       <con-mod ref="fia_pae_ext.1">This SFR defines the ability of the TOE to implement IEEE 802.1X. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>  
       <con-mod ref="fia_x509_ext.1" iteration="WLAN">This SFR defines the TOE's X.509 certificate validation specifically when validating EAP-TLS certificates. The Base-PP also defines an iteration of this SFR but the PP-Module 
       requires a separate iteration because EAP-TLS certificates have specific handling requirements that are not present in the Base-PP because the Base-PP does not define implementation of the EAP-TLS protocol.</con-mod>
@@ -540,10 +542,10 @@
       <con-mod ref="fcs_tlsc_ext.2" iteration="WLAN">This SFR requires the TOE to validate a specific TLS extension when establishing EAP-TLS communications. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
     </base-pp>
     
-    <base-pp id="b-mdf">
-		<raw-url>https://raw.githubusercontent.com/commoncriteria/mobile-device/master/input/mobile-device.xml</raw-url>
-      <url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=417&amp;id=417</url>
-      
+    
+      <base-pp id="bpp-mdf" version="3.1" name="Mobile Device Fundamentals" product="Mobile Device" short="MDF">
+        <url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=417&amp;id=417</url>
+        
       
       <modified-sfrs>
   
@@ -574,7 +576,7 @@
         uses these cryptographic functions for the same purpose as the Base-PP.</con-mod>
       <con-mod ref="O.SELF_TEST">The Base-PP defines a general O.INTEGRITY objective; this PP-Module defines O.SELF_TEST as a specific method of guaranteeing the integrity of the TOE.</con-mod>
       <con-mod ref="O.SYSTEM_MONITORING">The Base-PP defines an O.INTEGRITY objective that includes system auditing as a method of asserting the TOE's integrity. The O.SYSTEM_MONITORING objective in this PP-Module serves the same purpose.</con-mod>
-      <con-mod ref="O.TOE_ADMINISTRATION">The Base-PP defines an O.CONFIG objective for TOE administration. The O.TOE_ADMINISTRATION objective in this PP-Module serves the same purpose.</con-mod>
+      <con-mod ref="O.TOE_ADMINISTRATION">The Base-PP defines an O.CONFIG objective for TOE administration. The O.TOE_ADMINISTRTION objective in this PP-Module serves the same purpose.</con-mod>
       <con-mod ref="O.WIRELESS_ACCESS_POINT_CONNECTION">This objective relates to behavior that applies to a communications interface defined in this PP-Module and therefore does not relate to the Base-PP's functionality.</con-mod>
       
       <con-mod ref="OE.NO_TOE_BYPASS">This objective relates to the deployment of the TOE in relation to the network resources that it interacts with. It does not enforce any restrictions on the TOE's deployment that are contrary to
@@ -586,7 +588,8 @@
       <con-mod ref="fcs_ckm.1" iteration="WLAN">This SFR requires the TOE to generate cryptographic keys that are only used by the PP-Module's functionality. It invokes Base-PP functionality to do this in a manner that the Base-PP permits.</con-mod>  
       <con-mod ref="fcs_ckm.2" iteration="WLAN">This SFR requires the TOE to perform a decryption operation using AES Key Wrap, which is a function that the Base-PP provides.</con-mod>
       <con-mod ref="fcs_tlsc_ext.1" iteration="WLAN">This SFR requires the TOE to implement EAP-TLS; this protocol relies on the same cryptographic functionality that the Base-PP uses to implement TLS.</con-mod>
-      <con-mod ref="fia_pae_ext.1">This SFR defines the ability of the TOE to implement IEEE 802.1X. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>  
+        <con-mod ref="fcs-wpa-ext-1">This SFR requires the TOE to specify the WPA versions it supports; this is functionality that is specific to the PP-Module and does not affect any Base-PP functionality.</con-mod>
+        <con-mod ref="fia_pae_ext.1">This SFR defines the ability of the TOE to implement IEEE 802.1X. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>  
       <con-mod ref="fia_x509_ext.1" iteration="WLAN">This SFR defines the TOE's X.509 certificate validation specifically when validating EAP-TLS certificates. The Base-PP also defines an iteration of this SFR but the PP-Module 
         requires a separate iteration because EAP-TLS certificates have specific handling requirements that are not present in the Base-PP because the Base-PP does not define implementation of the EAP-TLS protocol.</con-mod>
       <con-mod ref="fia_x509_ext.2" iteration="WLAN">This SFR defines the TOE's use of X.509 certificates in EAP-TLS. This function uses the same certificate validation functionality that the Base-PP defines.</con-mod>
@@ -858,7 +861,7 @@
                     shall disconnect the TOE from the wireless network and stop the sniffer.
                     <h:p/>
                     Step 5: The evaluator shall identify the 4-way handshake frames (denoted EAPOL-key
-                    in Wireshark captures) and derive the PTK from the 4-way handshake frames and pre-shared key as specified in IEEE 802.11-2016.
+                    in Wireshark captures) and derive the PTK from the 4-way handshake frames and preshared key as specified in IEEE 802.11-2016.
                     <h:p/>
                     Step 6: The evaluator shall select the first data frame from the captured packets that
                     was sent between the TOE and access point after the 4-way handshake successfully
@@ -919,7 +922,7 @@
               disconnect the TOE from the access point and stop the sniffer.
               <h:p/> 
               Step 5: The evaluator shall identify the 4-way handshake frames (denoted EAPOL-key in
-              Wireshark captures) and derive the PTK and GTK from the 4-way handshake frames and pre-shared key as specified in IEEE 802.11-2016.
+              Wireshark captures) and derive the PTK and GTK from the 4-way handshake frames and preshared key as specified in IEEE 802.11-2016.
               <h:p/> 
               Step 6: The evaluator shall select the first data frame from the captured packets that was sent
               between the TOE and access point after the 4-way handshake successfully completed, and with
@@ -1094,7 +1097,7 @@
                 <test>
                   The evaluator shall perform the following modifications to the traffic:
                   <h:ul>
-                    <h:li>Change the TLS version selected by the server in the Server Hello to an unsupported TLS version (for example 1.5 represented by the two bytes 03 06) and
+                    <h:li>Change the TLS version selected by the server in the Server Hello to a nonsupported TLS version (for example 1.5 represented by the two bytes 03 06) and
                       verify that the client rejects the connection.</h:li>
                     <h:li>Modify at least one byte in the server’s nonce in the Server Hello handshake
                       message, and verify that the client rejects the Server Key Exchange handshake
@@ -1120,6 +1123,26 @@
               </testlist>
             </Tests>
           </aactivity>
+          </f-element>
+        </f-component>
+        
+        <f-component cc-id="fcs_wpa_ext.1" name="Supported WPA Versions" id="fcs-wpa-ext-1">
+          <consistency-rationale/>
+          
+          <comp-lev> requires the TOE to support one or more identified WPA vesrions.</comp-lev>
+          <management>There are no specific management functions identified.</management>
+          <audit>There are no auditable events foreseen.</audit>
+          <dependencies>No dependencies.</dependencies>
+          
+          <f-element>
+            <title>The TSF shall support WPA3 and <selectables>
+              <selectable>WPA2</selectable>
+              <selectable>no other</selectable>
+            </selectables> key generation.
+            </title>
+            <aactivity>
+              <no-tests/>
+            </aactivity>
           </f-element>
         </f-component>
         
@@ -1416,10 +1439,9 @@
                 <selectable>enable/disable IEEE 802.1X pre-authentication</selectable>
                 <selectable>loading X.509 certificates into the TOE</selectable>
                 <selectable>revoke X.509 certificates loaded into the TOE</selectable>
-                <selectable>enable/disable and configure PMK caching:<h:br/>
+                <selectable>enable/disable and configure PMK caching:<h:p/>
                     &#9702; set the amount of time (in minutes) for which PMK entries are cached,<h:br/>
-                    &#9702; set the maximum number of PMK entries that can be cached
-                  </selectable><selectable>no other management functions</selectable>
+                    &#9702; set the maximum number of PMK entries that can be cached</selectable><selectable>no other management functions</selectable>
                 </selectables>.
             </title>
             <note role="application">
@@ -1972,6 +1994,9 @@
         <description><h:a
           href="https://tools.ietf.org/html/rfc5280">RFC 5280 - Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile</h:a></description>
       </entry>        
-    </bibliography> 
+    </bibliography>
+ <!-- 
+    <acronyms/>  -->
+  
 </Module>
 
