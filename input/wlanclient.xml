@@ -812,75 +812,28 @@
                 <selectable>PRF-704</selectable>
                 <selectable>no other algorithm</selectable>
               </selectables>
-              (as defined in IEEE 802.11ax-2021)</h:b></h:i>] and specified key sizes [<h:i><h:b>256 bits and 
+              (as defined in IEEE 802.11-2012)</h:b></h:i>] and specified key sizes [<h:i><h:b>256 bits and 
                 <selectables>
                   <selectable>128 bits</selectable>
                   <selectable>192 bits</selectable>
                   <selectable>no other key sizes</selectable>
                 </selectables></h:b></h:i>] <h:b>using a Random Bit Generator as specified in FCS_RBG_EXT.1</h:b>.
             </title>
+            <note role="application">Placeholder</note>
      
             
             <!-- PLACEHOLDER -->
             <aactivity>
               <TSS>
-                The evaluator shall verify that the TSS describes how the primitives defined and implemented
-                by this PP-Module are used by the TOE in establishing and maintaining secure connectivity to the
-                wireless clients. The TSS shall also provide a description of the developer’s method(s) of
-                assuring that their implementation conforms to the cryptographic standards; this includes not
-                only testing done by the developing organization, but also any third-party testing that is
-                performed.
+               Placeholder
                 <h:p/>  
               </TSS>
               <Guidance>
-                There are no guidance evaluation activities for this component.   
+                Placeholder   
                 <h:p/> 
               </Guidance>
               <Tests>
-                The evaluator shall perform the following tests:
-                <testlist>
-                  <test>
-                    The evaluator shall configure the access point so the cryptoperiod of the
-                    session key is 1 hour. The evaluator shall successfully connect the TOE to the access
-                    point and maintain the connection for a length of time that is greater than the
-                    configured cryptoperiod. The evaluator shall use a packet capture tool to determine
-                    that after the configured cryptoperiod, a re-negotiation is initiated to establish a new
-                    session key. Finally, the evaluator shall determine that the renegotiation has been 
-                    successful and the client continues communication with the access point.
-                  </test>
-                  <test>The evaluator shall perform the following test using a packet sniffing tool to
-                    collect frames between the TOE and a wireless LAN access point:
-                    <h:p/>
-                    Step 1: The evaluator shall configure the access point to an unused channel and
-                    configure the WLAN sniffer to sniff only on that channel (i.e., lock the sniffer on the
-                    selected channel). The sniffer should also be configured to filter on the MAC address
-                    of the TOE and/or access point.
-                    <h:p/>
-                    Step 2: The evaluator shall configure the TOE to communicate with a WLAN access
-                    point using IEEE 802.11-2020 and a 256-bit (64 hex values 0-f) pre-shared key. The
-                    pre-shared key is only used for testing.
-                    <h:p/>
-                    Step 3: The evaluator shall start the sniffing tool, initiate a connection between the
-                    TOE and the access point, and allow the TOE to authenticate, associate, and
-                    successfully complete the 4-way handshake with the client.
-                    <h:p/>
-                    Step 4: The evaluator shall set a timer for 1 minute, at the end of which the evaluator
-                    shall disconnect the TOE from the wireless network and stop the sniffer.
-                    <h:p/>
-                    Step 5: The evaluator shall identify the 4-way handshake frames (denoted EAPOL-key
-                    in Wireshark captures) and derive the PTK from the 4-way handshake frames and preshared key as specified in IEEE 802.11-2020.
-                    <h:p/>
-                    Step 6: The evaluator shall select the first data frame from the captured packets that
-                    was sent between the TOE and access point after the 4-way handshake successfully
-                    completed, and without the frame control value 0x4208 (the first 2 bytes are 08 42).
-                    The evaluator shall use the PTK to decrypt the data portion of the packet as specified
-                    in IEEE 802.11-2020, and shall verify that the decrypted data contains ASCII-readable
-                    text.
-                    <h:p/>
-                    Step 7: The evaluator shall repeat Step 6 for the next 2 data frames between the TOE
-                    and access point and without frame control value 0x4208.
-                  </test>
-                </testlist>                           
+                Placeholder
               </Tests>
             </aactivity>
           </f-element>
@@ -891,11 +844,11 @@
           <consistency-rationale/>
           <f-element>
             <title>The TSF shall <h:b>decrypt Group Temporal Key</h:b> in accordance with a specified cryptographic key distribution method 
-              [<h:i>AES Key Wrap (as defined in RFC 3394) in an EAPOL-Key frame (as defined in IEEE 802.11-2020 for the packet format and timing considerations</h:i>] <h:b>and does not expose the cryptographic keys</h:b>.
+              [<h:i>AES Key Wrap (as defined in RFC 3394) in an EAPOL-Key frame (as defined in IEEE 802.11-2012 for the packet format and timing considerations</h:i>] <h:b>and does not expose the cryptographic keys</h:b>.
             </title>
             <note role="application">This requirement applies to the Group Temporal Key (GTK) that is received by
               the TOE for use in decrypting broadcast and multicast messages from the Access Point to which
-              it's connected. 802.11-2020 specifies the format for the transfer as well as the fact that it must be wrapped by the AES Key Wrap method specified in RFC 3394; the TOE must be capable of
+              it's connected. 802.11-2012 specifies the format for the transfer as well as the fact that it must be wrapped by the AES Key Wrap method specified in RFC 3394; the TOE must be capable of
               unwrapping such keys.
             </note>            
           
@@ -919,7 +872,7 @@
               sniffer should also be configured to filter on the MAC address of the TOE and/or access point.
               <h:p/> 
               Step 2: The evaluator shall configure the TOE to communicate with the access point using IEEE
-              802.11-2020 and a 256-bit (64 hex values 0-f) pre-shared key, setting up the connections as
+              802.11-2012 and a 256-bit (64 hex values 0-f) pre-shared key, setting up the connections as
               described in the operational guidance. The pre-shared key is only used for testing.
               <h:p/> 
               Step 3: The evaluator shall start the sniffing tool, initiate a connection between the TOE and
@@ -930,12 +883,12 @@
               disconnect the TOE from the access point and stop the sniffer.
               <h:p/> 
               Step 5: The evaluator shall identify the 4-way handshake frames (denoted EAPOL-key in
-              Wireshark captures) and derive the PTK and GTK from the 4-way handshake frames and preshared key as specified in IEEE 802.11-2020.
+              Wireshark captures) and derive the PTK and GTK from the 4-way handshake frames and preshared key as specified in IEEE 802.11-2012.
               <h:p/> 
               Step 6: The evaluator shall select the first data frame from the captured packets that was sent
               between the TOE and access point after the 4-way handshake successfully completed, and with
               the frame control value 0x4208 (the first 2 bytes are 08 42). The evaluator shall use the GTK to
-              decrypt the data portion of the selected packet as specified in IEEE 802.11-2020, and shall verify
+              decrypt the data portion of the selected packet as specified in IEEE 802.11-2012, and shall verify
               that the decrypted data contains ASCII-readable text.
               <h:p/> 
               Step 7: The evaluator shall repeat Step 6 for the next 2 data frames with frame control value
@@ -1709,7 +1662,7 @@
         <f-component id="ftp-itc-1-wlan" cc-id="ftp_itc.1" name="Trusted Channel Communication (Wireless LAN)" iteration="WLAN">
           <consistency-rationale/>
           <f-element>
-            <title>The TSF shall <h:b>use 802.11-2020, 802.1X, and EAP-TLS</h:b> to provide a
+            <title>The TSF shall <h:b>use 802.11-2012, 802.1X, and EAP-TLS</h:b> to provide a
               <h:b>trusted</h:b> communication channel between itself and <h:b>a wireless access point</h:b> that is logically
               distinct from other communication channels and provides assured identification of its end points
               and protection of the channel data from modification or disclosure.
@@ -1830,24 +1783,24 @@
                 <selectable>PRF-704</selectable>
                 <selectable>no other algorithm</selectable>
               </selectables>
-              (as defined in IEEE 802.11-2020)</h:b></h:i>] and specified key sizes [<h:i><h:b>128 bits and 
+              (as defined in IEEE 802.11-2012)</h:b></h:i>] and specified key sizes [<h:i><h:b>128 bits and 
                 <selectables>
                   <selectable>256 bits</selectable>
                   <selectable>no other key sizes</selectable>
                 </selectables></h:b></h:i>] <h:b>using a Random Bit Generator as specified in FCS_RBG_EXT.1</h:b>.
             </title>
-            <note role="application">The cryptographic key derivation algorithm required by IEEE 802.11-2020
+            <note role="application">The cryptographic key derivation algorithm required by IEEE 802.11-2012
               (Section 11.6.1.2) and verified in WPA2 certification is PRF-384, which uses the HMAC-SHA-1
               function and outputs 384 bits. The use of GCMP was first defined in IEEE 802.11ac-2014 (Section
-              11.4.5) but subsequently integrated into 802.11-2020. This protocol requires a key derivation function (KDF) 
+              11.4.5) but subsequently integrated into 802.11-2012. This protocol requires a key derivation function (KDF) 
               KDF based on HMAC-SHA-256 (for 128-bit symmetric keys) or HMAC-SHA384 (for 256-bit symmetric keys). This KDF outputs 704 bits.
               <h:p/>
               This requirement applies only to the keys that are generated/derived for the communications
               between the access point and the client once the client has been authenticated. It refers to the
               derivation of the Pairwise Temporal Key (PTK) from the PMK, which is done using a random value generated by the RBG
               specified in this PP-Module, the HMAC function using SHA-1 as specified in this PP-Module, as well as other
-              information. <!-- NOTE: commented out because I do not have access to 802.11-2020 and so I have no way to verify whether the section reference from 802.11-2016 needs to be updated. 
-                This is specified in 802.11-2020 primarily in section 11.6.1.2.  -->
+              information. <!-- NOTE: commented out because I do not have access to 802.11-2012 and so I have no way to verify whether the section reference from 802.11-2016 needs to be updated. 
+                This is specified in 802.11-2012 primarily in section 11.6.1.2.  -->
             </note>            
             
             <aactivity>
@@ -1885,7 +1838,7 @@
                     of the TOE and/or access point.
                     <h:p/>
                     Step 2: The evaluator shall configure the TOE to communicate with a WLAN access
-                    point using IEEE 802.11-2020 and a 256-bit (64 hex values 0-f) pre-shared key. The
+                    point using IEEE 802.11-2012 and a 256-bit (64 hex values 0-f) pre-shared key. The
                     pre-shared key is only used for testing.
                     <h:p/>
                     Step 3: The evaluator shall start the sniffing tool, initiate a connection between the
@@ -1896,13 +1849,13 @@
                     shall disconnect the TOE from the wireless network and stop the sniffer.
                     <h:p/>
                     Step 5: The evaluator shall identify the 4-way handshake frames (denoted EAPOL-key
-                    in Wireshark captures) and derive the PTK from the 4-way handshake frames and preshared key as specified in IEEE 802.11-2020.
+                    in Wireshark captures) and derive the PTK from the 4-way handshake frames and preshared key as specified in IEEE 802.11-2012.
                     <h:p/>
                     Step 6: The evaluator shall select the first data frame from the captured packets that
                     was sent between the TOE and access point after the 4-way handshake successfully
                     completed, and without the frame control value 0x4208 (the first 2 bytes are 08 42).
                     The evaluator shall use the PTK to decrypt the data portion of the packet as specified
-                    in IEEE 802.11-2020, and shall verify that the decrypted data contains ASCII-readable
+                    in IEEE 802.11-2012, and shall verify that the decrypted data contains ASCII-readable
                     text.
                     <h:p/>
                     Step 7: The evaluator shall repeat Step 6 for the next 2 data frames between the TOE
@@ -2059,9 +2012,9 @@
           href="https://www.niap-ccevs.org/MMO/PP/pp_md_v3.1.pdf">Protection Profile for Mobile Device Fundamentals, Version 3.2</h:a>, March 4, 2021</description>
       </entry>
       <entry id="bib80211">
-        <tag>802.11-2020</tag>
+        <tag>802.11-2012</tag>
         <description><h:a
-          href="https://ieeexplore.ieee.org/document/9363693">802.11-2020 - IEEE Standard for Information technology—Telecommunications and information exchange between systems Local and metropolitan area networks—Specific requirements - 
+          href="https://ieeexplore.ieee.org/document/9363693">802.11-2012 - IEEE Standard for Information technology—Telecommunications and information exchange between systems Local and metropolitan area networks—Specific requirements - 
           Part 11: Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications</h:a></description>
       </entry>
       <entry id="bib8021X">
