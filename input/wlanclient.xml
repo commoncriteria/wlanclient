@@ -515,7 +515,7 @@
       uses these cryptographic functions for the same purpose as the Base-PP.</con-mod>
       <con-mod ref="O.SELF_TEST">The Base-PP defines a general O.INTEGRITY objective; this PP-Module defines O.SELF_TEST as a specific method of guaranteeing the integrity of the TOE.</con-mod>
       <con-mod ref="O.SYSTEM_MONITORING">The Base-PP defines an O.ACCOUNTABILITY objective for system auditing. The O.SYSTEM_MONITORING objective in this PP-Module serves the same purpose.</con-mod>
-      <con-mod ref="O.TOE_ADMINISTRATION">The Base-PP defines an O.MANAGEMENT objective for TOE administration. The O.TOE_ADMINISTRTION objective in this PP-Module serves the same purpose.</con-mod>
+      <con-mod ref="O.TOE_ADMINISTRATION">The Base-PP defines an O.MANAGEMENT objective for TOE administration. The O.TOE_ADMINISTRATION objective in this PP-Module serves the same purpose.</con-mod>
       <con-mod ref="O.WIRELESS_ACCESS_POINT_CONNECTION">This objective relates to behavior that applies to a communications interface defined in this PP-Module and therefore does not relate to the Base-PP's functionality.</con-mod>
           
       <con-mod ref="OE.NO_TOE_BYPASS">This objective relates to the deployment of the TOE in relation to the network resources that it interacts with. It does not enforce any restrictions on the TOE's deployment that are contrary to
@@ -579,7 +579,7 @@
         uses these cryptographic functions for the same purpose as the Base-PP.</con-mod>
       <con-mod ref="O.SELF_TEST">The Base-PP defines a general O.INTEGRITY objective; this PP-Module defines O.SELF_TEST as a specific method of guaranteeing the integrity of the TOE.</con-mod>
       <con-mod ref="O.SYSTEM_MONITORING">The Base-PP defines an O.INTEGRITY objective that includes system auditing as a method of asserting the TOE's integrity. The O.SYSTEM_MONITORING objective in this PP-Module serves the same purpose.</con-mod>
-      <con-mod ref="O.TOE_ADMINISTRATION">The Base-PP defines an O.CONFIG objective for TOE administration. The O.TOE_ADMINISTRTION objective in this PP-Module serves the same purpose.</con-mod>
+      <con-mod ref="O.TOE_ADMINISTRATION">The Base-PP defines an O.CONFIG objective for TOE administration. The O.TOE_ADMINISTRATION objective in this PP-Module serves the same purpose.</con-mod>
       <con-mod ref="O.WIRELESS_ACCESS_POINT_CONNECTION">This objective relates to behavior that applies to a communications interface defined in this PP-Module and therefore does not relate to the Base-PP's functionality.</con-mod>
       
       <con-mod ref="OE.NO_TOE_BYPASS">This objective relates to the deployment of the TOE in relation to the network resources that it interacts with. It does not enforce any restrictions on the TOE's deployment that are contrary to
@@ -883,7 +883,7 @@
               disconnect the TOE from the access point and stop the sniffer.
               <h:p/> 
               Step 5: The evaluator shall identify the 4-way handshake frames (denoted EAPOL-key in
-              Wireshark captures) and derive the PTK and GTK from the 4-way handshake frames and preshared key as specified in IEEE 802.11-2012.
+              Wireshark captures) and derive the PTK and GTK from the 4-way handshake frames and pre-shared key as specified in IEEE 802.11-2012.
               <h:p/> 
               Step 6: The evaluator shall select the first data frame from the captured packets that was sent
               between the TOE and access point after the 4-way handshake successfully completed, and with
@@ -1049,7 +1049,7 @@
                 <test>
                   The evaluator shall perform the following modifications to the traffic:
                   <h:ul>
-                    <h:li>Change the TLS version selected by the server in the Server Hello to a nonsupported TLS version (for example 1.5 represented by the two bytes 03 06) and
+                    <h:li>Change the TLS version selected by the server in the Server Hello to a unsupported TLS version (for example 1.5 represented by the two bytes 03 06) and
                       verify that the client rejects the connection.</h:li>
                     <h:li>Modify at least one byte in the server’s nonce in the Server Hello handshake
                       message, and verify that the client rejects the Server Key Exchange handshake
@@ -1849,7 +1849,7 @@
                     shall disconnect the TOE from the wireless network and stop the sniffer.
                     <h:p/>
                     Step 5: The evaluator shall identify the 4-way handshake frames (denoted EAPOL-key
-                    in Wireshark captures) and derive the PTK from the 4-way handshake frames and preshared key as specified in IEEE 802.11-2012.
+                    in Wireshark captures) and derive the PTK from the 4-way handshake frames and pre-shared key as specified in IEEE 802.11-2012.
                     <h:p/>
                     Step 6: The evaluator shall select the first data frame from the captured packets that
                     was sent between the TOE and access point after the 4-way handshake successfully
