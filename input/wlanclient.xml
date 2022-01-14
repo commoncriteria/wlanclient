@@ -240,7 +240,7 @@
       <cclaim name="Conformance Statement">
         <description> This PP-Module inherits exact conformance as required from
           the specified Base-PP and as defined in the CC and
-          <xref to="CEM"/> addenda for Exact Conformance, Selection-Based SFRs, and Optional
+          <xref to="bibCEM"/> addenda for Exact Conformance, Selection-Based SFRs, and Optional
           SFRs (dated May 2017).<h:p/> 
           <!-- 
           The following PPs and PP-Modules are allowed to
