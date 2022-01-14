@@ -46,3 +46,7 @@ subcommands
 CESG
 AUTH
 MDM
+smartphone
+WPA3
+'TLS
+ECDHE'
