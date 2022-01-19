@@ -1,0 +1,11 @@
+output/wlanclient-release-linkable.html: Fi
+output/wlanclient-release-linkable.html: Wi
+output/wlanclient-release-linkable.html: evalution
+output/wlanclient-release.html: Fi
+output/wlanclient-release.html: Wi
+output/wlanclient-release.html: evalution
+output/wlanclient-sd.html: Fi
+output/wlanclient-sd.html: Wi
+output/wlanclient.html: Fi
+output/wlanclient.html: Wi
+output/wlanclient.html: evalution
