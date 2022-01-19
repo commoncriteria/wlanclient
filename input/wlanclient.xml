@@ -27,9 +27,12 @@
       <subject>Initial Release</subject>
     </entry>
     <entry>
-      <version>1.0</version>
+      <version>0.5</version>
       <date>2022-01-20</date>
-      <subject>Conversion to PP-Module; Updated to include WPA 3 and Wi-Fi 6</subject>
+      <subject>Conversion to PP-Module; <h:br/> 
+        Updated to include WPA 3 and Wi-Fi 6. <h:br/>
+        WPA 3 is required. WPA 2 can additionally be included in the ST.<h:br/>
+        256 bit keys are required. 128 and 192 bit keys can additionally be included in the ST.<h:br/></subject>
     </entry>
   </RevisionHistory>
 
