@@ -15,7 +15,7 @@
     <ReferenceTable>
       <PPVersion>1.0</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2021-03-15</PPPubDate>
+      <PPPubDate>2022-01-19</PPPubDate>
       <Keywords>WLAN; Wireless LAN; Wireless Networking; 802.11</Keywords>
     </ReferenceTable>
   </PPReference>
@@ -25,6 +25,11 @@
       <version>1.0</version>
       <date>2021-03-15</date>
       <subject>Initial Release</subject>
+    </entry>
+    <entry>
+      <version>1.0</version>
+      <date>2022-01-19</date>
+      <subject>Conversion to PP-Module; Updated to include WPA 3 and Wi-Fi 6</subject>
     </entry>
   </RevisionHistory>
 
@@ -706,7 +711,7 @@
                   <h:TD rowspan="2">FPT_TST_EXT.1/WLAN</h:TD>
                   <h:TD>Execution of this set of TSF self-tests.</h:TD><h:td>None.</h:td></h:TR>
                 <h:tr><h:TD><selectables>
-                  <selectable>Detected integrity violation,</selectable>
+                  <selectable>Detected integrity violation</selectable>
                   <selectable>None.</selectable>
                 </selectables></h:TD>
                   <h:TD><selectables>
@@ -1092,8 +1097,10 @@
               <selectable>no other</selectable>
             </selectables> key generation.
             </title>
+            <note role="application">If "WPA2" is selected then FCS_CKM.1/WPA2 shall be included in the security target. The WLAN client can implement other key generation algorithms, however, those will not be tested as part of this evalution and FMT_SMF.1 will ensure that the client can be configured to only connect to WPA3 and if selected WPA2 networks.</note>
             <aactivity>
-              <no-tests/>
+              <Guidance>The evaluator shall ensure that the AGD contains guidance on how to configure the WLAN client to disable connecting to networks other that WPA3 and if selected WPA2.</Guidance>
+              <Tests> The evaluator shall configure a Wi-Fi network that utilizes WPA3 and verify that the client can connect. The evaluator shall then modify the network so that it utilizes WPA and verifies that the WLAN client does not connect to the network. The same test shall be repeated for WPA2 if it is selected. </Tests>
             </aactivity>
           </f-element>
         </f-component>
