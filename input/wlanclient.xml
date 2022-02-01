@@ -541,7 +541,7 @@
       <con-mod ref="fia-x509-ext-2-wlan">This SFR defines the TOE's use of X.509 certificates in EAP-TLS. This function uses the same certificate validation functionality that the Base-PP defines.</con-mod>
       <con-mod ref="fia-x509-ext-4">This SFR defines behavior for implementing certificate storage. The SFR allows for the possibility that existing platform storage can be used, so it does not conflict with the Base-PP if that portion
         of the TOE already implements its own storage mechanism.</con-mod>
-      <con-mod ref="fmt-smf-1-wlan">This SFR defines the management activities that are specific to this PP-Module. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
+      <con-mod ref="f-manage-functions">This SFR defines the management activities that are specific to this PP-Module. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
       <con-mod ref="fpt-tst-ext-1-wlan">This SFR defines self-test behavior for the WLAN Client. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>  
       <con-mod ref="fta-wse-ext-1">This SFR requires the TOE to restrict the wireless networks that it can connect to. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
       <con-mod ref="ftp-itc-1-wlan">This SFR defines the protocols that the TOE uses for secure wireless communications. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
@@ -604,7 +604,7 @@
       <con-mod ref="fia-x509-ext-2-wlan">This SFR defines the TOE's use of X.509 certificates in EAP-TLS. This function uses the same certificate validation functionality that the Base-PP defines.</con-mod>
         <con-mod ref="fia-x509-ext-4">This SFR defines behavior for implementing certificate storage. The SFR allows for the possibility that existing platform storage can be used, so it does not conflict with the Base-PP if that portion
           of the TOE already implements its own storage mechanism.</con-mod>
-        <con-mod ref="fmt-smf-1-wlan">This SFR defines the management activities that are specific to this PP-Module. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
+        <con-mod ref="f-manage-functions">This SFR defines the management activities that are specific to this PP-Module. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
       <con-mod ref="fpt-tst-ext-1-wlan">This SFR defines self-test behavior for the WLAN Client. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>  
       <con-mod ref="fta-wse-ext-1">This SFR requires the TOE to restrict the wireless networks that it can connect to. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
       <con-mod ref="ftp-itc-1-wlan">This SFR defines the protocols that the TOE uses for secure wireless communications. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
@@ -1491,13 +1491,19 @@
         should be claimed in the ST.  -->
 
         
-        <f-component id="fmt-smf-1-wlan" cc-id="fmt_smf.1" name="Specification of Management Functions (WLAN Client)" iteration="WLAN">
+        <f-component id="f-manage-functions" cc-id="fmt_smf.1" name="Specification of Management Functions (WLAN Client)" iteration="WLAN">
           <consistency-rationale/>
           <f-element>
             <title>The TSF shall be capable of performing the following management functions: 
-            
-              <h:ul>
-              <h:li>configure security policy for each wireless network:
+	    <h:br/><h:br/>
+              <h:b><ctr id="fmt_smf" ctr-type="Table">: Management Functions</ctr></h:b><h:br/><h:br/> 
+              Status Markers:<h:br/> M - Mandatory<h:br/> O - Optional/Objective<h:br/>
+              <!-- NOTE: management-function uses ctr variables crt-type=functions in the MOOO table, so that they do not have to be renumbered when one is added or removed. However app notes and AAs need to be in the same order as the functions. The list of IDs for each function is at the end of the xml.-->
+
+              <management-function-set default="O">
+                <manager cid="I">Impl.</manager>
+		<management-function>
+		  <text>configure security policy for each wireless network:
                 <h:ul>
                   <!-- SME: this selectable list conflicts with FCS_TLSC_EXT.1.5/WLAN, which only permits use of a CA to validate authentication server certificates, no FQDN option. Not sure which to modify to make consistent. -->
                   <h:li><selectables>
@@ -1507,41 +1513,41 @@
                   <h:li>security type,</h:li>
                   <h:li>authentication protocol,</h:li>
                   <h:li>client credentials to be used for authentication</h:li>
-                </h:ul></h:li>
-                <h:li>specify wireless networks (SSIDs) to which the TSF may connect</h:li>
-                <h:li>disable wireless network bridging capability (for example, bridging a
+                  </h:ul></text>
+		  <M ref="I"/>
+		</management-function>
+                <management-function><text>specify wireless networks (SSIDs) to which the TSF may connect</text><M ref="I"/></management-function>
+                <management-function><text>disable wireless network bridging capability (for example, bridging a
                   connection between the WLAN and cellular radios on a smartphone so it can function as
-                  a hotspot)</h:li>
-                <h:li>set wireless frequency band to <selectables>
+                  a hotspot)</text><M ref="I"/></management-function>
+                <management-function><text>set wireless frequency band to <selectables>
                   <selectable>2.4 GHz</selectable>
                   <selectable>5 GHz</selectable>
                   <selectable>6 GHz</selectable>
-                </selectables></h:li>
-              </h:ul>
-              
-              <selectables linebreak="yes">
-                
-                <selectable>enable/disable certificate revocation list checking</selectable>
-                <selectable>disable ad hoc wireless client-to-client connection capability</selectable>
-                <selectable>disable roaming capability</selectable>
-                <selectable>enable/disable IEEE 802.1X pre-authentication</selectable>
-                <selectable>loading X.509 certificates into the TOE</selectable>
-                <selectable>revoke X.509 certificates loaded into the TOE</selectable>
-                <selectable>enable/disable and configure PMK caching:<h:p/>
-                    &#9702; set the amount of time (in minutes) for which PMK entries are cached,<h:br/>
-                    &#9702; set the maximum number of PMK entries that can be cached</selectable><selectable>no other management functions</selectable>
-                </selectables>.
+                </selectables>
+		</text><M ref="I"/></management-function>
+                <management-function><text>enable/disable certificate revocation list checking</text></management-function>
+                <management-function><text>disable ad hoc wireless client-to-client connection capability</text></management-function>
+                <management-function><text>disable roaming capability</text></management-function>
+                <management-function><text>enable/disable IEEE 802.1X pre-authentication</text></management-function>
+                <management-function><text>loading X.509 certificates into the TOE</text></management-function>
+                <management-function><text>revoke X.509 certificates loaded into the TOE</text></management-function>
+                <management-function><text>enable/disable and configure PMK caching:<h:p/>
+                &#9702; set the amount of time (in minutes) for which PMK entries are cached,<h:br/>
+                &#9702; set the maximum number of PMK entries that can be cached</text></management-function>
+	      </management-function-set>.
             </title>
             <note role="application">
-              For installation, the WLAN Client relies on the underlying platform to
-              authenticate the administrator to the client machine on which the TOE is installed.
-              <h:p/>
+	      <h:p>
+		For installation, the WLAN Client relies on the underlying platform to
+		authenticate the administrator to the client machine on which the TOE is installed.
+	      </h:p>
+	      <h:p>
               For the function "configure the cryptoperiod for the established session keys," the unit of measure
               for configuring the cryptoperiod must be no greater than an hour. For example: units of measure
               in seconds, minutes and hours are acceptable and units of measure in days or greater are not
               acceptable.
-              <h:p/>
-              Management functions in the second selection are equivalent to ‘OO’ in the GPOS PP and ‘OOOO’ in MDF PP; their implementation is optional as are the roles that are authorized to perform them if claimed.
+	      </h:p>
             </note>            
           
           <aactivity>
