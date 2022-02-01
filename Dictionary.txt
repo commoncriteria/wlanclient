@@ -50,3 +50,6 @@ smartphone
 WPA3
 'TLS
 ECDHE'
+Wi
+Fi
+Impl

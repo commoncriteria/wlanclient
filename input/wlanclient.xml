@@ -1152,7 +1152,9 @@
               <selectable>no other</selectable>
             </selectables> security type.
             </title>
-            <note role="application">The WLAN client can support connecting to networks of other security types (e.g., open), however, those will not be tested as part of this evalution and FMT_SMF.1 will ensure that the client can be configured to only connect to WPA3 and if selected WPA2 networks.</note>
+            <note role="application">
+	      The WLAN client can support connecting to networks of other security types (e.g., open);
+	    however, those will not be tested as part of this evaluation and FMT_SMF.1 will ensure that the client can be configured to only connect to WPA3 and if selected WPA2 networks.</note>
             <aactivity>
               <Guidance>The evaluator shall ensure that the AGD contains guidance on how to configure the WLAN client to disable connecting to networks other that WPA3 and if selected WPA2.</Guidance>
               <Tests> The evaluator shall configure a Wi-Fi network that utilizes WPA3 and verify that the client can connect. The evaluator shall then modify the network so that it utilizes WPA and verifies that the WLAN client does not connect to the network. The same test shall be repeated for WPA2 if it is selected. </Tests>
@@ -1489,8 +1491,6 @@
         operation that should not be available to the general user population. If the TOE does provide
         some degree of administrative control, then the appropriate optional requirements
         should be claimed in the ST.  -->
-
-        
         <f-component id="f-manage-functions" cc-id="fmt_smf.1" name="Specification of Management Functions (WLAN Client)" iteration="WLAN">
           <consistency-rationale/>
           <f-element>
@@ -1498,8 +1498,6 @@
 	    <h:br/><h:br/>
               <h:b><ctr id="fmt_smf" ctr-type="Table">: Management Functions</ctr></h:b><h:br/><h:br/> 
               Status Markers:<h:br/> M - Mandatory<h:br/> O - Optional/Objective<h:br/>
-              <!-- NOTE: management-function uses ctr variables crt-type=functions in the MOOO table, so that they do not have to be renumbered when one is added or removed. However app notes and AAs need to be in the same order as the functions. The list of IDs for each function is at the end of the xml.-->
-
               <management-function-set default="O">
                 <manager cid="I">Impl.</manager>
 		<management-function>
