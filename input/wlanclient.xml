@@ -147,7 +147,7 @@
   
   <term abbr="SHA" full="Secure Hash Algorithm"></term>
   
-  <term abbr="SSID" full="Service Set Identifier"></term>
+  <term abbr="SSID" full="Service Set Identifier" plural="SSIDs"></term>
   
   <term abbr="ST" full="Security Target"></term>
   
@@ -718,7 +718,17 @@
                 <h:TR>
                   <h:TD>FTA_WSE_EXT.1</h:TD>
                   <h:TD>All attempts to connect to access points.</h:TD>
-                  <h:TD>Identity of access point being connected to.<h:br/><h:br/>Success and failures (including reason for failure).</h:TD>
+                  <h:TD>
+		    For each Access Point record the 
+		    <selectables>
+		      <selectable>Complete SSID and MAC</selectable>
+		      <selectable>
+			Certificate Check Message and Last
+			<assignable>integer greater than 2</assignable> Octets of the MAC Address
+		      </selectable>
+		    </selectables>
+		    Identity of access point being connected to.<h:br/><h:br/>Success and failures (including reason for failure).
+		  </h:TD>
                 </h:TR>    
                 <h:TR>
                   <h:TD>FTP_ITC.1/WLAN</h:TD>
