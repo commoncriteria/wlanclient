@@ -1,0 +1,3 @@
+output/wlanclient-release-linkable.html: AGD
+output/wlanclient-sd.html: AGD
+output/wlanclient.html: AGD
