@@ -726,7 +726,7 @@
 		      <selectable>Complete SSID and MAC</selectable>
 		      <selectable>
 			Certificate Check Message and the last
-			<assignable>integer greater than 2</assignable>
+			<assignable>integer greater than or equal to 2</assignable>
 			octets
 		      </selectable>
 		    </selectables> of the MAC Address
