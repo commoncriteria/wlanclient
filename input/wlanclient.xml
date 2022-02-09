@@ -992,7 +992,7 @@
             <no-link>FMT_SMR.1</no-link> Security Roles
           </dependencies>
           
-          <f-element id="fcs-tlsc-ext-1-1">
+          <f-element id="fel-tlsc1_2">
             <title>The TSF shall implement TLS 1.2 (RFC 5246) and               
             <selectables>
               <selectable>TLS 1.1 (RFC 4346)</selectable>
@@ -1160,7 +1160,7 @@
           <audit>There are no auditable events foreseen.</audit>
           <dependencies>No dependencies.</dependencies>
           
-          <f-element id="fcs-wpa-ext-1-1">
+          <f-element id="fel-wpa3">
             <title>The TSF shall support WPA3 and <selectables>
               <selectable id="wpa2">WPA2</selectable>
               <selectable>no other</selectable>
@@ -1172,6 +1172,9 @@
 	      will ensure that the client can be configured to only connect to WPA3 and, if selected WPA2, networks.
 	    </note>
             <aactivity>
+	      <TSS>
+		There are no TSS evaluation activities for this component.
+	      </TSS>
               <Guidance>The evaluator shall ensure that the AGD contains guidance on how to configure the WLAN client to disable connecting to networks other that WPA3 and, if selected, WPA2.</Guidance>
               <Tests> The evaluator shall configure a Wi-Fi network that utilizes WPA3 and verify that the client can connect. The evaluator shall then modify the network so that it utilizes WPA and verifies that the WLAN client does not connect to the network. The same test shall be repeated for WPA2 if it is selected. </Tests>
             </aactivity>
@@ -1567,7 +1570,6 @@
           <aactivity>
             <TSS>
               There are no TSS evaluation activities for this component.
-              <h:p/>  
             </TSS>
             <Guidance>
               The evaluator shall check the operational guidance to verify that every management function claimed by the TOE is described there. The evaluator shall also verify
@@ -2060,7 +2062,9 @@
   
   
   <appendix title="Implicitly Satisfied Requirements" id="satisfiedreqs">
-    This PP-Module has no implicitly satisfied requirements. All SFR dependencies are explicitly met either through SFRs defined by the PP-Module, SFRs inherited from the Base-PPs, or 
+    This PP-Module has no implicitly satisfied requirements.
+    All SFR dependencies are explicitly met either through SFRs defined by the PP-Module,
+    SFRs inherited from the Base-PPs, or 
     SFRs that are hierarchical to the listed dependency. 
   </appendix>
   
