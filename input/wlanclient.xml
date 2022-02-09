@@ -1530,20 +1530,18 @@
                   </selectables>,</h:li>
                   <h:li>security type,</h:li>
                   <h:li>authentication protocol,</h:li>
-                  <h:li>client credentials to be used for authentication</h:li>
-                  </h:ul></text>
+                  <h:li>client credentials to be used for authentication,</h:li>
+                  <h:li>set wireless frequency band to <selectables>
+                  <selectable>2.4 GHz</selectable>
+                  <selectable>5 GHz</selectable>
+                  <selectable>6 GHz</selectable></selectables></h:li>
+                 </h:ul></text>
 		  <M ref="I"/>
 		</management-function>
                 <management-function><text>specify wireless networks (SSIDs) to which the TSF may connect</text><M ref="I"/></management-function>
                 <management-function><text>disable wireless network bridging capability (for example, bridging a
                   connection between the WLAN and cellular radios on a smartphone so it can function as
                   a hotspot)</text><M ref="I"/></management-function>
-                <management-function><text>set wireless frequency band to <selectables>
-                  <selectable>2.4 GHz</selectable>
-                  <selectable>5 GHz</selectable>
-                  <selectable>6 GHz</selectable>
-                </selectables>
-		</text><M ref="I"/></management-function>
                 <management-function><text>enable/disable certificate revocation list checking</text></management-function>
                 <management-function><text>disable ad hoc wireless client-to-client connection capability</text></management-function>
                 <management-function><text>disable roaming capability</text></management-function>
