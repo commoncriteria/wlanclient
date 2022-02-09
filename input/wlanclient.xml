@@ -725,11 +725,12 @@
 		    <selectables>
 		      <selectable>Complete SSID and MAC</selectable>
 		      <selectable>
-			Certificate Check Message and Last
-			<assignable>integer greater than 2</assignable> Octets of the MAC Address
+			Certificate Check Message and the last
+			<assignable>integer greater than 2</assignable>
+			octets
 		      </selectable>
-		    </selectables>
-		    Identity of access point being connected to.<h:br/><h:br/>Success and failures (including reason for failure).
+		    </selectables> of the MAC Address
+		    <h:br/><h:br/>Success and failures (including reason for failure).
 		  </h:TD>
                 </h:TR>    
                 <h:TR>
