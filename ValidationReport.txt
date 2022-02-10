@@ -1,0 +1,1 @@
+/home/runner/work/wlanclient/wlanclient/input/wlanclient.xml:996:39: error: value of attribute "id" is invalid; must be a string matching the regular expression "[\-0-9a-zA-Z]+"
