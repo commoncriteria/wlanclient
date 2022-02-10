@@ -1543,9 +1543,17 @@
                 <management-function><text>specify wireless networks (SSIDs) to which the TSF may connect</text>
                    <M ref="I"/><M ref="A"/>
 		</management-function>
-                <management-function><text>disable wireless network bridging capability (for example, bridging a
-                  connection between the WLAN and cellular radios on a smartphone so it can function as
-                  a hotspot)</text><M ref="I"/><M ref="A"/></management-function>
+                <management-function>
+		  <text>
+                    enable/disable disable wireless network bridging capability (for example, bridging a
+                    connection between the WLAN and cellular radios to function as a hotspot) authenticated by <selectables>
+                    <selectable>pre-shared key</selectable>
+                    <selectable>passcode</selectable>
+                    <selectable>no authentication</selectable>
+                  </selectables>
+		  </text>
+		  <M ref="I"/><M ref="A"/>
+		</management-function>
                 <management-function><text>enable/disable certificate revocation list checking</text></management-function>
                 <management-function><text>disable ad hoc wireless client-to-client connection capability</text></management-function>
                 <management-function><text>disable roaming capability</text></management-function>
