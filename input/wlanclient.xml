@@ -1519,7 +1519,9 @@
               <h:b><ctr id="fmt_smf" ctr-type="Table">: Management Functions</ctr></h:b><h:br/><h:br/> 
               Status Markers:<h:br/> M - Mandatory<h:br/> O - Optional/Objective<h:br/>
               <management-function-set default="O" ctr-prefix="WLAN-">
-                <manager cid="I">Impl.</manager>
+                <manager cid="I">Impl</manager>
+		<manager cid="A">Admin</manager>
+		<manager cid="U">User</manager>
 		<management-function>
 		  <text>configure security policy for each wireless network:
                 <h:ul>
@@ -1536,12 +1538,14 @@
                   <selectable>5 GHz</selectable>
                   <selectable>6 GHz</selectable></selectables></h:li>
                  </h:ul></text>
-		  <M ref="I"/>
+                   <M ref="I"/><M ref="A"/>
 		</management-function>
-                <management-function><text>specify wireless networks (SSIDs) to which the TSF may connect</text><M ref="I"/></management-function>
+                <management-function><text>specify wireless networks (SSIDs) to which the TSF may connect</text>
+                   <M ref="I"/><M ref="A"/>
+		</management-function>
                 <management-function><text>disable wireless network bridging capability (for example, bridging a
                   connection between the WLAN and cellular radios on a smartphone so it can function as
-                  a hotspot)</text><M ref="I"/></management-function>
+                  a hotspot)</text><M ref="I"/><M ref="A"/></management-function>
                 <management-function><text>enable/disable certificate revocation list checking</text></management-function>
                 <management-function><text>disable ad hoc wireless client-to-client connection capability</text></management-function>
                 <management-function><text>disable roaming capability</text></management-function>
