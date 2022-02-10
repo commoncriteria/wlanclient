@@ -1518,7 +1518,7 @@
 	    <h:br/><h:br/>
               <h:b><ctr id="fmt_smf" ctr-type="Table">: Management Functions</ctr></h:b><h:br/><h:br/> 
               Status Markers:<h:br/> M - Mandatory<h:br/> O - Optional/Objective<h:br/>
-              <management-function-set default="O">
+              <management-function-set default="O" ctr-prefix="WLAN-">
                 <manager cid="I">Impl.</manager>
 		<management-function>
 		  <text>configure security policy for each wireless network:
