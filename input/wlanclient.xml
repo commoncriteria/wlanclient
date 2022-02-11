@@ -531,25 +531,25 @@
 
 
           
-      <con-mod ref="fau-gen-1-wlan">The Base-PP defines its own auditing mechanism; this PP-Module can use that mechanism or implement its own to generate audit records for security-relevant events that are specific to this PP-Module.</con-mod>
-      <con-mod ref="fcs-ckm-1-wpa3">This SFR requires the TOE to generate cryptographic keys that are only used by the PP-Module's functionality. It invokes Base-PP functionality to do this in a manner that the Base-PP permits.</con-mod>
-      <con-mod ref="fcs-ckm-2-wlan">This SFR requires the TOE to perform a decryption operation using AES Key Wrap, which is a function that the Base-PP provides.</con-mod>
-      <con-mod ref="fcs-tlsc-ext-1-wlan">This SFR requires the TOE to implement EAP-TLS; this protocol relies on the same cryptographic functionality that the Base-PP uses to implement TLS.</con-mod>
-      <con-mod ref="fcs-wpa-ext-1">This SFR requires the TOE to specify the WPA versions it supports; this is functionality that is specific to the PP-Module and does not affect any Base-PP functionality.</con-mod>
-      <con-mod ref="fia-pae-ext-1">This SFR defines the ability of the TOE to implement IEEE 802.1X. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>  
-      <con-mod ref="fia-x509-ext-1-wlan">This SFR defines the TOE's X.509 certificate validation specifically when validating EAP-TLS certificates. The Base-PP also defines an iteration of this SFR but the PP-Module 
+      <con-mod ref="fco-audit-gen-wlan">The Base-PP defines its own auditing mechanism; this PP-Module can use that mechanism or implement its own to generate audit records for security-relevant events that are specific to this PP-Module.</con-mod>
+      <con-mod ref="fco-skeygen-wpa">This SFR requires the TOE to generate cryptographic keys that are only used by the PP-Module's functionality. It invokes Base-PP functionality to do this in a manner that the Base-PP permits.</con-mod>
+      <con-mod ref="fco-keydist-wlan">This SFR requires the TOE to perform a decryption operation using AES Key Wrap, which is a function that the Base-PP provides.</con-mod>
+      <con-mod ref="fco-tlsc-wlan">This SFR requires the TOE to implement EAP-TLS; this protocol relies on the same cryptographic functionality that the Base-PP uses to implement TLS.</con-mod>
+      <con-mod ref="fco-wpa-version">This SFR requires the TOE to specify the WPA versions it supports; this is functionality that is specific to the PP-Module and does not affect any Base-PP functionality.</con-mod>
+      <con-mod ref="fco-portaccess-auth">This SFR defines the ability of the TOE to implement IEEE 802.1X. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>  
+      <con-mod ref="fco-certval-wlan">This SFR defines the TOE's X.509 certificate validation specifically when validating EAP-TLS certificates. The Base-PP also defines an iteration of this SFR but the PP-Module 
       requires a separate iteration because EAP-TLS certificates have specific handling requirements that are not present in the Base-PP because the Base-PP does not define implementation of the EAP-TLS protocol.</con-mod>
-      <con-mod ref="fia-x509-ext-2-wlan">This SFR defines the TOE's use of X.509 certificates in EAP-TLS. This function uses the same certificate validation functionality that the Base-PP defines.</con-mod>
-      <con-mod ref="fia-x509-ext-4">This SFR defines behavior for implementing certificate storage. The SFR allows for the possibility that existing platform storage can be used, so it does not conflict with the Base-PP if that portion
+      <con-mod ref="fco-certauth">This SFR defines the TOE's use of X.509 certificates in EAP-TLS. This function uses the same certificate validation functionality that the Base-PP defines.</con-mod>
+      <con-mod ref="fco-manage-certs">This SFR defines behavior for implementing certificate storage. The SFR allows for the possibility that existing platform storage can be used, so it does not conflict with the Base-PP if that portion
         of the TOE already implements its own storage mechanism.</con-mod>
       <con-mod ref="f-manage-functions">This SFR defines the management activities that are specific to this PP-Module. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
-      <con-mod ref="fpt-tst-ext-1-wlan">This SFR defines self-test behavior for the WLAN Client. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>  
-      <con-mod ref="fta-wse-ext-1">This SFR requires the TOE to restrict the wireless networks that it can connect to. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
-      <con-mod ref="ftp-itc-1-wlan">This SFR defines the protocols that the TOE uses for secure wireless communications. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
+      <con-mod ref="fco-cryptotesting-wlan">This SFR defines self-test behavior for the WLAN Client. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>  
+      <con-mod ref="fco-wifi-access">This SFR requires the TOE to restrict the wireless networks that it can connect to. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
+      <con-mod ref="fco-trusted-comms-wlan">This SFR defines the protocols that the TOE uses for secure wireless communications. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
           
           
-      <con-mod ref="fcs-ckm-1-wpa2">This SFR requires the TOE to generate cryptographic keys that are only used by the PP-Module's functionality. It invokes Base-PP functionality to do this in a manner that the Base-PP permits.</con-mod>
-      <con-mod ref="fcs-tlsc-ext-2-wlan">This SFR requires the TOE to validate a specific TLS extension when establishing EAP-TLS communications. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
+      <!-- <con-mod ref="fcs-ckm-1-wpa2">This SFR requires the TOE to generate cryptographic keys that are only used by the PP-Module's functionality. It invokes Base-PP functionality to do this in a manner that the Base-PP permits.</con-mod> -->
+      <con-mod ref="fco-tls-client-support-wlan">This SFR requires the TOE to validate a specific TLS extension when establishing EAP-TLS communications. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
     </base-pp>
     
     
@@ -571,49 +571,78 @@
       <con-sec-prob/>
       <con-obj/>
       <con-op-en/>
-      <con-mod ref="T.TSF_FAILURE">The Base-PP defines the T.FLAWAPP threat for the threat that application failures may pose to the device as a whole. The T.TSF_FAILURE threat from this PP-Module is a specific example of the T.FLAWAPP threat,
-        though it relates to the WLAN Client as an intrinsic part of the mobile device rather than a third-party application installed on top of it. The Base-PP also defines the T.PERSISTENT threat, which is another specific case of TSF failure.</con-mod>
-      <con-mod ref="T.UNAUTHORIZED_ACCESS">The Base-PP defines threats for network eavesdropping and network attacks. Exploiting either threat could allow an attacker to exploit the T.UNAUTHORIZED_ACCESS threat defined
-        by this PP-Module.</con-mod>
-      <con-mod ref="T.UNDETECTED_ACTIONS">The Base-PP defines threats for persistent access to the TOE and flawed applications on the TOE. It does not define a threat specifically for undetected actions but the threat of undetected actions
-        defined by this PP-Module could increase the likelihood that the Base-PP threats can be successfully exploited.</con-mod>          
-      
-      <con-mod ref="A.NO_TOE_BYPASS">This assumption relates to the deployment of the TOE in relation to the network resources that it interacts with. It does not enforce any restrictions on the TOE's deployment that are contrary to
-        what the Base-PP requires.</con-mod>
-      <con-mod ref="A.TRUSTED_ADMIN">The Base-PP defines the A.TRUSTED_ADMIN assumptions that expects administrators will configure the TOE correctly, which also implies they are non-malicious.</con-mod>
-      
-      <con-mod ref="O.AUTH_COMM">This objective is specifically for a communications interface that is defined by the PP-Module, but it is consistent with the general O.COMMS objective specified in the Base-PP.</con-mod>
-      <con-mod ref="O.CRYPTOGRAPHIC_FUNCTIONS">The TOE implements this objective in part by relying on the cryptographic functionality specified in the Base-PP to address the Base-PP's O.COMMS objective. The PP-Module
-        uses these cryptographic functions for the same purpose as the Base-PP.</con-mod>
-      <con-mod ref="O.SELF_TEST">The Base-PP defines a general O.INTEGRITY objective; this PP-Module defines O.SELF_TEST as a specific method of guaranteeing the integrity of the TOE.</con-mod>
-      <con-mod ref="O.SYSTEM_MONITORING">The Base-PP defines an O.INTEGRITY objective that includes system auditing as a method of asserting the TOE's integrity. The O.SYSTEM_MONITORING objective in this PP-Module serves the same purpose.</con-mod>
-      <con-mod ref="O.TOE_ADMINISTRATION">The Base-PP defines an O.CONFIG objective for TOE administration. The O.TOE_ADMINISTRATION objective in this PP-Module serves the same purpose.</con-mod>
-      <con-mod ref="O.WIRELESS_ACCESS_POINT_CONNECTION">This objective relates to behavior that applies to a communications interface defined in this PP-Module and therefore does not relate to the Base-PP's functionality.</con-mod>
-      
-      <con-mod ref="OE.NO_TOE_BYPASS">This objective relates to the deployment of the TOE in relation to the network resources that it interacts with. It does not enforce any restrictions on the TOE's deployment that are contrary to
-        what the Base-PP requires.</con-mod>
-      <con-mod ref="OE.TRUSTED_ADMIN">The Base-PP defines the OE.CONFIG objective that expects administrators will configure the TOE correctly, which also implies they are non-malicious.</con-mod>          
-      
-      
-      <con-mod ref="fau-gen-1-wlan">The Base-PP defines its own auditing mechanism; this PP-Module can use that mechanism or implement its own to generate audit records for security-relevant events that are specific to this PP-Module.</con-mod>
-        <con-mod ref="fcs-ckm-1-wpa3">This SFR requires the TOE to generate cryptographic keys that are only used by the PP-Module's functionality. It invokes Base-PP functionality to do this in a manner that the Base-PP permits.</con-mod>
-        <con-mod ref="fcs-ckm-2-wlan">This SFR requires the TOE to perform a decryption operation using AES Key Wrap, which is a function that the Base-PP provides.</con-mod>
-      <con-mod ref="fcs-tlsc-ext-1-wlan">This SFR requires the TOE to implement EAP-TLS; this protocol relies on the same cryptographic functionality that the Base-PP uses to implement TLS.</con-mod>
-        <con-mod ref="fcs-wpa-ext-1">This SFR requires the TOE to specify the WPA versions it supports; this is functionality that is specific to the PP-Module and does not affect any Base-PP functionality.</con-mod>
-        <con-mod ref="fia-pae-ext-1">This SFR defines the ability of the TOE to implement IEEE 802.1X. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>  
-      <con-mod ref="fia-x509-ext-1-wlan">This SFR defines the TOE's X.509 certificate validation specifically when validating EAP-TLS certificates. The Base-PP also defines an iteration of this SFR but the PP-Module 
+      <con-mod ref="T.TSF_FAILURE">
+	The Base-PP defines the T.FLAWAPP threat for the threat that application failures may pose to the device as a whole.
+	The T.TSF_FAILURE threat from this PP-Module is a specific example of the T.FLAWAPP threat,
+        though it relates to the WLAN Client as an intrinsic part of the mobile device rather than a third-party application installed on top of it.
+	The Base-PP also defines the T.PERSISTENT threat, which is another specific case of TSF failure.
+      </con-mod>
+      <con-mod ref="T.UNAUTHORIZED_ACCESS">
+	The Base-PP defines threats for network eavesdropping and network attacks.
+	Exploiting either threat could allow an attacker to exploit the T.UNAUTHORIZED_ACCESS threat defined  by this PP-Module.
+      </con-mod>
+      <con-mod ref="T.UNDETECTED_ACTIONS">
+	The Base-PP defines threats for persistent access to the TOE and flawed applications on the TOE.
+	It does not define a threat specifically for undetected actions but the threat of undetected actions
+        defined by this PP-Module could increase the likelihood that the Base-PP threats can be successfully exploited.
+      </con-mod>          
+      <con-mod ref="A.NO_TOE_BYPASS">
+	This assumption relates to the deployment of the TOE in relation to the network resources that it interacts with.
+	It does not enforce any restrictions on the TOE's deployment that are contrary to
+        what the Base-PP requires.
+      </con-mod>
+      <con-mod ref="A.TRUSTED_ADMIN">
+	The Base-PP defines the A.TRUSTED_ADMIN assumptions that expects administrators will configure the TOE correctly, which also implies they are non-malicious.
+      </con-mod>
+      <con-mod ref="O.AUTH_COMM">
+        This objective is specifically for a communications interface that is defined by the PP-Module, but it is consistent with the general O.COMMS objective specified in the Base-PP.
+      </con-mod>
+      <con-mod ref="O.CRYPTOGRAPHIC_FUNCTIONS">
+	The TOE implements this objective in part by relying on the cryptographic functionality specified in the Base-PP to address the Base-PP's O.COMMS objective.
+	The PP-Module uses these cryptographic functions for the same purpose as the Base-PP.
+      </con-mod>
+      <con-mod ref="O.SELF_TEST">
+	The Base-PP defines a general O.INTEGRITY objective;
+        this PP-Module defines O.SELF_TEST as a specific method of guaranteeing the integrity of the TOE.
+      </con-mod>
+      <con-mod ref="O.SYSTEM_MONITORING">
+	The Base-PP defines an O.INTEGRITY objective that includes system auditing as a method of asserting the TOE's integrity.
+        The O.SYSTEM_MONITORING objective in this PP-Module serves the same purpose.
+      </con-mod>
+      <con-mod ref="O.TOE_ADMINISTRATION">
+        The Base-PP defines an O.CONFIG objective for TOE administration.
+        The O.TOE_ADMINISTRATION objective in this PP-Module serves the same purpose.
+      </con-mod>
+      <con-mod ref="O.WIRELESS_ACCESS_POINT_CONNECTION">
+        This objective relates to behavior that applies to a communications interface defined in this PP-Module and therefore does not relate to the Base-PP's functionality.
+      </con-mod>
+      <con-mod ref="OE.NO_TOE_BYPASS">
+	This objective relates to the deployment of the TOE in relation to the network resources that it interacts with.
+	It does not enforce any restrictions on the TOE's deployment that are contrary to what the Base-PP requires.
+      </con-mod>
+      <con-mod ref="OE.TRUSTED_ADMIN">
+        The Base-PP defines the OE.CONFIG objective that expects administrators will configure the TOE correctly, which also implies they are non-malicious.
+      </con-mod>
+      <con-mod ref="fco-audit-gen-wlan">
+        The Base-PP defines its own auditing mechanism;
+        this PP-Module can use that mechanism or implement its own to generate audit records for security-relevant events that are specific to this PP-Module.
+      </con-mod>
+      <con-mod ref="fco-skeygen-wpa">This SFR requires the TOE to generate cryptographic keys that are only used by the PP-Module's functionality. It invokes Base-PP functionality to do this in a manner that the Base-PP permits.</con-mod>
+      <con-mod ref="fco-keydist-wlan">This SFR requires the TOE to perform a decryption operation using AES Key Wrap, which is a function that the Base-PP provides.</con-mod>
+      <con-mod ref="fco-tlsc-wlan">This SFR requires the TOE to implement EAP-TLS; this protocol relies on the same cryptographic functionality that the Base-PP uses to implement TLS.</con-mod>
+      <con-mod ref="fco-wpa-version">This SFR requires the TOE to specify the WPA versions it supports; this is functionality that is specific to the PP-Module and does not affect any Base-PP functionality.</con-mod>
+      <con-mod ref="fco-portaccess-auth">This SFR defines the ability of the TOE to implement IEEE 802.1X. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>  
+      <con-mod ref="fco-certval-wlan">This SFR defines the TOE's X.509 certificate validation specifically when validating EAP-TLS certificates. The Base-PP also defines an iteration of this SFR but the PP-Module 
         requires a separate iteration because EAP-TLS certificates have specific handling requirements that are not present in the Base-PP because the Base-PP does not define implementation of the EAP-TLS protocol.</con-mod>
-      <con-mod ref="fia-x509-ext-2-wlan">This SFR defines the TOE's use of X.509 certificates in EAP-TLS. This function uses the same certificate validation functionality that the Base-PP defines.</con-mod>
-        <con-mod ref="fia-x509-ext-4">This SFR defines behavior for implementing certificate storage. The SFR allows for the possibility that existing platform storage can be used, so it does not conflict with the Base-PP if that portion
+      <con-mod ref="fco-certauth">This SFR defines the TOE's use of X.509 certificates in EAP-TLS. This function uses the same certificate validation functionality that the Base-PP defines.</con-mod>
+      <con-mod ref="fco-manage-certs">This SFR defines behavior for implementing certificate storage. The SFR allows for the possibility that existing platform storage can be used, so it does not conflict with the Base-PP if that portion
           of the TOE already implements its own storage mechanism.</con-mod>
         <con-mod ref="f-manage-functions">This SFR defines the management activities that are specific to this PP-Module. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
-      <con-mod ref="fpt-tst-ext-1-wlan">This SFR defines self-test behavior for the WLAN Client. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>  
-      <con-mod ref="fta-wse-ext-1">This SFR requires the TOE to restrict the wireless networks that it can connect to. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
-      <con-mod ref="ftp-itc-1-wlan">This SFR defines the protocols that the TOE uses for secure wireless communications. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
-      
-      
-        <con-mod ref="fcs-ckm-1-wpa2">This SFR requires the TOE to generate cryptographic keys that are only used by the PP-Module's functionality. It invokes Base-PP functionality to do this in a manner that the Base-PP permits.</con-mod>
-      <con-mod ref="fcs-tlsc-ext-2-wlan">This SFR requires the TOE to validate a specific TLS extension when establishing EAP-TLS communications. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
+      <con-mod ref="fco-cryptotesting-wlan">This SFR defines self-test behavior for the WLAN Client. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>  
+      <con-mod ref="fco-wifi-access">This SFR requires the TOE to restrict the wireless networks that it can connect to. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
+      <con-mod ref="fco-trusted-comms-wlan">This SFR defines the protocols that the TOE uses for secure wireless communications. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
+      <con-mod ref="fco-skeygen-wpa">This SFR requires the TOE to generate cryptographic keys that are only used by the PP-Module's functionality. It invokes Base-PP functionality to do this in a manner that the Base-PP permits.</con-mod>
+      <con-mod ref="fco-tls-client-support-wlan">This SFR requires the TOE to validate a specific TLS extension when establishing EAP-TLS communications. This behavior relates entirely to the PP-Module and does not affect the ability of the Base-PP to implement its security functionality.</con-mod>
     </base-pp>
       
     <man-sfrs>
@@ -818,7 +847,7 @@
         at ISO OSI layers 1 and 2, and mandates the use of the AES-CCMP algorithm for secure connections. Optionally, AES-GCMP can be used.
          -->
         
-        <f-component id="fco-skeygen-wpa3" cc-id="fcs_ckm.1" name="Cryptographic Key Generation (Symmetric Keys for WPA2/WPA3 Connections)" iteration="WPA">
+        <f-component id="fco-skeygen-wpa" cc-id="fcs_ckm.1" name="Cryptographic Key Generation (Symmetric Keys for WPA2/WPA3 Connections)" iteration="WPA">
           <consistency-rationale/>
           <f-element>
             <title>The TSF shall generate <h:b>symmetric</h:b> cryptographic keys in accordance with a specified cryptographic key generation algorithm [<h:i><h:b>PRF-384 and
@@ -1154,7 +1183,7 @@
           </f-element>
         </f-component>
         
-        <f-component cc-id="fcs_wpa_ext.1" name="Supported WPA Versions" id="fcs-wpa-ext-1">
+        <f-component cc-id="fcs_wpa_ext.1" name="Supported WPA Versions" id="fco-wpa-version">
           <consistency-rationale/>
           
           <comp-lev> requires the TOE to support one or more identified WPA vesrions.</comp-lev>
