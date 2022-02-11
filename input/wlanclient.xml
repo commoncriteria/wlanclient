@@ -1561,9 +1561,12 @@
                 <management-function><text>loading X.509 certificates into the TOE</text></management-function>
                 <management-function><text>revoke X.509 certificates loaded into the TOE</text></management-function>
                 <management-function><text>enable/disable and configure PMK caching:<h:p/>
-                &#9702; set the amount of time (in minutes) for which PMK entries are cached,<h:br/>
-                &#9702; set the maximum number of PMK entries that can be cached</text></management-function>
-	      </management-function-set>.
+		<h:ul><h:li>set the amount of time (in minutes) for which PMK entries are cached,</h:li>
+		<h:li>set the maximum number of PMK entries that can be cached</h:li></h:ul>
+                <!-- &#9702; set the amount of time (in minutes) for which PMK entries are cached,<h:br/> -->
+                <!-- &#9702; set the maximum number of PMK entries that can be cached</text></management-function> -->
+		</text></management-function>
+	      </management-function-set>
             </title>
             <note role="application">
 	      <h:p>
