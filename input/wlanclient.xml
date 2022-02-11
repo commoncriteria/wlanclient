@@ -218,7 +218,7 @@
     </section>
     
     <!-- SME: the old WLAN EP did not define use cases, these have been added. Will need review. -->
-    <section title="Use Cases" id="usecases">Requirements in this PP-Module are designed to
+    <sec:Use-Cases>Requirements in this PP-Module are designed to
       address the security problems in at least the following use cases. These use cases are intentionally
       very broad, as many specific use cases exist within these larger categories.
       
@@ -239,7 +239,7 @@
         <!-- to do: add use case for administrative capabilities if one needs to exist (currently TBD) -->
         
       </usecases>
-    </section>
+    </sec:Use-Cases>
   </sec:Introduction>
 
 
@@ -442,8 +442,8 @@
       </SOs>
     </sec:Security_Objectives_for_the_TOE>
     
-    <section title="Security Objectives for the Operational Environment"
-      id="SecurityObjectivesTOEorEnvironment"><!-- The Operational Environment of the TOE implements technical and procedural measures 
+    <sec:Security_Objectives_for_the_Operational_Environment>
+      <!-- The Operational Environment of the TOE implements technical and procedural measures 
       to assist the TOE in correctly providing its security functionality (which is defined by the security objectives for the TOE). 
       The security objectives for the Operational Environment consist of a set of statements describing the goals that the Operational Environment should achieve. 
       This section defines the security objectives that are to be addressed by the IT domain or by non-technical or procedural means. 
@@ -460,13 +460,13 @@
           <consistency-rationale></consistency-rationale>
         </SOE>
       </SOEs>
-    </section>
+    </sec:Security_Objectives_for_the_Operational_Environment>
     
-    <section title="Security Objectives Rationale" id="SOR">
+    <sec:Security_Objectives_Rationale>
       <!-- NOTE: This section should remain empty and is populated from the rationale tags in the previous sections.  -->
-    </section>
+    </sec:Security_Objectives_Rationale>
   </sec:Security_Objectives>
-  
+
   <sec:Security_Requirements>
     <!-- SME: the intro to this chapter appears to be getting populated with default text rather than what is specified here, which is problematic because the default text does not
     define refinements correctly for this Module. How can we get it to use what is here instead of the default? -->
@@ -617,8 +617,7 @@
     <man-sfrs>
       <sec:man_fau title="Security Audit (FAU)">
         
-        
-        <f-component id="fau-gen-1-wlan" cc-id="fau_gen.1" name="Audit Data Generation (Wireless LAN)" iteration="WLAN">
+        <f-component id="fco-audit-gen-wlan" cc-id="fau_gen.1" name="Audit Data Generation (Wireless LAN)" iteration="WLAN">
           <consistency-rationale/>
           <f-element>
             <title>The TSF shall <h:b>
@@ -817,7 +816,7 @@
         at ISO OSI layers 1 and 2, and mandates the use of the AES-CCMP algorithm for secure connections. Optionally, AES-GCMP can be used.
          -->
         
-        <f-component id="fcs-ckm-1-wpa3" cc-id="fcs_ckm.1" name="Cryptographic Key Generation (Symmetric Keys for WPA2/WPA3 Connections)" iteration="WPA">
+        <f-component id="fco-skeygen-wpa3" cc-id="fcs_ckm.1" name="Cryptographic Key Generation (Symmetric Keys for WPA2/WPA3 Connections)" iteration="WPA">
           <consistency-rationale/>
           <f-element>
             <title>The TSF shall generate <h:b>symmetric</h:b> cryptographic keys in accordance with a specified cryptographic key generation algorithm [<h:i><h:b>PRF-384 and
@@ -913,7 +912,7 @@
         </f-component>
 
         
-        <f-component id="fcs-ckm-2-wlan" cc-id="fcs_ckm.2" name="Cryptographic Key Distribution (Group Temporal Key for WLAN)" iteration="WLAN">
+        <f-component id="fco-keydist-wlan" cc-id="fcs_ckm.2" name="Cryptographic Key Distribution (Group Temporal Key for WLAN)" iteration="WLAN">
           <consistency-rationale/>
           <f-element>
             <title>The TSF shall <h:b>decrypt Group Temporal Key</h:b> in accordance with a specified cryptographic key distribution method 
@@ -973,7 +972,7 @@
         
         <!-- SME: we were asked to cite the TLS Functional Package instead of defining 'new' TLS requirements in this Module. However, these EAP-TLS requirements are somewhat different from those in the TLS Package. 
           It is unclear what the preferred method of resolving these discrepancies is. -->
-        <f-component id="fcs-tlsc-ext-1-wlan" cc-id="fcs_tlsc_ext.1" name="TLS Client Protocol (EAP-TLS for WLAN)" iteration="WLAN">
+        <f-component id="fco-tlsc-wlan" cc-id="fcs_tlsc_ext.1" name="TLS Client Protocol (EAP-TLS for WLAN)" iteration="WLAN">
           <consistency-rationale/>
           
           <comp-lev> describes the ability of the TOE to implement the EAP-TLS protocol as a client.</comp-lev>
@@ -1214,7 +1213,7 @@
           <fam-behavior>Components in this family define requirements for TOE support of IEEE 802.1X authentication.
           </fam-behavior>
         </ext-comp-def>
-        <f-component id="fia-pae-ext-1" cc-id="fia_pae_ext.1" name="Port Access Entity Authentication">
+        <f-component id="fco-portaccess-auth" cc-id="fia_pae_ext.1" name="Port Access Entity Authentication">
           <consistency-rationale/>
           
           <comp-lev> describes the ability of the TOE to act as a supplicant for 802.1X authentication.</comp-lev>
@@ -1287,7 +1286,7 @@
         </f-component>
         
         <!-- SME: added to address TD0439. Component not included in ECD because both Base-PPs define it. -->
-        <f-component id="fia-x509-ext-1-wlan" cc-id="fia_x509_ext.1" name="X.509 Certificate Validation" iteration="WLAN">
+        <f-component id="fco-certval-wlan" cc-id="fia_x509_ext.1" name="X.509 Certificate Validation" iteration="WLAN">
       <consistency-rationale/>
 
           <f-element>
@@ -1361,7 +1360,7 @@
           </f-element>
         </f-component>
         
-        <f-component id="fia-x509-ext-2-wlan" cc-id="fia_x509_ext.2" name="X.509 Certificate Authentication (EAP-TLS for WLAN)" iteration="WLAN">
+        <f-component id="fco-certauth" cc-id="fia_x509_ext.2" name="X.509 Certificate Authentication (EAP-TLS for WLAN)" iteration="WLAN">
           <consistency-rationale/>
           <f-element>
             <title>The TSF shall use X.509v3 certificates as defined by RFC 5280 to
@@ -1431,7 +1430,7 @@
           <fam-behavior>Components in this family define requirements for the use of X.509 certificates.
           </fam-behavior>
         </ext-comp-def>
-        <f-component id="fia-x509-ext-4" cc-id="fia_x509_ext.4" name="X.509 Certificate Storage and Management">
+        <f-component id="fco-manage-certs" cc-id="fia_x509_ext.4" name="X.509 Certificate Storage and Management">
           <consistency-rationale/>
           
           <comp-lev> requires the TOE to implement the ability to store X.509 certificates.</comp-lev>
@@ -1610,7 +1609,7 @@
           <fam-behavior>Components in this family define requirements for self-testing to verify the functionality and integrity of the TOE.
           </fam-behavior>
         </ext-comp-def>
-        <f-component id="fpt-tst-ext-1-wlan" cc-id="fpt_tst_ext.1" name="TSF Cryptographic Functionality Testing (WLAN Client)" iteration="WLAN">
+        <f-component id="fco-cryptotesting-wlan" cc-id="fpt_tst_ext.1" name="TSF Cryptographic Functionality Testing (WLAN Client)" iteration="WLAN">
           <consistency-rationale/>
           
           <comp-lev> requires the TOE or its platform to perform power on self-tests to verify its functionality and
@@ -1704,12 +1703,12 @@
           <fam-behavior>Components in this family define requirements for specifying wireless networks that the TOE can connect to.
           </fam-behavior>
         </ext-comp-def>
-        <f-component id="fta-wse-ext-1" cc-id="fta_wse_ext.1" name="Wireless Network Access">
+        <f-component id="fco-wifi-access" cc-id="fta_wse_ext.1" name="Wireless Network Access">
           <consistency-rationale/>
           
           <comp-lev> describes the ability of the TOE to apply administrative limits on the wireless networks that it can connect to.</comp-lev>
           <management>The following actions could be considered for the management functions in FMT: <h:ul>
-            <h:li>Specify allowed wireless networks based on MAC Access, Service Set Identifier (SSID), or other attributes.</h:li>
+            <h:li>Specify allowed wireless networks based on Service Set Identifier (SSID).</h:li>
           </h:ul>
           </management>
           <audit>The following actions should be auditable if FAU_GEN Security audit data
@@ -1760,7 +1759,7 @@
       <sec:man_ftp title="Trusted Path/Channels (FTP)">
         
         <!-- SME: this was changed to FTP_ITC.1 because of ECD conflicts with the Base-PPs (which each define their own different versions of FTP_ITC_EXT.1) -->
-        <f-component id="ftp-itc-1-wlan" cc-id="ftp_itc.1" name="Trusted Channel Communication (Wireless LAN)" iteration="WLAN">
+        <f-component id="fco-trusted-comms-wlan" cc-id="ftp_itc.1" name="Trusted Channel Communication (Wireless LAN)" iteration="WLAN">
           <consistency-rationale/>
           <f-element>
             <title>The TSF shall <h:b>use 802.11-2012, 802.1X, and EAP-TLS</h:b> to provide a
@@ -1978,7 +1977,7 @@
         </ext-comp-def>
         <!-- SME: we were asked to cite the TLS Functional Package instead of defining 'new' TLS requirements in this Module. However, these EAP-TLS requirements are somewhat different from those in the TLS Package. 
           It is unclear what the preferred method of resolving these discrepancies is. -->
-        <f-component id="fcs-tlsc-ext-2-wlan" cc-id="fcs_tlsc_ext.2" name="TLS Client Support for Supported Groups Extension (EAP-TLS for WLAN)" iteration="WLAN">
+        <f-component id="fco-tls-client-support-wlan" cc-id="fcs_tlsc_ext.2" name="TLS Client Support for Supported Groups Extension (EAP-TLS for WLAN)" iteration="WLAN">
           
           <depends on="ecdhe"/>
           <consistency-rationale/>
