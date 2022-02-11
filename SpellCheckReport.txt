@@ -1,9 +1,0 @@
-output/wlanclient-release-linkable.html: AGD
-output/wlanclient-release-linkable.html: WL
-output/wlanclient-release-linkable.html: passcode
-output/wlanclient-release.html: WL
-output/wlanclient-release.html: passcode
-output/wlanclient-sd.html: AGD
-output/wlanclient.html: AGD
-output/wlanclient.html: WL
-output/wlanclient.html: passcode
