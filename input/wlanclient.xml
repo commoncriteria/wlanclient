@@ -44,9 +44,8 @@
         <h:li>General Purpose Operating System (GPOS) Protection Profile, Version 4.2.1</h:li>
         <h:li>Mobile Device Fundamentals (MDF) Protection Profile, Version 3.2</h:li>
       </h:ul>
-      <h:p/> These Base-PPs are valid because a WLAN Client is
-      a part of either a commercial operating system that can be installed on a general-purpose computer or an operating system that runs on a purpose-built mobile device.
-      
+      <h:p> These Base-PPs are valid because a WLAN Client is
+      a part of either a commercial operating system that can be installed on a general-purpose computer or an operating system that runs on a purpose-built mobile device.</h:p>
     </sec:Overview>
 <tech-terms>
   
@@ -167,12 +166,13 @@
                 
 </tech-terms>
     <section title="Compliant Targets of Evaluation" id="TOEdescription">
-     
+      <h:p>
      This document specifies SFRs for a WLAN Client. The TOE defined
      by this PP-Module is a WLAN Client, a component executing on a client machine (often referred to as
      a "remote access client"). The TOE establishes a secure wireless tunnel between the client
      device and a WLAN Access System through which all data will traverse.
-     <h:p/>
+      </h:p>
+      <h:p>
       A WLAN Client allows remote users to use client machines to establish wireless communication
       with a private network through a WLAN Access System. IP packets passing between the
       private network and a WLAN Client are encrypted. The WLAN Client protects the confidentiality and integrity of
@@ -201,7 +201,7 @@
       between the WLAN Client to the WLAN Access System is encrypted with Advanced Encryption Standard (AES) in 
       Cipher Block Chaining-Message Authentication Code Protocol (CCMP) mode and
       optionally AES in Galois/Counter Mode Protocol (GCMP) mode, as specified in <xref to="bib80211"/>.
-      
+      </h:p>
       <sec:TOE_Boundary>
         The WLAN Client (Figure 1), as defined by this PP-Module, is a component executing on a remote access
         client machine. Note the client is depicted as just a small portion of the WLAN client "machine."
@@ -246,10 +246,11 @@
   <sec:Conformance_Claims>
     <cclaims>
       <cclaim name="Conformance Statement">
-        <description> This PP-Module inherits exact conformance as required from
+        <description>
+	  This PP-Module inherits exact conformance as required from
           the specified Base-PP and as defined in the CC and
           <xref to="bibCEM"/> addenda for Exact Conformance, Selection-Based SFRs, and Optional
-          SFRs (dated May 2017).<h:p/> 
+          SFRs (dated May 2017).
           <!-- 
           The following PPs and PP-Modules are allowed to
           be specified in a PP-Configuration with this PP-Module. <h:ul>
@@ -363,21 +364,19 @@
             access point, and will provide assurance to the access
             point of its identity.</description>
           <consistency-rationale>QQQQ</consistency-rationale>
-          <addressed-by>FCS_TLSC_EXT.1/WLAN, FIA_PAE_EXT.1, FIA_X509_EXT.1/WLAN, FIA_X509_EXT.2/WLAN, FTP_ITC.1/WLAN, FCS_TLSC_EXT.2/WLAN (selection-based)</addressed-by>
-          <rationale>
-            FCS_TLSC_EXT.1/WLAN supports the objective by requiring the TSF to use EAP-TLS to establish a secure connection to a wireless access point, including authentication of the access point.
-            <h:p/>
-            FIA_PAE_EXT.1 supports the objective by requiring the TSF to act as the supplicant for 802.1X authentication.
-            <h:p/>
-            FIA_X509_EXT.1/WLAN supports the objective by defining how the TSF determines the validity of presented X.509 certificates.
-            <h:p/>
-            FIA_X509_EXT.2/WLAN supports the objective by requiring the TSF to implement X.509 certificate authentication as the mechanism for authentication EAP-TLS connections.
-            <h:p/>
-            FTP_ITC.1/WLAN supports the objective by requiring the TSF to implement trusted protocols that include authentication of the remote endpoints.
-            <h:p/>
-            FCS_TLSC_EXT.2/WLAN supports the objective by optionally requiring the TSF to support only certain elliptic curves if the TOE implements any EAP-TLS cipher suites that rely on ECDHE as the
-            key establishment method.
-            <h:p/>
+          <addressed-by>FCS_TLSC_EXT.1/WLAN</addressed-by>
+	  <rationale>FCS_TLSC_EXT.1/WLAN supports the objective by requiring the TSF to use EAP-TLS to establish a secure connection to a wireless access point, including authentication of the access point.
+	  </rationale>
+	  <addressed-by> FIA_PAE_EXT.1</addressed-by>
+	  <rationale>FIA_PAE_EXT.1 supports the objective by requiring the TSF to act as the supplicant for 802.1X authentication.</rationale>
+	  <addressed-by> FIA_X509_EXT.1/WLAN</addressed-by>
+	  <rationale>FIA_X509_EXT.1/WLAN supports the objective by defining how the TSF determines the validity of presented X.509 certificates.</rationale>
+	  <addressed-by> FIA_X509_EXT.2/WLAN</addressed-by>
+	  <rationale>FIA_X509_EXT.2/WLAN supports the objective by requiring the TSF to implement X.509 certificate authentication as the mechanism for authentication EAP-TLS connections.</rationale>
+	  <addressed-by> FTP_ITC.1/WLAN</addressed-by>
+	  <rationale>FTP_ITC.1/WLAN supports the objective by requiring the TSF to implement trusted protocols that include authentication of the remote endpoints.</rationale>
+	  <addressed-by> FCS_TLSC_EXT.2/WLAN (selection-based)</addressed-by> 
+	  <rationale> FCS_TLSC_EXT.2/WLAN supports the objective by optionally requiring the TSF to support only certain elliptic curves if the TOE implements any EAP-TLS cipher suites that rely on ECDHE as the key establishment method.
           </rationale>
         </SO>
         <SO name="O.CRYPTOGRAPHIC_FUNCTIONS">
@@ -388,12 +387,16 @@
             transmitted outside the TOE and its host
             environment.</description>
           <consistency-rationale>QQQQ</consistency-rationale>
-          <addressed-by>FCS_CKM.1/WPA, FCS_CKM.2/WLAN, FCS_WPA_EXT.1</addressed-by>
+          <addressed-by>FCS_CKM.1/WPA</addressed-by>
+	  <rationale>
+	    FCS_CKM.1/WPA supports the objective by requiring the TSF to generate symmetric keys used for WPA2 and WPA3 in a specified manner.	    
+	  </rationale>
+	  <addressed-by>FCS_CKM.2/WLAN</addressed-by>
+	  <rationale>
+	    FCS_CKM.2/WLAN supports the objective by requiring the TSF to decrypt group temporal keys used for IEEE 802.11.
+	  </rationale>
+	  <addressed-by>FCS_WPA_EXT.1</addressed-by>
           <rationale>
-            FCS_CKM.1/WPA supports the objective by requiring the TSF to generate symmetric keys used for WPA2 and WPA3 in a specified manner.
-            <h:p/>
-            FCS_CKM.2/WLAN supports the objective by requiring the TSF to decrypt group temporal keys used for IEEE 802.11.
-            <h:p/>
             FCS_WPA_EXT.1 supports this objective by defining the WPA versions that are supported.
           </rationale>
         </SO>
@@ -404,7 +407,6 @@
           <addressed-by>FPT_TST_EXT.2/WLAN</addressed-by>
           <rationale>
             FPT_TST_EXT.2/WLAN supports the objective by requiring the TSF to perform self-tests to ensure that it is operating in a known state.
-            <h:p/>
           </rationale>
         </SO>
         <SO name="O.SYSTEM_MONITORING">
@@ -414,18 +416,18 @@
           <addressed-by>FAU_GEN.1/WLAN</addressed-by>
           <rationale>
             FAU_GEN.1/WLAN supports the objective by requiring the TSF to generate audit records for security-relevant WLAN behavior.
-            <h:p/>
           </rationale>
         </SO>
         <SO name="O.TOE_ADMINISTRATION">
           <description>The TOE will provide mechanisms to allow
             administrators to be able to configure the TOE. </description>
           <consistency-rationale>QQQQ</consistency-rationale>
-          <addressed-by>FIA_X509_EXT.4, FMT_SMF.1/WLAN</addressed-by>
+          <addressed-by>FIA_X509_EXT.4</addressed-by>
+	  <rationale>
+            FIA_X509_EXT.4 supports the objective by requiring the TSF to securely store certificates in a repository that an administrator can interact with, whether that repository is provided by the WLAN client itself or by a platform storage  mechanism defined by the Base-PP portion of the TOE.
+	  </rationale>
+	  <addressed-by>FMT_SMF.1/WLAN</addressed-by>
           <rationale>
-            FIA_X509_EXT.4 supports the objective by requiring the TSF to securely store certificates in a repository that an administrator can interact with, whether that repository is provided by the WLAN client itself or by a platform storage
-            mechanism defined by the Base-PP portion of the TOE.
-            <h:p/>
             FMT_SMF.1/WLAN supports the objective by requiring the TSF to implement management functionality for security-relevant WLAN behavior.
           </rationale>
         </SO>
@@ -436,7 +438,6 @@
           <addressed-by>FTA_WSE_EXT.1</addressed-by>
           <rationale>
             FTA_WSE_EXT.1 supports the objective by requiring the TSF to restrict connectivity to allowed wireless networks.
-            <h:p/>
           </rationale>
         </SO>
       </SOs>
@@ -663,17 +664,18 @@
                 <h:li>[<h:i>all auditable events specified in the Auditable Events table</h:i>].</h:li>
               </h:ol>
             </title>
-            <note role="application">If auditing for the WLAN Client cannot be controlled separately from its underlying platform, 
+            <note role="application">
+	      <h:p>If auditing for the WLAN Client cannot be controlled separately from its underlying platform, 
               the "Startup and shutdown of the audit functions" event defined in each Base-PP is sufficient to address that event for this iteration of the SFR.
-              <h:p/>
-              The Auditable Events table includes auditable events for SFRs that are not mandatory. If the TOE does not claim a particular non-mandatory SFR, it is not expected to
+	      </h:p><h:p>
+	      The Auditable Events table includes auditable events for SFRs that are not mandatory. If the TOE does not claim a particular non-mandatory SFR, it is not expected to
               generate any corresponding audit records for that SFR. 
-              <h:p/>
+	      </h:p><h:p>
               The Auditable Events table includes auditable events for FPT_TST_EXT.2/WLAN.
 	      If the TOE does not perform its own self-tests
 	      (i.e., "TOE platform" is selected in FPT_TST_EXT.2.1/WLAN and FPT_TST_EXT.2.2/WLAN),
               the audit record for this event may also be generated by the TOE platform.
-              <h:p/>
+              </h:p><h:p>
               <h:b><ctr id="audit" ctr-type="Table"> Auditable Events</ctr></h:b>
               <h:table style="margin-top:0px;white-space:10px">
                 <h:TR>
@@ -769,7 +771,7 @@
                   <h:TD>Identification of the non-TOE endpoint of the channel.</h:TD>
                 </h:TR> 
               </h:table>
-              <h:p/>
+	    </h:p>
             </note>            
           </f-element>
           <f-element>
@@ -786,18 +788,20 @@
             </title>
             <aactivity>
               <TSS>
-                The evaluator shall check the TSS and ensure it provides a format for audit records. Each audit record format type must be covered, along with a brief description of each field. <h:p/> 
+		<h:p>
+                The evaluator shall check the TSS and ensure it provides a format for audit records. Each audit record format type must be covered, along with a brief description of each field. </h:p><h:p> 
                 If "invoke platform-provided functionality" is selected, the evaluator shall examine the TSS to verify it describes (for each supported platform) how this functionality is invoked 
-                (it should be noted that this may be through a mechanism that is not implemented by the WLAN Client; however, that mechanism will be identified in the TSS as part of this evaluation activity).<h:p/>  
+                (it should be noted that this may be through a mechanism that is not implemented by the WLAN Client; however, that mechanism will be identified in the TSS as part of this evaluation activity).</h:p>
               </TSS>
               <Guidance>
+		<h:p>
                 The evaluator shall check the operational guidance and ensure it lists all of the auditable
                 events and provides a format for audit records. Each audit record format type must be
                 covered, along with a brief description of each field. The evaluator shall check to make sure
                 that every audit event type mandated by the PP-Module is described and that the description of the
                 fields contains the information required in FAU_GEN.1.2/WLAN, and the additional information
                 specified in the Auditable Events table.
-                <h:p/>
+                </h:p><h:p>
                 The evaluator shall in particular ensure that the operational guidance is clear in relation to the
                 contents for failed cryptographic events. In the Auditable Events table, information detailing the cryptographic
                 mode of operation and a name or identifier for the object being encrypted is required. The
@@ -806,7 +810,7 @@
                 performed during a key negotiation exchange, performed when encrypting data for transit) as
                 well as the non-TOE endpoint of the connection for cryptographic failures relating to
                 communications with other IT systems.
-                <h:p/>
+                </h:p><h:p>
                 The evaluator shall also make a determination of the administrative actions that are relevant
                 in the context of this PP-Module. The TOE may contain functionality that is not evaluated in the
                 context of this PP-Module because the functionality is not specified in an SFR. This functionality may
@@ -818,20 +822,22 @@
                 TOE that are necessary to enforce the requirements specified in the PP-Module, which thus form the
                 set of “all administrative actions”. The evaluator may perform this activity as part of the
                 activities associated with ensuring the AGD_OPE guidance satisfies the requirements.   
-                <h:p/> 
+                </h:p>
               </Guidance>
               <Tests>
+		<h:p>
                 The evaluator shall test the TOE’s ability to correctly generate audit records by having the TOE
                 generate audit records in accordance with the assurance activities associated with the
                 functional requirements in this PP-Module. When verifying the test results, the evaluator shall ensure
                 the audit records generated during testing match the format specified in the administrative
                 guide, and that the fields in each audit record have the proper entries.
-                <h:p/>               
+                </h:p><h:p>               
                 Note that the testing here can be accomplished in conjunction with the testing of the security
                 mechanisms directly. For example, testing performed to ensure that the administrative
                 guidance provided is correct verifies that AGD_OPE.1 is satisfied and should address the
                 invocation of the administrative actions that are needed to verify the audit records are
-                generated as expected.                              
+                generated as expected.
+	      </h:p>
               </Tests>
             </aactivity>
           </f-element>
@@ -863,18 +869,21 @@
                   <selectable>no other key sizes</selectable>
                 </selectables></h:b></h:i>] <h:b>using a Random Bit Generator as specified in FCS_RBG_EXT.1</h:b>.
             </title>
-            <note role="application">The cryptographic key derivation algorithm required by IEEE 802.11-2012
+            <note role="application">
+	      <h:p>
+The cryptographic key derivation algorithm required by IEEE 802.11-2012
               (Section 11.6.1.2) and verified in WPA2 certification is PRF-384, which uses the HMAC-SHA-1
               function and outputs 384 bits. The use of GCMP was first defined in IEEE 802.11ac-2014 (Section
               11.4.5) but subsequently integrated into 802.11-2012. This protocol requires a key derivation function (KDF) 
               KDF based on HMAC-SHA-256 (for 128-bit symmetric keys) or HMAC-SHA384 (for 256-bit symmetric keys). This KDF outputs 704 bits.
-              <h:p/>
+              </h:p><h:p>
               This requirement applies only to the keys that are generated/derived for the communications
               between the access point and the client once the client has been authenticated. It refers to the
               derivation of the Pairwise Temporal Key (PTK) from the PMK, which is done using a random value generated by the RBG
               specified in this PP-Module, the HMAC function using SHA-1 as specified in this PP-Module, as well as other
               information. <!-- NOTE: commented out because I do not have access to 802.11-2012 and so I have no way to verify whether the section reference from 802.11-2016 needs to be updated. 
-                This is specified in 802.11-2012 primarily in section 11.6.1.2.  -->
+              This is specified in 802.11-2012 primarily in section 11.6.1.2.  -->
+	      </h:p>
             </note>            
             
             <aactivity>
@@ -885,11 +894,9 @@
                 assuring that their implementation conforms to the cryptographic standards; this includes not
                 only testing done by the developing organization, but also any third-party testing that is
                 performed.
-                <h:p/>  
               </TSS>
               <Guidance>
                 There are no guidance evaluation activities for this component.   
-                <h:p/> 
               </Guidance>
               <Tests>
                 The evaluator shall perform the following tests:
@@ -903,37 +910,40 @@
                     session key. Finally, the evaluator shall determine that the renegotiation has been 
                     successful and the client continues communication with the access point.
                   </test>
-                  <test>The evaluator shall perform the following test using a packet sniffing tool to
+                  <test>
+		    <h:p>
+		    The evaluator shall perform the following test using a packet sniffing tool to
                     collect frames between the TOE and a wireless LAN access point:
-                    <h:p/>
+                    </h:p><h:p>
                     Step 1: The evaluator shall configure the access point to an unused channel and
                     configure the WLAN sniffer to sniff only on that channel (i.e., lock the sniffer on the
                     selected channel). The sniffer should also be configured to filter on the MAC address
                     of the TOE and/or access point.
-                    <h:p/>
+                    </h:p><h:p>
                     Step 2: The evaluator shall configure the TOE to communicate with a WLAN access
                     point using IEEE 802.11-2012 and a 256-bit (64 hex values 0-f) pre-shared key. The
                     pre-shared key is only used for testing.
-                    <h:p/>
+                    </h:p><h:p>
                     Step 3: The evaluator shall start the sniffing tool, initiate a connection between the
                     TOE and the access point, and allow the TOE to authenticate, associate, and
                     successfully complete the 4-way handshake with the client.
-                    <h:p/>
+                    </h:p><h:p>
                     Step 4: The evaluator shall set a timer for 1 minute, at the end of which the evaluator
                     shall disconnect the TOE from the wireless network and stop the sniffer.
-                    <h:p/>
+                    </h:p><h:p>
                     Step 5: The evaluator shall identify the 4-way handshake frames (denoted EAPOL-key
                     in Wireshark captures) and derive the PTK from the 4-way handshake frames and pre-shared key as specified in IEEE 802.11-2012.
-                    <h:p/>
+                    </h:p><h:p>
                     Step 6: The evaluator shall select the first data frame from the captured packets that
                     was sent between the TOE and access point after the 4-way handshake successfully
                     completed, and without the frame control value 0x4208 (the first 2 bytes are 08 42).
                     The evaluator shall use the PTK to decrypt the data portion of the packet as specified
                     in IEEE 802.11-2012, and shall verify that the decrypted data contains ASCII-readable
                     text.
-                    <h:p/>
+                    </h:p><h:p>
                     Step 7: The evaluator shall repeat Step 6 for the next 2 data frames between the TOE
                     and access point and without frame control value 0x4208.
+		    </h:p>
                   </test>
                 </testlist>                           
               </Tests>
@@ -959,43 +969,43 @@
             <TSS>
               The evaluator shall check the TSS to ensure that it describes how the GTK is unwrapped prior to
               being installed for use on the TOE using the AES implementation specified in this PP-Module.
-              <h:p/>  
             </TSS>
             <Guidance>
               There are no guidance evaluation activities for this component.   
-              <h:p/> 
             </Guidance>
             <Tests>
+	      <h:p>
               The evaluator shall perform the following test using a packet sniffing tool to collect frames
               between the TOE and a wireless access point (which may be performed in conjunction with the
               assurance activity for FCS_CKM.1.1/WLAN).
-              <h:p/> 
+              </h:p><h:p> 
               Step 1: The evaluator shall configure the access point to an unused channel and configure the
               WLAN sniffer to sniff only on that channel (i.e., lock the sniffer on the selected channel). The
               sniffer should also be configured to filter on the MAC address of the TOE and/or access point.
-              <h:p/> 
+              </h:p><h:p> 
               Step 2: The evaluator shall configure the TOE to communicate with the access point using IEEE
               802.11-2012 and a 256-bit (64 hex values 0-f) pre-shared key, setting up the connections as
               described in the operational guidance. The pre-shared key is only used for testing.
-              <h:p/> 
+              </h:p><h:p> 
               Step 3: The evaluator shall start the sniffing tool, initiate a connection between the TOE and
               access point, and allow the TOE to authenticate, associate, and successfully complete the 4-way
               handshake with the TOE.
-              <h:p/> 
+              </h:p><h:p> 
               Step 4: The evaluator shall set a timer for 1 minute, at the end of which the evaluator shall
               disconnect the TOE from the access point and stop the sniffer.
-              <h:p/> 
+              </h:p><h:p> 
               Step 5: The evaluator shall identify the 4-way handshake frames (denoted EAPOL-key in
               Wireshark captures) and derive the PTK and GTK from the 4-way handshake frames and pre-shared key as specified in IEEE 802.11-2012.
-              <h:p/> 
+              </h:p><h:p> 
               Step 6: The evaluator shall select the first data frame from the captured packets that was sent
               between the TOE and access point after the 4-way handshake successfully completed, and with
               the frame control value 0x4208 (the first 2 bytes are 08 42). The evaluator shall use the GTK to
               decrypt the data portion of the selected packet as specified in IEEE 802.11-2012, and shall verify
               that the decrypted data contains ASCII-readable text.
-              <h:p/> 
+              </h:p><h:p> 
               Step 7: The evaluator shall repeat Step 6 for the next 2 data frames with frame control value
               0x4208.
+	      </h:p>
             </Tests>
           </aactivity>
           </f-element>
@@ -1014,12 +1024,12 @@
               <h:li>Basic: Detection of modification of channel data.</h:li>
             </h:ul>
           </audit>
-          <dependencies><no-link>FCS_CKM.1</no-link> Cryptographic Key Generation<h:p/>
-            <no-link>FCS_CKM.1</no-link> Cryptographic Key Generation<h:p/>
-            <no-link>FCS_CKM.2</no-link> Cryptographic Key Distribution<h:p/>
-            <no-link>FCS_COP.1</no-link> Cryptographic Operation<h:p/>
-            <no-link>FCS_RBG_EXT.1</no-link> Random Bit Generation<h:p/>
-            <no-link>FIA_X509_EXT.1</no-link> X.509 Certificate Validation<h:p/>
+          <dependencies><no-link>FCS_CKM.1</no-link> Cryptographic Key Generation<h:br/>
+            <no-link>FCS_CKM.1</no-link> Cryptographic Key Generation<h:br/>
+            <no-link>FCS_CKM.2</no-link> Cryptographic Key Distribution<h:br/>
+            <no-link>FCS_COP.1</no-link> Cryptographic Operation<h:br/>
+            <no-link>FCS_RBG_EXT.1</no-link> Random Bit Generation<h:br/>
+            <no-link>FIA_X509_EXT.1</no-link> X.509 Certificate Validation<h:br/>
             <no-link>FMT_SMR.1</no-link> Security Roles
           </dependencies>
           
@@ -1037,14 +1047,14 @@
               <selectable>TLS_DHE_RSA_WITH_AES_128_CBC_SHA256 as defined in RFC 5246</selectable> 
               <selectable>TLS_DHE_RSA_WITH_AES_256_CBC_SHA256 as defined in RFC 5246</selectable> 
               <selectable>TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5288</selectable> 
-              <selectable id="ecdhe">TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 as defined in RFC 5289</selectable> 
-              <selectable>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 as defined in RFC 5289</selectable> 
-              <selectable>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 as defined in RFC 5289</selectable> 
-              <selectable>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5289</selectable> 
-              <selectable>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 as defined in RFC 5289</selectable> 
-              <selectable>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 as defined in RFC 5289</selectable> 
-              <selectable>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 as defined in RFC 5289</selectable> 
-              <selectable>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5289</selectable>
+              <selectable id="ecdhe_ECDSA_WITH_AES_128_CBC_SHA256">TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 as defined in RFC 5289</selectable> 
+              <selectable id="ecdhe_ECDSA_WITH_AES_128_GCM_SHA256">TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 as defined in RFC 5289</selectable> 
+              <selectable id="ecdhe_ECDSA_WITH_AES_256_CBC_SHA384">TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 as defined in RFC 5289</selectable> 
+              <selectable id="ecdhe_ECDSA_WITH_AES_256_GCM_SHA384">TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5289</selectable> 
+              <selectable id="ecdhe_RSA_WITH_AES_128_CBC_SHA256">TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 as defined in RFC 5289</selectable> 
+              <selectable id="ecdhe_RSA_WITH_AES_128_GCM_SHA256">TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 as defined in RFC 5289</selectable> 
+              <selectable id="ecdhe_RSA_WITH_AES_256_CBC_SHA384">TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 as defined in RFC 5289</selectable> 
+              <selectable id="ecdhe_RSA_WITH_AES_256_GCM_SHA384">TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5289</selectable>
             </selectables>.   
             </title>
             <ext-comp-def-title>
@@ -1080,11 +1090,13 @@
           <f-element><title>The TSF shall allow an authorized administrator to configure the list
             of algorithm suites that may be proposed and accepted during the EAP-TLS exchanges.</title> -->
           
-          <note role="application">The cipher suites to be tested in the evaluated configuration are limited by this
+            <note role="application">
+	      <h:p>
+	      The cipher suites to be tested in the evaluated configuration are limited by this
             requirement. The ST author should select the optional cipher suites that are supported.
             It is necessary to limit the cipher suites that can be used in an evaluated configuration
             administratively on the server in the test environment.
-            <h:p/>
+            </h:p><h:p>
             While FCS_TLSC_EXT.1.4/WLAN requires that the TOE perform certain checks on the certificate
             presented by the authentication server, there are corresponding checks that the authentication
             server will have to perform on the certificate presented by the client; namely that the
@@ -1092,32 +1104,35 @@
             digital signature bit (for the Diffie-Hellman cipher suites) or the key encipherment bit (for RSA
             cipher suites) be set. Certificates obtained for use by the TOE will have to conform to these
             requirements in order to be used in the enterprise.
-            <h:p/>
+            </h:p><h:p>
             The FIA_X509_EXT.1 requirements defined in each of the possible Base-PPs define requirements that
             the underlying platform is expected to implement.
+	    </h:p>
           </note> 
           <aactivity>
             <TSS>
               The evaluator shall check the description of the implementation of this protocol in the TSS to
               ensure that the cipher suites supported are specified. The evaluator shall check the TSS to ensure
               that the cipher suites specified include those listed for this component.
-              <h:p/>  
             </TSS>
             <Guidance>
+	      <h:p>
               The evaluator shall check the operational guidance to ensure that it contains instructions on
               configuring the TOE so that TLS conforms to the description in the TSS (for instance, the set of
               cipher suites advertised by the TOE may have to be restricted to meet the requirements).
-              <h:p/> 
+              </h:p><h:p> 
               The evaluator shall check that the guidance contains instructions for the administrator to
               configure the list of Certificate Authorities that are allowed to sign certificates used by the
               authentication server that will be accepted by the TOE in the EAP-TLS exchange, and instructions
               on how to specify the algorithm suites that will be proposed and accepted by the TOE during the
               EAP-TLS exchange.
-              <h:p/> 
+              </h:p>
             </Guidance>
             <Tests>
+	      <h:p>
               The evaluator shall write, or the TOE developer shall provide, an application for the purposes of
-              testing TLS.<h:p/> 
+              testing TLS.</h:p>
+	      <h:p> 
               The evaluator shall perform the following tests:
               <testlist>
                 <test>The evaluator shall establish a TLS connection using each of the cipher suites
@@ -1178,6 +1193,7 @@
                   </h:ul>
                 </test>
               </testlist>
+	      </h:p>
             </Tests>
           </aactivity>
           </f-element>
@@ -1263,31 +1279,31 @@
               in the “Supplicant” role.
             </title>
             <note role="application">
+	      <h:p>
               This requirement covers the TOE's role as the supplicant in an 802.1X
               authentication exchange. If the exchange is completed successfully, the TOE will derive the PMK
               as a result of the EAP-TLS (or other appropriate EAP exchange) and perform the 4-way
               handshake with the wireless access system (authenticator) to begin 802.11 communications.
-              <h:p/>
+              </h:p><h:p>
               As indicated previously, there are at least two communication paths present during the
               exchange; one with the wireless access system and one with the authentication server that uses
               the wireless access system as a relay. The TOE establishes an EAP over LAN (EAPOL) connection
               with the wireless access system as specified in 802.1X-2020. The TOE and authentication server
               establish an EAP-TLS session (RFC 5216).
-              <h:p/>
+              </h:p><h:p>
               The point of performing 802.1X authentication is to gain access to the network (assuming the
               authentication was successful and that all 802.11 negotiations are performed successfully); in
               the terminology of 802.1X, this means the TOE will gain access to the "controlled port" maintained 
               by the wireless access system.
+	      </h:p>
             </note>            
           
             <aactivity>
               <TSS>
                 There are no TSS evaluation activities for this component.
-                <h:p/>  
               </TSS>
               <Guidance>
                 There are no guidance evaluation activities for this component.   
-                <h:p/> 
               </Guidance>
               <Tests>
                 The evaluator shall perform the following tests:
@@ -1348,11 +1364,9 @@
               <TSS>
                 The evaluator shall ensure the TSS describes where the check of validity of the EAP-TLS certificates takes place. 
                 The evaluator shall also ensure the TSS also provides a description of the certificate path validation algorithm.
-                <h:p/>  
               </TSS>
               <Guidance>
                 There are no guidance evaluation activities for this component.   
-                <h:p/> 
               </Guidance>
               <Tests>
                 The tests described must be performed in conjunction with the other Certificate Services assurance activities. 
@@ -1417,25 +1431,27 @@
                       
           <aactivity>
             <TSS>
+	      <h:p>
               The evaluator shall check the TSS to ensure that it describes how the TOE chooses which
               certificates to use, and any necessary instructions in the administrative guidance for configuring
               the operational environment so that the TOE can use the certificates.
-              <h:p/>  
+              </h:p><h:p>  
               The evaluator shall examine the TSS to confirm that it describes the behavior of the TOE when a
               connection cannot be established during the validity check of a certificate used in establishing a
               trusted channel. The evaluator shall verify that any distinctions between trusted channels are
               described.
-              <h:p/>  
+              </h:p>
             </TSS>
             <Guidance>
+	      <h:p>
               If not already present in the TSS, the evaluator shall check the administrative guidance to ensure that it describes how the TOE
               chooses which certificates to use, and any necessary instructions for configuring the operating
               environment so that the TOE can use the certificates.  
-              <h:p/> 
+              </h:p><h:p> 
               If the administrator is able to specify the action to be performed in this situation, then
               the evaluator shall ensure that the operational guidance contains instructions on how this
               configuration action is performed.
-              <h:p/>
+              </h:p>
             </Guidance>
             <Tests>
               The evaluator shall perform the following test:
@@ -1498,16 +1514,16 @@
             
             <aactivity>
               <TSS>
+		<h:p>
                 The evaluator shall examine the TSS to determine that it describes all certificate stores implemented that contain certificates used to meet the requirements of this PP-Module. 
                 This description shall contain information pertaining to how certificates are loaded into the store, and how the store is protected from unauthorized access.
-                <h:p/>
+                </h:p><h:p>
                 If the TOE relies on a platform mechanism for certificate loading and storage, the evaluator shall verify that the TSS identifies this mechanism and describes how use of this mechanism is protected against unauthorized access.
-                <h:p/>
+                </h:p>
               </TSS>
               <Guidance>
                 The evaluator shall check the administrative guidance to ensure that it describes how to load X.509 certificates into the TOE's certificate store, 
                 regardless of whether the TSF provides this mechanism itself or the TOE relies on a platform-provided mechanism for this.
-                <h:p/> 
               </Guidance>
               <Tests>
                 The evaluator shall perform the following test for each TOE function that requires the use of certificates:
@@ -1590,7 +1606,7 @@
                 <management-function><text>enable/disable IEEE 802.1X pre-authentication</text></management-function>
                 <management-function><text>loading X.509 certificates into the TOE</text></management-function>
                 <management-function><text>revoke X.509 certificates loaded into the TOE</text></management-function>
-                <management-function><text>enable/disable and configure PMK caching:<h:p/>
+                <management-function><text>enable/disable and configure PMK caching:<h:br/>
 		<h:ul><h:li>set the amount of time (in minutes) for which PMK entries are cached,</h:li>
 		<h:li>set the maximum number of PMK entries that can be cached</h:li></h:ul>
                 <!-- &#9702; set the amount of time (in minutes) for which PMK entries are cached,<h:br/> -->
@@ -1618,14 +1634,15 @@
             <Guidance>
               The evaluator shall check the operational guidance to verify that every management function claimed by the TOE is described there. The evaluator shall also verify
               that these descriptions include the information required to perform the management duties associated with the function.
-              <h:p/> 
             </Guidance>
             <Tests>
+	      <h:p>
               The evaluator shall test the TOE’s ability to provide the management functions by configuring the
               TOE and performing the management activities associated with each function claimed in the SFR. 
-              <h:p/> 
+              </h:p><h:p> 
               Note that this may be accomplished in conjunction with the testing of other
-              requirements, such as FCS_TLSC_EXT.1/WLAN and FTA_WSE_EXT.1.                       
+              requirements, such as FCS_TLSC_EXT.1/WLAN and FTA_WSE_EXT.1.
+	      </h:p>
             </Tests>
           </aactivity>
           </f-element>
@@ -1689,25 +1706,25 @@
           
           <aactivity>
             <TSS>
+	      <h:p>
               The evaluator shall examine the TSS to ensure that it details the self tests that are run by the TSF
               on start-up; this description should include an outline of what the tests are actually doing (e.g.,
               rather than saying "memory is tested", a description similar to "memory is tested by writing a
               value to each memory location and reading it back to ensure it is identical to what was written"
               shall be used). The evaluator shall ensure that the TSS makes an argument that the tests are
               sufficient to demonstrate that the TSF is operating correctly.
-              <h:p/>
+              </h:p><h:p>
               The evaluator shall examine the TSS to ensure that it describes how to verify the integrity of
               stored TSF executable code when it is loaded for execution. The evaluator shall ensure that the
               TSS makes an argument that the tests are sufficient to demonstrate that the integrity of stored
               TSF executable code has not been compromised. The evaluator also ensures that the TSS (or the
               operational guidance) describes the actions that take place for successful (e.g. hash verified) and
               unsuccessful (e.g., hash not verified) cases.
-              <h:p/>  
+              </h:p>
             </TSS>
             <Guidance>
               The evaluator shall ensure that the operational guidance describes the actions that
               take place for successful (e.g. hash verified) and unsuccessful (e.g., hash not verified) cases.
-              <h:p/> 
             </Guidance>
             <Tests>
               The evaluator shall perform the following tests:
@@ -1762,12 +1779,10 @@
           <aactivity>
             <TSS>
               The evaluator shall examine the TSS to determine that it defines SSIDs as the attribute to specify acceptable networks.
-              <h:p/>  
             </TSS>
             <Guidance>
               The evaluator shall examine the operational guidance to determine that it contains guidance for
               configuring the list of SSIDs that the WLAN Client is able to connect to.
-              <h:p/> 
             </Guidance>
             <Tests>
               The evaluator shall perform the following tests for each attribute:
@@ -1807,10 +1822,11 @@
               <title>The TSF shall initiate communication via the trusted channel for [<h:i>wireless
                 access point connections</h:i>].
               </title>
-            <note role="application">
+              <note role="application">
+		<h:p>
               The intent of the above requirement is to use the cryptographic protocols
               identified in the requirement to protect communications between the TOE and the Access Point.
-              <h:p/>
+              </h:p><h:p>
               The requirement implies that not only are communications protected when they are initially
               established, but also on resumption after an outage. It may be the case that some part of the
               TOE setup involves manually setting up tunnels to protect other communication, and if after an
@@ -1819,9 +1835,8 @@
               critical information or compromise a connection. The following tests are only intended to cover
               the WLAN communication channel (not other communication channels that may be available on
               the TOE such as mobile broadband).
+	      </h:p>
             </note>              
-          
-
           <aactivity>
             <TSS>
               The evaluator shall examine the TSS to determine that it describes the details of the TOE
@@ -1829,13 +1844,11 @@
               requirement, along with TOE-specific options or procedures that might not be reflected in the
               specification. The evaluator shall also confirm that all protocols listed in the TSS are specified and
               included in the requirements in the ST.
-              <h:p/>  
             </TSS>
             <Guidance>
               The evaluator shall confirm that the operational guidance includes instructions for establishing
               the connection to the access point and that it includes recovery instructions should a
               connection be unintentionally broken.
-              <h:p/> 
             </Guidance>
             <Tests>
               The evaluator shall perform the following tests:
@@ -1926,7 +1939,7 @@
               function and outputs 384 bits. The use of GCMP was first defined in IEEE 802.11ac-2014 (Section
               11.4.5) but subsequently integrated into 802.11-2012. This protocol requires a key derivation function (KDF) 
               KDF based on HMAC-SHA-256 (for 128-bit symmetric keys) or HMAC-SHA384 (for 256-bit symmetric keys). This KDF outputs 704 bits.
-              <h:p/>
+              </h:p><h:p>
               This requirement applies only to the keys that are generated/derived for the communications
               between the access point and the client once the client has been authenticated. It refers to the
               derivation of the Pairwise Temporal Key (PTK) from the PMK, which is done using a random value generated by the RBG
@@ -1945,11 +1958,11 @@
                 assuring that their implementation conforms to the cryptographic standards; this includes not
                 only testing done by the developing organization, but also any third-party testing that is
                 performed.
-                <h:p/>  
+                </h:p><h:p>  
               </TSS>
               <Guidance>
                 There are no guidance evaluation activities for this component.   
-                <h:p/> 
+                </h:p><h:p> 
               </Guidance>
               <Tests>
                 The evaluator shall perform the following tests:
@@ -1965,33 +1978,33 @@
                   </test>
                   <test>The evaluator shall perform the following test using a packet sniffing tool to
                     collect frames between the TOE and a wireless LAN access point:
-                    <h:p/>
+                    </h:p><h:p>
                     Step 1: The evaluator shall configure the access point to an unused channel and
                     configure the WLAN sniffer to sniff only on that channel (i.e., lock the sniffer on the
                     selected channel). The sniffer should also be configured to filter on the MAC address
                     of the TOE and/or access point.
-                    <h:p/>
+                    </h:p><h:p>
                     Step 2: The evaluator shall configure the TOE to communicate with a WLAN access
                     point using IEEE 802.11-2012 and a 256-bit (64 hex values 0-f) pre-shared key. The
                     pre-shared key is only used for testing.
-                    <h:p/>
+                    </h:p><h:p>
                     Step 3: The evaluator shall start the sniffing tool, initiate a connection between the
                     TOE and the access point, and allow the TOE to authenticate, associate, and
                     successfully complete the 4-way handshake with the client.
-                    <h:p/>
+                    </h:p><h:p>
                     Step 4: The evaluator shall set a timer for 1 minute, at the end of which the evaluator
                     shall disconnect the TOE from the wireless network and stop the sniffer.
-                    <h:p/>
+                    </h:p><h:p>
                     Step 5: The evaluator shall identify the 4-way handshake frames (denoted EAPOL-key
                     in Wireshark captures) and derive the PTK from the 4-way handshake frames and pre-shared key as specified in IEEE 802.11-2012.
-                    <h:p/>
+                    </h:p><h:p>
                     Step 6: The evaluator shall select the first data frame from the captured packets that
                     was sent between the TOE and access point after the 4-way handshake successfully
                     completed, and without the frame control value 0x4208 (the first 2 bytes are 08 42).
                     The evaluator shall use the PTK to decrypt the data portion of the packet as specified
                     in IEEE 802.11-2012, and shall verify that the decrypted data contains ASCII-readable
                     text.
-                    <h:p/>
+                    </h:p><h:p>
                     Step 7: The evaluator shall repeat Step 6 for the next 2 data frames between the TOE
                     and access point and without frame control value 0x4208.
                   </test>
@@ -2010,7 +2023,14 @@
           It is unclear what the preferred method of resolving these discrepancies is. -->
         <f-component id="fco-tls-client-support-wlan" cc-id="fcs_tlsc_ext.2" name="TLS Client Support for Supported Groups Extension (EAP-TLS for WLAN)" iteration="WLAN">
           
-          <depends on="ecdhe"/>
+	  <depends on1="ecdhe_ECDSA_WITH_AES_128_CBC_SHA256"
+		   on2="ecdhe_ECDSA_WITH_AES_128_GCM_SHA256"
+		   on3="ecdhe_ECDSA_WITH_AES_256_CBC_SHA384"
+		   on4="ecdhe_ECDSA_WITH_AES_256_GCM_SHA384"
+		   on5="ecdhe_RSA_WITH_AES_128_CBC_SHA256"
+		   on6="ecdhe_RSA_WITH_AES_128_GCM_SHA256"
+		   on7="ecdhe_RSA_WITH_AES_256_CBC_SHA384"
+		   on8="ecdhe_RSA_WITH_AES_256_GCM_SHA384"/>
           <consistency-rationale/>
           
           <comp-lev> describes the ability of the TOE to present certain values in the Supported Groups extension when attempting to establish a TLS connection as a client.</comp-lev>
@@ -2030,25 +2050,26 @@
               <title>The TSF shall present the Supported Groups extension in the Client Hello with the following NIST curves: <assignable>list of supported groups</assignable>.         
                 </title>
             </ext-comp-def-title>
-            <note role="application">This requirement must be claimed if any cipher suites beginning with 'TLS_ECDHE' are selected in FCS_TLSC_EXT.1.1/WLAN.
-              <h:p/>
+            <note role="application">
+	      <h:p>
+		This requirement must be claimed if any cipher suites beginning with 'TLS_ECDHE' are selected in FCS_TLSC_EXT.1.1/WLAN.
+              </h:p><h:p>
               This requirement does not limit the elliptic curves the client may propose for authentication and key agreement.  
               Rather, it asks the ST author to define which of the NIST curves from FCS_COP.1/SIGN
 	      (defined in each supported Base-PP) and FCS_CKM.1/WPA and FCS_CKM.2/WLAN
 	      (each defined in this PP-Module) can be used for TLS key establishment.
+	      </h:p>
             </note>            
           
           <aactivity>
             <TSS>
               The evaluator shall verify that the TSS describes the Supported Groups extension and
               whether the required behavior is performed by default or may be configured. 
-              <h:p/>  
             </TSS>
             <Guidance>
               If the TSS indicates that the Supported Groups extension must be configured to meet
               the requirement, the evaluator shall verify that the operational guidance includes instructions
               for configuration of this extension.
-              <h:p/> 
             </Guidance>
             <Tests>
               The evaluator shall perform the following test:
