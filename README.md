@@ -27,6 +27,7 @@ A list of products that have passed evaluation against this Protection Profile c
 * [PP-Module for WLAN Client v1.0](https://commoncriteria.github.io/pp/wlanclient/wlanclient-release.html) (html)
 * [PP-Module for WLAN Client v1.0](https://commoncriteria.github.io/pp/wlanclient/wlanclient-release.pdf) (pdf)
 * [Supporting Document](https://commoncriteria.github.io/pp/wlanclient/wlanclient-sd.html) (html)
+* [Supporting Document](https://commoncriteria.github.io/pp/wlanclient/wlanclient-sd.pdf) (pdf)
 ## Release Version
 * [PP-Module for WLAN Client](https://www.niap-ccevs.org/Profile/Info.cfm?PPID=386&id=386)
 
