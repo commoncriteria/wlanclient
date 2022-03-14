@@ -13,15 +13,15 @@
   <PPReference>
    
     <ReferenceTable>
-      <PPVersion>1.0</PPVersion>
+      <PPVersion>1.1</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2022-01-20</PPPubDate>
+      <PPPubDate>2022-03-11</PPPubDate>
       <Keywords>WLAN; Wireless LAN; Wireless Networking; 802.11</Keywords>
     </ReferenceTable>
   </PPReference>
 
   <RevisionHistory>
-    <entry>
+   <entry>
       <version>1.0</version>
       <date>2021-03-15</date>
       <subject>Initial Release</subject>
