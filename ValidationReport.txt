@@ -1,1 +1,0 @@
-/home/runner/work/wlanclient/wlanclient/input/wlanclient.xml:1567:69: error: found attribute "ctr-prefix", but no attributes allowed here
