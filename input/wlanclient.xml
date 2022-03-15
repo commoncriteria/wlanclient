@@ -669,7 +669,8 @@
                  <h:ol type="a">
                 <h:li>Startup and shutdown of the audit functions;</h:li>
                 <h:li>All auditable events for [<h:i>not specified</h:i>] level of audit; and</h:li>
-                <h:li>[<h:i>all auditable events specified in <xref g="t-audit-mandatory"/></h:i>].</h:li>
+                <h:li>[<h:i>all auditable events for mandatory SFRs specified in <xref g="t-audit-mandatory"/> and 
+					selected SFRs in <xref g="t-audit-sel-based"/></h:i>].</h:li>
               </h:ol>
             </title>
             <note role="application">
@@ -677,7 +678,7 @@
               the "Startup and shutdown of the audit functions" event defined in each Base-PP is sufficient to address that event for this iteration of the SFR.
 	      </h:p><h:p>
 		  Auditable events for selection-based SFRs are found in <xref g="t-audit-sel-based"/>. 
-		  If the TOE does not claim a particular non-mandatory SFR, it is not expected to
+		  If the TOE does not claim a particular selection-based SFR, it is not expected to
           generate any corresponding audit records for that SFR. 
 	      </h:p><h:p>
               <xref g="t-audit-mandatory"/> includes auditable events for FPT_TST_EXT.3/WLAN.
@@ -794,15 +795,19 @@
                 <h:li>Date and time of the event, type of event, subject identity, (if relevant) the outcome 
                   (success or failure) of the event; and</h:li>         
                 <h:li>For each audit event type, based on the auditable event definitions of the functional components 
-                  included in the PP<h:b>-Module</h:b>/ST, [<h:i>Additional Audit Record Contents as specified in Auditable Events table</h:i>].</h:li>
+                  included in the PP<h:b>-Module</h:b>/ST, [<h:i>Additional Audit Record Contents as specified in 
+				  <xref g="t-audit-mandatory"/> and <xref g="t-audit-sel-based"/></h:i>].</h:li>
               </h:ol>
             </title>
             <aactivity>
               <TSS>
 		<h:p>
-                The evaluator shall check the TSS and ensure it provides a format for audit records. Each audit record format type must be covered, along with a brief description of each field. </h:p><h:p> 
-                If "invoke platform-provided functionality" is selected, the evaluator shall examine the TSS to verify it describes (for each supported platform) how this functionality is invoked 
-                (it should be noted that this may be through a mechanism that is not implemented by the WLAN Client; however, that mechanism will be identified in the TSS as part of this evaluation activity).</h:p>
+                The evaluator shall check the TSS and ensure it provides a format for audit records. Each audit record
+				format type must be covered, along with a brief description of each field. </h:p><h:p> 
+                If "invoke platform-provided functionality" is selected, the evaluator shall examine the TSS to verify
+				it describes (for each supported platform) how this functionality is invoked 
+                (it should be noted that this may be through a mechanism that is not implemented by the WLAN Client;
+				however, that mechanism will be identified in the TSS as part of this evaluation activity).</h:p>
               </TSS>
               <Guidance>
 		<h:p>
@@ -811,10 +816,10 @@
                 covered, along with a brief description of each field. The evaluator shall check to make sure
                 that every audit event type mandated by the PP-Module is described and that the description of the
                 fields contains the information required in FAU_GEN.1.2/WLAN, and the additional information
-                specified in the Auditable Events table.
+                specified in <xref g="t-audit-mandatory"/> and <xref g="t-audit-sel-based"/>.
                 </h:p><h:p>
                 The evaluator shall in particular ensure that the operational guidance is clear in relation to the
-                contents for failed cryptographic events. In the Auditable Events table, information detailing the cryptographic
+                contents for failed cryptographic events. In the Auditable Events tables, information detailing the cryptographic
                 mode of operation and a name or identifier for the object being encrypted is required. The
                 evaluator shall ensure that name or identifier is sufficient to allow an administrator reviewing
                 the audit log to determine the context of the cryptographic operation (for example,
