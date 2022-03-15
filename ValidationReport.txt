@@ -1,2 +1,0 @@
-/home/runner/work/wlanclient/wlanclient/input/wlanclient.xml:1695:17: error: element "audit-event" not allowed here; expected the element end-tag or element "audit-table", "ext-comp-class", "ext-comp-def" or "f-component"
-/home/runner/work/wlanclient/wlanclient/input/wlanclient.xml:2158:17: error: element "audit-event" not allowed here; expected the element end-tag or element "audit-table", "ext-comp-class", "ext-comp-def" or "f-component"
