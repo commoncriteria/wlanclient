@@ -924,39 +924,37 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
                     successful and the client continues communication with the access point.
                   </test>
                   <test>
-		    <h:p>
 		    The evaluator shall perform the following test using a packet sniffing tool to
                     collect frames between the TOE and a wireless LAN access point:
-                    </h:p><h:p>
+                    <h:br/> 
                     Step 1: The evaluator shall configure the access point to an unused channel and
                     configure the WLAN sniffer to sniff only on that channel (i.e., lock the sniffer on the
                     selected channel). The sniffer should also be configured to filter on the MAC address
                     of the TOE and/or access point.
-                    </h:p><h:p>
+                    <h:br/> 
                     Step 2: The evaluator shall configure the TOE to communicate with a WLAN access
                     point using IEEE 802.11-2012 and a 256-bit (64 hex values 0-f) pre-shared key. The
                     pre-shared key is only used for testing.
-                    </h:p><h:p>
+                    <h:br/> 
                     Step 3: The evaluator shall start the sniffing tool, initiate a connection between the
                     TOE and the access point, and allow the TOE to authenticate, associate, and
                     successfully complete the 4-way handshake with the client.
-                    </h:p><h:p>
+                    <h:br/> 
                     Step 4: The evaluator shall set a timer for 1 minute, at the end of which the evaluator
                     shall disconnect the TOE from the wireless network and stop the sniffer.
-                    </h:p><h:p>
+                    <h:br/> 
                     Step 5: The evaluator shall identify the 4-way handshake frames (denoted EAPOL-key
                     in Wireshark captures) and derive the PTK from the 4-way handshake frames and pre-shared key as specified in IEEE 802.11-2012.
-                    </h:p><h:p>
+                    <h:br/> 
                     Step 6: The evaluator shall select the first data frame from the captured packets that
                     was sent between the TOE and access point after the 4-way handshake successfully
                     completed, and without the frame control value 0x4208 (the first 2 bytes are 08 42).
                     The evaluator shall use the PTK to decrypt the data portion of the packet as specified
                     in IEEE 802.11-2012, and shall verify that the decrypted data contains ASCII-readable
                     text.
-                    </h:p><h:p>
+                    <h:br/> 
                     Step 7: The evaluator shall repeat Step 6 for the next 2 data frames between the TOE
                     and access point and without frame control value 0x4208.
-		    </h:p>
                   </test>
                 </testlist>                           
               </Tests>
@@ -1018,7 +1016,6 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
               <h:br/> 
               Step 7: The evaluator shall repeat Step 6 for the next 2 data frames with frame control value
               0x4208.
-	      </h:p>
             </Tests>
           </aactivity>
           </f-element>
@@ -1206,7 +1203,6 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
                   </h:ul>
                 </test>
               </testlist>
-	      </h:p>
             </Tests>
           </aactivity>
           </f-element>
