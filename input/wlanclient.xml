@@ -422,9 +422,9 @@
           <description>The TOE will provide mechanisms to allow
             administrators to be able to configure the TOE. </description>
           <consistency-rationale>QQQQ</consistency-rationale>
-          <addressed-by>FIA_X509_EXT.4</addressed-by>
+          <addressed-by>FIA_X509_EXT.4/WLAN</addressed-by>
 	  <rationale>
-            FIA_X509_EXT.4 supports the objective by requiring the TSF to securely store certificates in a repository that an administrator can interact with, whether that repository is provided by the WLAN client itself or by a platform storage  mechanism defined by the Base-PP portion of the TOE.
+            FIA_X509_EXT.4/WLAN supports the objective by requiring the TSF to securely store certificates in a repository that an administrator can interact with, whether that repository is provided by the WLAN client itself or by a platform storage  mechanism defined by the Base-PP portion of the TOE.
 	  </rationale>
 	  <addressed-by>FMT_SMF.1/WLAN</addressed-by>
           <rationale>
@@ -728,7 +728,7 @@
                   <h:TD>None.</h:TD>
                 </h:TR>
                 <h:TR>
-                  <h:TD rowspan="2">FIA_X509_EXT.4</h:TD>
+                  <h:TD rowspan="2">FIA_X509_EXT.4/WLAN</h:TD>
                   <h:TD>Attempts to load certificates.</h:TD><h:td>None.</h:td></h:TR>
                   <h:tr><h:TD>Attempts to revoke certificates.</h:TD><h:td>None.</h:td>
                 </h:tr> 
@@ -860,13 +860,13 @@
               <selectables>
                 <selectable>PRF-512</selectable>
                 <selectable>PRF-704</selectable>
-                <selectable>no other algorithm</selectable>
+                <selectable exclusive="yes">no other algorithm</selectable>
               </selectables>
               (as defined in IEEE 802.11-2012)</h:b></h:i>] and specified key sizes [<h:i><h:b>256 bits and 
                 <selectables>
                   <selectable>128 bits</selectable>
                   <selectable>192 bits</selectable>
-                  <selectable>no other key sizes</selectable>
+                  <selectable exclusive="yes">no other key sizes</selectable>
                 </selectables></h:b></h:i>] <h:b>using a Random Bit Generator as specified in FCS_RBG_EXT.1</h:b>.
             </title>
             <note role="application">
@@ -1037,7 +1037,7 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
             <title>The TSF shall implement TLS 1.2 (RFC 5246) and               
             <selectables>
               <selectable>TLS 1.1 (RFC 4346)</selectable>
-              <selectable>no other TLS version</selectable>
+              <selectable exclusive="yes">no other TLS version</selectable>
             </selectables> in support of the EAP-TLS protocol as specified in RFC 5216 supporting the following cipher suites:
             <selectables linebreak="yes">
               <selectable>TLS_RSA_WITH_AES_128_CBC_SHA as defined in RFC 5246</selectable> 
@@ -1210,7 +1210,7 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
           <f-element id="fel-wpa3">
             <title>The TSF shall support WPA3 and <selectables>
               <selectable id="wpa2">WPA2</selectable>
-              <selectable>no other</selectable>
+              <selectable exclusive="yes">no other</selectable>
             </selectables> security type.
             </title>
             <note role="application">
@@ -1477,7 +1477,8 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
           <fam-behavior>Components in this family define requirements for the use of X.509 certificates.
           </fam-behavior>
         </ext-comp-def>
-        <f-component id="fco-manage-certs" cc-id="fia_x509_ext.4" name="X.509 Certificate Storage and Management">
+		
+        <f-component id="fco-manage-certs" cc-id="fia_x509_ext.4" iteration="WLAN" name="X.509 Certificate Storage and Management">
           <consistency-rationale/>
           
           <comp-lev> requires the TOE to implement the ability to store X.509 certificates.</comp-lev>
@@ -1595,7 +1596,7 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
                     connection between the WLAN and cellular radios to function as a hotspot) authenticated by <selectables>
                     <selectable>pre-shared key</selectable>
                     <selectable>passcode</selectable>
-                    <selectable>no authentication</selectable>
+                    <selectable exclusive="yes">no authentication</selectable>
                   </selectables>
 		  </text>
 		  <M ref="I"/><M ref="A"/>
