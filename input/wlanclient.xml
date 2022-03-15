@@ -850,7 +850,6 @@
                 guidance provided is correct verifies that AGD_OPE.1 is satisfied and should address the
                 invocation of the administrative actions that are needed to verify the audit records are
                 generated as expected.
-	      </h:p>
               </Tests>
             </aactivity>
           </f-element>
