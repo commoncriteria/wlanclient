@@ -1691,8 +1691,8 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
             </Tests>
           </aactivity>
           </f-element>
-        </f-component>      
 		<audit-event/>
+        </f-component>      
       </sec:man_fmt>     
  
       <sec:man_fpt title="Protection of the TSF (FPT)">
@@ -2154,8 +2154,8 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
             </Tests>
           </aactivity>
           </f-element>
-        </f-component>
 		<audit-event/>
+        </f-component>
       </sec:fel_fcs>
       
     </sel-sfrs>
