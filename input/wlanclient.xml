@@ -1433,7 +1433,7 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
             </aactivity>
           </f-element>
   		  <audit-event>
-			<audit-event-descr>Failure to validate X.509v3 certificate.</audit-ebent-descr>
+			<audit-event-descr>Failure to validate X.509v3 certificate.</audit-event-descr>
 			<audit-event-info>Reason for failure of validation.</audit-event-info>
   		  </audit-event>
         </f-component>
