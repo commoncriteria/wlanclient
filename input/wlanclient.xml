@@ -802,7 +802,7 @@
             <aactivity>
               <TSS>
                 The evaluator shall check the TSS and ensure it provides a format for audit records. Each audit record
-				format type must be covered, along with a brief description of each field. </h:p><h:p> 
+				format type must be covered, along with a brief description of each field. <h:br/>
                 If "invoke platform-provided functionality" is selected, the evaluator shall examine the TSS to verify
 				it describes (for each supported platform) how this functionality is invoked 
                 (it should be noted that this may be through a mechanism that is not implemented by the WLAN Client;
