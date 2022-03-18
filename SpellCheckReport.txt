@@ -1,4 +1,0 @@
-output/wlanclient-release-linkable.html: TFC
-output/wlanclient-release.html: TFC
-output/wlanclient-sd.html: TFC
-output/wlanclient.html: TFC
