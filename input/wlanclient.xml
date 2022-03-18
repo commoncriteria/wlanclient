@@ -2294,7 +2294,7 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
       <entry id="bibRFC5288">
         <tag>RFC 5288</tag>
         <description><h:a
-          href="https://tools.ietf.org/html/rfc5288">TFC 5288 - AES Galois Counter Mode (GCM) Cipher Suites for TLS</h:a></description>
+          href="https://tools.ietf.org/html/rfc5288">RFC 5288 - AES Galois Counter Mode (GCM) Cipher Suites for TLS</h:a></description>
       </entry>       
       <entry id="bibRFC5289">
         <tag>RFC 5289</tag>
