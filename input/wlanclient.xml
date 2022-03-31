@@ -243,7 +243,7 @@
   </sec:Introduction>
 
 
-  <section title="Conformance_Claims" boilerplate="no">
+  <section title="Conformance Claims" boilerplate="no">
     <cclaims>
       <cclaim name="Conformance Statement">
         <description>
