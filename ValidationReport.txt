@@ -1,1 +1,0 @@
-/home/runner/work/wlanclient/wlanclient/input/wlanclient.xml:246:56: error: element "section" missing required attribute "id"
