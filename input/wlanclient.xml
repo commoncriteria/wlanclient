@@ -667,7 +667,7 @@
             </h:b> to generate an audit record of the following auditable events:
                  <h:ol type="a">
                 <h:li>Startup and shutdown of the audit functions;</h:li>
-                <h:li>All auditable events for [<h:i>not specified</h:i>] level of audit; and</h:li>
+                <h:li>All auditable events for [<h:i>not selected</h:i>] level of audit; and</h:li>
                 <h:li>[<h:i>all auditable events for mandatory SFRs specified in <xref g="t-audit-mandatory"/> and 
 					selected SFRs in <xref g="t-audit-sel-based"/></h:i>].</h:li>
               </h:ol>
