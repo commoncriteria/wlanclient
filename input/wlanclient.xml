@@ -243,20 +243,19 @@
   </sec:Introduction>
 
 
-  <sec:Conformance_Claims>
+  <sec:Conformance_Claims boilerplate="no">
     <cclaims>
       <cclaim name="Conformance Statement">
         <description>
 	  This PP-Module inherits exact conformance as required from
           the specified Base-PP and as defined in the CC and
           <xref to="bibCEM"/> addenda for Exact Conformance, Selection-Based SFRs, and Optional
-          SFRs (dated May 2017).
-          <!-- 
-          The following PPs and PP-Modules are allowed to
-          be specified in a PP-Configuration with this PP-Module. <h:ul>
-            <h:li>PP-Module for VPN Client, Version 2.2</h:li>
-            <h:li>PP-Module for MDM Agent, Version 1.0</h:li>
-          </h:ul>  -->
+          SFRs (dated May 2017).<h:br/><h:br/> 
+          The following PPs and PP-Modules are allowed to be specified in a PP-Configuration with this PP-Module: <h:ul>
+		<h:li>PP-Module for MDM Agents, Version 1.0</h:li>
+		<h:li>PP-Module for Bluetooth, Version 1.0</h:li>
+		<h:li>PP-Module for VPN Client, Version 2.4</h:li>
+          </h:ul>
         </description>
       </cclaim>
       <cclaim name="CC Conformance Claims">
