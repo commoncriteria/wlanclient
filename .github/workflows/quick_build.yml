@@ -32,6 +32,9 @@ jobs:
       run: |
         WARN_PATH="output/SanityChecksOutput.md" make
 
+    - name: Build Table
+      run: make table
+      
     - name: PDFify
       if: ${{ github.ref_name != 'master' }}
       run: |
