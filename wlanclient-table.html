@@ -1286,6 +1286,47 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
             
           </td>
       </tr>
+      <tr>
+        <td colspan="3">Selection-based SFRs</td>
+      </tr>
+      <tr xmlns="">
+        <td id="FCS_TLSC_EXT.2.1/WLAN">
+          <a class="abbr" href="#FCS_TLSC_EXT.2.1/WLAN">FCS_TLSC_EXT.2.1/WLAN</a>
+        </td>
+        <td>The TSF shall present the Supported Groups extension in the Client Hello with the following NIST curves:
+              [<b xmlns:htm="http://www.w3.org/1999/xhtml" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:sec="https://niap-ccevs.org/cc/v1/section">selection</b>: <span xmlns:htm="http://www.w3.org/1999/xhtml" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:sec="https://niap-ccevs.org/cc/v1/section" class="selectable-content" id="_s_50">secp256r1</span>,  <span xmlns:htm="http://www.w3.org/1999/xhtml" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:sec="https://niap-ccevs.org/cc/v1/section" class="selectable-content" id="_s_51">secp384r1</span>,  <span xmlns:htm="http://www.w3.org/1999/xhtml" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:sec="https://niap-ccevs.org/cc/v1/section" class="selectable-content" id="_s_52">secp521r1</span> ].
+            <br/><div xmlns:htm="http://www.w3.org/1999/xhtml" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:sec="https://niap-ccevs.org/cc/v1/section" class="appnote"><span class="note-header">Application
+      Note:
+    </span><span class="note">
+	      <p>
+		This requirement must be claimed if any cipher suites beginning with 'TLS_ECDHE' are selected in FCS_TLSC_EXT.1.1/WLAN.
+              </p><p>
+              This requirement does not limit the elliptic curves the client may propose for authentication and key agreement.  
+              Rather, it asks the ST author to define which of the NIST curves from FCS_COP.1/SIGN
+	      (defined in each supported Base-PP) and FCS_CKM.1/WPA and FCS_CKM.2/WLAN
+	      (each defined in this PP-Module) can be used for TLS key establishment.
+	      </p>
+            </span></div></td>
+        <td>
+            
+              The evaluator shall verify that the TSS describes the Supported Groups extension and
+              whether the required behavior is performed by default or may be configured. <br/><br/> 
+            
+            
+              If the TSS indicates that the Supported Groups extension must be configured to meet
+              the requirement, the evaluator shall verify that the operational guidance includes instructions
+              for configuration of this extension.<br/><br/> 
+            
+            
+              The evaluator shall perform the following test:
+              <ul xmlns:htm="http://www.w3.org/1999/xhtml" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:sec="https://niap-ccevs.org/cc/v1/section">
+                <li><b>Test 1: </b>The evaluator shall configure a server to perform ECDHE key exchange using each of the TOE’s supported 
+			curves and shall verify that the TOE successfully connects to the server.
+                </li>
+              </ul>
+            
+          </td>
+      </tr>
     </table>
     <div class="tabletitle"> Security Assurance Requirements </div>
     <table>
