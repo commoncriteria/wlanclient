@@ -1,2 +1,0 @@
-/home/runner/work/wlanclient/wlanclient/input/wlanclient.xml:652:42: error: element "audit-table" missing required attribute "id"
-/home/runner/work/wlanclient/wlanclient/input/wlanclient.xml:1989:42: error: element "audit-table" missing required attribute "id"

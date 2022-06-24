@@ -1,1 +1,5 @@
+output/wlanclient-release-linkable.html: sel
+output/wlanclient-release.html: sel
+output/wlanclient-sd.html: sel
 output/wlanclient-table.html: sel
+output/wlanclient.html: sel
