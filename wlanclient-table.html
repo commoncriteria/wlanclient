@@ -59,7 +59,11 @@
        max-width: 15px;
     }
 
-
+    a.definition{
+      color: inherit;
+      text-decoration: inherit;
+    }
+      
     a {
       text-decoration: none;
       word-wrap: break-word;
@@ -528,8 +532,8 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
               
               
                 The evaluator shall perform the following tests:
-                <ul xmlns:htm="http://www.w3.org/1999/xhtml" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:sec="https://niap-ccevs.org/cc/v1/section">
-                  <li><b>Test 1: </b>
+                <span xmlns:htm="http://www.w3.org/1999/xhtml" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:sec="https://niap-ccevs.org/cc/v1/section" class="testlist-"><ul>
+                  <li id="_t_1"><b><a href="#_t_1" class="definition">Test 1.1</a>: </b>
                     The evaluator shall configure the access point so the cryptoperiod of the
                     session key is 1 hour. The evaluator shall successfully connect the TOE to the access
                     point and maintain the connection for a length of time that is greater than the
@@ -538,7 +542,7 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
                     session key. Finally, the evaluator shall determine that the renegotiation has been 
                     successful and the client continues communication with the access point.
                   </li>
-                  <li><b>Test 2: </b>
+                  <li id="_t_2"><b><a href="#_t_2" class="definition">Test 1.2</a>: </b>
 		    The evaluator shall perform the following test using a packet sniffing tool to
                     collect frames between the TOE and a wireless LAN access point:
                     <br/> 
@@ -571,7 +575,7 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
                     Step 7: The evaluator shall repeat Step 6 for the next 2 data frames between the TOE
                     and access point and without frame control value 0x4208.
                   </li>
-                </ul>                           
+                </ul></span>                           
               
             </td>
       </tr>
@@ -716,8 +720,8 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
               The evaluator shall write, or the TOE developer shall provide, an application for the purposes of
               testing TLS.<br/><br/> 
               The evaluator shall perform the following tests:
-              <ul xmlns:htm="http://www.w3.org/1999/xhtml" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:sec="https://niap-ccevs.org/cc/v1/section">
-                <li><b>Test 1: </b>The evaluator shall establish a TLS connection using each of the cipher suites
+              <span xmlns:htm="http://www.w3.org/1999/xhtml" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:sec="https://niap-ccevs.org/cc/v1/section" class="testlist-"><ul>
+                <li id="_t_3"><b><a href="#_t_3" class="definition">Test 2.1</a>: </b>The evaluator shall establish a TLS connection using each of the cipher suites
                   specified by the requirement. This connection may be established as part of the
                   establishment of a higher-level protocol, e.g., as part of an EAP session. It is sufficient to
                   observe the successful negotiation of a cipher suite to satisfy the intent of the test; it is
@@ -725,7 +729,7 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
                   discern the cipher suite being used (for example, that the cryptographic algorithm is 128-bit
                   AES and not 256-bit AES).
                 </li>
-                <li><b>Test 2: </b>
+                <li id="_t_4"><b><a href="#_t_4" class="definition">Test 2.2</a>: </b>
                   The evaluator shall attempt to establish the connection using a server with a
                   server certificate that contains the Server Authentication purpose in the
                   extendedKeyUsage field and verify that a connection is established. The evaluator will
@@ -734,7 +738,7 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
                   established. Ideally, the two certificates should be identical except for the
                   extendedKeyUsage field.
                 </li>
-                <li><b>Test 3: </b>
+                <li id="_t_5"><b><a href="#_t_5" class="definition">Test 2.3</a>: </b>
                   The evaluator shall send a server certificate in the TLS connection that does not
                   match the server-selected cipher suite.
 		  For example, send a ECDSA certificate while using
@@ -743,12 +747,12 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
 		  The evaluator shall verify that the TOE disconnects after
                   receiving the server’s Certificate handshake message.
                 </li>
-                <li><b>Test 4: </b>
+                <li id="_t_6"><b><a href="#_t_6" class="definition">Test 2.4</a>: </b>
                   The evaluator shall configure the server to select the
                   TLS_NULL_WITH_NULL_NULL cipher suite and verify that the client denies the
                   connection.
                 </li>
-                <li><b>Test 5: </b>
+                <li id="_t_7"><b><a href="#_t_7" class="definition">Test 2.5</a>: </b>
                   The evaluator shall perform the following modifications to the traffic:
                   <ul>
                     <li>Change the TLS version selected by the server in the Server Hello to a unsupported TLS version (for example 1.5 represented by the two bytes 03 06) and
@@ -774,7 +778,7 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
                       ChangeCipherSpec message and verify that the client denies the connection.</li>
                   </ul>
                 </li>
-              </ul>
+              </ul></span>
             
           </td>
       </tr>
@@ -838,26 +842,26 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
               
               
                 The evaluator shall perform the following tests:
-                <ul xmlns:htm="http://www.w3.org/1999/xhtml" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:sec="https://niap-ccevs.org/cc/v1/section">
-                  <li><b>Test 1: </b>
+                <span xmlns:htm="http://www.w3.org/1999/xhtml" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:sec="https://niap-ccevs.org/cc/v1/section" class="testlist-"><ul>
+                  <li id="_t_8"><b><a href="#_t_8" class="definition">Test 3.1</a>: </b>
                   The evaluator shall demonstrate that the TOE has no access to the test network.
                   After successfully authenticating with an authentication server through a wireless access
                   system, the evaluator shall demonstrate that the TOE does have access to the test
                   network.
                   </li>
-                  <li><b>Test 2: </b>
+                  <li id="_t_9"><b><a href="#_t_9" class="definition">Test 3.2</a>: </b>
                     The evaluator shall demonstrate that the TOE has no access to the test network. 
                     The evaluator shall attempt to authenticate using an invalid client certificate, such that
                     the EAP-TLS negotiation fails. This should result in the TOE still being unable to access
                     the test network.
                   </li>
-                  <li><b>Test 3: </b>
+                  <li id="_t_10"><b><a href="#_t_10" class="definition">Test 3.3</a>: </b>
                     The evaluator shall demonstrate that the TOE has no access to the test network.
                     The evaluator shall attempt to authenticate using an invalid authentication server
                     certificate, such that the EAP-TLS negotiation fails. This should result in the TOE still
                     being unable to access the test network.
                   </li>
-                </ul>                           
+                </ul></span>                           
               
             </td>
       </tr>
@@ -903,34 +907,34 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
                 The tests described must be performed in conjunction with the other Certificate Services assurance activities. 
                 The tests for the extendedKeyUsage rules are performed in conjunction with the uses that require those rules. 
                 The evaluator shall create a chain of at least four certificates: the node certificate to be tested, two Intermediate CAs, and the self-signed Root CA.
-                <ul xmlns:htm="http://www.w3.org/1999/xhtml" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:sec="https://niap-ccevs.org/cc/v1/section">
-                  <li><b>Test 1: </b>
+                <span xmlns:htm="http://www.w3.org/1999/xhtml" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:sec="https://niap-ccevs.org/cc/v1/section" class="testlist-"><ul>
+                  <li id="_t_11"><b><a href="#_t_11" class="definition">Test 4.1</a>: </b>
                     The evaluator shall then load a certificate or certificates to the Trust Anchor Database needed to validate the certificate to be used in the function (e.g. application validation), 
                     and demonstrate that the function succeeds. 
                     The evaluator then shall delete one of the certificates, and show that the function fails.
                   </li>
-                  <li><b>Test 2: </b>
+                  <li id="_t_12"><b><a href="#_t_12" class="definition">Test 4.2</a>: </b>
                     The evaluator shall demonstrate that validating an expired certificate results in the function failing.
                   </li>
-                  <li><b>Test 3: </b>
+                  <li id="_t_13"><b><a href="#_t_13" class="definition">Test 4.3</a>: </b>
                     The evaluator shall construct a certificate path, such that the certificate of the CA issuing the TOE’s certificate does not contain the basicConstraints extension. 
                     The validation of the certificate path fails.
                   </li>
-                  <li><b>Test 4: </b>
+                  <li id="_t_14"><b><a href="#_t_14" class="definition">Test 4.4</a>: </b>
                     The evaluator shall construct a certificate path, such that the certificate of the CA issuing the TOE’s certificate has the cA flag in the basicConstraints extension not set. 
                     The validation of the certificate path fails.
                   </li>
-                  <li><b>Test 5: </b>
+                  <li id="_t_15"><b><a href="#_t_15" class="definition">Test 4.5</a>: </b>
                     The evaluator shall modify any byte in the first eight bytes of the certificate and demonstrate that the certificate fails to validate (the certificate will fail to parse correctly).
                   </li>
-                  <li><b>Test 6: </b>
+                  <li id="_t_16"><b><a href="#_t_16" class="definition">Test 4.6</a>: </b>
                     The evaluator shall modify any bit in the last byte of the signature algorithm of the certificate and demonstrate that the certificate fails to validate 
                     (the signature on the certificate will not validate).
                   </li>
-                  <li><b>Test 7: </b>
+                  <li id="_t_17"><b><a href="#_t_17" class="definition">Test 4.7</a>: </b>
                     The evaluator shall modify any byte in the public key of the certificate and demonstrate that the certificate fails to validate (the signature on the certificate will not validate).
                   </li>
-                </ul>                           
+                </ul></span>                           
               
             </td>
       </tr>
@@ -972,8 +976,8 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
             
             
               The evaluator shall perform the following test:
-              <ul xmlns:htm="http://www.w3.org/1999/xhtml" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:sec="https://niap-ccevs.org/cc/v1/section">
-                <li><b>Test 1: </b>
+              <span xmlns:htm="http://www.w3.org/1999/xhtml" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:sec="https://niap-ccevs.org/cc/v1/section" class="testlist-"><ul>
+                <li id="_t_18"><b><a href="#_t_18" class="definition">Test 5.1</a>: </b>
                   The evaluator shall demonstrate using a valid certificate that requires certificate validation
                   checking to be performed in at least some part by communicating with a non-TOE IT entity. The
                   evaluator shall then manipulate the environment so that the TOE is unable to verify the validity
@@ -982,7 +986,7 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
                   guidance to determine that all supported administrator-configurable options behave in their
                   documented manner.
                 </li>
-              </ul>                           
+              </ul></span>                           
             
           </td>
       </tr>
@@ -1023,16 +1027,16 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
               
               
                 The evaluator shall perform the following test for each TOE function that requires the use of certificates:
-                <ul xmlns:htm="http://www.w3.org/1999/xhtml" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:sec="https://niap-ccevs.org/cc/v1/section">
-                  <li><b>Test 1: </b>
+                <span xmlns:htm="http://www.w3.org/1999/xhtml" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:sec="https://niap-ccevs.org/cc/v1/section" class="testlist-"><ul>
+                  <li id="_t_19"><b><a href="#_t_19" class="definition">Test 6.1</a>: </b>
                     The evaluator shall demonstrate that using a certificate without a valid certification path results in the function failing. 
                     The evaluator shall then load any certificates needed to validate the certificate to be used in the function and demonstrate that the function succeeds. 
                     The evaluator shall then delete one of these dependent certificates and show that the function fails.
                   </li>
-                  <li><b>Test 2: </b>
+                  <li id="_t_20"><b><a href="#_t_20" class="definition">Test 6.2</a>: </b>
                     The evaluator shall demonstrate that the mechanism used to load or configure X.509 certificates cannot be accessed without appropriate authorization.
                   </li>
-                </ul>                           
+                </ul></span>                           
               
             </td>
       </tr>
@@ -1154,16 +1158,16 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
             
             
               The evaluator shall perform the following tests:
-              <ul xmlns:htm="http://www.w3.org/1999/xhtml" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:sec="https://niap-ccevs.org/cc/v1/section">
-                <li><b>Test 1: </b>
+              <span xmlns:htm="http://www.w3.org/1999/xhtml" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:sec="https://niap-ccevs.org/cc/v1/section" class="testlist-"><ul>
+                <li id="_t_21"><b><a href="#_t_21" class="definition">Test 7.1</a>: </b>
                   The evaluator shall perform the integrity check on a known good TSF executable and
                   verify that the check is successful.
                 </li>
-                <li><b>Test 2: </b>
+                <li id="_t_22"><b><a href="#_t_22" class="definition">Test 7.2</a>: </b>
                   The evaluator shall modify the TSF executable, perform the integrity check on the
                   modified TSF executable, and verify that the check fails. 
                 </li>
-              </ul>                 
+              </ul></span>                 
             
           </td>
       </tr>
@@ -1190,15 +1194,15 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
             
             
               The evaluator shall perform the following tests for each attribute:
-              <ul xmlns:htm="http://www.w3.org/1999/xhtml" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:sec="https://niap-ccevs.org/cc/v1/section">
-                <li><b>Test 1: </b>
+              <span xmlns:htm="http://www.w3.org/1999/xhtml" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:sec="https://niap-ccevs.org/cc/v1/section" class="testlist-"><ul>
+                <li id="_t_23"><b><a href="#_t_23" class="definition">Test 8.1</a>: </b>
                   The evaluator configures the TOE to allow a connection to a wireless network with a specific SSID. 
                   The evaluator configures the test environment such that the allowed SSID and an SSID that is not allowed are both
                   "visible" to the TOE.
 		  The evaluator shall demonstrate that they can successfully establish a connection with the allowed SSID.
                   The evaluator shall then attempt to establish a session with the disallowed SSID and observe that the attempt fails.
                 </li>
-              </ul>                 
+              </ul></span>                 
             
           </td>
       </tr>
@@ -1259,29 +1263,29 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
             
             
               The evaluator shall perform the following tests:
-              <ul xmlns:htm="http://www.w3.org/1999/xhtml" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:sec="https://niap-ccevs.org/cc/v1/section">
-                <li><b>Test 1: </b>
+              <span xmlns:htm="http://www.w3.org/1999/xhtml" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:sec="https://niap-ccevs.org/cc/v1/section" class="testlist-"><ul>
+                <li id="_t_24"><b><a href="#_t_24" class="definition">Test 9.1</a>: </b>
                   The evaluator shall ensure that the TOE is able to initiate communications with
                   an access point using the protocols specified in the requirement by setting up the
                   connections as described in the operational guidance and ensuring that communications
                   are successful.
                 </li>
-                <li><b>Test 2: </b>
+                <li id="_t_25"><b><a href="#_t_25" class="definition">Test 9.2</a>: </b>
                   The evaluator shall ensure, for each communication channel with an authorized
                   IT entity, the channel data is not sent in plaintext.
                 </li>
-                <li><b>Test 3: </b>
+                <li id="_t_26"><b><a href="#_t_26" class="definition">Test 9.3</a>: </b>
                   The evaluator shall ensure, for each communication channel with an authorized
                   IT entity, modification of the channel data is detected by the TOE.
                 </li>
-                <li><b>Test 4: </b>
+                <li id="_t_27"><b><a href="#_t_27" class="definition">Test 9.4</a>: </b>
                   The evaluators shall physically interrupt the connection from the TOE to the
                   access point (e.g., moving the TOE host out of range of the access point, turning the
                   access point off). The evaluators shall ensure that subsequent communications are
                   appropriately protected, at a minimum in the case of any attempts to automatically
                   resume the connection or connect to a new access point.
                 </li>
-              </ul>                 
+              </ul></span>                 
               Further evaluation activities are associated with the specific protocols.
             
           </td>
@@ -1319,11 +1323,11 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
             
             
               The evaluator shall perform the following test:
-              <ul xmlns:htm="http://www.w3.org/1999/xhtml" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:sec="https://niap-ccevs.org/cc/v1/section">
-                <li><b>Test 1: </b>The evaluator shall configure a server to perform ECDHE key exchange using each of the TOE’s supported 
+              <span xmlns:htm="http://www.w3.org/1999/xhtml" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:sec="https://niap-ccevs.org/cc/v1/section" class="testlist-"><ul>
+                <li id="_t_28"><b><a href="#_t_28" class="definition">Test 10.1</a>: </b>The evaluator shall configure a server to perform ECDHE key exchange using each of the TOE’s supported 
 			curves and shall verify that the TOE successfully connects to the server.
                 </li>
-              </ul>
+              </ul></span>
             
           </td>
       </tr>
