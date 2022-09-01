@@ -490,7 +490,10 @@
 
 
     <base-pp id="bpp-gpos">
-      <raw-url>https://raw.githubusercontent.com/commoncriteria/operatingsystem/release-4.2.1/input/operatingsystem.xml</raw-url>
+      <git>
+	      <url>https://github.com/commoncriteria/operatingsystem</url>
+	      <branch>release-4.2.1</branch>
+      </git>
       <url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=442&amp;id=442</url>
       <modified-sfrs>
  
@@ -554,7 +557,10 @@
     
     
     <base-pp id="bpp-mdf">
-      <raw-url>https://raw.githubusercontent.com/commoncriteria/mobile-device/release-3.2/input/mobile-device.xml</raw-url>
+	<git>
+		<url>https://github.com/commoncriteria/mobile-device</url>
+		<branch>release-3.2</branch>
+        </git>
         <url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=417&amp;id=417</url>
         
       
