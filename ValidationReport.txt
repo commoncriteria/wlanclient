@@ -1,6 +1,0 @@
-/home/runner/work/wlanclient/wlanclient/input/wlanclient.xml:493:12: error: element "git" not allowed anywhere; expected element "raw-url"
-/home/runner/work/wlanclient/wlanclient/input/wlanclient.xml:494:68: error: element "git" not allowed anywhere; expected element "raw-url"
-/home/runner/work/wlanclient/wlanclient/input/wlanclient.xml:497:12: error: element "url" not allowed yet; missing required element "raw-url"
-/home/runner/work/wlanclient/wlanclient/input/wlanclient.xml:560:7: error: element "git" not allowed anywhere; expected element "raw-url"
-/home/runner/work/wlanclient/wlanclient/input/wlanclient.xml:561:61: error: element "git" not allowed anywhere; expected element "raw-url"
-/home/runner/work/wlanclient/wlanclient/input/wlanclient.xml:564:14: error: element "url" not allowed yet; missing required element "raw-url"
