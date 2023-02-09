@@ -184,7 +184,10 @@ jobs:
         path: gh-pages
 
     - name:  Move output to branch
-      run:
+      run: |
+        pwd
+        ls
+        echo "+++"
         rm -rf gh-pages/${{ env.action_branch }}
         mv output gh-pages/${{ env.action_branch }}
         
