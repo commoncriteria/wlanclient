@@ -1,1 +1,4 @@
-* https://commoncriteria.github.io/wlanclient/release-1.0/wlanclient-paged.pdf[wlanclient-paged.pdf]
+* https://commoncriteria.github.io/wlanclient/release-1.0/wlanclient-release-linkable.html.pdf[wlanclient-release-linkable.html.pdf]
+* https://commoncriteria.github.io/wlanclient/release-1.0/wlanclient-sd.html.pdf[wlanclient-sd.html.pdf]
+* https://commoncriteria.github.io/wlanclient/release-1.0/wlanclient-release.html.pdf[wlanclient-release.html.pdf]
+* https://commoncriteria.github.io/wlanclient/release-1.0/wlanclient.html.pdf[wlanclient.html.pdf]
