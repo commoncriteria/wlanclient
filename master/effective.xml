@@ -27,7 +27,7 @@
     </entry>
   </RevisionHistory>
 
-  <sec:Introduction>
+  <release-notes><h:h3>TDs Applied</h:h3></release-notes><sec:Introduction>
     <sec:Overview>
       
       The scope of the Wireless Local Area Network (WLAN) Client PP-Module is to describe the security functionality of a WLAN Client in terms of [CC] 
@@ -154,6 +154,7 @@
   <term abbr="WLAN" full="Wireless Local Area Network"/>
   
   <term abbr="WPA" full="Wireless Protected Access"/>
+  
                 
 </tech-terms>
     <section title="Compliant Targets of Evaluation" id="TOEdescription">
