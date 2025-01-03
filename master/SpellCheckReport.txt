@@ -1,7 +1,14 @@
+output/wlanclient-release-linkable.html: Enrolment
+output/wlanclient-release-linkable.html: TDs
 output/wlanclient-release-linkable.html: sel
+output/wlanclient-release.html: Enrolment
+output/wlanclient-release.html: TDs
 output/wlanclient-release.html: sel
+output/wlanclient-sd.html: TDs
 output/wlanclient-sd.html: evaluator’s
 output/wlanclient-sd.html: fail’
 output/wlanclient-sd.html: pass’
 output/wlanclient-sd.html: sel
+output/wlanclient.html: Enrolment
+output/wlanclient.html: TDs
 output/wlanclient.html: sel

@@ -4,14 +4,19 @@
   <PPReference>
    
     <ReferenceTable>
-      <PPVersion>1.0</PPVersion>
+      <PPVersion>1.1</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2022-03-31</PPPubDate>
+      <PPPubDate>2025-01-15</PPPubDate>
       <Keywords>WLAN; Wireless LAN; Wireless Networking; 802.11</Keywords>
     </ReferenceTable>
   </PPReference>
 
   <RevisionHistory>
+    <entry>
+      <version>1.1</version>
+      <date>2025-01-15</date>
+      <subject>Incorporation of NIAP TDs and CC:2022 changes</subject>
+    </entry>
    <entry>
       <version>1.0</version>
       <date>2022-03-31</date>
@@ -235,7 +240,27 @@
   </sec:Introduction>
 
 
+
+
   <sec:Conformance_Claims boilerplate="no">
+    
+    
+    <!-- The new CClaimsInfo construct -->
+    <CClaimsInfo cc-version="cc-2022r1" cc-approach="direct-rationale">
+      <cc-st-conf>exact</cc-st-conf>       
+      <cc-pt2-conf>extended</cc-pt2-conf>
+      <cc-pt3-conf>extended</cc-pt3-conf>
+      <cc-pp-conf/>
+      <cc-pp-config-with>       
+        <Mod-cc-ref>PP-Module for Virtual Private Network (VPN) Clients, version 2.5</Mod-cc-ref>  
+        <Mod-cc-ref>PP-Module for Bluetooth, version 1.0</Mod-cc-ref>
+        <Mod-cc-ref>PP-Module for Mobile Device Management Agent, version 1.0</Mod-cc-ref>
+        <Mod-cc-ref>cPP-Module for Biometric Enrolment and Verification, version 1.1</Mod-cc-ref>  
+      </cc-pp-config-with>
+      <cc-pkg-claim/>
+    </CClaimsInfo>	
+    
+    <!--
     <cclaims>
       <cclaim name="Conformance Statement">
         <description>
@@ -259,10 +284,11 @@
         <description>There are no package claims for this PP-Module.</description>
       </cclaim>
     </cclaims>
+    -->
   </sec:Conformance_Claims>
 
 
-  <sec:Security_Problem_Description>
+  <sec:Security_Problem_Description title="Security Problem Definition">
     This PP-Module is written to address the situation when an entity desires wireless access to a private
     network. To allow access to the private network, the entity (machine) must be authenticated
     before a secure communications channel can be established. The TOE is the entity that seeks to
@@ -481,12 +507,12 @@
     </h:ul>
 
 
-    <base-pp id="bpp-gpos">
+    <base-pp id="bpp-gpos" name="Protection Profile for General Purpose Operating System" product="Operating System" short="GPOS" version="4.3">
       <git>
 	      <url>https://github.com/commoncriteria/operatingsystem</url>
-	      <branch>release-4.2.1</branch>
+	      <branch>release-4.3</branch>
       </git>
-      <url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=442&amp;id=442</url>
+      <url>https://www.niap-ccevs.org/static_html/protection-profile/469/OS%204.3%20PP/index.html</url>
       <modified-sfrs>
  
       </modified-sfrs>
@@ -548,12 +574,12 @@
     </base-pp>
     
     
-    <base-pp id="bpp-mdf">
+    <base-pp id="bpp-mdf" name="Protection Profile for Mobile Device Fundamentals" product="Mobile Device" short="MDF" version="3.3">
 	<git>
 		<url>https://github.com/commoncriteria/mobile-device</url>
-		<branch>release-3.2</branch>
+		<branch>release-3.3</branch>
         </git>
-        <url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=417&amp;id=417</url>
+      <url>https://www.niap-ccevs.org/static_html/protection-profile/468/MDF%203.3%20PP/index.html</url>
         
       
       <modified-sfrs>
