@@ -260,7 +260,9 @@
       <cc-pt2-conf>extended</cc-pt2-conf>
       <cc-pt3-conf>extended</cc-pt3-conf>
       <cc-pp-conf/>
-      <cc-pp-config-with>       
+      <cc-pp-config-with> 
+        <PP-cc-ref>Protection Profile for General Purpose Operating Systems, Version 4.3</PP-cc-ref>
+        <PP-cc-ref>Protection Profile for Mobile Device Fundamentals, Version 3.3</PP-cc-ref>
         <Mod-cc-ref>PP-Module for Virtual Private Network (VPN) Clients, version 2.5</Mod-cc-ref>  
         <Mod-cc-ref>PP-Module for Bluetooth, version 1.0</Mod-cc-ref>
         <Mod-cc-ref>PP-Module for Mobile Device Management Agent, version 1.0</Mod-cc-ref>
@@ -1249,14 +1251,25 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
 		  </audit-event>		  
         </f-component>
         
+        <ext-comp-def fam-id="FCS_WPA_EXT" title="Supported WPA Versions">
+          <fam-behavior>Components in this family define requirements for supporting Wi-Fi Protected Access (WPA).
+          </fam-behavior>
+        </ext-comp-def>
+        
+        
 		<!-- FCS_WPA_EXT.1 -->
-        <f-component cc-id="fcs_wpa_ext.1" name="Supported WPA Versions" id="fco-wpa-version">
+        <f-component cc-id="fcs_wpa_ext.1" name="Supported WPA Versions" id="fcs-wpa-version">
           <consistency-rationale/>
           
-          <comp-lev> requires the TOE to support one or more identified WPA vesrions.</comp-lev>
-          <management>There are no specific management functions identified.</management>
+          <comp-lev> requires the TSF to support WPA3 at minimum, with optional
+            support for WPA2.</comp-lev>
+          <management>The following actions could be considered for the management functions in FMT:
+            <h:ul>
+              <h:li>Configure the supported WPA versions.</h:li>
+            </h:ul>
+          </management>
           <audit>There are no auditable events foreseen.</audit>
-          <dependencies>No dependencies.</dependencies>
+          <dependencies>FCS_COP.1 Cryptographic Operation</dependencies>
           
           <f-element id="fel-wpa3">
             <title>The TSF shall support WPA3 and <selectables>
@@ -1267,18 +1280,17 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
             <note role="application">
 	      The WLAN client can support connecting to networks of other security types (e.g., open);
 	      however, those will not be tested as part of this evaluation and FMT_SMF.1
-	      will ensure that the client can be configured to only connect to WPA3 and, if selected WPA2, networks.
+	      will ensure that WPA3 and, if selected, WPA2 can be configured.
 	    </note>
             <aactivity>
 	      <TSS>
 		There are no TSS evaluation activities for this component.<h:br/><h:br/> 
 	      </TSS>
               <Guidance>The evaluator shall ensure that the AGD contains guidance on how to configure the WLAN client to
-			  disable connecting to networks other that WPA3 and, if selected, WPA2.<h:br/><h:br/>
+			  connect to networks supporting WPA3 and, if selected, WPA2.<h:br/><h:br/>
 		</Guidance>
               <Tests> The evaluator shall configure a Wi-Fi network that utilizes WPA3 and verify that the client can connect.
-			  The evaluator shall then modify the network so that it utilizes WPA and verifies that the WLAN client does not 
-			  connect to the network. The same test shall be repeated for WPA2 if it is selected. </Tests>
+			  The same test shall be repeated for WPA2 if it is selected. </Tests>
             </aactivity>
           </f-element>
 		  <audit-event/>
@@ -1500,37 +1512,15 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
               The evaluator shall check the TSS to ensure that it describes how the TOE chooses which
               certificates to use, and any necessary instructions in the administrative guidance for configuring
               the operational environment so that the TOE can use the certificates.
-              <h:br/><h:br/>   
-              The evaluator shall examine the TSS to confirm that it describes the behavior of the TOE when a
-              connection cannot be established during the validity check of a certificate used in establishing a
-              trusted channel. The evaluator shall verify that any distinctions between trusted channels are
-              described.
-              <h:br/><h:br/> 
+              <h:br/><h:br/>  
             </TSS>
             <Guidance>
               If not already present in the TSS, the evaluator shall check the administrative guidance to ensure that it describes how the TOE
               chooses which certificates to use, and any necessary instructions for configuring the operating
               environment so that the TOE can use the certificates.  
               <h:br/><h:br/>  
-              If the administrator is able to specify the action to be performed in this situation, then
-              the evaluator shall ensure that the operational guidance contains instructions on how this
-              configuration action is performed.
-              <h:br/><h:br/> 
             </Guidance>
-            <Tests>
-              The evaluator shall perform the following test:
-              <testlist>
-                <test>
-                  The evaluator shall demonstrate using a valid certificate that requires certificate validation
-                  checking to be performed in at least some part by communicating with a non-TOE IT entity. The
-                  evaluator shall then manipulate the environment so that the TOE is unable to verify the validity
-                  of the certificate, and observe that the action selected in FIA_X509_EXT.2.2 is performed. If the
-                  selected action is administrator-configurable, then the evaluator shall follow the operational 
-                  guidance to determine that all supported administrator-configurable options behave in their
-                  documented manner.
-                </test>
-              </testlist>                           
-            </Tests>
+            <Tests/>
           </aactivity>
           </f-element>
 		  <audit-event/> 
@@ -1654,10 +1644,6 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
                   <h:li>security type,</h:li>
                   <h:li>authentication protocol,</h:li>
                   <h:li>client credentials to be used for authentication,</h:li>
-                  <h:li>set wireless frequency band to <selectables>
-                  <selectable>2.4 GHz</selectable>
-                  <selectable>5 GHz</selectable>
-                  <selectable>6 GHz</selectable></selectables></h:li>
                  </h:ul></text>
                    <M ref="I"/><M ref="A"/>
 		</management-function>
@@ -1684,9 +1670,14 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
                 <management-function><text>enable/disable and configure PMK caching:<h:br/>
 		<h:ul><h:li>set the amount of time (in minutes) for which PMK entries are cached,</h:li>
 		<h:li>set the maximum number of PMK entries that can be cached</h:li></h:ul>
-                <!-- &#9702; set the amount of time (in minutes) for which PMK entries are cached,<h:br/> -->
-                <!-- &#9702; set the maximum number of PMK entries that can be cached</text></management-function> -->
 		</text></management-function>
+         <management-function>
+           <text>set wireless frequency band to <selectables>
+                  <selectable>2.4 GHz</selectable>
+                  <selectable>5 GHz</selectable>
+                  <selectable>6 GHz</selectable></selectables>
+           </text>
+         </management-function>
 	      </management-function-set>
             </title>
             <note role="application">
@@ -1836,7 +1827,7 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
         </ext-comp-def>
 		
 		<!-- FTA_WSE_EXT.1 -->
-        <f-component id="fco-wifi-access" cc-id="fta_wse_ext.1" name="Wireless Network Access">
+        <f-component id="fta-wifi-access" cc-id="fta_wse_ext.1" name="Wireless Network Access">
           <consistency-rationale/>
           
           <comp-lev> describes the ability of the TOE to apply administrative limits on the wireless networks that it can connect to.</comp-lev>
@@ -2280,12 +2271,12 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
       <entry id="bibGPOS">
         <tag>GPOS</tag>
         <description><h:a
-          href="https://www.niap-ccevs.org/MMO/PP/PP_OS_V4.2.1.pdf">Protection Profile for General Purpose Operating Systems, Version 4.2.1</h:a>, April 22, 2019</description>
+          href="https://www.niap-ccevs.org/static_html/protection-profile/469/OS%204.3%20PP/index.html">Protection Profile for General Purpose Operating Systems, Version 4.3</h:a>, September 27, 2022</description>
       </entry>      
       <entry id="bibMDF">
         <tag>MDF</tag>
         <description><h:a
-          href="https://www.niap-ccevs.org/MMO/PP/pp_md_v3.1.pdf">Protection Profile for Mobile Device Fundamentals, Version 3.2</h:a>, March 4, 2021</description>
+          href="https://www.niap-ccevs.org/static_html/protection-profile/468/MDF%203.3%20PP/index.html">Protection Profile for Mobile Device Fundamentals, Version 3.3</h:a>, Version 3.3, September 12, 2022</description>
       </entry>
       <entry id="bib80211">
         <tag>802.11-2012</tag>
