@@ -271,6 +271,7 @@
       <cc-pkg-claim>
         <FP-cc-ref conf="conformant">Functional Package for Transport Layer Security Version 2.1</FP-cc-ref>
         <FP-cc-ref conf="conformant">Functional Package for X.509 Version 1.0</FP-cc-ref>
+        <AP-cc-ref conf="conformant">Assurance Package for Flaw Remediation Version 1.0</AP-cc-ref>
       </cc-pkg-claim>
     </CClaimsInfo>	
     
@@ -329,6 +330,8 @@
             unauthorized access to data or TOE resources. A malicious user, process, or external IT entity
             may misrepresent itself as the TOE to obtain identification and authentication data.</description>
           <consistency-rationale/>
+          <addressed-by></addressed-by>
+          <rationale></rationale>
        
         </threat>
         
@@ -1292,7 +1295,17 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
 		<!-- FIA-X509_EXT.1/WLAN -->
         <f-component id="fco-certval-wlan" cc-id="fia_x509_ext.1" name="X.509 Certificate Validation" iteration="WLAN">
       <consistency-rationale/>
-
+          <f-element>
+          <title>
+            <comment>This SFR defines X.509 validation behavior specific for this PP-Module. The expectation is that this can now be inherited from the X.590 FP rather than be defined here. However, we do not currently have a mechanism to tell ST authors what to do here. Specifically, we don't want to reproduce the SFR elements from the FP with whatever modifications are needed for the package because that causes the same problem that the FP was created to solve (having multiple sets of the same SFR that then get out of sync as documents don't all get updated at the same time). But at the same time, we need a way to communicate to the ST author how they should identify the SFR iteration (i.e. we would want it called "FIA_X509_EXT.1/WLAN" consistently in any ST that claims this module) as well as guidance on any required or forbidden selections in the context of the desired behavior (e.g. prohibiting certain revocation methods from being used).
+              <h:br/><h:br/>
+              This SFR is only a subset of what the X.509 FP requires for certificate validation so it's unclear whether there are functions in the X.509 FP that cannot be satisfied by the X.509 functionality that is needed specifically for EAP-TLS. (i.e. is the definition of this function intentionally complete or will the FP version of it be usable?)
+            </comment>
+            
+          </title>
+          </f-element>
+          <audit-event/>
+<!-- 
           <f-element>
             <title>The TSF shall validate certificates for <h:b>EAP-TLS</h:b> in accordance with the following rules:
               <h:ul>
@@ -1364,11 +1377,21 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
 			<audit-event-descr>Failure to validate X.509v3 certificate.</audit-event-descr>
 			<audit-event-info>Reason for failure of validation.</audit-event-info>
   		  </audit-event>
+  		  
+  		  -->
+        
         </f-component>
         
 		<!-- FIA_X509_EXT.2/WLAN -->
         <f-component id="fco-certauth" cc-id="fia_x509_ext.2" name="X.509 Certificate Authentication (EAP-TLS for WLAN)" iteration="WLAN">
           <consistency-rationale/>
+          <f-element>
+            <title>
+              <comment>This SFR is just for defining the TOE's use of X.509 certificates for EAP-TLS. This can be covered by FIA_X509_EXT.2 from the X.509 FP but there is currently no way to instruct the ST author that this claim must be made there (whether as its own separate iteration as it is here or part of a single un-terated FIA_X509_EXT.2 that also covers any other uses the TOE has for X.509).</comment>
+            </title>
+          </f-element>
+          <audit-event/>
+          <!-- 
           <f-element>
             <title>The TSF shall use X.509v3 certificates as defined by RFC 5280 to
               support [<h:i>[authentication for EAP-TLS exchanges]</h:i>].
@@ -1378,7 +1401,8 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
               requirements that must be implemented by the TSF. The FIA_X509_EXT.1 requirements defined
               in each of the supported Base-PPs define requirements that the underlying platform is expected to
               implement in order to support compliance with this RFC.
-            </note>            
+            </note>      
+            -->
   <!--         </f-element>
           <f-element>
             <title>When the TSF cannot establish a connection to determine the validity of a
@@ -1390,7 +1414,7 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
                 <selectable>not accept the certificate</selectable>
               </selectables>.
             </title>  -->        
-                      
+                      <!--
           <aactivity>
             <TSS>
               The evaluator shall check the TSS to ensure that it describes how the TOE chooses which
@@ -1408,6 +1432,7 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
           </aactivity>
           </f-element>
 		  <audit-event/> 
+		  -->
         </f-component>
         
         
@@ -2055,10 +2080,7 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
           
           <f-element>
             <title>
-              <comment>This SFR defines EAP-TLS behavior specific for this PP-Module. The expectation is that this can now be inherited from the TLS FP rather than be defined here. However, we do not currently have a mechanism to tell ST authors what to do here. Specifically, we don't want to reproduce the SFR elements from the FP with whatever modifications are needed for the package because that causes the same problem that the FP was created to solve (having multiple sets of the same SFR that then get out of sync as documents don't all get updated at the same time). But at the same time, we need a way to communicate to the ST author how they should identify the SFR iteration (i.e. we would want it called "FCS_TLSC_EXT.1/WLAN" consistently in any ST that claims this module) as well as guidance on any required or forbidden selections in the context of the desired behavior (e.g. are there any ciphersuites we would want to ban ST authors from selecting).
-                <h:br/><h:br/>
-                Note that it may end up being the case that EAP-TLS also requires us to define behavior that is not part of the TLS FP. In this case we would still need to have guidance on what the ST author is expected to do with the TLS FP but then we would also need to keep an SFR here to cover the delta between the FP and the desired EAP-TLS functions. For the sake of avoiding confusion this would then be given a unique name (e.g. FCS_EAP_EXT.1). 
-              </comment>
+              <comment>This SFR is just for defining the supported groups that are offered in the TLS client hello. This is part of the TLS FP natively so it is expected that this SFR can be removed. It is being kept here for now as a placeholder until the appropriate way to handle defining a TLS iteration for WLAN EAP-TLS (FCS_TLSC_EXT.1/WLAN) is determined.</comment>
             </title>
           </f-element>
           
