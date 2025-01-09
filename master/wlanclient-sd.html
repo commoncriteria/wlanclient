@@ -610,70 +610,7 @@ The following sections list Common Criteria and technology terms used in this do
                     being unable to access the test network.
                   </li>
                 </ul></span>                           
-              </div></div></span></div><div class="comp" id="FCO-CERTVAL-WLAN"><h4>FIA_X509_EXT.1/WLAN X.509 Certificate Validation</h4><span class="activity_pane_body"><div class="component-activity-header">FIA_X509_EXT.1/WLAN</div>
-              
-              
-              
-            <div class="eacategory">TSS</div><div class="ea"><div class="ea">
-                The evaluator shall ensure the TSS describes where the check of validity of the EAP-TLS certificates takes place. 
-                The evaluator shall also ensure the TSS also provides a description of the certificate path validation algorithm.<br/><br/> 
-              </div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">
-                There are no guidance evaluation activities for this component.   <br/><br/> 
-              </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
-                The tests described must be performed in conjunction with the other Certificate Services assurance activities. 
-                The tests for the extendedKeyUsage rules are performed in conjunction with the uses that require those rules. 
-                The evaluator shall create a chain of at least four certificates: the node certificate to be tested, two Intermediate CAs, and the self-signed Root CA.
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_6" class="defined" href="#_t_6">Test FIA_X509_EXT.1/WLAN:1</a>:
-      
-                    The evaluator shall then load a certificate or certificates to the Trust Anchor Database needed to validate the certificate to be used in the function (e.g. application validation), 
-                    and demonstrate that the function succeeds. 
-                    The evaluator then shall delete one of the certificates, and show that the function fails.
-                  </li>
-                  <li class="test-"><a id="_t_7" class="defined" href="#_t_7">Test FIA_X509_EXT.1/WLAN:2</a>:
-      
-                    The evaluator shall demonstrate that validating an expired certificate results in the function failing.
-                  </li>
-                  <li class="test-"><a id="_t_8" class="defined" href="#_t_8">Test FIA_X509_EXT.1/WLAN:3</a>:
-      
-                    The evaluator shall construct a certificate path, such that the certificate of the CA issuing the TOE’s certificate does not contain the basicConstraints extension. 
-                    The validation of the certificate path fails.
-                  </li>
-                  <li class="test-"><a id="_t_9" class="defined" href="#_t_9">Test FIA_X509_EXT.1/WLAN:4</a>:
-      
-                    The evaluator shall construct a certificate path, such that the certificate of the CA issuing the TOE’s certificate has the cA flag in the basicConstraints extension not set. 
-                    The validation of the certificate path fails.
-                  </li>
-                  <li class="test-"><a id="_t_10" class="defined" href="#_t_10">Test FIA_X509_EXT.1/WLAN:5</a>:
-      
-                    The evaluator shall modify any byte in the first eight bytes of the certificate and demonstrate that the certificate fails to validate (the certificate will fail to parse correctly).
-                  </li>
-                  <li class="test-"><a id="_t_11" class="defined" href="#_t_11">Test FIA_X509_EXT.1/WLAN:6</a>:
-      
-                    The evaluator shall modify any bit in the last byte of the signature algorithm of the certificate and demonstrate that the certificate fails to validate 
-                    (the signature on the certificate will not validate).
-                  </li>
-                  <li class="test-"><a id="_t_12" class="defined" href="#_t_12">Test FIA_X509_EXT.1/WLAN:7</a>:
-      
-                    The evaluator shall modify any byte in the public key of the certificate and demonstrate that the certificate fails to validate (the signature on the certificate will not validate).
-                  </li>
-                </ul></span>                           
-              </div></div></span></div><div class="comp" id="FCO-CERTAUTH"><h4>FIA_X509_EXT.2/WLAN X.509 Certificate Authentication (EAP-TLS for WLAN)</h4><span class="activity_pane_body"><div class="component-activity-header">FIA_X509_EXT.2/WLAN</div>
-            
-            
-            
-          <div class="eacategory">TSS</div><div class="ea"><div class="ea">
-              The evaluator shall check the TSS to ensure that it describes how the TOE chooses which
-              certificates to use, and any necessary instructions in the administrative guidance for configuring
-              the operational environment so that the TOE can use the certificates.
-              <br/><br/>  
-            </div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">
-              If not already present in the TSS, the evaluator shall check the administrative guidance to ensure that it describes how the TOE
-              chooses which certificates to use, and any necessary instructions for configuring the operating
-              environment so that the TOE can use the certificates.  
-              <br/><br/>  
-            </div></div><div class="eacategory">Tests</div><div class="ea">
-			There are no test activities for this component.<br/></div></span></div><div class="comp" id="FCO-MANAGE-CERTS"><h4>FIA_X509_EXT.6 X.509 Certificate Storage and Management</h4><span class="activity_pane_body"><div class="component-activity-header">FIA_X509_EXT.6</div>
+              </div></div></span></div><div class="comp" id="FCO-CERTVAL-WLAN"><h4>FIA_X509_EXT.1/WLAN X.509 Certificate Validation</h4><span class="activity_pane_body"></span></div><div class="comp" id="FCO-CERTAUTH"><h4>FIA_X509_EXT.2/WLAN X.509 Certificate Authentication (EAP-TLS for WLAN)</h4><span class="activity_pane_body"></span></div><div class="comp" id="FCO-MANAGE-CERTS"><h4>FIA_X509_EXT.6 X.509 Certificate Storage and Management</h4><span class="activity_pane_body"><div class="component-activity-header">FIA_X509_EXT.6</div>
               
               
               
@@ -690,13 +627,13 @@ The following sections list Common Criteria and technology terms used in this do
               </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
                 The evaluator shall perform the following test for each TOE function that requires the use of certificates:
                 <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_13" class="defined" href="#_t_13">Test FIA_X509_EXT.6:1</a>:
+                  <li class="test-"><a id="_t_6" class="defined" href="#_t_6">Test FIA_X509_EXT.6:1</a>:
       
                     The evaluator shall demonstrate that using a certificate without a valid certification path results in the function failing. 
                     The evaluator shall then load any certificates needed to validate the certificate to be used in the function and demonstrate that the function succeeds. 
                     The evaluator shall then delete one of these dependent certificates and show that the function fails.
                   </li>
-                  <li class="test-"><a id="_t_14" class="defined" href="#_t_14">Test FIA_X509_EXT.6:2</a>:
+                  <li class="test-"><a id="_t_7" class="defined" href="#_t_7">Test FIA_X509_EXT.6:2</a>:
       
                     The evaluator shall demonstrate that the mechanism used to load or configure X.509 certificates cannot be accessed without appropriate authorization.
                   </li>
@@ -742,12 +679,12 @@ The following sections list Common Criteria and technology terms used in this do
             </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
               The evaluator shall perform the following tests:
               <span class="testlist-"><ul>
-                <li class="test-"><a id="_t_15" class="defined" href="#_t_15">Test FPT_TST_EXT.3/WLAN:1</a>:
+                <li class="test-"><a id="_t_8" class="defined" href="#_t_8">Test FPT_TST_EXT.3/WLAN:1</a>:
       
                   The evaluator shall perform the integrity check on a known good TSF executable and
                   verify that the check is successful.
                 </li>
-                <li class="test-"><a id="_t_16" class="defined" href="#_t_16">Test FPT_TST_EXT.3/WLAN:2</a>:
+                <li class="test-"><a id="_t_9" class="defined" href="#_t_9">Test FPT_TST_EXT.3/WLAN:2</a>:
       
                   The evaluator shall modify the TSF executable, perform the integrity check on the
                   modified TSF executable, and verify that the check fails. 
@@ -766,7 +703,7 @@ The following sections list Common Criteria and technology terms used in this do
             </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
               The evaluator shall perform the following tests for each attribute:
               <span class="testlist-"><ul>
-                <li class="test-"><a id="_t_17" class="defined" href="#_t_17">Test FTA_WSE_EXT.1:1</a>:
+                <li class="test-"><a id="_t_10" class="defined" href="#_t_10">Test FTA_WSE_EXT.1:1</a>:
       
                   The evaluator configures the TOE to allow a connection to a wireless network with a specific SSID. 
                   The evaluator configures the test environment such that the allowed SSID and an SSID that is not allowed are both
@@ -792,24 +729,24 @@ The following sections list Common Criteria and technology terms used in this do
             </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
               The evaluator shall perform the following tests:
               <span class="testlist-"><ul>
-                <li class="test-"><a id="_t_18" class="defined" href="#_t_18">Test FTP_ITC.1/WLAN:1</a>:
+                <li class="test-"><a id="_t_11" class="defined" href="#_t_11">Test FTP_ITC.1/WLAN:1</a>:
       
                   The evaluator shall ensure that the TOE is able to initiate communications with
                   an access point using the protocols specified in the requirement by setting up the
                   connections as described in the operational guidance and ensuring that communications
                   are successful.
                 </li>
-                <li class="test-"><a id="_t_19" class="defined" href="#_t_19">Test FTP_ITC.1/WLAN:2</a>:
+                <li class="test-"><a id="_t_12" class="defined" href="#_t_12">Test FTP_ITC.1/WLAN:2</a>:
       
                   The evaluator shall ensure, for each communication channel with an authorized
                   IT entity, the channel data is not sent in plaintext.
                 </li>
-                <li class="test-"><a id="_t_20" class="defined" href="#_t_20">Test FTP_ITC.1/WLAN:3</a>:
+                <li class="test-"><a id="_t_13" class="defined" href="#_t_13">Test FTP_ITC.1/WLAN:3</a>:
       
                   The evaluator shall ensure, for each communication channel with an authorized
                   IT entity, modification of the channel data is detected by the TOE.
                 </li>
-                <li class="test-"><a id="_t_21" class="defined" href="#_t_21">Test FTP_ITC.1/WLAN:4</a>:
+                <li class="test-"><a id="_t_14" class="defined" href="#_t_14">Test FTP_ITC.1/WLAN:4</a>:
       
                   The evaluators shall physically interrupt the connection from the TOE to the
                   access point (e.g., moving the TOE host out of range of the access point, turning the

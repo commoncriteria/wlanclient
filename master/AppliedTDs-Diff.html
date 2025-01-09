@@ -22,6 +22,10 @@
             <br>
             <a href="#Comment-2-">Comment: Comment-2-</a>
             <br>
+            <a href="#Comment-3-">Comment: Comment-3-</a>
+            <br>
+            <a href="#Comment-4-">Comment: Comment-4-</a>
+            <br>
         </div>
         <h1 class="title" style="page-break-before:auto;">PP-Module for WLAN Clients</h1>
         <h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1>
@@ -323,7 +327,7 @@
                         This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is Functional Package for X.509 Version 1.0 conformant.
                     </li>
                     <li>
-                        This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not conform to any assurance packages.
+                        This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is Assurance Package for Flaw Remediation Version 1.0 conformant.
                     </li>
                 </ul>
             </dd>
@@ -489,8 +493,8 @@
             <tr style="display:none;" data-sortkey="FIA_X509_EXT.1/WLAN#">
                 <td></td>
             </tr>
-            <tr data-sortkey="FIA_X509_EXT.1/WLAN.3">
-                <td>Failure to validate X.509v3 certificate.</td><td>Reason for failure of validation.</td>
+            <tr data-sortkey="FIA_X509_EXT.1/WLAN.1">
+                <td>No events specified</td><td>N/A</td>
             </tr>
             <tr data-sortkey="FIA_X509_EXT.2/WLAN">
                 <td rowspan="2"><a href="#FIA_X509_EXT.2/WLAN">FIA_X509_EXT.2/WLAN</a></td><td style="display:none"></td>
@@ -713,38 +717,10 @@
                     <a href="#FIA_X509_EXT.1.1/WLAN" class="abbr">FIA_X509_EXT.1.1/WLAN</a>
                 </div>
                 <div class="reqdesc">
-                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall validate certificates for <b><abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS</b> in accordance with the following rules: 
-                    <ul>
-                        <li>
-                            <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5280 certificate validation and certificate path validation
-                        </li>
-                        <li>The certificate path must terminate with a certificate in the Trust Anchor Database</li>
-                        <li>
-                            The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall validate a certificate path by ensuring the presence of the basicConstraints extension and that the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> flag is set to TRUE for all <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificates
-                        </li>
-                        <li>
-                            The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall validate the extendedKeyUsage field according to the following rules: 
-                            <ul>
-                                <li>
-                                    Server certificates presented for <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> shall have the Server Authentication purpose (id-kp 1 with OID 1.3.6.1.5.5.7.3.1) in the extendedKeyUsage field
-                                </li>
-                                <li>
-                                    Client certificates presented for <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> shall have the Client Authentication purpose (id-kp 2 with OID 1.3.6.1.5.5.7.3.2) in the extendedKeyUsage field.
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="element">
-                <div class="reqid" id="FIA_X509_EXT.1.2/WLAN">
-                    <a href="#FIA_X509_EXT.1.2/WLAN" class="abbr">FIA_X509_EXT.1.2/WLAN</a>
-                </div>
-                <div class="reqdesc">
-                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall only treat a certificate as a <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate if the basicConstraints extension is present and the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> flag is set to TRUE. 
-                    <div class="appnote">
-                        <span class="note-header">Application Note: </span><span class="note"> <a href="#FIA_X509_EXT.1/WLAN">FIA_X509_EXT.1/WLAN</a> lists the rules for validating certificates for <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS. In contrast to FIA_X509_EXT.1 in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PPs</a></abbr>, this iteration does not require revocation checking for the <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS connection used to establish a Wi-Fi connection. The FIA_X509_EXT.1 requirements defined in each of the possible <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PPs</a></abbr> define requirements that the underlying platform is expected to implement in order to support compliance with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5280. </span>
-                    </div>
+                     <span style="" class="comment " id="Comment-2-">This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines X.509 validation behavior specific for this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. The expectation is that this can now be inherited from the X.590 <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> rather than be defined here. However, we do not currently have a mechanism to tell <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> authors what to do here. Specifically, we don't want to reproduce the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> elements from the <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> with whatever modifications are needed for the package because that causes the same problem that the <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> was created to solve (having multiple sets of the same <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> that then get out of sync as documents don't all get updated at the same time). But at the same time, we need a way to communicate to the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author how they should identify the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> iteration (i.e. we would want it called "<a href="#FIA_X509_EXT.1/WLAN">FIA_X509_EXT.1/WLAN</a>" consistently in any <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> that claims this module) as well as guidance on any required or forbidden selections in the context of the desired behavior (e.g. prohibiting certain revocation methods from being used). 
+                        <br>
+                        <br>
+                         This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is only a subset of what the X.509 <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> requires for certificate validation so it's unclear whether there are functions in the X.509 <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> that cannot be satisfied by the X.509 functionality that is needed specifically for <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS. (i.e. is the definition of this function intentionally complete or will the <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> version of it be usable?) </span> 
                 </div>
             </div>
         </div>
@@ -755,10 +731,7 @@
                     <a href="#FIA_X509_EXT.2.1/WLAN" class="abbr">FIA_X509_EXT.2.1/WLAN</a>
                 </div>
                 <div class="reqdesc">
-                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall use X.509v3 certificates as defined by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5280 to support [<i>[authentication for <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS exchanges]</i>]. 
-                    <div class="appnote">
-                        <span class="note-header">Application Note: </span><span class="note"> <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5280 defines certificate validation and certification path validation requirements that must be implemented by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>. The FIA_X509_EXT.1 requirements defined in each of the supported <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PPs</a></abbr> define requirements that the underlying platform is expected to implement in order to support compliance with this <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr>. </span>
-                    </div>
+                     <span style="" class="comment " id="Comment-3-">This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is just for defining the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s use of X.509 certificates for <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS. This can be covered by FIA_X509_EXT.2 from the X.509 <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> but there is currently no way to instruct the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author that this claim must be made there (whether as its own separate iteration as it is here or part of a single un-terated FIA_X509_EXT.2 that also covers any other uses the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> has for X.509).</span> 
                 </div>
             </div>
         </div>
@@ -1091,6 +1064,11 @@
                 <tr>
                     <th>Threat</th><th>Addressed by</th><th>Rationale</th>
                 </tr>
+                <tr class="major-row">
+                    <td rowspan="1"><a href="#T.UNAUTHORIZED_ACCESS">T.UNAUTHORIZED_​ACCESS</a>
+                        <br>
+                    </td><td></td><td></td>
+                </tr>
             </table>
         </p>
         <h1 id="mod-conrat" class="indexable" data-level="1">6 Consistency Rationale</h1>
@@ -1392,10 +1370,7 @@
                     <a href="#FCS_TLSC_EXT.2.1/WLAN" class="abbr">FCS_TLSC_EXT.2.1/WLAN</a>
                 </div>
                 <div class="reqdesc">
-                     <span style="" class="comment " id="Comment-2-">This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS behavior specific for this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. The expectation is that this can now be inherited from the <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> rather than be defined here. However, we do not currently have a mechanism to tell <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> authors what to do here. Specifically, we don't want to reproduce the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> elements from the <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> with whatever modifications are needed for the package because that causes the same problem that the <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> was created to solve (having multiple sets of the same <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> that then get out of sync as documents don't all get updated at the same time). But at the same time, we need a way to communicate to the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author how they should identify the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> iteration (i.e. we would want it called "<a href="#FCS_TLSC_EXT.1/WLAN">FCS_TLSC_EXT.1/WLAN</a>" consistently in any <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> that claims this module) as well as guidance on any required or forbidden selections in the context of the desired behavior (e.g. are there any ciphersuites we would want to ban <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> authors from selecting). 
-                        <br>
-                        <br>
-                         Note that it may end up being the case that <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS also requires us to define behavior that is not part of the <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr>. In this case we would still need to have guidance on what the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author is expected to do with the <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> but then we would also need to keep an <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> here to cover the delta between the <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> and the desired <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS functions. For the sake of avoiding confusion this would then be given a unique name (e.g. FCS_EAP_EXT.1). </span> 
+                     <span style="" class="comment " id="Comment-4-">This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is just for defining the supported groups that are offered in the <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> client hello. This is part of the <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> natively so it is expected that this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> can be removed. It is being kept here for now as a placeholder until the appropriate way to handle defining a <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> iteration for <abbr class="dyn-abbr"><a href="#abbr_WLAN">WLAN</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS (<a href="#FCS_TLSC_EXT.1/WLAN">FCS_TLSC_EXT.1/WLAN</a>) is determined.</span> 
                 </div>
             </div>
         </div>

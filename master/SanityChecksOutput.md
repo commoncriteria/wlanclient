@@ -1,5 +1,9 @@
 * Error: f-element FCS_TLSC_EXT.1.1/WLAN  appears not to have an associated evaluation activity.:
         /Module[1]""/sec:Security_Requirements[1]""/man-sfrs[1]""/sec:man_fcs[1]""/f-component[3]""/f-element[1]""
+* Error: f-element FIA_X509_EXT.1.1/WLAN  appears not to have an associated evaluation activity.:
+        /Module[1]""/sec:Security_Requirements[1]""/man-sfrs[1]""/sec:man_fia[1]""/f-component[2]""/f-element[1]""
+* Error: f-element FIA_X509_EXT.2.1/WLAN  appears not to have an associated evaluation activity.:
+        /Module[1]""/sec:Security_Requirements[1]""/man-sfrs[1]""/sec:man_fia[1]""/f-component[3]""/f-element[1]""
 * Error: f-element FCS_TLSC_EXT.2.1/WLAN  appears not to have an associated evaluation activity.:
         /Module[1]""/sec:Security_Requirements[1]""/sel-sfrs[1]""/sec:fel_fcs[1]""/f-component[1]""/f-element[1]""
 * Warning: This document still has at least one comment.
