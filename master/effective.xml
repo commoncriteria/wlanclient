@@ -31,8 +31,23 @@
         256 bit keys are required. 128 and 192 bit keys can additionally be included in the ST.<h:br/></subject>
     </entry>
   </RevisionHistory>
+  
+  <release-notes><h:h3>TDs Applied</h:h3></release-notes><include-pkg id="pkg-tls">
+    <git>
+      <url>https://github.com/commoncriteria/tls</url>
+      <branch>master</branch>
+    </git>
+    <url>https://www.niap-ccevs.org/static_html/protection-profile/439/-439-/index.html</url>
+  </include-pkg>
+  <include-pkg id="pkg-x509">
+    <git>
+      <url>https://github.com/commoncriteria/X509</url>
+      <branch>master</branch>
+    </git>
+    <url>https://www.niap-ccevs.org/protectionprofiles/511</url>
+  </include-pkg>
 
-  <release-notes><h:h3>TDs Applied</h:h3></release-notes><sec:Introduction>
+  <sec:Introduction>
     <sec:Overview>
       
       The scope of the Wireless Local Area Network (WLAN) Client PP-Module is to describe the security functionality of a WLAN Client in terms of [CC] 
@@ -40,6 +55,9 @@
         <h:li>General Purpose Operating System (GPOS) Protection Profile, Version 4.2.1</h:li>
         <h:li>Mobile Device Fundamentals (MDF) Protection Profile, Version 3.2</h:li>
       </h:ul>
+      <h:p>
+        A conformant TOE will claim conformance to a PP-Configuration that includes exactly one of the Base-PPs identified above, this PP-Module, and any of the PP-Modules or packages identified in Section 2.
+      </h:p>
       <h:p> These Base-PPs are valid because a WLAN Client is
       a part of either a commercial operating system that can be installed on a general-purpose computer or an operating system that runs on a purpose-built mobile device.</h:p>
     </sec:Overview>
@@ -165,9 +183,9 @@
     <section title="Compliant Targets of Evaluation" id="TOEdescription">
       <h:p>
      This document specifies SFRs for a WLAN Client. The TOE defined
-     by this PP-Module is a WLAN Client, a component executing on a client machine (often referred to as
-     a "remote access client"). The TOE establishes a secure wireless tunnel between the client
-     device and a WLAN Access System through which all data will traverse.
+     by this PP-Module is a WLAN Client, a software component executing on a client machine (often referred to as
+     a "remote access client") to control the use of a wireless networking interface on that machine. The TOE establishes a secure wireless tunnel between the client
+     device and a WLAN Access System through which all data will traverse. The TOE will implement the same security functionality regardless of whether it is a component of a general-purpose operating system or of a mobile device.
       </h:p>
       <h:p>
       A WLAN Client allows remote users to use client machines to establish wireless communication
@@ -313,6 +331,8 @@
             mechanisms, resulting in a compromise of the TSF.</description>
           <consistency-rationale/>
 
+          <addressed-by>	FPT_TST_EXT.3/WLAN	</addressed-by>	<rationale>	Mitigates the threat by performing self-tests to design if a TSF failure has occurred.	</rationale>
+          
         </threat>
         
         <threat name="T.UNAUTHORIZED_ACCESS">
@@ -321,8 +341,19 @@
             unauthorized access to data or TOE resources. A malicious user, process, or external IT entity
             may misrepresent itself as the TOE to obtain identification and authentication data.</description>
           <consistency-rationale/>
-          <addressed-by/>
-          <rationale/>
+          
+          <addressed-by>	FCS_CKM.1/WPA	</addressed-by>	<rationale>	Mitigates the threat by performing secure key generation in support of protected wireless communications.	</rationale>
+          <addressed-by>	FCS_CKM.2/WLAN	</addressed-by>	<rationale>	Mitigates the threat by performing secure key distribution in support of protected wireless communications.	</rationale>
+          <addressed-by>	FCS_TLSC_EXT.1/WLAN	</addressed-by>	<rationale>	Mitigates the threat by implementing EAP-TLS for secure authentication of wireless communications.	</rationale>
+          <addressed-by>	FIA_PAE_EXT.1	</addressed-by>	<rationale>	Mitigates the threat by implementing 802.1X for secure authentication of wireless communications.	</rationale>
+          <addressed-by>	FIA_X509_EXT.1/WLAN	</addressed-by>	<rationale>	Mitigates the threat by using X.509 for secure connectivity and non-repudiation of externial IT entities.	</rationale>
+          <addressed-by>	FIA_X509_EXT.2/WLAN	</addressed-by>	<rationale>	Mitigates the threat by using X.509 for secure connectivity and non-repudiation of externial IT entities.	</rationale>
+          <addressed-by>	FIA_X509_EXT.6	</addressed-by>	<rationale>	Mitigates the threat by implementing a mechanism to establish a root of trust for X.509 certificates presented to the TOE.	</rationale>
+          <addressed-by>	FMT_SMF.1/WLAN	</addressed-by>	<rationale>	Mitigates the threat by defining the authorization that is required to access the management functions of the TOE.	</rationale>
+          <addressed-by>	FTA_WSE_EXT.1	</addressed-by>	<rationale>	Mitigates the threat by operating in a default-deny posture for wireless networks so that the TOE will not communicate with unknown entities.	</rationale>
+          <addressed-by>	FTP_ITC.1/WLAN	</addressed-by>	<rationale>	Mitigates the threat by defining the trusted communications protocols the TSF implements to communicate with external entities.	</rationale>
+          <addressed-by>	FCS_TLSC_EXT.2/WLAN (selection-based)	</addressed-by>	<rationale>	Mitigates the threat by defining secure connection parameters for EAP-TLS.	</rationale>
+          
        
         </threat>
         
@@ -332,6 +363,8 @@
             effectively mitigated.</description>
           <consistency-rationale/>
      
+          <addressed-by>	FAU_GEN.1/WLAN	</addressed-by>	<rationale>	Mitigates the threat by implementing a mechanism to detect actions performed on or by the TOE.	</rationale>
+          
         </threat>
       </threats>
      </sec:Threats>
@@ -568,9 +601,9 @@
             </h:b> to generate audit data of the following auditable events:
                  <h:ol type="a">
                 <h:li>Startup and shutdown of the audit functions;</h:li>
-                <h:li>All auditable events for [<h:i>not specified</h:i>] level of audit; and</h:li>
-                <h:li>[<h:i>all auditable events for mandatory SFRs specified in <xref g="t-audit-mandatory"/> and 
-					selected SFRs in <xref g="t-audit-sel-based"/></h:i>].</h:li>
+                <h:li>All auditable events for [<h:i>not specified</h:i>] level of audit;</h:li>
+                <h:li>[<h:i>all auditable events for mandatory SFRs specified in <xref g="t-audit-mandatory"/>, 
+                  selected SFRs in <xref g="t-audit-sel-based"/>, applicable audit events specified in <xref to="pkg-tls"/>, and applicable audit events specified in <xref to="pkg-x509"/></h:i>].</h:li>
               </h:ol>
             </title>
             <note role="application">
@@ -696,7 +729,7 @@
                   (success or failure) of the event; and</h:li>         
                 <h:li>For each audit event type, based on the auditable event definitions of the functional components 
                   included in the PP<h:b>-Module</h:b>/ST, [<h:i>Additional Audit Record Contents as specified in 
-				  <xref g="t-audit-mandatory"/> and <xref g="t-audit-sel-based"/></h:i>].</h:li>
+                    <xref g="t-audit-mandatory"/>, <xref g="t-audit-sel-based"/>, applicable audit events specified in <xref to="pkg-tls"/>, and applicable audit events specified in <xref to="pkg-x509"/></h:i>].</h:li>
               </h:ol>
             </title>
             <aactivity>
@@ -769,18 +802,23 @@
         <f-component id="fco-skeygen-wpa" cc-id="fcs_ckm.1" name="Cryptographic Key Generation (Symmetric Keys for WPA2/WPA3 Connections)" iteration="WPA">
           <consistency-rationale/>
           <f-element>
-            <title>The TSF shall generate <h:b>symmetric</h:b> cryptographic keys in accordance with a specified cryptographic key generation algorithm [<h:i><h:b>PRF-384 and
+            <title>The TSF shall generate <h:b>symmetric</h:b> cryptographic keys in accordance with a specified cryptographic key generation algorithm [<h:i>PRF-384 and
               <selectables>
                 <selectable>PRF-512</selectable>
                 <selectable>PRF-704</selectable>
                 <selectable exclusive="yes">no other algorithm</selectable>
               </selectables>
-              (as defined in IEEE 802.11-2012)</h:b></h:i>] and specified key sizes [<h:i><h:b>256 bits and 
+              (as defined in IEEE 802.11-2012)</h:i>] and specified key sizes [<h:i>256 bits</h:i>]
+              
+              <!-- 
+              [<h:i><h:b>256 bits and 
                 <selectables>
                   <selectable>128 bits</selectable>
                   <selectable>192 bits</selectable>
                   <selectable exclusive="yes">no other key sizes</selectable>
-                </selectables></h:b></h:i>] <h:b>using a Random Bit Generator as specified in FCS_RBG.1</h:b>.
+                </selectables></h:b></h:i>] 
+                -->
+                <h:b>using a Random Bit Generator as specified in FCS_RBG.1</h:b>.
             </title>
             <note role="application">
 	      <h:p>
@@ -1607,7 +1645,7 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
               TOE and performing the management activities associated with each function claimed in the SFR. 
               <h:br/><h:br/>  
               Note that this may be accomplished in conjunction with the testing of other
-              requirements, such as FCS_TLSC_EXT.1/WLAN and FTA_WSE_EXT.1.
+              requirements, such as the FCS_TLSC_EXT requirements from the <xref to="pkg-tls"/> and FTA_WSE_EXT.1.
             </Tests>
           </aactivity>
           </f-element>
@@ -1626,7 +1664,7 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
         
         
     <!-- un-iterated invisible FPT_TST_EXT.3 for the purpose of the ECD -->
-        <f-component id="fco-cryptotesting-invis" cc-id="fpt_tst_ext.3" name="TSF Cryptographic Functionality Testing (WLAN Client)" status="invisible">
+        <f-component id="fco-cryptotesting-invis" cc-id="fpt_tst_ext.3" name="TSF Cryptographic Functionality Testing" status="invisible">
           <consistency-rationale/>
           
           <comp-lev> requires the TOE or its platform to perform power on self-tests to verify its functionality and

@@ -81,6 +81,9 @@
             </li>
         </ul>
         <p>
+             A conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> will claim conformance to a <abbr class="dyn-abbr"><a href="#abbr_PP-Configuration">PP-Configuration</a></abbr> that includes exactly one of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PPs</a></abbr> identified above, this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>, and any of the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Modules or packages identified in Section 2. 
+        </p>
+        <p>
              These <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PPs</a></abbr> are valid because a <abbr class="dyn-abbr"><a href="#abbr_WLAN">WLAN</a></abbr> Client is a part of either a commercial operating system that can be installed on a general-purpose computer or an operating system that runs on a purpose-built mobile device.
         </p>
         <div class="no-link">
@@ -240,7 +243,7 @@
         </div>
         <h2 class="indexable" data-level="2" id="TOEdescription">1.3 Compliant Targets of Evaluation</h2>
         <p>
-             This document specifies <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> for a <abbr class="dyn-abbr"><a href="#abbr_WLAN">WLAN</a></abbr> Client. The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> defined by this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is a <abbr class="dyn-abbr"><a href="#abbr_WLAN">WLAN</a></abbr> Client, a component executing on a client machine (often referred to as a "remote access client"). The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> establishes a secure wireless tunnel between the client device and a <abbr class="dyn-abbr"><a href="#abbr_WLAN">WLAN</a></abbr> Access System through which all data will traverse. 
+             This document specifies <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> for a <abbr class="dyn-abbr"><a href="#abbr_WLAN">WLAN</a></abbr> Client. The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> defined by this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is a <abbr class="dyn-abbr"><a href="#abbr_WLAN">WLAN</a></abbr> Client, a software component executing on a client machine (often referred to as a "remote access client") to control the use of a wireless networking interface on that machine. The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> establishes a secure wireless tunnel between the client device and a <abbr class="dyn-abbr"><a href="#abbr_WLAN">WLAN</a></abbr> Access System through which all data will traverse. The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> will implement the same security functionality regardless of whether it is a component of a general-purpose operating system or of a mobile device. 
         </p>
         <p>
              A <abbr class="dyn-abbr"><a href="#abbr_WLAN">WLAN</a></abbr> Client allows remote users to use client machines to establish wireless communication with a private network through a <abbr class="dyn-abbr"><a href="#abbr_WLAN">WLAN</a></abbr> Access System. IP packets passing between the private network and a <abbr class="dyn-abbr"><a href="#abbr_WLAN">WLAN</a></abbr> Client are encrypted. The <abbr class="dyn-abbr"><a href="#abbr_WLAN">WLAN</a></abbr> Client protects the confidentiality and integrity of data in transit between itself and the private network, even though it traverses a wireless connection. The focus of the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is on the following fundamental aspects of a <abbr class="dyn-abbr"><a href="#abbr_WLAN">WLAN</a></abbr> Client: 
@@ -557,7 +560,7 @@
                 <td>All attempts to connect to access points.</td><td>
                     <ul>
                         <li>
-                            For each access point record the [<b>selection</b>: <span class="selectable-content" id="_s_33">Complete <abbr class="dyn-abbr"><a href="#abbr_SSID">SSID</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_MAC">MAC</a></abbr></span>, <span class="selectable-content" id="_s_34">Certificate Check Message and the last [<b>assignment</b>: <span class="assignable-content">integer greater than or equal to 2</span>] octets</span>] of the <abbr class="dyn-abbr"><a href="#abbr_MAC">MAC</a></abbr> Address
+                            For each access point record the [<b>selection</b>: <span class="selectable-content" id="_s_30">Complete <abbr class="dyn-abbr"><a href="#abbr_SSID">SSID</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_MAC">MAC</a></abbr></span>, <span class="selectable-content" id="_s_31">Certificate Check Message and the last [<b>assignment</b>: <span class="assignable-content">integer greater than or equal to 2</span>] octets</span>] of the <abbr class="dyn-abbr"><a href="#abbr_MAC">MAC</a></abbr> Address
                         </li>
                         <li>Success and failures (including reason for failure).</li>
                     </ul>
@@ -585,10 +588,10 @@
                     <ol type="a">
                         <li>Startup and shutdown of the audit functions;</li>
                         <li>
-                            All auditable events for [<i>not specified</i>] level of audit; and
+                            All auditable events for [<i>not specified</i>] level of audit;
                         </li>
                         <li>
-                            [<i>all auditable events for mandatory <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> specified in <a href="#t-audit-mandatory" class="t-audit-mandatory-ref">Table <span class="counter">t-audit-mandatory</span></a> and selected <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> in <a href="#t-audit-sel-based" class="t-audit-sel-based-ref">Table <span class="counter">t-audit-sel-based</span></a></i>].
+                            [<i>all auditable events for mandatory <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> specified in <a href="#t-audit-mandatory" class="t-audit-mandatory-ref">Table <span class="counter">t-audit-mandatory</span></a>, selected <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> in <a href="#t-audit-sel-based" class="t-audit-sel-based-ref">Table <span class="counter">t-audit-sel-based</span></a>, applicable audit events specified in <a href="https://www.niap-ccevs.org/static_html/protection-profile/439/-439-/index.html">Functional Package for Transport Layer Security (TLS), version 2.1</a>, and applicable audit events specified in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509, version 1.0</a></i>].
                         </li>
                     </ol>
                     <div class="appnote">
@@ -615,7 +618,7 @@
                     <ol type="a">
                         <li>Date and time of the event, type of event, subject identity, (if relevant) the outcome (success or failure) of the event; and</li>
                         <li>
-                            For each audit event type, based on the auditable event definitions of the functional components included in the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr><b>-Module</b>/<abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>, [<i>Additional Audit Record Contents as specified in <a href="#t-audit-mandatory" class="t-audit-mandatory-ref">Table <span class="counter">t-audit-mandatory</span></a> and <a href="#t-audit-sel-based" class="t-audit-sel-based-ref">Table <span class="counter">t-audit-sel-based</span></a></i>].
+                            For each audit event type, based on the auditable event definitions of the functional components included in the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr><b>-Module</b>/<abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>, [<i>Additional Audit Record Contents as specified in <a href="#t-audit-mandatory" class="t-audit-mandatory-ref">Table <span class="counter">t-audit-mandatory</span></a>, <a href="#t-audit-sel-based" class="t-audit-sel-based-ref">Table <span class="counter">t-audit-sel-based</span></a>, applicable audit events specified in <a href="https://www.niap-ccevs.org/static_html/protection-profile/439/-439-/index.html">Functional Package for Transport Layer Security (TLS), version 2.1</a>, and applicable audit events specified in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509, version 1.0</a></i>].
                         </li>
                     </ol>
                 </div>
@@ -629,7 +632,7 @@
                     <a href="#FCS_CKM.1.1/WPA" class="abbr">FCS_CKM.1.1/WPA</a>
                 </div>
                 <div class="reqdesc">
-                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate <b>symmetric</b> cryptographic keys in accordance with a specified cryptographic key generation algorithm [<i><b><abbr class="dyn-abbr"><a href="#abbr_PRF">PRF</a></abbr>-384 and [<b>selection</b>: <span class="selectable-content" id="_s_5"><abbr class="dyn-abbr"><a href="#abbr_PRF">PRF</a></abbr>-512</span>, <span class="selectable-content" id="_s_6"><abbr class="dyn-abbr"><a href="#abbr_PRF">PRF</a></abbr>-704</span>, <span class="selectable-content" id="_s_7">no other algorithm</span>] (as defined in <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.11-2012)</b></i>] and specified key sizes [<i><b>256 bits and [<b>selection</b>: <span class="selectable-content" id="_s_8">128 bits</span>, <span class="selectable-content" id="_s_9">192 bits</span>, <span class="selectable-content" id="_s_10">no other key sizes</span>]</b></i>] <b>using a Random Bit Generator as specified in FCS_RBG.1</b>. 
+                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate <b>symmetric</b> cryptographic keys in accordance with a specified cryptographic key generation algorithm [<i><abbr class="dyn-abbr"><a href="#abbr_PRF">PRF</a></abbr>-384 and [<b>selection</b>: <span class="selectable-content" id="_s_5"><abbr class="dyn-abbr"><a href="#abbr_PRF">PRF</a></abbr>-512</span>, <span class="selectable-content" id="_s_6"><abbr class="dyn-abbr"><a href="#abbr_PRF">PRF</a></abbr>-704</span>, <span class="selectable-content" id="_s_7">no other algorithm</span>] (as defined in <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.11-2012)</i>] and specified key sizes [<i>256 bits</i>] <b>using a Random Bit Generator as specified in FCS_RBG.1</b>. 
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note">
                             <p>
@@ -678,7 +681,7 @@
                     <a href="#FCS_WPA_EXT.1.1" class="abbr">FCS_WPA_EXT.1.1</a>
                 </div>
                 <div class="reqdesc">
-                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support WPA3 and [<b>selection</b>: <span class="selectable-content" id="wpa2">WPA2</span>, <span class="selectable-content" id="_s_12">no other</span>] security type. 
+                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support WPA3 and [<b>selection</b>: <span class="selectable-content" id="wpa2">WPA2</span>, <span class="selectable-content" id="_s_9">no other</span>] security type. 
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note"> The <abbr class="dyn-abbr"><a href="#abbr_WLAN">WLAN</a></abbr> client can support connecting to networks of other security types (e.g., open); however, those will not be tested as part of this evaluation and FMT_SMF.1 will ensure that WPA3 and, if selected, WPA2 can be configured. </span>
                     </div>
@@ -742,7 +745,7 @@
                     <a href="#FIA_X509_EXT.6.1" class="abbr">FIA_X509_EXT.6.1</a>
                 </div>
                 <div class="reqdesc">
-                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_13">store and protect</span>, <span class="selectable-content" id="_s_14">invoke [<b>assignment</b>: <span class="assignable-content">platform storage mechanism</span>] to store and protect</span>] certificate(s) from unauthorized deletion and modification. 
+                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_10">store and protect</span>, <span class="selectable-content" id="_s_11">invoke [<b>assignment</b>: <span class="assignable-content">platform storage mechanism</span>] to store and protect</span>] certificate(s) from unauthorized deletion and modification. 
                 </div>
             </div>
             <div class="element">
@@ -750,7 +753,7 @@
                     <a href="#FIA_X509_EXT.6.2" class="abbr">FIA_X509_EXT.6.2</a>
                 </div>
                 <div class="reqdesc">
-                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_15">provide the capability for authorized administrators to load X.509v3 certificates into the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr></span>, <span class="selectable-content" id="_s_16">rely on [<b>assignment</b>: <span class="assignable-content">platform mechanism</span>] to load X.509v3 certificates into [<b>assignment</b>: <span class="assignable-content">platform storage mechanism</span>]</span>] for use by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>. 
+                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_12">provide the capability for authorized administrators to load X.509v3 certificates into the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr></span>, <span class="selectable-content" id="_s_13">rely on [<b>assignment</b>: <span class="assignable-content">platform mechanism</span>] to load X.509v3 certificates into [<b>assignment</b>: <span class="assignable-content">platform storage mechanism</span>]</span>] for use by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>. 
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note"> This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> assumes that any platform mechanism used for X.509 certificate loading is capable of enforcing access control to prevent unauthorized subjects from manipulating the contents of the certificate storage. </span>
                     </div>
@@ -785,7 +788,7 @@
                             <td>WL-1</td><td style="text-align:left">configure security policy for each wireless network: 
                                 <ul>
                                     <li>
-                                        [<b>selection</b>: <span class="selectable-content" id="_s_17">specify the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>(s) from which the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> will accept <abbr class="dyn-abbr"><a href="#abbr_WLAN">WLAN</a></abbr> authentication server certificate(s)</span>, <span class="selectable-content" id="_s_18">specify the Fully Qualified Domain Names (FQDNs) of acceptable <abbr class="dyn-abbr"><a href="#abbr_WLAN">WLAN</a></abbr> authentication server certificate(s)</span>],
+                                        [<b>selection</b>: <span class="selectable-content" id="_s_14">specify the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>(s) from which the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> will accept <abbr class="dyn-abbr"><a href="#abbr_WLAN">WLAN</a></abbr> authentication server certificate(s)</span>, <span class="selectable-content" id="_s_15">specify the Fully Qualified Domain Names (FQDNs) of acceptable <abbr class="dyn-abbr"><a href="#abbr_WLAN">WLAN</a></abbr> authentication server certificate(s)</span>],
                                     </li>
                                     <li>security type,</li>
                                     <li>authentication protocol,</li>
@@ -821,7 +824,7 @@
                             </td>
                         </tr>
                         <tr id="_mf_3">
-                            <td>WL-3</td><td style="text-align:left"> enable/disable disable wireless network bridging capability (for example, bridging a connection between the <abbr class="dyn-abbr"><a href="#abbr_WLAN">WLAN</a></abbr> and cellular radios to function as a hotspot) authenticated by [<b>selection</b>: <span class="selectable-content" id="_s_19">pre-shared key</span>, <span class="selectable-content" id="_s_20">passcode</span>, <span class="selectable-content" id="_s_21">no authentication</span>] </td><td>
+                            <td>WL-3</td><td style="text-align:left"> enable/disable disable wireless network bridging capability (for example, bridging a connection between the <abbr class="dyn-abbr"><a href="#abbr_WLAN">WLAN</a></abbr> and cellular radios to function as a hotspot) authenticated by [<b>selection</b>: <span class="selectable-content" id="_s_16">pre-shared key</span>, <span class="selectable-content" id="_s_17">passcode</span>, <span class="selectable-content" id="_s_18">no authentication</span>] </td><td>
                                 <div class="tooltipped">
                                     M<span class="tooltiptext">Mandatory</span>
                                 </div>
@@ -951,7 +954,7 @@
                             </td>
                         </tr>
                         <tr id="_mf_11">
-                            <td>WL-11</td><td style="text-align:left">set wireless frequency band to [<b>selection</b>: <span class="selectable-content" id="_s_22">2.4 GHz</span>, <span class="selectable-content" id="_s_23">5 GHz</span>, <span class="selectable-content" id="_s_24">6 GHz</span>] </td><td>
+                            <td>WL-11</td><td style="text-align:left">set wireless frequency band to [<b>selection</b>: <span class="selectable-content" id="_s_19">2.4 GHz</span>, <span class="selectable-content" id="_s_20">5 GHz</span>, <span class="selectable-content" id="_s_21">6 GHz</span>] </td><td>
                                 <div class="tooltipped">
                                     O<span class="tooltiptext">Optional/Conditional</span>
                                 </div>
@@ -985,7 +988,7 @@
                     <a href="#FPT_TST_EXT.3.1/WLAN" class="abbr">FPT_TST_EXT.3.1/WLAN</a>
                 </div>
                 <div class="reqdesc">
-                    The [<b>selection</b>: <span class="selectable-content" id="_s_29"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr></span>, <span class="selectable-content" id="_s_30"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform</span>] shall run a suite of self-tests during initial start-up (on power on) to demonstrate the correct operation of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>. 
+                    The [<b>selection</b>: <span class="selectable-content" id="_s_26"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr></span>, <span class="selectable-content" id="_s_27"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform</span>] shall run a suite of self-tests during initial start-up (on power on) to demonstrate the correct operation of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>. 
                 </div>
             </div>
             <div class="element">
@@ -993,7 +996,7 @@
                     <a href="#FPT_TST_EXT.3.2/WLAN" class="abbr">FPT_TST_EXT.3.2/WLAN</a>
                 </div>
                 <div class="reqdesc">
-                    The [<b>selection</b>: <span class="selectable-content" id="_s_31"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr></span>, <span class="selectable-content" id="_s_32"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform</span>] shall provide the capability to verify the integrity of stored <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> executable code when it is loaded for execution through the use of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>-provided cryptographic services. 
+                    The [<b>selection</b>: <span class="selectable-content" id="_s_28"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr></span>, <span class="selectable-content" id="_s_29"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform</span>] shall provide the capability to verify the integrity of stored <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> executable code when it is loaded for execution through the use of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>-provided cryptographic services. 
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note"> While the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is defined as a software package running on a platform defined by the claimed <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>, it is still capable of performing the self-test activities required above. However, if the cryptographic algorithm implementation is provided by the underlying platform, it may be the case where the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> self-testing is a check to verify that the underlying platform has successfully completed its own self-tests prior to the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> attempting to use the implementation. It should be understood that there is a significant dependency on the host platform in assessing the assurance provided by these self-tests since a compromise of the underlying platform could potentially result in the self-tests functioning incorrectly. </span>
                     </div>
@@ -1065,9 +1068,49 @@
                     <th>Threat</th><th>Addressed by</th><th>Rationale</th>
                 </tr>
                 <tr class="major-row">
-                    <td rowspan="1"><a href="#T.UNAUTHORIZED_ACCESS">T.UNAUTHORIZED_​ACCESS</a>
+                    <td rowspan="1"><a href="#T.TSF_FAILURE">T.TSF_​FAILURE</a>
                         <br>
-                    </td><td></td><td></td>
+                    </td><td> <a href="#FPT_TST_EXT.3/WLAN">FPT_TST_EXT.3/WLAN</a> </td><td> Mitigates the threat by performing self-tests to design if a <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> failure has occurred. </td>
+                </tr>
+                <tr class="major-row">
+                    <td rowspan="11"><a href="#T.UNAUTHORIZED_ACCESS">T.UNAUTHORIZED_​ACCESS</a>
+                        <br>
+                    </td><td> <a href="#FCS_CKM.1/WPA">FCS_CKM.1/WPA</a> </td><td> Mitigates the threat by performing secure key generation in support of protected wireless communications. </td>
+                </tr>
+                <tr>
+                    <td> <a href="#FCS_CKM.2/WLAN">FCS_CKM.2/WLAN</a> </td><td> Mitigates the threat by performing secure key distribution in support of protected wireless communications. </td>
+                </tr>
+                <tr>
+                    <td> <a href="#FCS_TLSC_EXT.1/WLAN">FCS_TLSC_EXT.1/WLAN</a> </td><td> Mitigates the threat by implementing <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS for secure authentication of wireless communications. </td>
+                </tr>
+                <tr>
+                    <td> <a href="#FIA_PAE_EXT.1">FIA_PAE_EXT.1</a> </td><td> Mitigates the threat by implementing 802.1X for secure authentication of wireless communications. </td>
+                </tr>
+                <tr>
+                    <td> <a href="#FIA_X509_EXT.1/WLAN">FIA_X509_EXT.1/WLAN</a> </td><td> Mitigates the threat by using X.509 for secure connectivity and non-repudiation of externial <abbr class="dyn-abbr"><a href="#abbr_IT">IT</a></abbr> entities. </td>
+                </tr>
+                <tr>
+                    <td> <a href="#FIA_X509_EXT.2/WLAN">FIA_X509_EXT.2/WLAN</a> </td><td> Mitigates the threat by using X.509 for secure connectivity and non-repudiation of externial <abbr class="dyn-abbr"><a href="#abbr_IT">IT</a></abbr> entities. </td>
+                </tr>
+                <tr>
+                    <td> <a href="#FIA_X509_EXT.6">FIA_X509_EXT.6</a> </td><td> Mitigates the threat by implementing a mechanism to establish a root of trust for X.509 certificates presented to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. </td>
+                </tr>
+                <tr>
+                    <td> <a href="#FMT_SMF.1/WLAN">FMT_SMF.1/WLAN</a> </td><td> Mitigates the threat by defining the authorization that is required to access the management functions of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. </td>
+                </tr>
+                <tr>
+                    <td> <a href="#FTA_WSE_EXT.1">FTA_WSE_EXT.1</a> </td><td> Mitigates the threat by operating in a default-deny posture for wireless networks so that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> will not communicate with unknown entities. </td>
+                </tr>
+                <tr>
+                    <td> <a href="#FTP_ITC.1/WLAN">FTP_ITC.1/WLAN</a> </td><td> Mitigates the threat by defining the trusted communications protocols the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> implements to communicate with external entities. </td>
+                </tr>
+                <tr>
+                    <td> <a href="#FCS_TLSC_EXT.2/WLAN">FCS_TLSC_EXT.2/WLAN</a> (selection-based) </td><td> Mitigates the threat by defining secure connection parameters for <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS. </td>
+                </tr>
+                <tr class="major-row">
+                    <td rowspan="1"><a href="#T.UNDETECTED_ACTIONS">T.UNDETECTED_​ACTIONS</a>
+                        <br>
+                    </td><td> <a href="#FAU_GEN.1/WLAN">FAU_GEN.1/WLAN</a> </td><td> Mitigates the threat by implementing a mechanism to detect actions performed on or by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. </td>
                 </tr>
             </table>
         </p>
@@ -1451,7 +1494,7 @@
                             </tr>
                         </table>
                         <h4 id="ext-comp-FCS_WPA_EXT.1.1">FCS_WPA_EXT.1.1</h4>
-                        The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support WPA3 and [<b>selection</b>: <span class="selectable-content" id="wpa2">WPA2</span>, <span class="selectable-content" id="_s_12">no other</span>] security type. 
+                        The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support WPA3 and [<b>selection</b>: <span class="selectable-content" id="wpa2">WPA2</span>, <span class="selectable-content" id="_s_9">no other</span>] security type. 
                     </div>
                 </div>
             </span><span data-sortkey="Identification and Authentication (FIA)">
@@ -1552,9 +1595,9 @@
                             </tr>
                         </table>
                         <h4 id="ext-comp-FIA_X509_EXT.6.1">FIA_X509_EXT.6.1</h4>
-                        The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_13">store and protect</span>, <span class="selectable-content" id="_s_14">invoke [<b>assignment</b>: <span class="assignable-content">platform storage mechanism</span>] to store and protect</span>] certificate(s) from unauthorized deletion and modification. 
+                        The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_10">store and protect</span>, <span class="selectable-content" id="_s_11">invoke [<b>assignment</b>: <span class="assignable-content">platform storage mechanism</span>] to store and protect</span>] certificate(s) from unauthorized deletion and modification. 
                         <h4 id="ext-comp-FIA_X509_EXT.6.2">FIA_X509_EXT.6.2</h4>
-                        The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_15">provide the capability for authorized administrators to load X.509v3 certificates into the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr></span>, <span class="selectable-content" id="_s_16">rely on [<b>assignment</b>: <span class="assignable-content">platform mechanism</span>] to load X.509v3 certificates into [<b>assignment</b>: <span class="assignable-content">platform storage mechanism</span>]</span>] for use by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>. 
+                        The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_12">provide the capability for authorized administrators to load X.509v3 certificates into the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr></span>, <span class="selectable-content" id="_s_13">rely on [<b>assignment</b>: <span class="assignable-content">platform mechanism</span>] to load X.509v3 certificates into [<b>assignment</b>: <span class="assignable-content">platform storage mechanism</span>]</span>] for use by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>. 
                     </div>
                 </div>
             </span><span data-sortkey="Protection of the TSF (FPT)">
@@ -1575,7 +1618,7 @@
                         <line x1="152" y1="17" x2="231" y2="17" stroke="black"></line>
                     </svg>
                     <p>
-                        FPT_TST_EXT.3, <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> Cryptographic Functionality Testing (<abbr class="dyn-abbr"><a href="#abbr_WLAN">WLAN</a></abbr> Client), requires the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> or its platform to perform power on self-tests to verify its functionality and the integrity of its stored executable code.
+                        FPT_TST_EXT.3, <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> Cryptographic Functionality Testing, requires the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> or its platform to perform power on self-tests to verify its functionality and the integrity of its stored executable code.
                     </p>
                     <h4>Management: FPT_TST_EXT.3</h4>
                     <p> No management functions are foreseen. </p>
@@ -1589,7 +1632,7 @@
                             <li>Basic: Detected integrity violation.</li>
                         </ul>
                     </p>
-                    <h4>FPT_TST_EXT.3 TSF Cryptographic Functionality Testing (WLAN Client)</h4>
+                    <h4>FPT_TST_EXT.3 TSF Cryptographic Functionality Testing</h4>
                     <div style="margin-left: 1em;">
                         <table class="ecd_heir_dep" style="width: 100%">
                             <tr>
@@ -1600,9 +1643,9 @@
                             </tr>
                         </table>
                         <h4 id="ext-comp-FPT_TST_EXT.3.1">FPT_TST_EXT.3.1</h4>
-                        The [<b>selection</b>: <span class="selectable-content" id="_s_25"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr></span>, <span class="selectable-content" id="_s_26"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform</span>] shall run a suite of self-tests during initial start-up (on power on) to demonstrate the correct operation of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>. 
+                        The [<b>selection</b>: <span class="selectable-content" id="_s_22"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr></span>, <span class="selectable-content" id="_s_23"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform</span>] shall run a suite of self-tests during initial start-up (on power on) to demonstrate the correct operation of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>. 
                         <h4 id="ext-comp-FPT_TST_EXT.3.2">FPT_TST_EXT.3.2</h4>
-                        The [<b>selection</b>: <span class="selectable-content" id="_s_27"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr></span>, <span class="selectable-content" id="_s_28"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform</span>] shall provide the capability to verify the integrity of stored <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> executable code when it is loaded for execution through the use of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>-provided cryptographic services. 
+                        The [<b>selection</b>: <span class="selectable-content" id="_s_24"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr></span>, <span class="selectable-content" id="_s_25"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform</span>] shall provide the capability to verify the integrity of stored <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> executable code when it is loaded for execution through the use of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>-provided cryptographic services. 
                     </div>
                 </div>
             </span><span data-sortkey="TOE Access (FTA)">
