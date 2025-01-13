@@ -346,8 +346,8 @@
           <addressed-by>	FCS_CKM.2/WLAN	</addressed-by>	<rationale>	Mitigates the threat by performing secure key distribution in support of protected wireless communications.	</rationale>
           <addressed-by>	FCS_TLSC_EXT.1/WLAN	</addressed-by>	<rationale>	Mitigates the threat by implementing EAP-TLS for secure authentication of wireless communications.	</rationale>
           <addressed-by>	FIA_PAE_EXT.1	</addressed-by>	<rationale>	Mitigates the threat by implementing 802.1X for secure authentication of wireless communications.	</rationale>
-          <addressed-by>	FIA_X509_EXT.1/WLAN	</addressed-by>	<rationale>	Mitigates the threat by using X.509 for secure connectivity and non-repudiation of externial IT entities.	</rationale>
-          <addressed-by>	FIA_X509_EXT.2/WLAN	</addressed-by>	<rationale>	Mitigates the threat by using X.509 for secure connectivity and non-repudiation of externial IT entities.	</rationale>
+          <addressed-by>	FIA_X509_EXT.1/WLAN	</addressed-by>	<rationale>	Mitigates the threat by using X.509 for secure connectivity and non-repudiation of external IT entities.	</rationale>
+          <addressed-by>	FIA_X509_EXT.2/WLAN	</addressed-by>	<rationale>	Mitigates the threat by using X.509 for secure connectivity and non-repudiation of external IT entities.	</rationale>
           <addressed-by>	FIA_X509_EXT.6	</addressed-by>	<rationale>	Mitigates the threat by implementing a mechanism to establish a root of trust for X.509 certificates presented to the TOE.	</rationale>
           <addressed-by>	FMT_SMF.1/WLAN	</addressed-by>	<rationale>	Mitigates the threat by defining the authorization that is required to access the management functions of the TOE.	</rationale>
           <addressed-by>	FTA_WSE_EXT.1	</addressed-by>	<rationale>	Mitigates the threat by operating in a default-deny posture for wireless networks so that the TOE will not communicate with unknown entities.	</rationale>
