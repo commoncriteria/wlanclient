@@ -52,8 +52,8 @@
       
       The scope of the Wireless Local Area Network (WLAN) Client PP-Module is to describe the security functionality of a WLAN Client in terms of [CC] 
       and to define functional and assurance requirements for such products. This PP-Module is intended for use with the following Base-PPs: <h:ul>
-        <h:li>General Purpose Operating System (GPOS) Protection Profile, Version 4.2.1</h:li>
-        <h:li>Mobile Device Fundamentals (MDF) Protection Profile, Version 3.2</h:li>
+        <h:li>General Purpose Operating System (GPOS) Protection Profile, Version 4.3</h:li>
+        <h:li>Mobile Device Fundamentals (MDF) Protection Profile, Version 3.3</h:li>
       </h:ul>
       <h:p>
         A conformant TOE will claim conformance to a PP-Configuration that includes exactly one of the Base-PPs identified above, this PP-Module, and any of the PP-Modules or packages identified in Section 2.
