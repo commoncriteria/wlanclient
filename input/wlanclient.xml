@@ -1425,7 +1425,7 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
           <consistency-rationale/>
           <f-element>
             <title>
-              <comment>This SFR is just for defining the TOE's use of X.509 certificates for EAP-TLS. This can be covered by FIA_X509_EXT.2 from the X.509 FP but there is currently no way to instruct the ST author that this claim must be made there (whether as its own separate iteration as it is here or part of a single un-terated FIA_X509_EXT.2 that also covers any other uses the TOE has for X.509).</comment>
+              <comment>This SFR is just for defining the TOE's use of X.509 certificates for EAP-TLS. This can be covered by FIA_X509_EXT.2 from the X.509 FP but there is currently no way to instruct the ST author that this claim must be made there (whether as its own separate iteration as it is here or part of a single un-iterated FIA_X509_EXT.2 that also covers any other uses the TOE has for X.509).</comment>
             </title>
           </f-element>
           <audit-event/>
