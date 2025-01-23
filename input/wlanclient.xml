@@ -611,7 +611,7 @@
                  <h:ol type="a">
                 <h:li>Startup and shutdown of the audit functions;</h:li>
                 <h:li>All auditable events for [<h:i>not specified</h:i>] level of audit;</h:li>
-                <h:li>[<h:i>all auditable events for mandatory SFRs specified in <xref g="t-audit-mandatory"/>, 
+                <h:li>[<h:i>all auditable events for mandatory SFRs specified in <xref to="a-mandatory-events"/>, 
                   selected SFRs in <xref g="t-audit-sel-based"/>, applicable audit events specified in <xref to="pkg-tls"/>, and applicable audit events specified in <xref to="pkg-x509"/></h:i>].</h:li>
               </h:ol>
             </title>
