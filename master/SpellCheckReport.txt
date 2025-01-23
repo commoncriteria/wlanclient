@@ -1,12 +1,10 @@
 output/wlanclient-release-linkable.html: Enrolment
 output/wlanclient-release-linkable.html: TDs
 output/wlanclient-release-linkable.html: natively
-output/wlanclient-release-linkable.html: terated
 output/wlanclient-release-linkable.html: un
 output/wlanclient-release.html: Enrolment
 output/wlanclient-release.html: TDs
 output/wlanclient-release.html: natively
-output/wlanclient-release.html: terated
 output/wlanclient-release.html: un
 output/wlanclient-sd.html: TDs
 output/wlanclient-sd.html: evaluator’s
@@ -15,5 +13,4 @@ output/wlanclient-sd.html: pass’
 output/wlanclient.html: Enrolment
 output/wlanclient.html: TDs
 output/wlanclient.html: natively
-output/wlanclient.html: terated
 output/wlanclient.html: un
