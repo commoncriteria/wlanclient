@@ -23,17 +23,5 @@
         on7/Module[1]""/sec:Security_Requirements[1]""/sel-sfrs[1]""/sec:fel_fcs[1]""/f-component[1]""/depends[1]""/on7[1]""
 * Error: Detected dangling id-reference to ecdhe_RSA_WITH_AES_256_GCM_SHA384 from attribute
         on8/Module[1]""/sec:Security_Requirements[1]""/sel-sfrs[1]""/sec:fel_fcs[1]""/f-component[1]""/depends[1]""/on8[1]""
-* Error: Detected dangling ref to 'fco-wpa-version'
-        for a ref.
-	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[12]"This SFR "/ref[1]""
-* Error: Detected dangling ref to 'f-manage-functions'
-        for a ref.
-	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[17]"This SFR "/ref[1]""
-* Error: Detected dangling ref to 'fco-wpa-version'
-        for a ref.
-	/Module[1]""/sec:Security_Requirements[1]""/base-pp[2]""/con-mod[12]"This SFR "/ref[1]""
-* Error: Detected dangling ref to 'f-manage-functions'
-        for a ref.
-	/Module[1]""/sec:Security_Requirements[1]""/base-pp[2]""/con-mod[17]"This SFR "/ref[1]""
 * Warning: Since FCS_WPA_EXT.1.1 has an 'id' attribute in a descendant node in the title, you probably need to define an alternative 'ext-comp-def-title'.
                        

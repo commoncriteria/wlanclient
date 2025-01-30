@@ -529,15 +529,6 @@
             <tr data-sortkey="FMT_SMF.1/WLAN.1">
                 <td>No events specified</td><td>N/A</td>
             </tr>
-            <tr data-sortkey="FPT_TST_EXT.3">
-                <td rowspan="2">FPT_TST_EXT.3</td><td style="display:none"></td>
-            </tr>
-            <tr style="display:none;" data-sortkey="FPT_TST_EXT.3#">
-                <td></td>
-            </tr>
-            <tr data-sortkey="FPT_TST_EXT.3.1">
-                <td>No events specified</td><td>N/A</td>
-            </tr>
             <tr data-sortkey="FPT_TST_EXT.3/WLAN">
                 <td rowspan="3"><a href="#FPT_TST_EXT.3/WLAN">FPT_TST_EXT.3/WLAN</a></td><td style="display:none"></td>
             </tr>
@@ -616,9 +607,9 @@
                 <div class="reqdesc">
                     The <b>[<b>selection</b>: <span class="selectable-content" id="_s_3"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>, <span class="selectable-content" id="_s_4"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform</span>]</b> shall record within the audit data at least the following information: 
                     <ol type="a">
-                        <li>Date and time of the event, type of event, subject identity, (if relevant) the outcome (success or failure) of the event; and</li>
+                        <li>Date and time of the event, type of event, subject identity, (if applicable), and the outcome (success or failure) of the event;</li>
                         <li>
-                            For each audit event type, based on the auditable event definitions of the functional components included in the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr><b>-Module</b>/<abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>, [<i>Additional Audit Record Contents as specified in <a href="#a-mandatory-events" class="a-mandatory-events-ref">Table <span class="counter">2</span></a>, <a href="#a-sel-based-events" class="a-sel-based-events-ref">Table <span class="counter">11</span></a>, applicable audit events specified in <a href="https://www.niap-ccevs.org/static_html/protection-profile/439/-439-/index.html">Functional Package for Transport Layer Security (TLS), version 2.1</a>, and applicable audit events specified in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509, version 1.0</a></i>].
+                            For each audit event type, based on the auditable event definitions of the functional components included in the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>, functional package or <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>, [<i>Additional Audit Record Contents as specified in <a href="#a-mandatory-events" class="a-mandatory-events-ref">Table <span class="counter">2</span></a>, <a href="#a-sel-based-events" class="a-sel-based-events-ref">Table <span class="counter">11</span></a>, applicable audit events specified in <a href="https://www.niap-ccevs.org/static_html/protection-profile/439/-439-/index.html">Functional Package for Transport Layer Security (TLS), version 2.1</a>, and applicable audit events specified in <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509, version 1.0</a></i>].
                         </li>
                     </ol>
                 </div>
@@ -632,7 +623,7 @@
                     <a href="#FCS_CKM.1.1/WPA" class="abbr">FCS_CKM.1.1/WPA</a>
                 </div>
                 <div class="reqdesc">
-                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate <b>symmetric</b> cryptographic keys in accordance with a specified cryptographic key generation algorithm [<i><abbr class="dyn-abbr"><a href="#abbr_PRF">PRF</a></abbr>-384 and [<b>selection</b>: <span class="selectable-content" id="_s_5"><abbr class="dyn-abbr"><a href="#abbr_PRF">PRF</a></abbr>-512</span>, <span class="selectable-content" id="_s_6"><abbr class="dyn-abbr"><a href="#abbr_PRF">PRF</a></abbr>-704</span>, <span class="selectable-content" id="_s_7">no other algorithm</span>] (as defined in <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.11-2012)</i>] and specified key sizes [<i>256 bits</i>] <b>using a Random Bit Generator as specified in FCS_RBG.1</b>. 
+                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate <b>symmetric</b> cryptographic keys in accordance with a specified cryptographic key generation algorithm [<i><abbr class="dyn-abbr"><a href="#abbr_PRF">PRF</a></abbr>-384 and [<b>selection</b>: <span class="selectable-content" id="_s_5"><abbr class="dyn-abbr"><a href="#abbr_PRF">PRF</a></abbr>-512</span>, <span class="selectable-content" id="_s_6"><abbr class="dyn-abbr"><a href="#abbr_PRF">PRF</a></abbr>-704</span>, <span class="selectable-content" id="_s_7">no other algorithm</span>] (as defined in <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.11-2012)</i>] and specified cryptographic key sizes [<i>256 bits</i>] <b>using a Random Bit Generator as specified in FCS_RBG.1</b>. 
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note">
                             <p>
@@ -720,7 +711,7 @@
                     <a href="#FIA_X509_EXT.1.1/WLAN" class="abbr">FIA_X509_EXT.1.1/WLAN</a>
                 </div>
                 <div class="reqdesc">
-                     <span style="" class="comment " id="Comment-2-">This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines X.509 validation behavior specific for this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. The expectation is that this can now be inherited from the X.590 <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> rather than be defined here. However, we do not currently have a mechanism to tell <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> authors what to do here. Specifically, we don't want to reproduce the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> elements from the <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> with whatever modifications are needed for the package because that causes the same problem that the <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> was created to solve (having multiple sets of the same <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> that then get out of sync as documents don't all get updated at the same time). But at the same time, we need a way to communicate to the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author how they should identify the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> iteration (i.e. we would want it called "<a href="#FIA_X509_EXT.1/WLAN">FIA_X509_EXT.1/WLAN</a>" consistently in any <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> that claims this module) as well as guidance on any required or forbidden selections in the context of the desired behavior (e.g. prohibiting certain revocation methods from being used). 
+                     <span style="" class="comment " id="Comment-2-">This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines X.509 validation behavior specific for this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. The expectation is that this can now be inherited from the X.509 <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> rather than be defined here. However, we do not currently have a mechanism to tell <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> authors what to do here. Specifically, we don't want to reproduce the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> elements from the <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> with whatever modifications are needed for the package because that causes the same problem that the <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> was created to solve (having multiple sets of the same <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> that then get out of sync as documents don't all get updated at the same time). But at the same time, we need a way to communicate to the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author how they should identify the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> iteration (i.e. we would want it called "<a href="#FIA_X509_EXT.1/WLAN">FIA_X509_EXT.1/WLAN</a>" consistently in any <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> that claims this module) as well as guidance on any required or forbidden selections in the context of the desired behavior (e.g. prohibiting certain revocation methods from being used). 
                         <br>
                         <br>
                          This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is only a subset of what the X.509 <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> requires for certificate validation so it's unclear whether there are functions in the X.509 <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> that cannot be satisfied by the X.509 functionality that is needed specifically for <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS. (i.e. is the definition of this function intentionally complete or will the <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> version of it be usable?) </span> 
@@ -954,7 +945,7 @@
                             </td>
                         </tr>
                         <tr id="_mf_11">
-                            <td>WL-11</td><td style="text-align:left">set wireless frequency band to [<b>selection</b>: <span class="selectable-content" id="_s_19">2.4 GHz</span>, <span class="selectable-content" id="_s_20">5 GHz</span>, <span class="selectable-content" id="_s_21">6 GHz</span>] </td><td>
+                            <td>WL-11</td><td style="text-align:left">configure security policy for each wireless network: set wireless frequency band to [<b>selection</b>: <span class="selectable-content" id="_s_19">2.4 GHz</span>, <span class="selectable-content" id="_s_20">5 GHz</span>, <span class="selectable-content" id="_s_21">6 GHz</span>] </td><td>
                                 <div class="tooltipped">
                                     O<span class="tooltiptext">Optional/Conditional</span>
                                 </div>
@@ -1073,7 +1064,7 @@
                     </td><td> <a href="#FPT_TST_EXT.3/WLAN">FPT_TST_EXT.3/WLAN</a> </td><td> Mitigates the threat by performing self-tests to design if a <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> failure has occurred. </td>
                 </tr>
                 <tr class="major-row">
-                    <td rowspan="11"><a href="#T.UNAUTHORIZED_ACCESS">T.UNAUTHORIZED_​ACCESS</a>
+                    <td rowspan="12"><a href="#T.UNAUTHORIZED_ACCESS">T.UNAUTHORIZED_​ACCESS</a>
                         <br>
                     </td><td> <a href="#FCS_CKM.1/WPA">FCS_CKM.1/WPA</a> </td><td> Mitigates the threat by performing secure key generation in support of protected wireless communications. </td>
                 </tr>
@@ -1082,6 +1073,9 @@
                 </tr>
                 <tr>
                     <td> <a href="#FCS_TLSC_EXT.1/WLAN">FCS_TLSC_EXT.1/WLAN</a> </td><td> Mitigates the threat by implementing <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS for secure authentication of wireless communications. </td>
+                </tr>
+                <tr>
+                    <td> <a href="#FCS_WPA_EXT.1">FCS_WPA_EXT.1</a> </td><td> Mitigates the threat by requiring the use of <abbr class="dyn-abbr"><a href="#abbr_WPA">WPA</a></abbr> for security.</td>
                 </tr>
                 <tr>
                     <td> <a href="#FIA_PAE_EXT.1">FIA_PAE_EXT.1</a> </td><td> Mitigates the threat by implementing 802.1X for secure authentication of wireless communications. </td>
@@ -1196,7 +1190,7 @@
                 <td><a href="#FCS_TLSC_EXT.1/WLAN">FCS_TLSC_EXT.1/WLAN</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> requires the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to implement <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS; this protocol relies on the same cryptographic functionality that the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> uses to implement <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>.</td>
             </tr>
             <tr>
-                <td><a href="#FCS_WPA_EXT.1">FCS_WPA_EXT.1</a></td><td></td>
+                <td><a href="#FCS_WPA_EXT.1">FCS_WPA_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> requires the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to specify the <abbr class="dyn-abbr"><a href="#abbr_WPA">WPA</a></abbr> versions it supports; this is functionality that is specific to the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> and does not affect any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> functionality.</td>
             </tr>
             <tr>
                 <td><a href="#FIA_PAE_EXT.1">FIA_PAE_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines the ability of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to implement <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X. This behavior relates entirely to the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> and does not affect the ability of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> to implement its security functionality.</td>
@@ -1211,7 +1205,7 @@
                 <td><a href="#FIA_X509_EXT.6">FIA_X509_EXT.6</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines behavior for implementing certificate storage. The <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> allows for the possibility that existing platform storage can be used, so it does not conflict with the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> if that portion of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> already implements its own storage mechanism.</td>
             </tr>
             <tr>
-                <td><a href="#FMT_SMF.1/WLAN">FMT_SMF.1/WLAN</a></td><td></td>
+                <td><a href="#FMT_SMF.1/WLAN">FMT_SMF.1/WLAN</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines the management activities that are specific to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. This behavior relates entirely to the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> and does not affect the ability of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> to implement its security functionality.</td>
             </tr>
             <tr>
                 <td><a href="#FPT_TST_EXT.3/WLAN">FPT_TST_EXT.3/WLAN</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines self-test behavior for the <abbr class="dyn-abbr"><a href="#abbr_WLAN">WLAN</a></abbr> Client. This behavior relates entirely to the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> and does not affect the ability of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> to implement its security functionality.</td>
@@ -1328,7 +1322,7 @@
                 <td><a href="#FCS_TLSC_EXT.1/WLAN">FCS_TLSC_EXT.1/WLAN</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> requires the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to implement <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS; this protocol relies on the same cryptographic functionality that the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> uses to implement <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>.</td>
             </tr>
             <tr>
-                <td><a href="#FCS_WPA_EXT.1">FCS_WPA_EXT.1</a></td><td></td>
+                <td><a href="#FCS_WPA_EXT.1">FCS_WPA_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> requires the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to specify the <abbr class="dyn-abbr"><a href="#abbr_WPA">WPA</a></abbr> versions it supports; this is functionality that is specific to the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> and does not affect any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> functionality.</td>
             </tr>
             <tr>
                 <td><a href="#FIA_PAE_EXT.1">FIA_PAE_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines the ability of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to implement <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X. This behavior relates entirely to the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> and does not affect the ability of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> to implement its security functionality.</td>
@@ -1343,7 +1337,7 @@
                 <td><a href="#FIA_X509_EXT.6">FIA_X509_EXT.6</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines behavior for implementing certificate storage. The <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> allows for the possibility that existing platform storage can be used, so it does not conflict with the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> if that portion of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> already implements its own storage mechanism.</td>
             </tr>
             <tr>
-                <td><a href="#FMT_SMF.1/WLAN">FMT_SMF.1/WLAN</a></td><td></td>
+                <td><a href="#FMT_SMF.1/WLAN">FMT_SMF.1/WLAN</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines the management activities that are specific to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. This behavior relates entirely to the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> and does not affect the ability of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> to implement its security functionality.</td>
             </tr>
             <tr>
                 <td><a href="#FPT_TST_EXT.3/WLAN">FPT_TST_EXT.3/WLAN</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines self-test behavior for the <abbr class="dyn-abbr"><a href="#abbr_WLAN">WLAN</a></abbr> Client. This behavior relates entirely to the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> and does not affect the ability of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> to implement its security functionality.</td>
