@@ -52,8 +52,8 @@
       
       The scope of the Wireless Local Area Network (WLAN) Client PP-Module is to describe the security functionality of a WLAN Client in terms of [CC] 
       and to define functional and assurance requirements for such products. This PP-Module is intended for use with the following Base-PPs: <h:ul>
-        <h:li>General Purpose Operating System (GPOS) Protection Profile, Version 4.3</h:li>
-        <h:li>Mobile Device Fundamentals (MDF) Protection Profile, Version 3.3</h:li>
+        <h:li>General Purpose Operating System (GPOS) Protection Profile, Version 4.0<comment> Please update the references in the bio</comment></h:li>
+        <h:li>Mobile Device Fundamentals (MDF) Protection Profile, Version 4.0<comment> Please update the references in the bio</comment></h:li>
       </h:ul>
       <h:p>
         A conformant TOE will claim conformance to a PP-Configuration that includes exactly one of the Base-PPs identified above, this PP-Module, and any of the PP-Modules or packages identified in Section 2.
@@ -270,8 +270,8 @@
       <cc-pt3-conf>extended</cc-pt3-conf>
       <cc-pp-conf/>
       <cc-pp-config-with> 
-        <PP-cc-ref>Protection Profile for General Purpose Operating Systems, Version 4.3</PP-cc-ref>
-        <PP-cc-ref>Protection Profile for Mobile Device Fundamentals, Version 3.3</PP-cc-ref>
+        <PP-cc-ref>Protection Profile for General Purpose Operating Systems, Version 4.0</PP-cc-ref>
+        <PP-cc-ref>Protection Profile for Mobile Device Fundamentals, Version 4.0</PP-cc-ref>
         <Mod-cc-ref>PP-Module for Virtual Private Network (VPN) Clients, version 2.6</Mod-cc-ref>  
         <Mod-cc-ref>PP-Module for Bluetooth, version 1.1</Mod-cc-ref>
         <Mod-cc-ref>PP-Module for Mobile Device Management Agent, version 1.2</Mod-cc-ref>
@@ -447,7 +447,7 @@
     </h:ul>
 
 
-    <base-pp id="bpp-gpos" name="General Purpose Operating System" product="Operating System" short="GPOS" version="4.3">
+    <base-pp id="bpp-gpos" name="General Purpose Operating System" product="Operating System" short="GPOS" version="4.0">
       <git>
 	      <url>https://github.com/commoncriteria/operatingsystem</url>
 	      <branch>release-4.3</branch>
@@ -506,7 +506,7 @@
     </base-pp>
     
     
-    <base-pp id="bpp-mdf" name="Mobile Device Fundamentals" product="Mobile Device" short="MDF" version="3.3">
+    <base-pp id="bpp-mdf" name="Mobile Device Fundamentals" product="Mobile Device" short="MDF" version="4.0">
 	<git>
 		<url>https://github.com/commoncriteria/mobile-device</url>
 		<branch>release-3.3</branch>
