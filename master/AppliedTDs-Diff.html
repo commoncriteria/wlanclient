@@ -36,7 +36,7 @@
         <div class="center">
             <img src="images/niaplogo.png" alt="NIAP Logo">
             <br>
-             Version: 1.1
+             Version: 2.0
             <br>
             2025-01-15
             <br>
@@ -49,12 +49,6 @@
                 <th>Version</th><th>Date</th><th>Comment</th>
             </tr>
             <tr>
-                <td>1.1</td><td>2025-01-15</td><td>Incorporation of <abbr class="dyn-abbr"><a href="#abbr_NIAP">NIAP</a></abbr> TDs and <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022 changes</td>
-            </tr>
-            <tr>
-                <td>1.0</td><td>2022-03-31</td><td>Initial Release</td>
-            </tr>
-            <tr>
                 <td>0.5</td><td>2022-01-20</td><td>Conversion to <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>; 
                     <br>
                      Updated to include <abbr class="dyn-abbr"><a href="#abbr_WPA">WPA</a></abbr> 3 and Wi-Fi 6. 
@@ -64,6 +58,12 @@
                      256 bit keys are required. 128 and 192 bit keys can additionally be included in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>.
                     <br>
                 </td>
+            </tr>
+            <tr>
+                <td>1.0</td><td>2022-03-31</td><td>Initial Release</td>
+            </tr>
+            <tr>
+                <td>2.0</td><td>2025-01-15</td><td>Incorporation of <abbr class="dyn-abbr"><a href="#abbr_NIAP">NIAP</a></abbr> TDs and <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022 changes</td>
             </tr>
         </table>
         <h3>
@@ -78,10 +78,10 @@
          The scope of the Wireless Local Area Network (<abbr class="dyn-abbr"><a href="#abbr_WLAN">WLAN</a></abbr>) Client <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is to describe the security functionality of a <abbr class="dyn-abbr"><a href="#abbr_WLAN">WLAN</a></abbr> Client in terms of [<abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>] and to define functional and assurance requirements for such products. This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is intended for use with the following <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PPs</a></abbr>: 
         <ul>
             <li>
-                General Purpose Operating System (<abbr class="dyn-abbr"><a href="#abbr_GPOS">GPOS</a></abbr>) Protection Profile, Version 4.0<span style="" class="comment " id="Comment-1-"> Please update the references in the bib</span>
+                General Purpose Operating System (<abbr class="dyn-abbr"><a href="#abbr_GPOS">GPOS</a></abbr>) Protection Profile, Version 5.0
             </li>
             <li>
-                Mobile Device Fundamentals (<abbr class="dyn-abbr"><a href="#abbr_MDF">MDF</a></abbr>) Protection Profile, Version 4.0<span style="" class="comment " id="Comment-2-"> Please update the references in the bib</span>
+                Protection Profile for Mobile Device Fundamentals (<abbr class="dyn-abbr"><a href="#abbr_MDF">MDF</a></abbr>), Version 4.0
             </li>
         </ul>
         <p>
@@ -307,16 +307,16 @@
             <dd>
                 The following <abbr class="dyn-abbr"><a href="#abbr_PP">PPs</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Modules are allowed to be specified in a <abbr class="dyn-abbr"><a href="#abbr_PP-Configuration">PP-Configuration</a></abbr> with this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>: 
                 <ul>
-                    <li>Protection Profile for General Purpose Operating Systems, Version 4.0</li>
+                    <li>Protection Profile for General Purpose Operating Systems, Version 5.0</li>
                     <li>Protection Profile for Mobile Device Fundamentals, Version 4.0</li>
                     <li>
-                        <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> for Virtual Private Network (VPN) Clients, version 2.6
+                        <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> for Virtual Private Network (VPN) Clients, version 3.0
                     </li>
                     <li>
-                        <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> for Bluetooth, version 1.1
+                        <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> for Bluetooth, version 2.0
                     </li>
                     <li>
-                        <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> for Mobile Device Management Agent, version 1.2
+                        <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> for Mobile Device Management Agent, version 2.0
                     </li>
                     <li>
                         <abbr class="dyn-abbr"><a href="#abbr_cPP">cPP</a></abbr>-Module for Biometric Enrolment and Verification, version 1.1
@@ -351,7 +351,7 @@
         <dl>
             <dt class="threat defined" id="T.TSF_FAILURE">T.TSF_FAILURE</dt>
             <dd>
-                <span class="description">Security mechanisms of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> generally build up from a primitive set of mechanisms (e.g., memory management, privileged modes of process execution) to more complex sets of mechanisms. Failure of the primitive mechanisms could lead to a compromise in more complex mechanisms, resulting in a compromise of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.</span>
+                <span class="description">Security mechanisms of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> generally build up from a primitive set of mechanisms (e.g, memory management, privileged modes of process execution) to more complex sets of mechanisms. Failure of the primitive mechanisms could lead to a compromise in more complex mechanisms, resulting in a compromise of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.</span>
             </dd>
             <dt class="threat defined" id="T.UNAUTHORIZED_ACCESS">T.UNAUTHORIZED_ACCESS</dt>
             <dd>
@@ -662,7 +662,7 @@
                     <a href="#FCS_TLSC_EXT.1.1/WLAN" class="abbr">FCS_TLSC_EXT.1.1/WLAN</a>
                 </div>
                 <div class="reqdesc">
-                     <span style="" class="comment " id="Comment-3-">This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS behavior specific for this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. The expectation is that this can now be inherited from the <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> rather than be defined here. However, we do not currently have a mechanism to tell <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> authors what to do here. Specifically, we don't want to reproduce the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> elements from the <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> with whatever modifications are needed for the package because that causes the same problem that the <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> was created to solve (having multiple sets of the same <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> that then get out of sync as documents don't all get updated at the same time). But at the same time, we need a way to communicate to the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author how they should identify the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> iteration (i.e. we would want it called "<a href="#FCS_TLSC_EXT.1/WLAN">FCS_TLSC_EXT.1/WLAN</a>" consistently in any <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> that claims this module) as well as guidance on any required or forbidden selections in the context of the desired behavior (e.g. are there any ciphersuites we would want to ban <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> authors from selecting). 
+                     <span style="" class="comment " id="Comment-1-">This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS behavior specific for this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. The expectation is that this can now be inherited from the <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> rather than be defined here. However, we do not currently have a mechanism to tell <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> authors what to do here. Specifically, we don't want to reproduce the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> elements from the <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> with whatever modifications are needed for the package because that causes the same problem that the <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> was created to solve (having multiple sets of the same <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> that then get out of sync as documents don't all get updated at the same time). But at the same time, we need a way to communicate to the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author how they should identify the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> iteration (i.e. we would want it called "<a href="#FCS_TLSC_EXT.1/WLAN">FCS_TLSC_EXT.1/WLAN</a>" consistently in any <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> that claims this module) as well as guidance on any required or forbidden selections in the context of the desired behavior (e.g. are there any ciphersuites we would want to ban <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> authors from selecting). 
                         <br>
                         <br>
                          Note that it may end up being the case that <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS also requires us to define behavior that is not part of the <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr>. In this case we would still need to have guidance on what the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author is expected to do with the <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> but then we would also need to keep an <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> here to cover the delta between the <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> and the desired <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS functions. For the sake of avoiding confusion this would then be given a unique name (e.g. FCS_EAP_EXT.1). </span> 
@@ -715,7 +715,7 @@
                     <a href="#FIA_X509_EXT.1.1/WLAN" class="abbr">FIA_X509_EXT.1.1/WLAN</a>
                 </div>
                 <div class="reqdesc">
-                     <span style="" class="comment " id="Comment-4-">This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines X.509 validation behavior specific for this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. The expectation is that this can now be inherited from the X.509 <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> rather than be defined here. However, we do not currently have a mechanism to tell <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> authors what to do here. Specifically, we don't want to reproduce the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> elements from the <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> with whatever modifications are needed for the package because that causes the same problem that the <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> was created to solve (having multiple sets of the same <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> that then get out of sync as documents don't all get updated at the same time). But at the same time, we need a way to communicate to the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author how they should identify the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> iteration (i.e. we would want it called "<a href="#FIA_X509_EXT.1/WLAN">FIA_X509_EXT.1/WLAN</a>" consistently in any <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> that claims this module) as well as guidance on any required or forbidden selections in the context of the desired behavior (e.g. prohibiting certain revocation methods from being used). 
+                     <span style="" class="comment " id="Comment-2-">This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines X.509 validation behavior specific for this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. The expectation is that this can now be inherited from the X.509 <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> rather than be defined here. However, we do not currently have a mechanism to tell <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> authors what to do here. Specifically, we don't want to reproduce the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> elements from the <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> with whatever modifications are needed for the package because that causes the same problem that the <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> was created to solve (having multiple sets of the same <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> that then get out of sync as documents don't all get updated at the same time). But at the same time, we need a way to communicate to the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author how they should identify the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> iteration (i.e. we would want it called "<a href="#FIA_X509_EXT.1/WLAN">FIA_X509_EXT.1/WLAN</a>" consistently in any <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> that claims this module) as well as guidance on any required or forbidden selections in the context of the desired behavior (e.g. prohibiting certain revocation methods from being used). 
                         <br>
                         <br>
                          This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is only a subset of what the X.509 <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> requires for certificate validation so it's unclear whether there are functions in the X.509 <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> that cannot be satisfied by the X.509 functionality that is needed specifically for <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS. (i.e. is the definition of this function intentionally complete or will the <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> version of it be usable?) </span> 
@@ -729,7 +729,7 @@
                     <a href="#FIA_X509_EXT.2.1/WLAN" class="abbr">FIA_X509_EXT.2.1/WLAN</a>
                 </div>
                 <div class="reqdesc">
-                     <span style="" class="comment " id="Comment-5-">This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is just for defining the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s use of X.509 certificates for <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS. This can be covered by FIA_X509_EXT.2 from the X.509 <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> but there is currently no way to instruct the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author that this claim must be made there (whether as its own separate iteration as it is here or part of a single un-iterated FIA_X509_EXT.2 that also covers any other uses the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> has for X.509).</span> 
+                     <span style="" class="comment " id="Comment-3-">This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is just for defining the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s use of X.509 certificates for <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS. This can be covered by FIA_X509_EXT.2 from the X.509 <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> but there is currently no way to instruct the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author that this claim must be made there (whether as its own separate iteration as it is here or part of a single un-iterated FIA_X509_EXT.2 that also covers any other uses the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> has for X.509).</span> 
                 </div>
             </div>
         </div>
@@ -819,7 +819,7 @@
                             </td>
                         </tr>
                         <tr id="_mf_3">
-                            <td>WL-3</td><td style="text-align:left"> enable/disable disable wireless network bridging capability (for example, bridging a connection between the <abbr class="dyn-abbr"><a href="#abbr_WLAN">WLAN</a></abbr> and cellular radios to function as a hotspot) authenticated by [<b>selection</b>: <span class="selectable-content" id="_s_16">pre-shared key</span>, <span class="selectable-content" id="_s_17">passcode</span>, <span class="selectable-content" id="_s_18">no authentication</span>] </td><td>
+                            <td>WL-3</td><td style="text-align:left"> enable/disable wireless network bridging capability (for example, bridging a connection between the <abbr class="dyn-abbr"><a href="#abbr_WLAN">WLAN</a></abbr> and cellular radios to function as a hotspot) authenticated by [<b>selection</b>: <span class="selectable-content" id="_s_16">pre-shared key</span>, <span class="selectable-content" id="_s_17">passcode</span>, <span class="selectable-content" id="_s_18">no authentication</span>] </td><td>
                                 <div class="tooltipped">
                                     M<span class="tooltiptext">Mandatory</span>
                                 </div>
@@ -1409,7 +1409,7 @@
                     <a href="#FCS_TLSC_EXT.2.1/WLAN" class="abbr">FCS_TLSC_EXT.2.1/WLAN</a>
                 </div>
                 <div class="reqdesc">
-                     <span style="" class="comment " id="Comment-6-">This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is just for defining the supported groups that are offered in the <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> client hello. This is part of the <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> natively so it is expected that this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> can be removed. It is being kept here for now as a placeholder until the appropriate way to handle defining a <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> iteration for <abbr class="dyn-abbr"><a href="#abbr_WLAN">WLAN</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS (<a href="#FCS_TLSC_EXT.1/WLAN">FCS_TLSC_EXT.1/WLAN</a>) is determined.</span> 
+                     <span style="" class="comment " id="Comment-4-">This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is just for defining the supported groups that are offered in the <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> client hello. This is part of the <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> natively so it is expected that this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> can be removed. It is being kept here for now as a placeholder until the appropriate way to handle defining a <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> iteration for <abbr class="dyn-abbr"><a href="#abbr_WLAN">WLAN</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS (<a href="#FCS_TLSC_EXT.1/WLAN">FCS_TLSC_EXT.1/WLAN</a>) is determined.</span> 
                 </div>
             </div>
         </div>
@@ -1951,10 +1951,10 @@
                     </span></td>
             </tr>
             <tr>
-                <td><span id="bibGPOS">[<abbr class="dyn-abbr"><a href="#abbr_GPOS">GPOS</a></abbr>]</span></td><td><span class="description"><a href="https://www.niap-ccevs.org/static_html/protection-profile/469/OS%204.3%20PP/index.html">Protection Profile for General Purpose Operating Systems, Version 4.3</a>, September 27, 2022</span></td>
+                <td><span id="bibGPOS">[<abbr class="dyn-abbr"><a href="#abbr_GPOS">GPOS</a></abbr>]</span></td><td><span class="description"><a href="https://www.niap-ccevs.org/static_html/protection-profile/469/OS%204.3%20PP/index.html">Protection Profile for General Purpose Operating Systems, Version 5.0</a>, September 27, 2022 <span style="" class="comment " id="Comment-5-">Adjust date when published.</span></span></td>
             </tr>
             <tr>
-                <td><span id="bibMDF">[<abbr class="dyn-abbr"><a href="#abbr_MDF">MDF</a></abbr>]</span></td><td><span class="description"><a href="https://www.niap-ccevs.org/static_html/protection-profile/468/MDF%203.3%20PP/index.html">Protection Profile for Mobile Device Fundamentals, Version 3.3</a>, Version 3.3, September 12, 2022</span></td>
+                <td><span id="bibMDF">[<abbr class="dyn-abbr"><a href="#abbr_MDF">MDF</a></abbr>]</span></td><td><span class="description"><a href="https://www.niap-ccevs.org/static_html/protection-profile/468/MDF%203.3%20PP/index.html">Protection Profile for Mobile Device Fundamentals, Version 4.0</a>, September 12, 2022 <span style="" class="comment " id="Comment-6-">Adjust date when published.</span></span></td>
             </tr>
             <tr>
                 <td><span id="bibRFC3394">[<abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 3394]</span></td><td><span class="description"><a href="https://tools.ietf.org/html/rfc3394">RFC 3394 - Advanced Encryption Standard (AES) Key Wrap Algorithm</a></span></td>
