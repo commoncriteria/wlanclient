@@ -13,7 +13,7 @@
   <PPReference>
    
     <ReferenceTable>
-      <PPVersion>1.1</PPVersion>
+      <PPVersion>2.0</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
       <PPPubDate>2025-01-15</PPPubDate>
       <Keywords>WLAN; Wireless LAN; Wireless Networking; 802.11</Keywords>
@@ -21,16 +21,7 @@
   </PPReference>
 
   <RevisionHistory>
-    <entry>
-      <version>1.1</version>
-      <date>2025-01-15</date>
-      <subject>Incorporation of NIAP TDs and CC:2022 changes</subject>
-    </entry>
-   <entry>
-      <version>1.0</version>
-      <date>2022-03-31</date>
-      <subject>Initial Release</subject>
-    </entry>
+    
     <entry>
       <version>0.5</version>
       <date>2022-01-20</date>
@@ -39,6 +30,19 @@
         WPA 3 is required. WPA 2 can additionally be included in the ST.<h:br/>
         256 bit keys are required. 128 and 192 bit keys can additionally be included in the ST.<h:br/></subject>
     </entry>
+    
+    <entry>
+      <version>1.0</version>
+      <date>2022-03-31</date>
+      <subject>Initial Release</subject>
+    </entry>
+    
+    <entry>
+      <version>2.0</version>
+      <date>2025-01-15</date>
+      <subject>Incorporation of NIAP TDs and CC:2022 changes</subject>
+    </entry>  
+    
   </RevisionHistory>
   
   <include-pkg id="pkg-tls">
@@ -61,8 +65,8 @@
       
       The scope of the Wireless Local Area Network (WLAN) Client PP-Module is to describe the security functionality of a WLAN Client in terms of [CC] 
       and to define functional and assurance requirements for such products. This PP-Module is intended for use with the following Base-PPs: <h:ul>
-        <h:li>General Purpose Operating System (GPOS) Protection Profile, Version 4.0<comment> Please update the references in the bib</comment></h:li>
-        <h:li>Mobile Device Fundamentals (MDF) Protection Profile, Version 4.0<comment> Please update the references in the bib</comment></h:li>
+        <h:li>General Purpose Operating System (GPOS) Protection Profile, Version 5.0</h:li>
+        <h:li>Protection Profile for Mobile Device Fundamentals (MDF), Version 4.0</h:li>
       </h:ul>
       <h:p>
         A conformant TOE will claim conformance to a PP-Configuration that includes exactly one of the Base-PPs identified above, this PP-Module, and any of the PP-Modules or packages identified in Section 2.
@@ -279,11 +283,11 @@
       <cc-pt3-conf>extended</cc-pt3-conf>
       <cc-pp-conf/>
       <cc-pp-config-with> 
-        <PP-cc-ref>Protection Profile for General Purpose Operating Systems, Version 4.0</PP-cc-ref>
+        <PP-cc-ref>Protection Profile for General Purpose Operating Systems, Version 5.0</PP-cc-ref>
         <PP-cc-ref>Protection Profile for Mobile Device Fundamentals, Version 4.0</PP-cc-ref>
-        <Mod-cc-ref>PP-Module for Virtual Private Network (VPN) Clients, version 2.6</Mod-cc-ref>  
-        <Mod-cc-ref>PP-Module for Bluetooth, version 1.1</Mod-cc-ref>
-        <Mod-cc-ref>PP-Module for Mobile Device Management Agent, version 1.2</Mod-cc-ref>
+        <Mod-cc-ref>PP-Module for Virtual Private Network (VPN) Clients, version 3.0</Mod-cc-ref>  
+        <Mod-cc-ref>PP-Module for Bluetooth, version 2.0</Mod-cc-ref>
+        <Mod-cc-ref>PP-Module for Mobile Device Management Agent, version 2.0</Mod-cc-ref>
         <Mod-cc-ref>cPP-Module for Biometric Enrolment and Verification, version 1.1</Mod-cc-ref>  
       </cc-pp-config-with>
       <cc-pkg-claim>
@@ -334,7 +338,8 @@
         If no description is listed, then threat is only listed in section 4.3 (not in 3.1 or 6) -->
       <threats>
         <threat name="T.TSF_FAILURE">
-          <description>Security mechanisms of the TOE generally build up from a primitive set of mechanisms (e.g.,
+          <description>Security mechanisms of the TOE generally build up from a primitive set of
+            mechanisms (e.g,
             memory management, privileged modes of process execution) to more complex sets of
             mechanisms. Failure of the primitive mechanisms could lead to a compromise in more complex
             mechanisms, resulting in a compromise of the TSF.</description>
@@ -456,10 +461,11 @@
     </h:ul>
 
 
-    <base-pp id="bpp-gpos" name="General Purpose Operating System" product="Operating System" short="GPOS" version="4.0">
+    <base-pp id="bpp-gpos" name="General Purpose Operating System" product="Operating System"
+      short="GPOS" version="5.0">
       <git>
 	      <url>https://github.com/commoncriteria/operatingsystem</url>
-	      <branch>release-4.3</branch>
+	      <branch>release-5.0</branch>
       </git>
       <url>https://www.niap-ccevs.org/static_html/protection-profile/469/OS%204.3%20PP/index.html</url>
       <modified-sfrs>
@@ -1601,7 +1607,7 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
 		</management-function>
                 <management-function>
 		  <text>
-                    enable/disable disable wireless network bridging capability (for example, bridging a
+                    enable/disable wireless network bridging capability (for example, bridging a
                     connection between the WLAN and cellular radios to function as a hotspot) authenticated by <selectables>
                     <selectable>pre-shared key</selectable>
                     <selectable>passcode</selectable>
@@ -2238,12 +2244,15 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2012
       <entry id="bibGPOS">
         <tag>GPOS</tag>
         <description><h:a
-          href="https://www.niap-ccevs.org/static_html/protection-profile/469/OS%204.3%20PP/index.html">Protection Profile for General Purpose Operating Systems, Version 4.3</h:a>, September 27, 2022</description>
+          href="https://www.niap-ccevs.org/static_html/protection-profile/469/OS%204.3%20PP/index.html">Protection
+          Profile for General Purpose Operating Systems, Version 5.0</h:a>, September 27, 2022
+          <comment>Adjust date when published.</comment></description>
       </entry>      
       <entry id="bibMDF">
         <tag>MDF</tag>
         <description><h:a
-          href="https://www.niap-ccevs.org/static_html/protection-profile/468/MDF%203.3%20PP/index.html">Protection Profile for Mobile Device Fundamentals, Version 3.3</h:a>, Version 3.3, September 12, 2022</description>
+          href="https://www.niap-ccevs.org/static_html/protection-profile/468/MDF%203.3%20PP/index.html">Protection
+          Profile for Mobile Device Fundamentals, Version 4.0</h:a>, September 12, 2022 <comment>Adjust date when published.</comment></description>
       </entry>
       <entry id="bib80211">
         <tag>802.11-2012</tag>
