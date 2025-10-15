@@ -4,16 +4,12 @@ output/wlanclient-release-linkable.html: OCSP
 output/wlanclient-release-linkable.html: SPD
 output/wlanclient-release-linkable.html: TDs
 output/wlanclient-release-linkable.html: XCU
-output/wlanclient-release-linkable.html: natively
-output/wlanclient-release-linkable.html: un
 output/wlanclient-release.html: CNSA
 output/wlanclient-release.html: Enrolment
 output/wlanclient-release.html: OCSP
 output/wlanclient-release.html: SPD
 output/wlanclient-release.html: TDs
 output/wlanclient-release.html: XCU
-output/wlanclient-release.html: natively
-output/wlanclient-release.html: un
 output/wlanclient-sd.html: SPD
 output/wlanclient-sd.html: TDs
 output/wlanclient-sd.html: evaluator’s
@@ -25,5 +21,3 @@ output/wlanclient.html: OCSP
 output/wlanclient.html: SPD
 output/wlanclient.html: TDs
 output/wlanclient.html: XCU
-output/wlanclient.html: natively
-output/wlanclient.html: un
