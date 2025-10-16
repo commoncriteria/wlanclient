@@ -12,8 +12,6 @@
 * Error: Detected dangling ref-id to 'dummy-ref-id'.
 	  /Module[1]""/sec:Introduction[1]""/section[2]"This sect"/package-usage-list[1]""/package-usage[1]""/usage[6]""/config[1]""/ref-id[1]"dummy-ref"
 * Error: Detected dangling ref-id to 'dummy-ref-id'.
-	  /Module[1]""/sec:Introduction[1]""/section[2]"This sect"/package-usage-list[1]""/package-usage[1]""/usage[7]""/config[1]""/ref-id[1]"dummy-ref"
-* Error: Detected dangling ref-id to 'dummy-ref-id'.
 	  /Module[1]""/sec:Introduction[1]""/section[2]"This sect"/package-usage-list[1]""/package-usage[2]""/usage[1]""/config[1]""/ref-id[1]"dummy-ref"
 * Error: Detected dangling ref-id to 'dummy-ref-id'.
 	  /Module[1]""/sec:Introduction[1]""/section[2]"This sect"/package-usage-list[1]""/package-usage[2]""/usage[2]""/config[1]""/ref-id[1]"dummy-ref"
@@ -43,5 +41,9 @@
 * Error: Detected dangling ref to 'fco-tls-client-support-wlan'
         for a ref.
 	/Module[1]""/sec:Security_Requirements[1]""/base-pp[2]""/con-mod[22]"This SFR "/ref[1]""
+ Failed to find a reference to a-sel-based-events.
+ Failed to find a reference to a-sel-based-events.
+ Failed to find a reference to a-sel-based-events.
+ Failed to find a reference to a-sel-based-events.
 * Warning: Since FCS_WPA_EXT.1.1 has an 'id' attribute in a descendant node in the title, you probably need to define an alternative 'ext-comp-def-title'.
                        
