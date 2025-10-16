@@ -269,9 +269,16 @@
       </usecases>
     </sec:Use-Cases>
     <section title="Package Usage">
-      This section contains selections and assignments that are required when the listed Functional Packages are claimed by this PP-Module. 
+      This section contains selections and assignments that are required when the listed Functional Packages are claimed by this PP-Module. <h:br/>
+      Package Usage guidance defined in the TOE's relevant Base-PP applies to the usage of the packages for this module, unless explicitly stated otherwise in this section.
       <package-usage-list>
-        <package-usage ref="X509">
+        <package-usage ref="X509">         
+          <usage id="usage-x509-iterations" title="Required Iterations for WLAN Client X.509 functionality">
+            <description>The ST author shall include an iteration of X.509 package requirements in the ST with the suffix "WLAN". For instance, FCS_X509_EXT.1 shall be included as FCS_X509_EXT.1/WLAN.</description>
+            <config>
+              <ref-id>dummy-ref-id</ref-id>
+          </config>
+          </usage>
           <usage id="usage-x509-validate" title="Certificate Validation Required in FIA_XCU_EXT.1.1">
             <description>
               The ST author shall select the option to verify certificate identities.
@@ -280,26 +287,10 @@
               <ref-id>dummy-ref-id</ref-id>
             </config>
           </usage>
-          <usage id="usage-x509-revocation-sigalgs" title="Limitations on Signature Algorithms in FIA_X509_EXT.1.1">
+          
+          <usage id="usage-x509-revocation-methods" title="Restrictions on Revocation Functionality for FIA_X509_EXT.1.3">
             <description>
-              The TOE must utilize appropriate cryptographic algorithms that conform to CNSA standards. Thus, the ST author shall select to utilize no other algorithms outside of those specified in RFC 8603 for certificate or CRL signatures. 
-              Additionally, the ST author shall not select to use ECDSA with SHA-512 signatures for OCSP responses, and shall select to utilize no other algorithms for OCSP responses.
-            </description>
-            <config>
-            <ref-id>dummy-ref-id</ref-id>
-          </config>
-          </usage>
-          <usage id="usage-x509-extensions" title="Required Extension Processing for FIA_X509_EXT.1.2">
-            <description>
-              The ST author shall select the options to process the basicConstraints and extendedKeyUsage extensions. Other extensions may be selected as appropriate without restriction.
-            </description>
-            <config>
-              <ref-id>dummy-ref-id</ref-id>
-            </config>
-          </usage>
-          <usage id="usage-x509-revocation-methods" title="Restrictions on Revocation Functionality for FIA_X509_EXT.1.3 ">
-            <description>
-              The ST author shall not select the option to validate certificate revocation status by validity period. Other selections may be selected without restriction.
+              The ST author shall not select the option to validate certificate revocation status by validity period. CRL and/or OCSP are not required to be selected for this PP-Module. Any other options may be selected without restriction.
             </description> 
             <config>
               <ref-id>dummy-ref-id</ref-id>
@@ -307,7 +298,7 @@
           </usage>
           <usage id="usage-x509-revocation-connections" title="Restrictions on Revocation Information Retrieval for FIA_X509_EXT.1.4">
             <description>
-              The ST author shall not select the option to determine that the certificate expires within a certain period.
+              The ST author shall not select the option to determine that the certificate expires within a certain period. CRL and/or OCSP are not required to be selected for this PP-Module. Any other options may be selected without restriction.
             </description>
             <config>
               <ref-id>dummy-ref-id</ref-id>
@@ -315,8 +306,7 @@
           </usage>
           <usage id="usage-x509-eku-values" title="Restrictions on Acceptable Key Usage Values for FIA_X509_EXT.1.5">
             <description>
-              The ST author shall select the option to verify certificates by evaluating the extendedKeyUsage field in the leaf certificate. The ST author shall select the options requiring that certificates presented for TLS clients and 
-              TLS servers have appropriate values for the extendedKeyUsage field.
+              The ST author shall select options requiring that certificates presented for TLS clients and TLS servers have appropriate values for the extendedKeyUsage field as defined in the available selections for processing the extendedKeyUsage extension.
             </description>
             <config>
               <ref-id>dummy-ref-id</ref-id>
@@ -334,7 +324,7 @@
         </package-usage>
         <package-usage ref="tls">
           <usage id="usage-tls-iterations" title="Required Iterations for WLAN Client TLS functionality">
-            <description>For all SFRs included in the ST relating to TLS functionality for the WLAN Client, the ST author shall iterate them with the suffix "WLAN". For instance, iteration of FCS_TLS_EXT.1 for the purposes of WLAN Client functionality shall be written as FCS_TLS_EXT.1/WLAN.</description>
+            <description>The ST author shall include an iteration of TLS package requirements in the ST with the suffix "WLAN". For instance, FCS_TLS_EXT.1 shall be included as FCS_TLS_EXT.1/WLAN.</description>
             <config>
               <ref-id>dummy-ref-id</ref-id>
             </config>
@@ -1903,15 +1893,15 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2020
       selections in the body of the PP-Module: if certain selections are made, then additional requirements
       below will need to be included.  --> 
 	  
-	    <section id="sb-audit-table" title="Auditable Events for Selection-based SFRs">
+	    <!-- <section id="sb-audit-table" title="Auditable Events for Selection-based SFRs">
         	<audit-table table="sel-based" id="a-sel-based-events"/>
-<!--  	     		<h:br/><h:b><ctr ctr-type="Table" pre="Table " id="atref-sel-based">: Auditable Events for Selection-based SFRs</ctr></h:b>
-	  	</audit-table>   -->
-	    </section>	  
+ 	     		<h:br/><h:b><ctr ctr-type="Table" pre="Table " id="atref-sel-based">: Auditable Events for Selection-based SFRs</ctr></h:b>
+	  	</audit-table>  
+	    </section>	   -->
 	  
 	  
 	  
-      <sec:fel_fcs title="Cryptographic Support (FCS)">
+      <!-- <sec:fel_fcs title="Cryptographic Support (FCS)"> -->
         
         <!-- SME: references to 802.11-2012 and 802.11ac-2014 in this app note need to be updated along with the section references. We do not have a copy of the standard so we could not update the section references. -->
       <!--  
@@ -2095,7 +2085,7 @@ The cryptographic key derivation algorithm required by IEEE 802.11-2020
 		<audit-event/>
 		
           </f-component> -->
-      </sec:fel_fcs>
+      <!-- </sec:fel_fcs> -->
       
     </sel-sfrs>
     <obj-sfrs></obj-sfrs>
