@@ -1066,8 +1066,7 @@ The cryptographic key derivation algorithm required by <abbr class="dyn-abbr"><a
                 There are no guidance evaluation activities for this component<a id="period_176" href="#period_176">. </a> <br><br> 
               </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
                 The evaluator shall perform the following tests:
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_1" class="defined" href="#_t_1">Test FCS_CKM.1/WPA:1</a>:
+                <span class="testlist-"><ul><li class="test-"><a id="_t_1" class="defined" href="#_t_1">Test FCS_CKM.1/WPA:1</a>:
       
                     The evaluator shall configure the access point so the cryptoperiod of the
                     session key is 1 hour<a id="period_177" href="#period_177">. </a>The evaluator shall successfully connect the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to the access
@@ -1075,8 +1074,7 @@ The cryptographic key derivation algorithm required by <abbr class="dyn-abbr"><a
                     configured cryptoperiod<a id="period_178" href="#period_178">. </a>The evaluator shall use a packet capture tool to determine
                     that after the configured cryptoperiod, a re-negotiation is initiated to establish a new
                     session key<a id="period_179" href="#period_179">. </a>Finally, the evaluator shall determine that the renegotiation has been 
-                    successful and the client continues communication with the access point<a id="period_180" href="#period_180">. </a>                  </li>
-                  <li class="test-"><a id="_t_2" class="defined" href="#_t_2">Test FCS_CKM.1/WPA:2</a>:
+                    successful and the client continues communication with the access point<a id="period_180" href="#period_180">. </a>                  </li><li class="test-"><a id="_t_2" class="defined" href="#_t_2">Test FCS_CKM.1/WPA:2</a>:
       
 		    The evaluator shall perform the following test using a packet sniffing tool to
                     collect frames between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and a wireless <abbr class="dyn-abbr"><a href="#abbr_LAN">LAN</a></abbr> access point:
@@ -1101,8 +1099,7 @@ The cryptographic key derivation algorithm required by <abbr class="dyn-abbr"><a
                     in <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.11-2020, and shall verify that the decrypted data contains ASCII-readable
                     text<a id="period_189" href="#period_189">. </a>                    <br> 
                     Step 7: The evaluator shall repeat Step 6 for the next 2 data frames between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>
-                    and access point and without frame control value 0x4208<a id="period_190" href="#period_190">. </a>                  </li>
-                </ul></span>                           
+                    and access point and without frame control value 0x4208<a id="period_190" href="#period_190">. </a>                  </li></ul></span>                           
               </div></div></div></div></div>
 
         
@@ -1252,24 +1249,20 @@ The cryptographic key derivation algorithm required by <abbr class="dyn-abbr"><a
                 There are no guidance evaluation activities for this component<a id="period_225" href="#period_225">. </a> <br><br>  
               </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
                 The evaluator shall perform the following tests:
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_3" class="defined" href="#_t_3">Test FIA_PAE_EXT.1:1</a>:
+                <span class="testlist-"><ul><li class="test-"><a id="_t_3" class="defined" href="#_t_3">Test FIA_PAE_EXT.1:1</a>:
       
                   The evaluator shall demonstrate that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> has no access to the test network<a id="period_226" href="#period_226">. </a>                  After successfully authenticating with an authentication server through a wireless access
                   system, the evaluator shall demonstrate that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> does have access to the test
-                  network<a id="period_227" href="#period_227">. </a>                  </li>
-                  <li class="test-"><a id="_t_4" class="defined" href="#_t_4">Test FIA_PAE_EXT.1:2</a>:
+                  network<a id="period_227" href="#period_227">. </a>                  </li><li class="test-"><a id="_t_4" class="defined" href="#_t_4">Test FIA_PAE_EXT.1:2</a>:
       
                     The evaluator shall demonstrate that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> has no access to the test network<a id="period_228" href="#period_228">. </a>
                     The evaluator shall attempt to authenticate using an invalid client certificate, such that
                     the <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS negotiation fails<a id="period_229" href="#period_229">. </a>This should result in the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> still being unable to access
-                    the test network<a id="period_230" href="#period_230">. </a>                  </li>
-                  <li class="test-"><a id="_t_5" class="defined" href="#_t_5">Test FIA_PAE_EXT.1:3</a>:
+                    the test network<a id="period_230" href="#period_230">. </a>                  </li><li class="test-"><a id="_t_5" class="defined" href="#_t_5">Test FIA_PAE_EXT.1:3</a>:
       
                     The evaluator shall demonstrate that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> has no access to the test network<a id="period_231" href="#period_231">. </a>                    The evaluator shall attempt to authenticate using an invalid authentication server
                     certificate, such that the <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-TLS negotiation fails<a id="period_232" href="#period_232">. </a>This should result in the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> still
-                    being unable to access the test network<a id="period_233" href="#period_233">. </a>                  </li>
-                </ul></span>                           
+                    being unable to access the test network<a id="period_233" href="#period_233">. </a>                  </li></ul></span>                           
               </div></div></div></div></div>
         
         
@@ -1318,16 +1311,13 @@ The cryptographic key derivation algorithm required by <abbr class="dyn-abbr"><a
 				for this<a id="period_240" href="#period_240">. </a><br><br> 
               </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
                 The evaluator shall perform the following test for each <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> function that requires the use of certificates:
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_6" class="defined" href="#_t_6">Test FIA_X509_EXT.5:1</a>:
+                <span class="testlist-"><ul><li class="test-"><a id="_t_6" class="defined" href="#_t_6">Test FIA_X509_EXT.5:1</a>:
       
                     The evaluator shall demonstrate that using a certificate without a valid certification path results in the function failing<a id="period_241" href="#period_241">. </a>
                     The evaluator shall then load any certificates needed to validate the certificate to be used in the function and demonstrate that the function succeeds<a id="period_242" href="#period_242">. </a>
-                    The evaluator shall then delete one of these dependent certificates and show that the function fails<a id="period_243" href="#period_243">. </a>                  </li>
-                  <li class="test-"><a id="_t_7" class="defined" href="#_t_7">Test FIA_X509_EXT.5:2</a>:
+                    The evaluator shall then delete one of these dependent certificates and show that the function fails<a id="period_243" href="#period_243">. </a>                  </li><li class="test-"><a id="_t_7" class="defined" href="#_t_7">Test FIA_X509_EXT.5:2</a>:
       
-                    The evaluator shall demonstrate that the mechanism used to load or configure X.509 certificates cannot be accessed without appropriate authorization<a id="period_244" href="#period_244">. </a>                  </li>
-                </ul></span>                           
+                    The evaluator shall demonstrate that the mechanism used to load or configure X.509 certificates cannot be accessed without appropriate authorization<a id="period_244" href="#period_244">. </a>                  </li></ul></span>                           
               </div></div></div></div></div>
 
         
@@ -1459,17 +1449,14 @@ The cryptographic key derivation algorithm required by <abbr class="dyn-abbr"><a
               take place for successful (e.g<a id="period_264" href="#period_264">. </a>hash verified) and unsuccessful (e.g., hash not verified) cases<a id="period_265" href="#period_265">. </a><br><br> 
             </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
               The evaluator shall perform the following tests:
-              <span class="testlist-"><ul>
-                <li class="test-"><a id="_t_8" class="defined" href="#_t_8">Test FPT_TST_EXT.3/WLAN:1</a>:
+              <span class="testlist-"><ul><li class="test-"><a id="_t_8" class="defined" href="#_t_8">Test FPT_TST_EXT.3/WLAN:1</a>:
       
                   The evaluator shall perform the integrity check on a known good <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> executable and
-                  verify that the check is successful<a id="period_266" href="#period_266">. </a>                </li>
-                <li class="test-"><a id="_t_9" class="defined" href="#_t_9">Test FPT_TST_EXT.3/WLAN:2</a>:
+                  verify that the check is successful<a id="period_266" href="#period_266">. </a>                </li><li class="test-"><a id="_t_9" class="defined" href="#_t_9">Test FPT_TST_EXT.3/WLAN:2</a>:
       
                   The evaluator shall modify the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> executable, perform the integrity check on the
                   modified <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> executable, and verify that the check fails<a id="period_267" href="#period_267">. </a>
-                </li>
-              </ul></span>                 
+                </li></ul></span>                 
             </div></div></div></div></div>      
          
       
@@ -1507,13 +1494,11 @@ The cryptographic key derivation algorithm required by <abbr class="dyn-abbr"><a
               configuring the list of <abbr class="dyn-abbr"><a href="#abbr_SSID">SSIDs</a></abbr> that the <abbr class="dyn-abbr"><a href="#abbr_WLAN">WLAN</a></abbr> Client is able to connect to<a id="period_271" href="#period_271">. </a><br><br> 
             </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
               The evaluator shall perform the following tests for each attribute:
-              <span class="testlist-"><ul>
-                <li class="test-"><a id="_t_10" class="defined" href="#_t_10">Test FTA_WSE_EXT.1:1</a>:
+              <span class="testlist-"><ul><li class="test-"><a id="_t_10" class="defined" href="#_t_10">Test FTA_WSE_EXT.1:1</a>:
       
                   The evaluator configures the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to allow a connection to a wireless network with a specific <abbr class="dyn-abbr"><a href="#abbr_SSID">SSID</a></abbr><a id="period_272" href="#period_272">. </a>
                   The evaluator configures the test environment such that the allowed <abbr class="dyn-abbr"><a href="#abbr_SSID">SSID</a></abbr> and an <abbr class="dyn-abbr"><a href="#abbr_SSID">SSID</a></abbr> that is not allowed are both
-                  "visible" to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr><a id="period_273" href="#period_273">. </a>		  The evaluator shall demonstrate that they can successfully establish a connection with the allowed <abbr class="dyn-abbr"><a href="#abbr_SSID">SSID</a></abbr><a id="period_274" href="#period_274">. </a>                  The evaluator shall then attempt to establish a session with the disallowed <abbr class="dyn-abbr"><a href="#abbr_SSID">SSID</a></abbr> and observe that the attempt fails<a id="period_275" href="#period_275">. </a>                </li>
-              </ul></span>                 
+                  "visible" to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr><a id="period_273" href="#period_273">. </a>		  The evaluator shall demonstrate that they can successfully establish a connection with the allowed <abbr class="dyn-abbr"><a href="#abbr_SSID">SSID</a></abbr><a id="period_274" href="#period_274">. </a>                  The evaluator shall then attempt to establish a session with the disallowed <abbr class="dyn-abbr"><a href="#abbr_SSID">SSID</a></abbr> and observe that the attempt fails<a id="period_275" href="#period_275">. </a>                </li></ul></span>                 
             </div></div></div></div></div>      
          
  
@@ -1562,29 +1547,24 @@ The cryptographic key derivation algorithm required by <abbr class="dyn-abbr"><a
               connection be unintentionally broken<a id="period_285" href="#period_285">. </a><br><br> 
             </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
               The evaluator shall perform the following tests:
-              <span class="testlist-"><ul>
-                <li class="test-"><a id="_t_11" class="defined" href="#_t_11">Test FTP_ITC.1/WLAN:1</a>:
+              <span class="testlist-"><ul><li class="test-"><a id="_t_11" class="defined" href="#_t_11">Test FTP_ITC.1/WLAN:1</a>:
       
                   The evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is able to initiate communications with
                   an access point using the protocols specified in the requirement by setting up the
                   connections as described in the operational guidance and ensuring that communications
-                  are successful<a id="period_286" href="#period_286">. </a>                </li>
-                <li class="test-"><a id="_t_12" class="defined" href="#_t_12">Test FTP_ITC.1/WLAN:2</a>:
+                  are successful<a id="period_286" href="#period_286">. </a>                </li><li class="test-"><a id="_t_12" class="defined" href="#_t_12">Test FTP_ITC.1/WLAN:2</a>:
       
                   The evaluator shall ensure, for each communication channel with an authorized
-                  <abbr class="dyn-abbr"><a href="#abbr_IT">IT</a></abbr> entity, the channel data is not sent in plaintext<a id="period_287" href="#period_287">. </a>                </li>
-                <li class="test-"><a id="_t_13" class="defined" href="#_t_13">Test FTP_ITC.1/WLAN:3</a>:
+                  <abbr class="dyn-abbr"><a href="#abbr_IT">IT</a></abbr> entity, the channel data is not sent in plaintext<a id="period_287" href="#period_287">. </a>                </li><li class="test-"><a id="_t_13" class="defined" href="#_t_13">Test FTP_ITC.1/WLAN:3</a>:
       
                   The evaluator shall ensure, for each communication channel with an authorized
-                  <abbr class="dyn-abbr"><a href="#abbr_IT">IT</a></abbr> entity, modification of the channel data is detected by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr><a id="period_288" href="#period_288">. </a>                </li>
-                <li class="test-"><a id="_t_14" class="defined" href="#_t_14">Test FTP_ITC.1/WLAN:4</a>:
+                  <abbr class="dyn-abbr"><a href="#abbr_IT">IT</a></abbr> entity, modification of the channel data is detected by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr><a id="period_288" href="#period_288">. </a>                </li><li class="test-"><a id="_t_14" class="defined" href="#_t_14">Test FTP_ITC.1/WLAN:4</a>:
       
                   The evaluators shall physically interrupt the connection from the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to the
                   access point (e.g., moving the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> host out of range of the access point, turning the
                   access point off)<a id="period_289" href="#period_289">. </a>The evaluators shall ensure that subsequent communications are
                   appropriately protected, at a minimum in the case of any attempts to automatically
-                  resume the connection or connect to a new access point<a id="period_290" href="#period_290">. </a>                </li>
-              </ul></span>                 
+                  resume the connection or connect to a new access point<a id="period_290" href="#period_290">. </a>                </li></ul></span>                 
               Further evaluation activities are associated with the specific protocols<a id="period_291" href="#period_291">. </a>            </div></div></div></div></div>      
         
 
